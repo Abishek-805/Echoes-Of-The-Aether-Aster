@@ -13,6 +13,10 @@ for decisions in [Player-directed overrides](PLAYER_DIRECTED_OVERRIDES.md).
   double jump, jump-shoot, both opening consoles, physical doorways, ranged combat and the first
   Echo release. The full 64-room route is still graph/flag-tested rather than physically
   traversed end to end.
+- Three elevated perches in ROT02, WAR02 and REW03 were lowered from near-limit jumps. A physics
+  playtest confirms Aster can double-jump onto each and collect WAR02's nearby warning record.
+- A live Sluice Warden playtest attacks only during actual recovery windows and reacts to
+  shockwave hazards. It verifies the boss defeat flag; initial damage balance still needs review.
 - Open room links now transition when Aster crosses their physical screen-edge doorway;
   the destination entry side is preserved. Junctions and sealed exits still use the route
   panel, and room geometry remains placeholder work.
@@ -98,7 +102,7 @@ exist; each target still needs an interactive hardware run.
 
 ## Recent validation
 
-Godot 4.7.2 headless import and script scan completed; 42 GDScript files checked, zero
+Godot 4.7.2 headless import and script scan completed; 45 GDScript files checked, zero
 broken. All 23 `*_contract.gd` checks passed, including campaign save validation, V2
 save migration, semantic backup fallback, Rewind cooldown/resource persistence, HUD state,
 seven side-story conditions/rewards, and M06/M12/M14 integration. Other contracts cover
@@ -111,6 +115,12 @@ marker condition, the physical M16 shutter registration, and Rewind collision re
 The in-engine optional-puzzle integration runner passed M02 reward gating, M03 wrong-answer
 reset and correct solution, M05/M13 shortcut gating, M07 marker-plus-Titan completion, M09
 lore and return seam, M14 pre-boss cache access, and east-side M16 re-entry handling.
+The opening physical runner passed through OUT02, defeated the first Forager and collected its
+Echo. Separate physics playtests passed the three adjusted double-jump ledges and a six-window
+Sluice Warden fight; the Warden test ended with 14 / 140 HP, so that fight remains a balance
+review item. Windows, Linux, macOS and Web release exports were rebuilt with the adjusted room
+layouts; the Windows headless launch completed. Android and iOS remain blocked by missing local
+SDK/signing setup, and the other exports still need their native runtime/browser checks.
 The 240-frame campaign-scene smoke run, exported Windows headless launch, and editor scan
 had no script or engine errors. Windows, Linux, Web, and
 macOS release exports completed; Android export is blocked by the missing JDK and Android

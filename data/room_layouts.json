@@ -1851,7 +1851,7 @@
         {
           "id": "canopy_high",
           "x": 352,
-          "y": 212,
+          "y": 234,
           "width": 86,
           "height": 12
         },
@@ -2981,7 +2981,7 @@
         {
           "id": "anchor_observation_ledge",
           "x": 330,
-          "y": 216,
+          "y": 230,
           "width": 78,
           "height": 12
         }
@@ -4603,7 +4603,7 @@
         {
           "id": "survey",
           "x": 320,
-          "y": 220,
+          "y": 240,
           "width": 72,
           "height": 12
         },

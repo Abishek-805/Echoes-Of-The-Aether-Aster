@@ -33,7 +33,11 @@ func run_checks() -> void:
 		for child: Node in game.room.get_children():
 			if child is StaticBody2D:
 				static_bodies += 1
-		check(static_bodies == layout.platforms.size()+1,"Unexpected floor/platform count in "+id)
+		var expected_static_bodies: int = layout.platforms.size()+1
+		if id == "FOL02" and not game.state.flags.get("REWIND_RETURN_OPEN",false):
+			expected_static_bodies += 1
+			check(is_instance_valid(game.m16_shutter),"FOL02 should build its special Rewind shutter")
+		check(static_bodies == expected_static_bodies,"Unexpected floor/platform/shutter count in "+id)
 		for platform: Dictionary in layout.platforms:
 			check(float(platform.x) > 45 and float(platform.x) < 595,"Platform blocks an exit approach in "+id)
 			check(float(platform.y) >= 100 and float(platform.y) <= 300, "Platform is outside reachable room height in "+id)
@@ -66,7 +70,9 @@ func run_checks() -> void:
 					if pickup.id == item.id and pickup.at == Vector2(float(landmark.x),float(landmark.y)):
 						pickup_found = true
 			check(matching_landmark, "Collectible has no authored landmark: "+str(item.id))
-			check(pickup_found,"Collectible is not anchored to its authored landmark: "+str(item.id))
+			var puzzle_id: String = game.minor_puzzle_for_reward(str(item.id))
+			var should_spawn: bool = puzzle_id.is_empty() or bool(game.state.flags.get(str(game.MINOR_PUZZLE_FLAGS.get(puzzle_id,"")),false))
+			check(pickup_found == should_spawn,"Collectible availability does not match its authored puzzle gate: "+str(item.id))
 	for room: Dictionary in game.db.rooms:
 		check(checked.has(str(room.id)), "Campaign room has no layout: "+str(room.id))
 	check(checked.size() == game.db.rooms.size(),"Layout iteration missed a room")

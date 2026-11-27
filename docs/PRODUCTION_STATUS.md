@@ -30,6 +30,11 @@ for decisions in [Player-directed overrides](PLAYER_DIRECTED_OVERRIDES.md).
   cancels and refunds its cost when a path becomes blocked before playback can move.
 - Enemy Echo Energy and material rewards use stable per-room reward IDs, so a rest can
   respawn encounters for combat without duplicating their drops.
+- Campaign saves validate the full state before mutating runtime progress, fall back to
+  a semantically valid backup, migrate the documented V2 field layout, and warn instead
+  of silently presenting a fresh run when both copies are unusable. Health, healing
+  charges, weapon ownership/heat, Echo Energy, map/story progress and Rewind cooldown
+  survive continuation; death restores the checkpoint and commits the documented reset.
 - The campaign contract currently simulates the critical route through the distress
   signal/refuge ending with no optional weapon required.
 - Major puzzles now reveal hints in three tiers, ending with the explicit solution only
@@ -61,7 +66,7 @@ exist; each target still needs an interactive hardware run.
   integrated/reviewed across the full campaign.
 - Enemy and boss patterns need readable animation, balance tuning and hands-on play review
   beyond the automated behavior contracts.
-- Save integrity, remaining Rewind edge cases, map discoverability, every puzzle path,
+- Remaining Rewind edge cases, map discoverability, every puzzle path,
   and all platform targets need further automated and hands-on verification.
 - Final art, audio, accessibility, performance, export packaging and release QA remain
   future production work.
@@ -70,8 +75,9 @@ exist; each target still needs an interactive hardware run.
 
 ## Recent validation
 
-Godot 4.7.2 headless import and script scan completed; 33 GDScript files checked, zero
-broken. All 18 `*_contract.gd` checks passed, including physical room-edge transitions,
+Godot 4.7.2 headless import and script scan completed; 34 GDScript files checked, zero
+broken. All 19 `*_contract.gd` checks passed, including campaign save validation, V2
+save migration, semantic backup fallback, Rewind cooldown/resource persistence, physical room-edge transitions,
 64 authored graybox layouts, three-tier puzzle hints, Warden and Sentinel attack tells,
 all six distinct boss patterns, platform controls, stable loot, story flags, and content references. The campaign contract
 observed 62 reachable rooms, acquired Rewind, and reached the distress/refuge ending. The

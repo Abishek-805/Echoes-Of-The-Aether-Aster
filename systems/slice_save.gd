@@ -13,6 +13,11 @@ static func write_state(data: Dictionary, path: String = PATH) -> Error:
             return backup_error
     return DirAccess.rename_absolute(path + ".tmp", path)
 static func read_state(path: String = PATH) -> Dictionary:
+    var candidates: Array[Dictionary] = read_candidates(path)
+    return candidates[0] if not candidates.is_empty() else {}
+
+static func read_candidates(path: String = PATH) -> Array[Dictionary]:
+    var states: Array[Dictionary] = []
     for candidate: String in [path, path + ".backup"]:
         if not FileAccess.file_exists(candidate):
             continue
@@ -21,5 +26,5 @@ static func read_state(path: String = PATH) -> Dictionary:
             continue
         var data: Variant = parser.data
         if data is Dictionary and data.get("version") == 1 and data.get("state") is Dictionary:
-            return data.state
-    return {}
+            states.append(data.state)
+    return states

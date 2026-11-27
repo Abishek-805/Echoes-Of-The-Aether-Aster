@@ -27,6 +27,7 @@ var modal_box: VBoxContainer
 var map_view: Control
 var ui_layer: CanvasLayer
 var persistence_enabled: bool = true
+var save_recovery_notice: String = ""
 var stage: int = 0
 var active_puzzle: Dictionary = {}
 var puzzle_hint_stage: int = 0
@@ -92,7 +93,15 @@ func _ready() -> void:
     for item: Dictionary in layout_db.get("rooms",[]):
         room_layouts[item.id] = item
     if persistence_enabled and not PlatformInput.new_run_requested:
-        state.restore(preload("res://systems/slice_save.gd").read_state(State.PATH),rooms.keys())
+        var save_store = preload("res://systems/slice_save.gd")
+        var candidates: Array[Dictionary] = save_store.read_candidates(State.PATH)
+        var restored: bool = false
+        for saved_state: Dictionary in candidates:
+            if state.restore(saved_state,rooms.keys()):
+                restored = true
+                break
+        if not restored and (FileAccess.file_exists(State.PATH) or FileAccess.file_exists(State.PATH+".backup")):
+            save_recovery_notice = "Save data could not be restored. A new expedition is open; the damaged save remains available for recovery."
     PlatformInput.new_run_requested = false
     checkpoint = state.checkpoint
     generation = state.generation
@@ -104,9 +113,11 @@ func _ready() -> void:
     player.blade.connect(melee)
     player.died.connect(on_death)
     player.energy = state.energy
+    player.rewind.cooldown = state.rewind_cooldown
     player.max_hp = state.max_hp
     player.capacity = state.capacity
-    player.hp = state.max_hp
+    player.hp = state.hp
+    player.heal_charges = state.heal_charges
     player.released = state.released
     if state.owned.has(state.equipped):
         player.equip(state.equipped)
@@ -119,6 +130,8 @@ func _ready() -> void:
     apply_upgrades()
     make_ui()
     load_room(state.checkpoint)
+    if not save_recovery_notice.is_empty():
+        hint.text = save_recovery_notice
 
 func make_ui() -> void:
     ui_layer = CanvasLayer.new()
@@ -1031,7 +1044,10 @@ func reset_attempt() -> void:
     state.generation=generation
     load_room(state.checkpoint)
     retrying=false
+    commit()
 func commit() -> void:
+    if player.hp <= 0:
+        return
     state.generation=generation
     state.equipped=player.weapon_id
     player.weapon_states[player.weapon_id]={"heat":player.heat,"locked":player.overheated,"since":player.since_shot,"cooling":player.weapon_cooling}
@@ -1040,7 +1056,10 @@ func commit() -> void:
     state.released=player.released
     state.energy=player.energy
     state.max_hp=player.max_hp
+    state.hp=player.hp
+    state.heal_charges=player.heal_charges
     state.capacity=player.capacity
+    state.rewind_cooldown=player.rewind.cooldown
     if persistence_enabled:
         var error: Error = state.save()
         if error!=OK:

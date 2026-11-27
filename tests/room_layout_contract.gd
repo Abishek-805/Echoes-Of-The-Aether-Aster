@@ -23,6 +23,17 @@ func run_checks() -> void:
 	await process_frame
 	game.player.set_physics_process(false)
 	check(game.room_layouts.size() == game.db.rooms.size(), "Every campaign room should have an authored layout spec")
+	var evidence_landmarks: Dictionary = {
+		"OUT04":["cache_diagram"],
+		"HUN04":["trail_tag_departure","trail_tag_fork","blind_sightline"],
+		"REL04":["loft_relay_socket","loft_receiver"],
+		"FIN04":["service_marks","service_receiver"]}
+	for room_id: String in evidence_landmarks:
+		var found_ids: Dictionary = {}
+		for landmark: Dictionary in game.room_layouts[room_id].get("landmarks",[]):
+			found_ids[str(landmark.id)] = true
+		for landmark_id: String in evidence_landmarks[room_id]:
+			check(found_ids.has(landmark_id),"Puzzle references evidence missing from "+room_id+": "+landmark_id)
 	var checked: Dictionary = {}
 	for layout: Dictionary in game.layout_db.rooms:
 		var id: String = str(layout.id)

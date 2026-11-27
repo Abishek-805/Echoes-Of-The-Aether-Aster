@@ -54,13 +54,17 @@ for decisions in [Player-directed overrides](PLAYER_DIRECTED_OVERRIDES.md).
 - All seven canon optional stories are tracked in the field journal. Their evidence,
   completion flags and one-time rewards persist. M06 restores the garden and exposes its
   cache/shortcut; M12 uses the inscription record before matching Seren's imprint; M14
-  requires a real Rewind return before the Devourer cache appears. None gates the main route.
+  exposes its cache after a real Rewind return, while its optional story also waits for the
+  Devourer defeat. None gates the main route.
 - Optional world-puzzle records M02–M15 now have clue-led, retryable room interactions;
   the authored caches and equipment rewards stay hidden until their local puzzle is solved.
-  M07 additionally records the Warden pulse before the optional Titan defeat. M09 adds its
-  custody-index conclusion to the field journal. M16 now uses a physical Fold shutter that
-  closes after Aster has a safe Rewind route and opens its Veraya shortcut after he rewinds
-  through it. Rewind temporarily passes this one shutter and restores its collision state.
+  Their clues include inspectable room landmarks for the cache wiring diagram, hunter trail
+  tags, loft receiver, and final service receiver. M07 records the Warden pulse before the
+  optional Titan defeat. M09 adds custody lore to the field journal and opens its late return
+  seam after Rewind mastery. M05 and M13 open their shortcut sluices when their valves are
+  solved. M16 uses a physical Fold shutter that closes after Aster has a safe Rewind route;
+  east-side FOL02 re-entry no longer activates the latch backward. Rewind temporarily passes
+  this one shutter and restores collision afterward.
 - Temporary geometric visuals remain intentional until core gameplay is complete.
 
 ## Controls and player-directed movement
@@ -95,10 +99,11 @@ physical room-edge transitions, 64 authored graybox layouts, three-tier puzzle h
 Warden and Sentinel attack tells, all six distinct boss patterns, platform controls,
 stable loot, story flags, and content references. The campaign contract
 observed 62 reachable rooms, acquired Rewind, and reached the distress/refuge ending. The
-new minor-puzzle contract passed, checking all 10 optional reward gates, the two-part Titan
+minor-puzzle contract passed, checking all 10 optional reward gates, the two-part Titan
 marker condition, the physical M16 shutter registration, and Rewind collision restoration.
 The in-engine optional-puzzle integration runner passed M02 reward gating, M03 wrong-answer
-reset and correct solution, M07 marker-plus-Titan completion, and M16 shutter/shortcut flow.
+reset and correct solution, M05/M13 shortcut gating, M07 marker-plus-Titan completion, M09
+lore and return seam, M14 pre-boss cache access, and east-side M16 re-entry handling.
 The 240-frame campaign-scene smoke run, exported Windows headless launch, and editor scan
 had no script or engine errors. Windows, Linux, Web, and
 macOS release exports completed; Android export is blocked by the missing JDK and Android

@@ -611,6 +611,13 @@
           "story": "Optional weapon practice"
         },
         {
+          "id": "cache_diagram",
+          "kind": "environmental_clue",
+          "x": 132,
+          "y": 266,
+          "story": "The cache diagram shows the source feeding the service relay, then the maintenance receiver; the archive branch is drawn as a dead end."
+        },
+        {
           "id": "MAP01",
           "kind": "collectible_anchor",
           "x": 308,
@@ -974,6 +981,20 @@
           "story": "Trail departure report"
         },
         {
+          "id": "trail_tag_departure",
+          "kind": "environmental_clue",
+          "x": 156,
+          "y": 258,
+          "story": "The first hunter tag bears three notches and points toward the covered fork."
+        },
+        {
+          "id": "trail_tag_fork",
+          "kind": "environmental_clue",
+          "x": 352,
+          "y": 222,
+          "story": "The second tag repeats the three notches. Boot scuffs continue along the covered route to the blind."
+        },
+        {
           "id": "MAP02",
           "kind": "collectible_anchor",
           "x": 410,
@@ -985,7 +1006,7 @@
           "kind": "environmental_clue",
           "x": 523,
           "y": 250,
-          "story": "Old boot scuffs show the safe return path to Split Walk."
+          "story": "The third hunter tag sits at the blind. Old boot scuffs show the safe covered return path to Split Walk."
         }
       ],
       "encounter_zones": [],
@@ -1688,7 +1709,7 @@
         }
       ],
       "encounter_zones": [],
-      "intended_route": "Optional loop. Climb to the valve and record; the right shortcut is visible but remains unavailable until P01 restores flow."
+      "intended_route": "Optional loop. Climb to the valve and record; the right shortcut opens only after P01 restores flow and M05 sets this spillway valve."
     },
     {
       "id": "ROT01",
@@ -2428,11 +2449,18 @@
           "story": "Scatter Carbine"
         },
         {
+          "id": "loft_receiver",
+          "kind": "environmental_clue",
+          "x": 500,
+          "y": 226,
+          "story": "The paired receiver marks match the relay socket. A small service cache rests beside this receiver."
+        },
+        {
           "id": "loft_relay_socket",
           "kind": "future_shortcut_clue",
           "x": 558,
           "y": 282,
-          "story": "Sealed low relay leads toward Rootspan only after LOFT_RELAY."
+          "story": "Paired maintenance marks route this socket to the service receiver; completing the relay also opens the low shortcut toward Rootspan."
         }
       ],
       "encounter_zones": [
@@ -2803,7 +2831,7 @@
           "kind": "map_landmark",
           "x": 216,
           "y": 260,
-          "story": "Index lists storage rows but not the main-story key."
+          "story": "The custody index labels protected relic storage rows and their keepers; it is not the main-story key. Its route mark corresponds to the late return seam."
         }
       ],
       "encounter_zones": [],
@@ -4307,7 +4335,7 @@
           "kind": "shortcut_marker",
           "x": 534,
           "y": 280,
-          "story": "After P06, the return sluice links back to the Warped Verge."
+          "story": "After P06 stabilizes the reservoir, isolate the overflow here to open the return sluice to the Warped Verge."
         },
         {
           "id": "overflow_trace",
@@ -5513,6 +5541,13 @@
           "x": 230,
           "y": 234,
           "story": "Tool marks show this is a maintenance alcove, not part of the gate sequence."
+        },
+        {
+          "id": "service_receiver",
+          "kind": "environmental_clue",
+          "x": 370,
+          "y": 250,
+          "story": "The nearby receiver shares the service conduit mark; the fractured gate has a different warning stamp."
         },
         {
           "id": "safe_return",

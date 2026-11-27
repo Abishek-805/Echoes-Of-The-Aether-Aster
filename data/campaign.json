@@ -1023,7 +1023,7 @@
     {
       "room_a": "SLU04",
       "room_b": "HUN02",
-      "required_flags": "SLUICE_OPEN",
+      "required_flags": "SLUICE_OPEN & M05_SPILLWAY_OPEN",
       "type": "shortcut"
     },
     {
@@ -1035,13 +1035,13 @@
     {
       "room_a": "RES04",
       "room_b": "WAR02",
-      "required_flags": "RESERVOIR_STABLE",
+      "required_flags": "RESERVOIR_STABLE & M13_OVERFLOW_ISOLATED",
       "type": "shortcut"
     },
     {
       "room_a": "FOL01",
       "room_b": "SUR04",
-      "required_flags": "REWIND_TRAINED",
+      "required_flags": "REWIND_TRAINED & ARCHIVE_INDEX_READ",
       "type": "shortcut"
     },
     {

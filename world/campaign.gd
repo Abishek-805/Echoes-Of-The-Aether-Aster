@@ -53,6 +53,7 @@ var active_minor_puzzle_id: String = ""
 var m16_shutter: StaticBody2D
 var m16_gate_activated: bool = false
 var m16_rewind_seen: bool = false
+var m16_latch_armed: bool = false
 
 const PUZZLE_STEPS := {
 "P01":[["Root Arch","Hanging Bell","Split Stone"],[0,1,2]],
@@ -364,6 +365,7 @@ func load_room(id: String, entry_x: float = 80.0) -> void:
     predator_rewind_seen = false
     m16_gate_activated = false
     m16_rewind_seen = false
+    m16_latch_armed = entry_x < 320.0
     m16_shutter = null
     player.rewind.clear_history(player)
     player.set_collision_mask_value(5,false)
@@ -443,8 +445,6 @@ func spawn_collectibles() -> void:
         if not puzzle_id.is_empty() and not state.flags.get(str(MINOR_PUZZLE_FLAGS.get(puzzle_id,"")),false):
             continue
         if current=="ROT04" and not state.flags.get("TITAN_DOWN",false):
-            continue
-        if current=="FOL04" and not state.flags.get("DEVOURER_DOWN",false):
             continue
         if current=="FOL04" and not state.flags.get("PREDATOR_LATCH_SOLVED",false):
             continue
@@ -729,7 +729,10 @@ func _process(dt: float) -> void:
             hint.text = "M14 complete · the latch retained Aster's path. The predator's evidence caches are now exposed."
             commit()
     if current=="FOL02" and player.rewind_unlocked and not state.flags.get("REWIND_RETURN_OPEN",false):
-        if not m16_gate_activated and player.position.x > 500:
+        if not m16_latch_armed and player.position.x < 140:
+            m16_latch_armed = true
+            hint.text = "The Fold latch is ready. Cross east with a recorded route, then Rewind back through the shutter."
+        if m16_latch_armed and not m16_gate_activated and player.position.x > 500:
             var can_record_route: bool = player.energy >= player.rewind_cost and player.rewind.cooldown <= 0.0 and player.rewind.history.size() >= 15
             if can_record_route:
                 m16_gate_activated = true
@@ -747,6 +750,7 @@ func _process(dt: float) -> void:
             player.set_collision_mask_value(5,false)
             m16_gate_activated = false
             m16_rewind_seen = false
+            m16_latch_armed = false
             hint.text = "M16 complete · the shutter remains open, revealing the shortcut to the Diagnostic Annex."
             commit()
     hud.text = "%s HP%d EE%d/%d HEAT%d%s Q:%d  %02d:%02d" % [current,player.hp,player.energy,player.capacity,player.heat," HOT" if player.overheated else "",player.heal_charges,int(state.day_seconds/60),int(state.day_seconds)%60]
@@ -920,7 +924,7 @@ func open_console() -> void:
         open_titan_marker()
         return
     if current=="FOL04":
-        panel("M14 · The Returning Latch","A cyan latch on the far shelf records Aster's route. Reach it, then use Echo Rewind to return to the entrance shelf. The challenge does not require fighting the Devourer first.")
+        panel("M14 · The Returning Latch","A cyan latch on the far shelf records Aster's route. Reach it, then use Echo Rewind to return to the entrance shelf. The cache appears when the latch is solved; the optional predator story is completed after the Devourer is also defeated.")
         choice("Leave the nest",close_panel)
         return
     if open_minor_puzzle(current):
@@ -1042,7 +1046,10 @@ func answer_minor_puzzle(value: int) -> void:
         state.flags.ARCHIVE_INDEX_READ = true
     refresh_collectibles()
     active_minor_puzzle = {}
-    hint.text = str(flag).replace("_"," ")+" recorded. The world map and field journal now reflect what Aster learned."
+    if active_minor_puzzle_id == "M09":
+        hint.text = "Custody index recorded: these relics were sealed for protection and kept beside their keeper's route notes. Reading the index also marks a late return seam for when Rewind is mastered."
+    else:
+        hint.text = str(flag).replace("_"," ")+" recorded. The world map and field journal now reflect what Aster learned."
     commit()
     panel("Challenge complete",hint.text)
     choice("Return to the room",close_panel)
@@ -1169,7 +1176,7 @@ func open_records() -> void:
     if not evidence.is_empty():
         records += "\n\nObserved world clues\n"+"\n".join(evidence).left(540)
     if state.flags.get("ARCHIVE_INDEX_READ",false):
-        records += "\n\nCustody index\nThe shelf markings identify a stored relic row and its custody record. They do not identify a gate key or route off the planet."
+        records += "\n\nCustody index\nThe relics were sealed for protection and kept beside their keepers' route notes. The shelf markings identify stored relic rows, not a gate key or a route off the planet. The late return seam is marked for when Rewind is mastered."
     records += "\n\n"+SideStories.journal_text(state)
     panel("Field journal", "Current objective\n" + current_objective_text() + "\n\n" + records)
     choice("Return",close_panel)

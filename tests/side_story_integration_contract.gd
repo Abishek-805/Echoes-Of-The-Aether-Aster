@@ -61,7 +61,8 @@ func run_checks() -> void:
 	game.player.position.x = 100
 	game._process(0.01)
 	check(game.state.flags.get("PREDATOR_LATCH_SOLVED", false), "M14 did not remember the route after Rewind")
-	check(not _has_pickup(game, "HP04"), "Predator rewards appeared without the optional boss")
+	check(_has_pickup(game, "HP04") and _has_pickup(game, "MAP06") and _has_pickup(game, "MEM05"), "M14 latch caches did not appear before the optional boss")
+	check(not game.state.flags.get("SIDE_PREDATOR_DONE", false), "Predator story completed without its boss and evidence records")
 	var energy_before_boss: float = game.player.energy
 	game.enemy_defeated("B05", Vector2(200, 220))
 	check(game.player.energy == minf(game.player.capacity, energy_before_boss + 40), "Boss Echo reward was not released once")

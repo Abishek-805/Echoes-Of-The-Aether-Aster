@@ -8,10 +8,11 @@ for decisions in [Player-directed overrides](PLAYER_DIRECTED_OVERRIDES.md).
 
 - Title screen enters the campaign; a six-room mechanics sandbox is also retained.
 - The campaign data contains 64 named room records connected by condition-gated routes.
-- A physics-driven opening runner starts the actual campaign, waits for Aster to land,
-  holds movement until he crosses Memorial Street's open doorway, and confirms the destination
-  room is loaded and revealed. The full 64-room route is still graph/flag-tested rather than
-  physically traversed end to end.
+- A physics-driven campaign runner verifies the opening from Memorial Street through the
+  Guild Hall, Artificer Yard, dungeon approach and first Forager encounter. It drives the map,
+  double jump, jump-shoot, both opening consoles, physical doorways, ranged combat and the first
+  Echo release. The full 64-room route is still graph/flag-tested rather than physically
+  traversed end to end.
 - Open room links now transition when Aster crosses their physical screen-edge doorway;
   the destination entry side is preserved. Junctions and sealed exits still use the route
   panel, and room geometry remains placeholder work.
@@ -41,7 +42,8 @@ for decisions in [Player-directed overrides](PLAYER_DIRECTED_OVERRIDES.md).
   survive continuation; death restores the checkpoint and commits the documented reset.
 - The campaign contract currently simulates the critical route through the distress
   signal/refuge ending with no optional weapon required; the separate physical runner verifies
-  actual movement and the TOW01-to-TOW02 doorway crossing.
+  the first five-room route and the first live enemy encounter. The sandbox contract also checks
+  jump, double jump, jump-shoot, heat/cooling and melee with zero Echo Energy.
 - Major puzzles now reveal hints in three tiers, ending with the explicit solution only
   after the player requests it. The first Veraya Sentinel now commits to a warned charge
   direction and becomes vulnerable during recovery.

@@ -76,5 +76,13 @@ func run_checks() -> void:
     p.shot.connect(func(_origin: Vector2, _direction: Vector2) -> void: airborne_shots[0] += 1)
     check(p.try_fire(), "Airborne player should be able to fire the equipped weapon")
     check(airborne_shots[0] == 1, "Airborne shot signal should be emitted")
+    p.energy = 0.0
+    var blade_swings: Array[int] = [0]
+    p.blade.connect(func(_origin: Vector2, _facing: float) -> void: blade_swings[0] += 1)
+    Input.action_press("melee")
+    await physics_frame
+    await physics_frame
+    Input.action_release("melee")
+    check(blade_swings[0] == 1 and p.energy == 0.0, "Melee should stay available with an empty Echo cell")
     print("SANDBOX_CONTRACT failures=",failures)
     quit(1 if failures else 0)

@@ -8,7 +8,11 @@ var playing: bool = false
 var cursor: float = 0
 var origin := Vector2.ZERO
 var recovered: bool = false
-func clear_history() -> void:
+var saved_shutter_collision: bool = false
+func clear_history(body: CharacterBody2D = null) -> void:
+    if body != null:
+        body.set_collision_mask_value(5,saved_shutter_collision)
+    saved_shutter_collision = false
     history.clear()
     damage_log.clear()
     playback.clear()
@@ -48,6 +52,8 @@ func begin(body: CharacterBody2D) -> bool:
     playback = history.slice(valid)
     cursor = float(playback.size()-1)
     body.energy -= body.rewind_cost
+    saved_shutter_collision = body.get_collision_mask_value(5)
+    body.set_collision_mask_value(5,false)
     playing = true
     recovered = false
     return true
@@ -77,6 +83,8 @@ func tick(body: CharacterBody2D, dt: float) -> bool:
             body.velocity = Vector2.ZERO
             playing = false
             cooldown = 0.0
+            body.set_collision_mask_value(5,saved_shutter_collision)
+            saved_shutter_collision = false
             history.clear()
             playback.clear()
             return true
@@ -90,6 +98,8 @@ func tick(body: CharacterBody2D, dt: float) -> bool:
         body.velocity = Vector2.ZERO
         playing = false
         cooldown = body.rewind_delay
+        body.set_collision_mask_value(5,saved_shutter_collision)
+        saved_shutter_collision = false
         history.clear()
         playback.clear()
     return true

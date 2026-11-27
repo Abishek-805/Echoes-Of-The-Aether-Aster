@@ -202,7 +202,7 @@ func damage(amount: float) -> void:
 		died.emit()
 		position = spawn
 		velocity = Vector2.ZERO
-		rewind.clear_history()
+		rewind.clear_history(self)
 		hp = max_hp
 		energy = maxf(50.0, energy)
 		heat = 0.0

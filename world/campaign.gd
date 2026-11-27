@@ -47,6 +47,12 @@ var rewind_switch: bool = false
 var predator_latch_activated: bool = false
 var predator_rewind_seen: bool = false
 var settings_touch: bool = false
+var minor_puzzle_stage: int = 0
+var active_minor_puzzle: Dictionary = {}
+var active_minor_puzzle_id: String = ""
+var m16_shutter: StaticBody2D
+var m16_gate_activated: bool = false
+var m16_rewind_seen: bool = false
 
 const PUZZLE_STEPS := {
 "P01":[["Root Arch","Hanging Bell","Split Stone"],[0,1,2]],
@@ -62,31 +68,75 @@ const PUZZLE_STEPS := {
 "P12":[["Isolate broken transit","Power broken transit"],[0], ["Connect reserve to beacon","Drain player's cell"],[0], ["Confirm distress packet","Rebuild gate with Rewind"],[0]]}
 
 const PUZZLE_OBSERVATIONS := {
-	"P01":"Three conductors bear different marks. The center plinth is damaged; the bell and arch still answer the pulse.",
-	"P02":"A bell, a split rock and a camp arch are drawn on the survey map. Compare the drawing with the landmarks outside.",
-	"P03":"The source feeds an empty branch and a service relay. Follow the path that reaches the maintenance receiver.",
-	"P04":"The display has three plates around the powered receiver. Match their symbols to the service order.",
-	"P05":"Three doors cross the fracture. Watch their anchor pulses and compare the stable shape with the field record.",
-	"P06":"The vault has separate power, release and storage controls. Its storage indicator is already full.",
-	"P07":"The Keeper's shield is fed by two conductors. Find and isolate both before attacking its core.",
-	"P08":"The relic remains sealed until the Sluice, Survey and Reservoir systems report their verified states.",
-	"P09":"The shutter retains Aster's path. Touch the far latch, then return to the starting pad with Rewind.",
-	"P10":"Each anchor panel displays half a shape. Join matching halves and follow the stable corridor.",
-	"P11":"The approach has three stabilizers. Keep the Echo release line open before routing power onward.",
-	"P12":"The transit gate is fractured. Isolate that load and route reserve power to the diagnostic beacon."}
+    "P01":"Three conductors bear different marks. The center plinth is damaged; the bell and arch still answer the pulse.",
+    "P02":"A bell, a split rock and a camp arch are drawn on the survey map. Compare the drawing with the landmarks outside.",
+    "P03":"The source feeds an empty branch and a service relay. Follow the path that reaches the maintenance receiver.",
+    "P04":"The display has three plates around the powered receiver. Match their symbols to the service order.",
+    "P05":"Three doors cross the fracture. Watch their anchor pulses and compare the stable shape with the field record.",
+    "P06":"The vault has separate power, release and storage controls. Its storage indicator is already full.",
+    "P07":"The Keeper's shield is fed by two conductors. Find and isolate both before attacking its core.",
+    "P08":"The relic remains sealed until the Sluice, Survey and Reservoir systems report their verified states.",
+    "P09":"The shutter retains Aster's path. Touch the far latch, then return to the starting pad with Rewind.",
+    "P10":"Each anchor panel displays half a shape. Join matching halves and follow the stable corridor.",
+    "P11":"The approach has three stabilizers. Keep the Echo release line open before routing power onward.",
+    "P12":"The transit gate is fractured. Isolate that load and route reserve power to the diagnostic beacon."}
 const PUZZLE_PROMPTS := {
-	"P01":"Restore the Sluice bridge by activating conductors in an order supported by the room's evidence.",
-	"P02":"Align the survey map with the landmarks and accept its maintenance route.",
-	"P03":"Route source power to the maintenance receiver without feeding the dead archive branch.",
-	"P04":"Set the archive plates into their verified sequence.",
-	"P05":"Choose the stable anchor topology through the Fold.",
-	"P06":"Stabilize the Reservoir while keeping Echo release safe.",
-	"P07":"Disable both Keeper shield conductors.",
-	"P08":"Synchronize the three verified systems to open the relic chamber.",
-	"P09":"Touch the switch beyond the shutter, then return to the pad using Echo Rewind.",
-	"P10":"Reconstruct the local anchor connections.",
-	"P11":"Stabilize the final approach and preserve the safe release path.",
-	"P12":"Route reserve power to the beacon without reconnecting the broken gate."}
+    "P01":"Restore the Sluice bridge by activating conductors in an order supported by the room's evidence.",
+    "P02":"Align the survey map with the landmarks and accept its maintenance route.",
+    "P03":"Route source power to the maintenance receiver without feeding the dead archive branch.",
+    "P04":"Set the archive plates into their verified sequence.",
+    "P05":"Choose the stable anchor topology through the Fold.",
+    "P06":"Stabilize the Reservoir while keeping Echo release safe.",
+    "P07":"Disable both Keeper shield conductors.",
+    "P08":"Synchronize the three verified systems to open the relic chamber.",
+    "P09":"Touch the switch beyond the shutter, then return to the pad using Echo Rewind.",
+    "P10":"Reconstruct the local anchor connections.",
+    "P11":"Stabilize the final approach and preserve the safe release path.",
+    "P12":"Route reserve power to the beacon without reconnecting the broken gate."}
+
+const MINOR_PUZZLES := {
+    "M02":{"room":"OUT04","flag":"M02_CACHE_OPEN","title":"Hunter Cache","clue":"The cache diagram distinguishes a service relay from a dead archive branch.","steps":[
+        {"question":"Where should the source send its first pulse?","choices":["Service relay","Dead archive","Unconnected branch"],"answer":0},
+        {"question":"Where does the service relay route the pulse?","choices":["Back to the source","Maintenance receiver","Dead archive"],"answer":1}]},
+    "M03":{"room":"HUN04","flag":"M03_BLIND_FOUND","title":"A Hunter's Return","clue":"Three trail tags agree on a safe route; the boot scuffs at the blind show the return direction.","steps":[
+        {"question":"Which marker starts the old hunter trail?","choices":["The split trail tag","The broken return sign","The empty stone"],"answer":0},
+        {"question":"At the scuffed fork, which mark keeps to the covered route?","choices":["The exposed ledge","The boot-scuffed turn","The broken edge"],"answer":1},
+        {"question":"Where does the last tag lead?","choices":["The blind overlooking the trail","The sealed tunnel","The deep nest"],"answer":0}]},
+    "M04":{"room":"CAM04","flag":"M04_PACK_MAP_ALIGNED","title":"Lost Pack Map","clue":"The torn map's bell silhouette is visible from the camp; the pack frame marks its origin.","steps":[
+        {"question":"Which landmark aligns with the map's bell silhouette?","choices":["The water arch","The camp bell","The split rock"],"answer":1},
+        {"question":"Where does the torn map place its origin?","choices":["At the abandoned pack frame","At the Sluice gate","At the far cliff"],"answer":0}]},
+    "M05":{"room":"SLU04","flag":"M05_SPILLWAY_OPEN","title":"Spillway Valve","requires":"SLUICE_OPEN","clue":"The manual valve can redirect restored Sluice flow toward Hunter's Reach; the return channel is a separate route.","steps":[
+        {"question":"Where should the spillway's restored flow be sent?","choices":["Hunter's Reach drain","The sealed return channel","The memorial basin"],"answer":0}]},
+    "M08":{"room":"REL04","flag":"LOFT_RELAY","title":"Storage Loft Relay","clue":"The loft relay socket and receiver share the same maintenance marks; the cache is beside the receiver.","steps":[
+        {"question":"What connects to the relay socket?","choices":["The marked maintenance receiver","The sealed transit gate","The storage case"],"answer":0},
+        {"question":"After the relay reaches the receiver, what should be inspected?","choices":["The disconnected branch","The powered cache beside the receiver","The outer wall"],"answer":1}]},
+    "M09":{"room":"SUR04","flag":"ARCHIVE_INDEX_READ","title":"Custody Index","clue":"The index labels storage rows, not the main-story key. Follow its custody sequence without treating the shelf as a gate.","steps":[
+        {"question":"What does the first mark identify?","choices":["A stored relic row","The gate key","A living occupant"],"answer":0},
+        {"question":"What does the second mark confirm?","choices":["The row's custody record","A route out of Nalora","The Echo Rewind device"],"answer":0}]},
+    "M10":{"room":"WAR04","flag":"LOOP_MARKED","title":"Unmapped Loop","clue":"Two formations appear far apart, but their matching fractures show the same stable pair across the loop.","steps":[
+        {"question":"Which fracture is repeated on both sides?","choices":["The paired split crystal","The smooth round stone","The broken single shard"],"answer":0},
+        {"question":"How should the loop's matching pair be marked?","choices":["As two unrelated points","As one connected route","As a sealed passage"],"answer":1}]},
+    "M11":{"room":"VER04","flag":"M11_DIAGNOSTIC_ALIGNED","title":"Remote Diagnostic","clue":"The display distinguishes the present source and receiver from an absent third part. The missing relay component is only a reference.","steps":[
+        {"question":"Which path does the current diagnostic verify?","choices":["Source to receiver","Source to the absent relay","Receiver to the gate"],"answer":0},
+        {"question":"What does the missing component label mean?","choices":["A recoverable part is nearby","The interface needs a space-time relay that is not available yet","The source is safe to overload"],"answer":1}]},
+    "M13":{"room":"RES04","flag":"M13_OVERFLOW_ISOLATED","requires":"RESERVOIR_STABLE","title":"Overflow Alcove","clue":"The mineral line records the highest safe water mark; isolate the overflow before opening the return sluice.","steps":[
+        {"question":"What should happen to the overflow line?","choices":["Isolate it at the marked safe line","Reconnect it to full storage","Route it into Aster's cell"],"answer":0},
+        {"question":"After isolating overflow, what can be opened?","choices":["The safe return sluice","The broken transit gate","The sealed archive"],"answer":0}]},
+    "M15":{"room":"FIN04","flag":"M15_SERVICE_ALIGNED","title":"Service Niche","clue":"This is a maintenance alcove; its tool marks align the service conduit with the nearby receiver, away from the fractured gate.","steps":[
+        {"question":"Which receiver belongs to this service conduit?","choices":["The nearby maintenance receiver","The broken transit gate","The guardian's core"],"answer":0},
+        {"question":"Where should the final conduit be aligned?","choices":["To the receiver's service mark","Back into the isolated gate load","Into Aster's Collector"],"answer":0}]}}
+
+const MINOR_REWARD_GATES := {
+    "M02":["MAP01","BP01"],
+    "M03":["DAWN02","MAP02"],
+    "M04":["DAWN04","MAP03"],
+    "M05":["DAWN05","BP02"],
+    "M07":["MAP04"],
+    "M08":["AR08","DAWN06","HP02","BP03","WPN01"],
+    "M10":["MAP05","MEM04"],
+    "M11":["AR13","BP04","WPN02"],
+    "M13":["HP03","BP05"],
+    "M15":["BP06","WPN03"]}
 
 func _ready() -> void:
     process_mode = Node.PROCESS_MODE_ALWAYS
@@ -280,6 +330,21 @@ func make_floor(at: Vector2, size: Vector2, one_way: bool = false) -> void:
     body.add_child(visual)
     room.add_child(body)
 
+func make_m16_shutter() -> void:
+    m16_shutter = StaticBody2D.new()
+    m16_shutter.position = Vector2(474,160)
+    m16_shutter.collision_layer = 16
+    var collider := CollisionShape2D.new()
+    var shape := RectangleShape2D.new()
+    shape.size = Vector2(12,320)
+    collider.shape = shape
+    m16_shutter.add_child(collider)
+    var visual := Polygon2D.new()
+    visual.polygon = PackedVector2Array([Vector2(-6,-160),Vector2(6,-160),Vector2(6,160),Vector2(-6,160)])
+    visual.color = Color("73e4d2")
+    m16_shutter.add_child(visual)
+    room.add_child(m16_shutter)
+
 func load_room(id: String, entry_x: float = 80.0) -> void:
     if not rooms.has(id):
         return
@@ -297,7 +362,11 @@ func load_room(id: String, entry_x: float = 80.0) -> void:
     sequence.clear()
     predator_latch_activated = false
     predator_rewind_seen = false
-    player.rewind.clear_history()
+    m16_gate_activated = false
+    m16_rewind_seen = false
+    m16_shutter = null
+    player.rewind.clear_history(player)
+    player.set_collision_mask_value(5,false)
     player.rewind_unlocked = state.flags.get("REWIND_ACQUIRED",false)
     room = Node2D.new()
     room.process_mode = Node.PROCESS_MODE_PAUSABLE
@@ -334,6 +403,8 @@ func load_room(id: String, entry_x: float = 80.0) -> void:
         else:
             make_floor(Vector2(200,268),Vector2(95,12),true)
             make_floor(Vector2(410,210),Vector2(90,12),true)
+    if id == "FOL02" and not state.flags.get("REWIND_RETURN_OPEN",false):
+        make_m16_shutter()
     player.position = Vector2(entry_x,275)
     player.spawn = player.position
     player.velocity = Vector2.ZERO
@@ -359,12 +430,17 @@ func load_room(id: String, entry_x: float = 80.0) -> void:
             commit()
     if id=="FOL04" and not state.flags.get("PREDATOR_LATCH_SOLVED",false):
         hint.text = "Optional M14: touch the cyan latch on the far ledge, then Rewind back to the entrance shelf. The latch remembers your route."
+    if id=="FOL02" and player.rewind_unlocked and not state.flags.get("REWIND_RETURN_OPEN",false):
+        hint.text = "Optional M16: the Fold shutter records a safe Rewind route. Cross the cyan latch beyond it, then Rewind back through the shutter."
     queue_redraw()
 
 func spawn_collectibles() -> void:
     var item_index: int = 0
     for item: Dictionary in db.collectibles:
         if item.room!=current or state.collected.has(item.id):
+            continue
+        var puzzle_id: String = minor_puzzle_for_reward(str(item.id))
+        if not puzzle_id.is_empty() and not state.flags.get(str(MINOR_PUZZLE_FLAGS.get(puzzle_id,"")),false):
             continue
         if current=="ROT04" and not state.flags.get("TITAN_DOWN",false):
             continue
@@ -417,6 +493,17 @@ func refresh_collectibles() -> void:
             non_collectible_pickups.append(pickup)
     pickups = non_collectible_pickups
     spawn_collectibles()
+
+func minor_puzzle_for_reward(collectible_id: String) -> String:
+    for puzzle_id: String in MINOR_REWARD_GATES:
+        if collectible_id in MINOR_REWARD_GATES[puzzle_id]:
+            return puzzle_id
+    return ""
+
+const MINOR_PUZZLE_FLAGS := {
+    "M02":"M02_CACHE_OPEN","M03":"M03_BLIND_FOUND","M04":"M04_PACK_MAP_ALIGNED","M05":"M05_SPILLWAY_OPEN",
+    "M07":"M07_MARKER_COMPLETE","M08":"LOFT_RELAY","M10":"LOOP_MARKED","M11":"M11_DIAGNOSTIC_ALIGNED",
+    "M13":"M13_OVERFLOW_ISOLATED","M15":"M15_SERVICE_ALIGNED"}
 
 func spawn_room_landmarks() -> void:
     if not room_layouts.has(current):
@@ -641,6 +728,27 @@ func _process(dt: float) -> void:
             refresh_collectibles()
             hint.text = "M14 complete · the latch retained Aster's path. The predator's evidence caches are now exposed."
             commit()
+    if current=="FOL02" and player.rewind_unlocked and not state.flags.get("REWIND_RETURN_OPEN",false):
+        if not m16_gate_activated and player.position.x > 500:
+            var can_record_route: bool = player.energy >= player.rewind_cost and player.rewind.cooldown <= 0.0 and player.rewind.history.size() >= 15
+            if can_record_route:
+                m16_gate_activated = true
+                player.set_collision_mask_value(5,true)
+                hint.text = "The Fold shutter seals behind Aster. Its route is recorded; Rewind can carry him back through this special barrier."
+            else:
+                hint.text = "The Fold latch waits for a recorded path, ready Echo Energy and Rewind off cooldown."
+        if m16_gate_activated and player.rewind.playing:
+            m16_rewind_seen = true
+        if m16_gate_activated and m16_rewind_seen and player.position.x < 140:
+            state.flags.REWIND_RETURN_OPEN = true
+            if is_instance_valid(m16_shutter):
+                m16_shutter.collision_layer = 0
+                m16_shutter.visible = false
+            player.set_collision_mask_value(5,false)
+            m16_gate_activated = false
+            m16_rewind_seen = false
+            hint.text = "M16 complete · the shutter remains open, revealing the shortcut to the Diagnostic Annex."
+            commit()
     hud.text = "%s HP%d EE%d/%d HEAT%d%s Q:%d  %02d:%02d" % [current,player.hp,player.energy,player.capacity,player.heat," HOT" if player.overheated else "",player.heal_charges,int(state.day_seconds/60),int(state.day_seconds)%60]
     combat_status_hud.text = "%s   %s" % [rewind_status_text(),weapon_status_text()]
     queue_redraw()
@@ -808,9 +916,14 @@ func open_console() -> void:
     if current=="SIL04":
         open_keeper_promise_puzzle()
         return
+    if current=="ROT04":
+        open_titan_marker()
+        return
     if current=="FOL04":
         panel("M14 · The Returning Latch","A cyan latch on the far shelf records Aster's route. Reach it, then use Echo Rewind to return to the entrance shelf. The challenge does not require fighting the Devourer first.")
         choice("Leave the nest",close_panel)
+        return
+    if open_minor_puzzle(current):
         return
     for item: Dictionary in db.puzzles:
         if item.room!=current:
@@ -853,6 +966,86 @@ func open_keeper_promise_puzzle() -> void:
         choice("Retry M12",open_keeper_promise_puzzle)
         choice("Leave",close_panel))
     choice("Leave the imprint untouched",close_panel)
+
+func open_titan_marker() -> void:
+    if not state.flags.get("WARDEN_DOWN",false):
+        hint.text = "The hollow marker is quiet. The Sluice Warden's defeat will release its first pulse."
+        return
+    if state.flags.get("M07_MARKER_COMPLETE",false):
+        hint.text = "The Moss Hollow marker now records the Titan's defeat. Its map cache is available."
+        return
+    if state.flags.get("M07_MARKER_SEEN",false):
+        panel("M07 · Moss Hollow marker","The marker remembers the Warden's pulse. The Mossbound Titan still holds the second half of the route record.")
+        choice("Return to the hollow",close_panel)
+        return
+    panel("M07 · Moss Hollow marker","The Warden's fallen core leaves one pulse. Set the marker now; the Mossbound Titan's defeat will complete the route record and expose its map cache.")
+    choice("Activate the hollow marker",func() -> void:
+        state.flags.M07_MARKER_SEEN = true
+        if state.flags.get("TITAN_DOWN",false):
+            state.flags.M07_MARKER_COMPLETE = true
+        refresh_collectibles()
+        hint.text = "The first pulse is recorded. The marker awaits the Mossbound Titan's echo."
+        commit()
+        close_panel())
+    choice("Leave it dormant",close_panel)
+
+func open_minor_puzzle(room_id: String) -> bool:
+    for puzzle_id: String in MINOR_PUZZLES:
+        var puzzle: Dictionary = MINOR_PUZZLES[puzzle_id]
+        if str(puzzle.room) != room_id:
+            continue
+        var flag: String = str(puzzle.flag)
+        if state.flags.get(flag,false):
+            hint.text = str(puzzle.title)+" complete. "+str(puzzle.get("result","The field record is updated."))
+            return true
+        var prerequisite: String = str(puzzle.get("requires",""))
+        if not prerequisite.is_empty() and not state.flags.get(prerequisite,false):
+            hint.text = str(puzzle.title)+" is inactive until "+prerequisite.replace("_"," ").to_lower()+" is restored."
+            return true
+        active_minor_puzzle = puzzle
+        active_minor_puzzle_id = puzzle_id
+        minor_puzzle_stage = 0
+        show_minor_puzzle()
+        return true
+    return false
+
+func show_minor_puzzle() -> void:
+    var steps: Array = active_minor_puzzle.steps
+    var step: Dictionary = steps[minor_puzzle_stage]
+    panel(active_minor_puzzle_id+" · "+str(active_minor_puzzle.title),str(active_minor_puzzle.get("clue","Study the marks and landmarks in this room."))+"\n\n"+str(step.question)+"\nStep %d of %d" % [minor_puzzle_stage+1,steps.size()])
+    var options: Array = step.choices
+    for index in range(options.size()):
+        var selected: int = index
+        choice(str(options[index]),func() -> void: answer_minor_puzzle(selected))
+    choice("Review room evidence",func() -> void:
+        panel("Nearby evidence",str(active_minor_puzzle.get("clue","Look for repeated marks, working signals and environmental evidence nearby.")) )
+        choice("Back to puzzle",show_minor_puzzle)
+        choice("Leave",close_panel))
+    choice("Leave",close_panel)
+
+func answer_minor_puzzle(value: int) -> void:
+    var steps: Array = active_minor_puzzle.steps
+    var step: Dictionary = steps[minor_puzzle_stage]
+    if value != int(step.answer):
+        minor_puzzle_stage = 0
+        panel("Evidence conflicts","That choice does not match the marks in this room. The challenge resets locally; your map and story progress stay safe.")
+        choice("Read the clue and retry",show_minor_puzzle)
+        choice("Leave",close_panel)
+        return
+    minor_puzzle_stage += 1
+    if minor_puzzle_stage < steps.size():
+        show_minor_puzzle()
+        return
+    var flag: String = str(active_minor_puzzle.get("flag","ARCHIVE_INDEX_READ"))
+    state.flags[flag] = true
+    if active_minor_puzzle_id == "M09":
+        state.flags.ARCHIVE_INDEX_READ = true
+    refresh_collectibles()
+    active_minor_puzzle = {}
+    hint.text = str(flag).replace("_"," ")+" recorded. The world map and field journal now reflect what Aster learned."
+    commit()
+    panel("Challenge complete",hint.text)
+    choice("Return to the room",close_panel)
 
 func show_puzzle() -> void:
     var id: String = active_puzzle.id
@@ -926,6 +1119,8 @@ func inspect_record() -> void:
     if current=="SIL04":
         open_keeper_promise_puzzle()
         return
+    if open_minor_puzzle(current):
+        return
     var story_id: String = ""
     if current=="CAM02":
         story_id = "SURVEY_CAMP"
@@ -951,12 +1146,6 @@ func inspect_record() -> void:
             state.flags.FIRST_RELEASE = true
     if current=="SUR03":
         state.flags.VAULT_MAP = state.flags.get("ARCHIVE_ALIGNED",false)
-    if current=="REL04":
-        state.flags.LOFT_RELAY = true
-    if current=="WAR04":
-        state.flags.LOOP_MARKED = true
-    if current=="FOL02" and state.flags.get("REWIND_TRAINED",false):
-        state.flags.REWIND_RETURN_OPEN = true
     var found: Array[String] = []
     for item: Dictionary in db.collectibles:
         if item.room==current and state.collected.has(item.id):
@@ -979,6 +1168,8 @@ func open_records() -> void:
                 evidence.append(str(landmark.id).replace("_"," ")+": "+str(landmark.get("story","")))
     if not evidence.is_empty():
         records += "\n\nObserved world clues\n"+"\n".join(evidence).left(540)
+    if state.flags.get("ARCHIVE_INDEX_READ",false):
+        records += "\n\nCustody index\nThe shelf markings identify a stored relic row and its custody record. They do not identify a gate key or route off the planet."
     records += "\n\n"+SideStories.journal_text(state)
     panel("Field journal", "Current objective\n" + current_objective_text() + "\n\n" + records)
     choice("Return",close_panel)
@@ -1073,7 +1264,7 @@ func rest() -> void:
     player.energy=maxf(50,player.energy)
     player.heat=0
     player.overheated=false
-    player.rewind.clear_history()
+    player.rewind.clear_history(player)
     player.rewind.cooldown=0
     player.weapon_states.clear()
     generation += 1
@@ -1128,6 +1319,8 @@ func enemy_defeated(token: String, _at: Vector2) -> void:
     var already_claimed: bool = player.released.has(reward_token)
     if entry.has("boss"):
         state.flags[entry.boss.flag]=true
+        if token=="B02" and state.flags.get("M07_MARKER_SEEN",false):
+            state.flags.M07_MARKER_COMPLETE = true
         if not already_claimed:
             state.materials[entry.material]=int(state.materials.get(entry.material,0))+4
     elif not already_claimed:
@@ -1136,6 +1329,8 @@ func enemy_defeated(token: String, _at: Vector2) -> void:
     state.flags.FIRST_RELEASE=true
     actors = actors.filter(func(actor: CharacterBody2D) -> bool: return is_instance_valid(actor) and actor.token!=token)
     commit()
+    if token=="B02":
+        refresh_collectibles()
     if token=="B05" and current=="FOL04":
         refresh_collectibles()
     if token=="B06":
@@ -1149,7 +1344,7 @@ func on_death() -> void:
 func reset_attempt() -> void:
     player.hp=player.max_hp
     player.heal_charges=3
-    player.rewind.clear_history()
+    player.rewind.clear_history(player)
     player.energy=maxf(50,player.energy)
     generation += 1
     state.generation=generation

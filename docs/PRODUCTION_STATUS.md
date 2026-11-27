@@ -55,6 +55,12 @@ for decisions in [Player-directed overrides](PLAYER_DIRECTED_OVERRIDES.md).
   completion flags and one-time rewards persist. M06 restores the garden and exposes its
   cache/shortcut; M12 uses the inscription record before matching Seren's imprint; M14
   requires a real Rewind return before the Devourer cache appears. None gates the main route.
+- Optional world-puzzle records M02–M15 now have clue-led, retryable room interactions;
+  the authored caches and equipment rewards stay hidden until their local puzzle is solved.
+  M07 additionally records the Warden pulse before the optional Titan defeat. M09 adds its
+  custody-index conclusion to the field journal. M16 now uses a physical Fold shutter that
+  closes after Aster has a safe Rewind route and opens its Veraya shortcut after he rewinds
+  through it. Rewind temporarily passes this one shutter and restores its collision state.
 - Temporary geometric visuals remain intentional until core gameplay is complete.
 
 ## Controls and player-directed movement
@@ -81,15 +87,19 @@ exist; each target still needs an interactive hardware run.
 
 ## Recent validation
 
-Godot 4.7.2 headless import and script scan completed; 40 GDScript files checked, zero
-broken. All 22 `*_contract.gd` checks passed, including campaign save validation, V2
+Godot 4.7.2 headless import and script scan completed; 41 GDScript files checked, zero
+broken. The 22 existing `*_contract.gd` checks passed at the prior production checkpoint,
+including campaign save validation, V2
 save migration, semantic backup fallback, Rewind cooldown/resource persistence, HUD state,
 seven side-story conditions/rewards, and M06/M12/M14 integration. Other contracts cover
 physical room-edge transitions, 64 authored graybox layouts, three-tier puzzle hints,
 Warden and Sentinel attack tells, all six distinct boss patterns, platform controls,
 stable loot, story flags, and content references. The campaign contract
 observed 62 reachable rooms, acquired Rewind, and reached the distress/refuge ending. The
-240-frame main-scene smoke run had no script or engine errors. Windows, Linux, Web, and
+new minor-puzzle contract passed, checking all 10 optional reward gates, the two-part Titan
+marker condition, the physical M16 shutter registration, and Rewind collision restoration.
+The 240-frame campaign-scene smoke run and editor scan had no script or engine errors.
+Windows, Linux, Web, and
 macOS release exports completed; Android export is blocked by the missing JDK and Android
 SDK, while iOS export requires the developer's Apple Team ID. These are code/data/export
 checks, not interactive hardware, browser, or release-quality validation.

@@ -38,6 +38,7 @@ func run_checks() -> void:
 		await get_tree().physics_frame
 	Input.action_release("jump")
 	check(game.player.air_jumps == 0 and game.player.velocity.y < 0.0, "Second jump input should perform the campaign double jump")
+	check(not game.player.is_on_floor(), "Aster should still be airborne for the jump-shot check")
 	var energy_before_shot: float = game.player.energy
 	Input.action_press("fire")
 	await get_tree().physics_frame

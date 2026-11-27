@@ -39,6 +39,32 @@ func _initialize() -> void:
 		check(not str(puzzle.get("solution", "")).is_empty(), "puzzle needs a documented solution")
 	for item: Dictionary in db.get("collectibles", []):
 		check(room_ids.has(str(item.get("room", ""))), "collectible references missing room")
+	var layout_data: Variant = JSON.parse_string(FileAccess.get_file_as_string("res://data/room_layouts.json"))
+	check(layout_data is Dictionary, "room layout data must parse as an object")
+	var layout_ids: Dictionary = {}
+	if layout_data is Dictionary:
+		for layout: Dictionary in layout_data.get("rooms", []):
+			var layout_id: String = str(layout.get("id", ""))
+			check(room_ids.has(layout_id), "layout references missing campaign room: "+layout_id)
+			check(not layout_ids.has(layout_id), "duplicate room layout: "+layout_id)
+			layout_ids[layout_id] = true
+			for zone: Dictionary in layout.get("encounter_zones", []):
+				var enemy_id: String = str(zone.get("enemy", ""))
+				var valid_encounter: bool = false
+				for enemy: Dictionary in db.get("enemies", []):
+					if enemy.id == enemy_id and layout_id in str(enemy.rooms).split(" "):
+						valid_encounter = true
+				for variant: Dictionary in db.get("enemy_variants", []):
+					if variant.base == enemy_id and layout_id in str(variant.rooms).split(" "):
+						valid_encounter = true
+				for boss: Dictionary in db.get("bosses", []):
+					if boss.id == enemy_id and boss.room == layout_id:
+						valid_encounter = true
+				check(valid_encounter, "layout encounter has no matching room roster: "+layout_id+"/"+enemy_id)
+				check(int(zone.get("count", 1)) > 0, "encounter group count must be positive: "+layout_id+"/"+enemy_id)
+		for room_id: String in room_ids:
+			check(layout_ids.has(room_id), "campaign room is missing its layout: "+room_id)
+	check(layout_ids.size() == 64, "room layout data must cover all 64 campaign rooms")
 	var weapon_ids: Dictionary = {}
 	for weapon: Dictionary in db.get("weapons", []):
 		var weapon_id: String = str(weapon.get("id", ""))

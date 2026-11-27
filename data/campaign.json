@@ -1238,7 +1238,7 @@
       "damage": "12",
       "ee": "8",
       "material": "Biological",
-      "rooms": "OUT02 HUN01 ROT02",
+      "rooms": "OUT02 OUT04 HUN01 ROT02 HUN02",
       "behavior": "Crouch/glow → lunge last seen pos → 0.8s recover; dodge or jump."
     },
     {
@@ -1260,7 +1260,7 @@
       "damage": "10",
       "ee": "7",
       "material": "Biological",
-      "rooms": "WAR01 WAR03 FOL01",
+      "rooms": "WAR01 WAR02 WAR03 FOL01",
       "behavior": "Marked crack, audible click, leap, retreat; no off-screen attack."
     },
     {
@@ -1271,7 +1271,7 @@
       "damage": "14",
       "ee": "10",
       "material": "Alloy",
-      "rooms": "SUR01 SUR02 REL04",
+      "rooms": "SUR01 SUR02 REL04 VER04",
       "behavior": "Painted beam line locks before firing; cover, jump or flank."
     },
     {

@@ -7,6 +7,9 @@ var contact_damage: float = 12.0
 var state: String = "patrol"
 var timer: float = 0.0
 var committed: float = -1.0
+var double_lunge: bool = false
+var lunge_chain: int = 0
+var hit_in_lunge: bool = false
 var token: String = "forager-1"
 func _ready() -> void:
     collision_layer = 4
@@ -47,6 +50,7 @@ func _physics_process(dt: float) -> void:
                 state = "tell"
                 timer = 0.65
                 committed = signf(target.position.x-position.x)
+                lunge_chain = 0
             elif distance > 230:
                 state = "patrol"
         "tell":
@@ -54,13 +58,21 @@ func _physics_process(dt: float) -> void:
             if timer <= 0:
                 state = "lunge"
                 timer = 0.28
+                hit_in_lunge = false
         "lunge":
             velocity.x = committed*210
-            if distance < 28:
+            if distance < 28 and not hit_in_lunge:
                 target.damage(contact_damage)
+                hit_in_lunge = true
             if timer <= 0:
-                state = "recover"
-                timer = 0.8
+                if double_lunge and lunge_chain == 0:
+                    state = "tell"
+                    timer = 0.65
+                    committed = signf(target.position.x-position.x)
+                    lunge_chain = 1
+                else:
+                    state = "recover"
+                    timer = 0.8
         "recover":
             velocity.x = 0
             if timer <= 0:

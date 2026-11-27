@@ -474,7 +474,7 @@ func spawn_encounters() -> void:
             boss.boss_id = entry.id
             boss.hp = float(entry.hp)
             boss.max_health = boss.hp
-            boss.position = Vector2(465,255)
+            boss.position = encounter_position(str(entry.id),465.0,0,1,255.0)
             boss.target = player
             boss.token = entry.id
             boss.defeated.connect(enemy_defeated)
@@ -483,27 +483,76 @@ func spawn_encounters() -> void:
             room.add_child(boss)
             actors.append(boss)
             encounters[entry.id] = {"boss":entry,"energy":40,"material":"alloy"}
-            return
     var slot: int = 0
     for entry: Dictionary in db.enemies:
         if not current in str(entry.rooms).split(" "):
             continue
-        var token: String = "%s:%s:%d" % [current,entry.id,generation]
+        var zone: Dictionary = encounter_zone(str(entry.id))
+        var group_size: int = maxi(1,int(zone.get("count",1)))
+        var replacing: int = 0
+        for variant: Dictionary in db.enemy_variants:
+            if str(variant.base)==str(entry.id) and current in str(variant.rooms).split(" "):
+                replacing += 1
+        var base_count: int = maxi(0,group_size-replacing)
+        for spawn_index: int in range(base_count):
+            var token: String = "%s:%s:%d:%d" % [current,entry.id,spawn_index,generation]
+            if defeated_local.has(token):
+                continue
+            var enemy := Enemy.new()
+            enemy.target = player
+            enemy.hp = float(entry.hp)
+            enemy.archetype = entry.id
+            enemy.attack_damage = float(entry.damage)
+            enemy.token = token
+            enemy.position = encounter_position(str(entry.id),410.0+slot*90.0,spawn_index,group_size,278.0)
+            enemy.defeated.connect(enemy_defeated)
+            enemy.marked_attack.connect(add_mark)
+            room.add_child(enemy)
+            actors.append(enemy)
+            encounters[token] = {"energy":float(entry.ee),"material":str(entry.material).to_lower(),"reward_token":"%s:%s:%d" % [current,entry.id,spawn_index]}
+            slot += 1
+    for variant: Dictionary in db.enemy_variants:
+        if not current in str(variant.rooms).split(" "):
+            continue
+        var token: String = "%s:%s:%d" % [current,variant.id,generation]
         if defeated_local.has(token):
             continue
         var enemy := Enemy.new()
         enemy.target = player
-        enemy.hp = float(entry.hp)
-        enemy.archetype = entry.id
-        enemy.attack_damage = float(entry.damage)
+        enemy.hp = float(variant.hp)
+        enemy.archetype = str(variant.base)
+        enemy.variant_id = str(variant.id)
+        enemy.attack_damage = float(variant.damage)
+        enemy.double_lunge = enemy.variant_id == "V02"
         enemy.token = token
-        enemy.position = Vector2(410+slot*90,278)
+        var variant_zone: Dictionary = encounter_zone(str(variant.base))
+        var variant_group_size: int = maxi(1,int(variant_zone.get("count",1)))
+        var variant_index: int = variant_group_size-1
+        var fallback_x: float = 550.0 if current == "FOL04" else 410.0+slot*90.0
+        enemy.position = encounter_position(str(variant.base),fallback_x,variant_index,variant_group_size,278.0)
         enemy.defeated.connect(enemy_defeated)
         enemy.marked_attack.connect(add_mark)
         room.add_child(enemy)
         actors.append(enemy)
-        encounters[token] = {"energy":float(entry.ee),"material":str(entry.material).to_lower(),"reward_token":"%s:%s" % [current,entry.id]}
+        var material: String = "biological" if str(variant.base) in ["E01","E03","E07","E08"] else "alloy"
+        encounters[token] = {"energy":float(variant.ee),"material":material,"reward_token":"%s:%s:0" % [current,variant.id]}
         slot += 1
+
+func encounter_zone(enemy_id: String) -> Dictionary:
+    if not room_layouts.has(current):
+        return {}
+    for zone: Dictionary in room_layouts[current].get("encounter_zones",[]):
+        if str(zone.get("enemy",""))==enemy_id:
+            return zone
+    return {}
+
+func encounter_position(enemy_id: String, fallback_x: float, index: int, count: int, y: float) -> Vector2:
+    var zone: Dictionary = encounter_zone(enemy_id)
+    var bounds: Variant = zone.get("x",[])
+    if bounds is Array and bounds.size() >= 2:
+        var t: float = 0.5 if count <= 1 else float(index+1)/float(count+1)
+        return Vector2(lerpf(float(bounds[0]),float(bounds[1]),t),y)
+    return Vector2(fallback_x+float(index)*64.0,y)
 
 func _process(dt: float) -> void:
     if Input.is_action_just_pressed("map"):
@@ -912,7 +961,7 @@ func rest() -> void:
     hint.text="Rested and checkpoint saved. Health, charges and minimum EE restored; ordinary encounters reset."
 
 func add_mark(at: Vector2, kind: String, delay: float, damage: float) -> void:
-    hazards.append({"at":at,"kind":kind,"delay":delay,"life":0.3,"damage":damage,"dir":-1.0})
+    hazards.append({"at":at,"kind":kind,"delay":delay,"life":0.3,"damage":damage,"dir":-1.0,"consumed":false})
 func update_hazards(dt: float) -> void:
     for hazard: Dictionary in hazards:
         if hazard.delay>0:
@@ -928,8 +977,13 @@ func update_hazards(dt: float) -> void:
             hit = absf(player.position.y-hazard.at.y)<15
         else:
             hit = player.position.distance_to(hazard.at)<25
-        if hit and not player.rewind.playing:
-            player.damage(hazard.damage)
+        if hit and not hazard.get("consumed",false) and not player.rewind.playing:
+            if hazard.kind == "drain":
+                player.energy = maxf(0.0,player.energy-float(hazard.damage))
+                player.changed.emit()
+            else:
+                player.damage(hazard.damage)
+            hazard["consumed"] = true
     hazards = hazards.filter(func(item: Dictionary) -> bool: return item.life>0)
 
 func fire(origin: Vector2, direction: Vector2) -> void:
@@ -1019,10 +1073,12 @@ func _draw() -> void:
         draw_line(beam_start,beam_end,Color("aff5dc"),2)
     for item: Dictionary in hazards:
         var color := Color("c5a572") if item.delay>0 else Color("d56c6c")
-        if item.kind in ["ceiling","pool"]:
+        if item.kind in ["ceiling","pool","drain"]:
             draw_line(Vector2(item.at.x,130),Vector2(item.at.x,300),color,3)
-        else:
+        elif item.kind in ["wave","beam"]:
             draw_line(Vector2(20,item.at.y),Vector2(620,item.at.y),color,2)
+        else:
+            draw_circle(item.at,14.0,color,false,3.0)
     if player.rewind.playing:
         for sample: Dictionary in player.rewind.playback:
             draw_circle(sample.at,1,Color("56cdc4"))

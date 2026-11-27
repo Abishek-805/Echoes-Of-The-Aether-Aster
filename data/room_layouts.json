@@ -721,7 +721,8 @@
             315,
             485
           ],
-          "purpose": "two spaced patrol paths; avoid unavoidable overlap"
+          "purpose": "two spaced patrol paths; avoid unavoidable overlap",
+          "count": 2
         }
       ],
       "intended_route": "Enemy spacing leaves at least one visible retreat lane; evidence foreshadows stronger creatures after the Warp."
@@ -2335,7 +2336,8 @@
             286,
             468
           ],
-          "purpose": "Two guards spaced across the broad hall; keep a clear landing strip."
+          "purpose": "Two guards spaced across the broad hall; keep a clear landing strip.",
+          "count": 2
         }
       ],
       "intended_route": "The powered route leads to SUR01. Provide broad base floor, one optional raised route, and a return to REL02."
@@ -3742,17 +3744,7 @@
           "story": "A second shadow crosses the memory after the Warp; it belongs to a creature, not a person."
         }
       ],
-      "encounter_zones": [
-        {
-          "id": "theatre_leech",
-          "enemy": "E07",
-          "x": [
-            384,
-            490
-          ],
-          "purpose": "one Echo Leech drifts toward the projection core, giving the player time to see and interrupt its drain tell"
-        }
-      ],
+      "encounter_zones": [],
       "intended_route": "Inspect the stage and central alignment marks before fighting the lone leech. The optional shrine branches off the exit; the critical route to SIL03 remains straightforward."
     },
     {
@@ -4918,7 +4910,7 @@
       "encounter_zones": [
         {
           "id": "rift_skitter",
-          "enemy": "E03",
+          "enemy": "E08",
           "x": [
             170,
             245

@@ -40,6 +40,10 @@ for decisions in [Player-directed overrides](PLAYER_DIRECTED_OVERRIDES.md).
   Devourer delayed pools, and a three-phase Fold Guardian with offset final-phase lanes.
   Their telegraphs and recovery windows are automated; damage balance and animation still
   need hands-on play review.
+- All eight enemy archetypes and four roster variants now use distinct graybox tells,
+  attacks and recovery windows. Authored encounter zones control spawn positions and group
+  counts; group rewards have unique stable IDs, and the Silent Gallery memory theatre stays
+  enemy-free.
 - Temporary geometric visuals remain intentional until core gameplay is complete.
 
 ## Controls and player-directed movement
@@ -55,8 +59,8 @@ exist; each target still needs an interactive hardware run.
   authored iteration.
 - Final animated cinematics, side-story completion and all journal unlocks need to be
   integrated/reviewed across the full campaign.
-- Common enemy variants still need bespoke behavior. Boss patterns need readable
-  animation, tuning and hands-on play review beyond the automated behavior contracts.
+- Enemy and boss patterns need readable animation, balance tuning and hands-on play review
+  beyond the automated behavior contracts.
 - Save integrity, remaining Rewind edge cases, map discoverability, every puzzle path,
   and all platform targets need further automated and hands-on verification.
 - Final art, audio, accessibility, performance, export packaging and release QA remain
@@ -67,7 +71,7 @@ exist; each target still needs an interactive hardware run.
 ## Recent validation
 
 Godot 4.7.2 headless import and script scan completed; 33 GDScript files checked, zero
-broken. All 17 `*_contract.gd` checks passed, including physical room-edge transitions,
+broken. All 18 `*_contract.gd` checks passed, including physical room-edge transitions,
 64 authored graybox layouts, three-tier puzzle hints, Warden and Sentinel attack tells,
 all six distinct boss patterns, platform controls, stable loot, story flags, and content references. The campaign contract
 observed 62 reachable rooms, acquired Rewind, and reached the distress/refuge ending. The

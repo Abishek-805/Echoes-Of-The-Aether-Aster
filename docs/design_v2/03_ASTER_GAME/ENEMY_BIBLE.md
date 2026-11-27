@@ -6,10 +6,10 @@ HP, damage per main strike, EE yield and timings are tuning seeds. EE yield is e
 
 | ID | Archetype | Origin | HP | Damage | EE | Material class | Encounter rooms | Behavior / counterplay |
 |---|---|---|---:|---:|---:|---|---|---|
-| E01 | Echo Forager | Echo-adapted fauna | 45 | 12 | 8 | Biological | OUT02 HUN01 ROT02 | Crouch/glow → lunge last seen pos → 0.8s recover; dodge or jump. |
+| E01 | Echo Forager | Echo-adapted fauna | 45 | 12 | 8 | Biological | OUT02 OUT04 HUN01 HUN02 ROT02 | Crouch/glow → lunge last seen pos → 0.8s recover; dodge or jump. |
 | E02 | Stonebound Guard | Construct | 85 | 18 | 12 | Alloy | REL02 REL03 SUR01 | Raised arm, frontal guard; flank during 1.1s sweep recovery. |
-| E03 | Rift Skitter | Warp-touched fauna | 38 | 10 | 7 | Biological | WAR01 WAR03 FOL01 | Marked crack, audible click, leap, retreat; no off-screen attack. |
-| E04 | Prism Turret | Construct | 55 | 14 | 10 | Alloy | SUR01 SUR02 REL04 | Painted beam line locks before firing; cover, jump or flank. |
+| E03 | Rift Skitter | Warp-touched fauna | 38 | 10 | 7 | Biological | WAR01 WAR02 WAR03 FOL01 | Marked crack, audible click, leap, retreat; no off-screen attack. |
+| E04 | Prism Turret | Construct | 55 | 14 | 10 | Alloy | SUR01 SUR02 REL04 VER04 | Painted beam line locks before firing; cover, jump or flank. |
 | E05 | Veraya Sentinel | Construct | 100 | 20 | 14 | Alloy | VER01 VER03 RES01 | Shield pulse then committed charge, vulnerable in recovery. |
 | E06 | Mithril Keeper | Construct | 135 | 22 | 18 | Relic | REW01 FIN01 | Plating opens during cooldown; attack exposed core. |
 | E07 | Echo Leech | Echo-adapted fauna | 30 | 8 | 6 | Biological | RES01 RES02 SIL03 | Drifts toward exposed source; drain hazard telegraphed, interrupt with blade. Fewer after P06. |

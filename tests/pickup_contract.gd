@@ -19,6 +19,7 @@ func run_contract() -> void:
 	check(_collect(game,"AR01"), "First field record should be physically collectible")
 	check(game.state.collected.has("AR01"), "Collected field record was not saved to state")
 	check(not _collect(game,"AR01"), "Collected item spawned or granted twice")
+	game.state.flags.GARDEN_RESTORED = true
 	game.load_room("ROT03")
 	game.player.max_hp = 100.0
 	game.player.hp = 60.0

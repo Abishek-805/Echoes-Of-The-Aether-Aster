@@ -49,6 +49,12 @@ for decisions in [Player-directed overrides](PLAYER_DIRECTED_OVERRIDES.md).
   attacks and recovery windows. Authored encounter zones control spawn positions and group
   counts; group rewards have unique stable IDs, and the Silent Gallery memory theatre stays
   enemy-free.
+- The HUD now states whether Echo Rewind is locked, recording, ready, short on energy,
+  active or cooling down, and explicitly marks overheated weapons.
+- All seven canon optional stories are tracked in the field journal. Their evidence,
+  completion flags and one-time rewards persist. M06 restores the garden and exposes its
+  cache/shortcut; M12 uses the inscription record before matching Seren's imprint; M14
+  requires a real Rewind return before the Devourer cache appears. None gates the main route.
 - Temporary geometric visuals remain intentional until core gameplay is complete.
 
 ## Controls and player-directed movement
@@ -62,8 +68,8 @@ exist; each target still needs an interactive hardware run.
 - The 64 room records do not mean there are 64 individually authored, polished levels.
   Most spaces still use graybox room construction; route geometry and landmarks need
   authored iteration.
-- Final animated cinematics, side-story completion and all journal unlocks need to be
-  integrated/reviewed across the full campaign.
+- Final animated cinematics and remaining journal/archive unlocks still need integration
+  and review across the full campaign.
 - Enemy and boss patterns need readable animation, balance tuning and hands-on play review
   beyond the automated behavior contracts.
 - Remaining Rewind edge cases, map discoverability, every puzzle path,
@@ -75,11 +81,13 @@ exist; each target still needs an interactive hardware run.
 
 ## Recent validation
 
-Godot 4.7.2 headless import and script scan completed; 34 GDScript files checked, zero
-broken. All 19 `*_contract.gd` checks passed, including campaign save validation, V2
-save migration, semantic backup fallback, Rewind cooldown/resource persistence, physical room-edge transitions,
-64 authored graybox layouts, three-tier puzzle hints, Warden and Sentinel attack tells,
-all six distinct boss patterns, platform controls, stable loot, story flags, and content references. The campaign contract
+Godot 4.7.2 headless import and script scan completed; 40 GDScript files checked, zero
+broken. All 22 `*_contract.gd` checks passed, including campaign save validation, V2
+save migration, semantic backup fallback, Rewind cooldown/resource persistence, HUD state,
+seven side-story conditions/rewards, and M06/M12/M14 integration. Other contracts cover
+physical room-edge transitions, 64 authored graybox layouts, three-tier puzzle hints,
+Warden and Sentinel attack tells, all six distinct boss patterns, platform controls,
+stable loot, story flags, and content references. The campaign contract
 observed 62 reachable rooms, acquired Rewind, and reached the distress/refuge ending. The
 240-frame main-scene smoke run had no script or engine errors. Windows, Linux, Web, and
 macOS release exports completed; Android export is blocked by the missing JDK and Android

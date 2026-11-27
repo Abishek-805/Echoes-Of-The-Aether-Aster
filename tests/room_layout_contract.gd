@@ -16,6 +16,9 @@ func run_checks() -> void:
 	game.stories_enabled = false
 	game.state.flags["TITAN_DOWN"] = true
 	game.state.flags["DEVOURER_DOWN"] = true
+	game.state.flags["GARDEN_RESTORED"] = true
+	game.state.flags["KEEPER_PROMISE_SOLVED"] = true
+	game.state.flags["PREDATOR_LATCH_SOLVED"] = true
 	root.add_child(game)
 	await process_frame
 	game.player.set_physics_process(false)

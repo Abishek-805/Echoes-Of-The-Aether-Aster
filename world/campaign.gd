@@ -4,6 +4,7 @@ const Player = preload("res://actors/player/player.gd")
 const Enemy = preload("res://actors/enemies/campaign_enemy.gd")
 const Boss = preload("res://actors/enemies/campaign_boss.gd")
 const Map = preload("res://ui/exploration_map.gd")
+const SideStories = preload("res://systems/side_story_tracker.gd")
 var state = State.new()
 var db: Dictionary
 var layout_db: Dictionary = {}
@@ -21,6 +22,7 @@ var room_landmarks: Array[Dictionary] = []
 var generation: int = 0
 var tint: CanvasModulate
 var hud: Label
+var combat_status_hud: Label
 var hint: Label
 var modal: PanelContainer
 var modal_box: VBoxContainer
@@ -42,6 +44,8 @@ var status_timer: float = 0
 var retrying: bool = false
 var rewind_start_pad := Vector2.ZERO
 var rewind_switch: bool = false
+var predator_latch_activated: bool = false
+var predator_rewind_seen: bool = false
 var settings_touch: bool = false
 
 const PUZZLE_STEPS := {
@@ -145,6 +149,11 @@ func make_ui() -> void:
     hud.position = Vector2(8,4)
     hud.add_theme_font_size_override("font_size",12)
     ui_layer.add_child(hud)
+    combat_status_hud = Label.new()
+    combat_status_hud.position = Vector2(8,22)
+    combat_status_hud.size = Vector2(460,16)
+    combat_status_hud.add_theme_font_size_override("font_size",9)
+    ui_layer.add_child(combat_status_hud)
     hint = Label.new()
     hint.position = Vector2(12,46)
     hint.size = Vector2(610,70)
@@ -286,6 +295,8 @@ func load_room(id: String, entry_x: float = 80.0) -> void:
     room_landmarks.clear()
     hazards.clear()
     sequence.clear()
+    predator_latch_activated = false
+    predator_rewind_seen = false
     player.rewind.clear_history()
     player.rewind_unlocked = state.flags.get("REWIND_ACQUIRED",false)
     room = Node2D.new()
@@ -346,6 +357,8 @@ func load_room(id: String, entry_x: float = 80.0) -> void:
         if not play_story("DISTRESS_REFUGE"):
             state.flags.END_COMPLETE = true
             commit()
+    if id=="FOL04" and not state.flags.get("PREDATOR_LATCH_SOLVED",false):
+        hint.text = "Optional M14: touch the cyan latch on the far ledge, then Rewind back to the entrance shelf. The latch remembers your route."
     queue_redraw()
 
 func spawn_collectibles() -> void:
@@ -356,6 +369,12 @@ func spawn_collectibles() -> void:
         if current=="ROT04" and not state.flags.get("TITAN_DOWN",false):
             continue
         if current=="FOL04" and not state.flags.get("DEVOURER_DOWN",false):
+            continue
+        if current=="FOL04" and not state.flags.get("PREDATOR_LATCH_SOLVED",false):
+            continue
+        if current=="ROT03" and str(item.id) in ["HP01", "MEM02"] and not state.flags.get("GARDEN_RESTORED",false):
+            continue
+        if current=="SIL04" and str(item.id) in ["MEM03", "AR16"] and not state.flags.get("KEEPER_PROMISE_SOLVED",false):
             continue
         var at := Vector2(155.0+float(item_index)*68.0,275.0-float(item_index%2)*45.0)
         for landmark: Dictionary in room_landmarks:
@@ -386,6 +405,18 @@ func spawn_collectibles() -> void:
         room.add_child(marker)
         pickups.append({"id":str(item.id),"description":str(item.description),"at":at,"marker":marker})
         item_index += 1
+
+func refresh_collectibles() -> void:
+    var non_collectible_pickups: Array[Dictionary] = []
+    for pickup: Dictionary in pickups:
+        if pickup.has("marker"):
+            var marker: Node = pickup.get("marker")
+            if is_instance_valid(marker):
+                marker.queue_free()
+        else:
+            non_collectible_pickups.append(pickup)
+    pickups = non_collectible_pickups
+    spawn_collectibles()
 
 func spawn_room_landmarks() -> void:
     if not room_layouts.has(current):
@@ -598,8 +629,39 @@ func _process(dt: float) -> void:
         if rewind_switch and player.position.x<150 and player.rewind.cooldown>0:
             state.flags.REWIND_TRAINED = true
             commit()
-    hud.text = "%s HP%d EE%d/%d HEAT%d Q:%d  %02d:%02d" % [current,player.hp,player.energy,player.capacity,player.heat,player.heal_charges,int(state.day_seconds/60),int(state.day_seconds)%60]
+    if current=="FOL04" and player.rewind_unlocked and not state.flags.get("PREDATOR_LATCH_SOLVED",false):
+        if player.position.x > 500:
+            predator_latch_activated = true
+        if predator_latch_activated and player.rewind.playing:
+            predator_rewind_seen = true
+        if predator_latch_activated and predator_rewind_seen and player.position.x < 140:
+            state.flags.PREDATOR_LATCH_SOLVED = true
+            predator_latch_activated = false
+            predator_rewind_seen = false
+            refresh_collectibles()
+            hint.text = "M14 complete · the latch retained Aster's path. The predator's evidence caches are now exposed."
+            commit()
+    hud.text = "%s HP%d EE%d/%d HEAT%d%s Q:%d  %02d:%02d" % [current,player.hp,player.energy,player.capacity,player.heat," HOT" if player.overheated else "",player.heal_charges,int(state.day_seconds/60),int(state.day_seconds)%60]
+    combat_status_hud.text = "%s   %s" % [rewind_status_text(),weapon_status_text()]
     queue_redraw()
+
+func rewind_status_text() -> String:
+    if not player.rewind_unlocked:
+        return "REWIND: LOCKED"
+    if player.rewind.playing:
+        return "REWIND: ACTIVE"
+    if player.rewind.cooldown > 0.0:
+        return "REWIND: COOLING %.1fs" % player.rewind.cooldown
+    if player.energy < player.rewind_cost:
+        return "REWIND: NEED %d EE" % int(player.rewind_cost)
+    var minimum_history: int = 15
+    if player.rewind.history.size() < minimum_history:
+        var seconds: float = float(player.rewind.history.size()) / float(Engine.physics_ticks_per_second)
+        return "REWIND: RECORDING %.1f/%.1fs" % [seconds,float(minimum_history)/float(Engine.physics_ticks_per_second)]
+    return "REWIND: READY · %d EE" % int(player.rewind_cost)
+
+func weapon_status_text() -> String:
+    return "WEAPON HOT · COOLING" if player.overheated else "WEAPON READY"
 
 func interact() -> void:
     if collect_nearby_pickup():
@@ -725,6 +787,31 @@ func open_console() -> void:
                 open_console())
         choice("Return",close_panel)
         return
+    if current=="ROT03":
+        if state.flags.get("GARDEN_RESTORED",false):
+            hint.text = "The garden channel is flowing. Its overflow shortcut and recovery cache are available."
+            return
+        panel("M06 · The Forgotten Garden","The basin is dry. Its carved inlet matches the restored Sluice channel; the overflow outlet points back toward the old waterway.")
+        if state.flags.get("SLUICE_OPEN",false):
+            choice("Route Sluice flow through the garden basin",func() -> void:
+                state.flags.GARDEN_RESTORED = true
+                refresh_collectibles()
+                hint.text = "Water reaches the garden. The outlet opens a return shortcut to the Sluice."
+                commit()
+                close_panel())
+        else:
+            choice("Test the dry inlet",func() -> void:
+                panel("No source flow","The garden valve is intact, but the Sluice upstream is still closed. Restore that source first.")
+                choice("Return",open_console))
+        choice("Leave the valve",close_panel)
+        return
+    if current=="SIL04":
+        open_keeper_promise_puzzle()
+        return
+    if current=="FOL04":
+        panel("M14 · The Returning Latch","A cyan latch on the far shelf records Aster's route. Reach it, then use Echo Rewind to return to the entrance shelf. The challenge does not require fighting the Devourer first.")
+        choice("Leave the nest",close_panel)
+        return
     for item: Dictionary in db.puzzles:
         if item.room!=current:
             continue
@@ -744,6 +831,28 @@ func open_console() -> void:
         show_puzzle()
         return
     open_inventory()
+
+func open_keeper_promise_puzzle() -> void:
+    if state.flags.get("KEEPER_PROMISE_SOLVED",false):
+        panel("A Keeper's Promise","The name Seren matches the memorial imprint. The Keeper's old task was to protect an open release path.")
+        choice("Return",close_panel)
+        return
+    if not state.collected.has("AR14"):
+        panel("M12 · Find the memorial record","The shrine gives no name by itself. The inscriptions in the Silent Gallery identify the people named in this place; read that archive record, then return to compare the imprint.")
+        choice("Return to the shrine path",close_panel)
+        return
+    panel("M12 · A Keeper's Promise","The memorial bears a name. An old imprint describes the Keeper's role; compare the inscription with the records before matching them.")
+    choice("Match Seren's memorial name to the recorded imprint",func() -> void:
+        state.flags.KEEPER_PROMISE_SOLVED = true
+        refresh_collectibles()
+        panel("Imprint matched","Seren: ‘A memory preserved against its will is not a memory saved.’ The memorial cache and warning record are now accessible.")
+        commit()
+        choice("Return",close_panel))
+    choice("Match the Keeper's title to the imprint",func() -> void:
+        panel("Mismatch","The Keeper is the guardian, not the name recorded on this memorial. Compare the personal name with the archive inscription.")
+        choice("Retry M12",open_keeper_promise_puzzle)
+        choice("Leave",close_panel))
+    choice("Leave the imprint untouched",close_panel)
 
 func show_puzzle() -> void:
     var id: String = active_puzzle.id
@@ -814,6 +923,9 @@ func puzzle_input(value: int) -> void:
         play_story("ECHO_REWIND")
 
 func inspect_record() -> void:
+    if current=="SIL04":
+        open_keeper_promise_puzzle()
+        return
     var story_id: String = ""
     if current=="CAM02":
         story_id = "SURVEY_CAMP"
@@ -837,12 +949,8 @@ func inspect_record() -> void:
         var token: String = "WORLD:FIRST_RELEASE"
         if player.collect(token,8):
             state.flags.FIRST_RELEASE = true
-    if current=="SLU04":
-        state.flags.GARDEN_RESTORED = state.flags.get("SLUICE_OPEN",false)
     if current=="SUR03":
         state.flags.VAULT_MAP = state.flags.get("ARCHIVE_ALIGNED",false)
-    if current=="ROT03":
-        state.flags.GARDEN_RESTORED = state.flags.get("SLUICE_OPEN",false)
     if current=="REL04":
         state.flags.LOFT_RELAY = true
     if current=="WAR04":
@@ -871,6 +979,7 @@ func open_records() -> void:
                 evidence.append(str(landmark.id).replace("_"," ")+": "+str(landmark.get("story","")))
     if not evidence.is_empty():
         records += "\n\nObserved world clues\n"+"\n".join(evidence).left(540)
+    records += "\n\n"+SideStories.journal_text(state)
     panel("Field journal", "Current objective\n" + current_objective_text() + "\n\n" + records)
     choice("Return",close_panel)
 
@@ -1027,6 +1136,8 @@ func enemy_defeated(token: String, _at: Vector2) -> void:
     state.flags.FIRST_RELEASE=true
     actors = actors.filter(func(actor: CharacterBody2D) -> bool: return is_instance_valid(actor) and actor.token!=token)
     commit()
+    if token=="B05" and current=="FOL04":
+        refresh_collectibles()
     if token=="B06":
         play_story("FOLD_GUARDIAN")
 
@@ -1048,6 +1159,9 @@ func reset_attempt() -> void:
 func commit() -> void:
     if player.hp <= 0:
         return
+    var completed_stories: Array[String] = SideStories.refresh(state)
+    if not completed_stories.is_empty():
+        hint.text = "Optional story complete: " + ", ".join(completed_stories) + "\n" + hint.text
     state.generation=generation
     state.equipped=player.weapon_id
     player.weapon_states[player.weapon_id]={"heat":player.heat,"locked":player.overheated,"since":player.since_shot,"cooling":player.weapon_cooling}
@@ -1073,6 +1187,9 @@ func _draw() -> void:
     draw_circle(Vector2(440,280),8,Color("c5a572"))
     if rooms.has(current) and ("Rest" in rooms[current].services or current.begins_with("TOW")):
         draw_circle(Vector2(90,275),8,Color("56cdc4"))
+    if current=="FOL04" and not state.flags.get("PREDATOR_LATCH_SOLVED",false):
+        draw_circle(Vector2(530,244),8,Color("56cdc4"),false,3)
+        draw_line(Vector2(530,252),Vector2(530,270),Color("56cdc4"),2)
     for side: String in ["left","right"]:
         var exists: bool = false
         var unlocked: bool = false

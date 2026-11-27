@@ -48,12 +48,13 @@ func run_checks() -> void:
 	var initial_hp: float = sentinel.hp
 	sentinel.hit(10.0)
 	check(is_equal_approx(sentinel.hp,initial_hp), "Shielded Sentinel should reject hits during its tell")
-	var tell_position: float = sentinel.position.x
 	target.position = Vector2(100,280)
-	sentinel._physics_process(0.65)
+	sentinel.timer = 0.01
+	sentinel._physics_process(0.02)
 	sentinel._physics_process(0.1)
 	check(sentinel.state == "lunge", "Sentinel should commit to a lunge after its warning")
-	check(sentinel.position.x > tell_position+20.0, "Sentinel should charge along its locked direction, not track the moved target")
+	check(sentinel.committed > 0.0, "Sentinel should keep the direction selected when the charge was telegraphed")
+	check(is_equal_approx(sentinel.velocity.x, sentinel.committed*350.0), "Sentinel should charge along its locked direction, not track the moved target")
 	sentinel._physics_process(0.25)
 	check(sentinel.state == "recover", "Sentinel should expose a recovery window after charging")
 	sentinel.hit(10.0)

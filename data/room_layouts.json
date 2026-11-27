@@ -3,13 +3,21 @@
     "status": "working graybox specification",
     "version": 1,
     "coordinate_space": "640x360; origin top-left; platform x/y are center points",
-    "base_floor": { "center_x": 320, "top_y": 300, "width": 640, "height": 40 },
+    "base_floor": {
+      "center_x": 320,
+      "top_y": 300,
+      "width": 640,
+      "height": 40
+    },
     "player_movement_reference": {
       "run_speed": 150,
       "jump_velocity": -300,
       "air_jumps": 1,
       "gravity": 900,
-      "character_size": [18, 36],
+      "character_size": [
+        18,
+        36
+      ],
       "single_jump_apex_approx": 50,
       "double_jump_total_vertical_reach_approx": 96,
       "safe_same_height_jump_gap_target": 110
@@ -28,15 +36,57 @@
       "name": "Memorial Street",
       "purpose": "quiet opening; public Echo-release custom and Aster's solitary hunter identity",
       "biome_kit": "eldaran_town",
-      "entry_clearance": { "left": null, "right": { "x": [570, 640], "y": [244, 300], "connects_to": "TOW02" } },
+      "entry_clearance": {
+        "left": null,
+        "right": {
+          "x": [
+            570,
+            640
+          ],
+          "y": [
+            244,
+            300
+          ],
+          "connects_to": "TOW02"
+        }
+      },
       "platforms": [
-        { "id": "street_step_a", "x": 164, "y": 278, "width": 78, "height": 12 },
-        { "id": "street_step_b", "x": 262, "y": 258, "width": 66, "height": 12 }
+        {
+          "id": "street_step_a",
+          "x": 164,
+          "y": 278,
+          "width": 78,
+          "height": 12
+        },
+        {
+          "id": "street_step_b",
+          "x": 262,
+          "y": 258,
+          "width": 66,
+          "height": 12
+        }
       ],
       "landmarks": [
-        { "id": "release_memorial", "kind": "ceremony_focus", "x": 310, "y": 270, "story": "CIN01_TOWN" },
-        { "id": "AR01", "kind": "record_pickup_anchor", "x": 352, "y": 274, "story": "Release house custom" },
-        { "id": "street_lantern", "kind": "warm_light_source", "x": 470, "y": 224 }
+        {
+          "id": "release_memorial",
+          "kind": "ceremony_focus",
+          "x": 310,
+          "y": 270,
+          "story": "CIN01_TOWN"
+        },
+        {
+          "id": "AR01",
+          "kind": "record_pickup_anchor",
+          "x": 352,
+          "y": 274,
+          "story": "Release house custom"
+        },
+        {
+          "id": "street_lantern",
+          "kind": "warm_light_source",
+          "x": 470,
+          "y": 224
+        }
       ],
       "encounter_zones": [],
       "intended_route": "Walk from the memorial toward the lit town exit; no combat or vertical gate."
@@ -46,15 +96,67 @@
       "name": "Orphanage",
       "purpose": "Mira and Aster's childhood; personal memory before the guild briefing",
       "biome_kit": "eldaran_town",
-      "entry_clearance": { "left": { "x": [0, 70], "y": [244, 300], "connects_to": "TOW01" }, "right": { "x": [570, 640], "y": [244, 300], "connects_to": "TOW03" } },
+      "entry_clearance": {
+        "left": {
+          "x": [
+            0,
+            70
+          ],
+          "y": [
+            244,
+            300
+          ],
+          "connects_to": "TOW01"
+        },
+        "right": {
+          "x": [
+            570,
+            640
+          ],
+          "y": [
+            244,
+            300
+          ],
+          "connects_to": "TOW03"
+        }
+      },
       "platforms": [
-        { "id": "sleeping_loft", "x": 190, "y": 274, "width": 88, "height": 12 },
-        { "id": "window_ledge", "x": 412, "y": 255, "width": 82, "height": 12 }
+        {
+          "id": "sleeping_loft",
+          "x": 190,
+          "y": 274,
+          "width": 88,
+          "height": 12
+        },
+        {
+          "id": "window_ledge",
+          "x": 412,
+          "y": 255,
+          "width": 82,
+          "height": 12
+        }
       ],
       "landmarks": [
-        { "id": "mira_cot", "kind": "supporting_character", "x": 230, "y": 280, "story": "Mira" },
-        { "id": "aster_childhood_mark", "kind": "environmental_story", "x": 338, "y": 286, "story": "Aster's orphanage years" },
-        { "id": "window_dawn", "kind": "sightline", "x": 500, "y": 235 }
+        {
+          "id": "mira_cot",
+          "kind": "supporting_character",
+          "x": 230,
+          "y": 280,
+          "story": "Mira"
+        },
+        {
+          "id": "aster_childhood_mark",
+          "kind": "environmental_story",
+          "x": 338,
+          "y": 286,
+          "story": "Aster's orphanage years"
+        },
+        {
+          "id": "window_dawn",
+          "kind": "sightline",
+          "x": 500,
+          "y": 235
+        }
       ],
       "encounter_zones": [],
       "intended_route": "A short optional stop within the town loop; movement remains unchallenged."
@@ -64,16 +166,76 @@
       "name": "Guild Hall",
       "purpose": "team briefing, Riven's relic rumor, and the reason Aster chooses the expedition",
       "biome_kit": "eldaran_town",
-      "entry_clearance": { "left": { "x": [0, 70], "y": [244, 300], "connects_to": "TOW02" }, "right": { "x": [570, 640], "y": [244, 300], "connects_to": "TOW04", "gate": "BRIEFED" } },
+      "entry_clearance": {
+        "left": {
+          "x": [
+            0,
+            70
+          ],
+          "y": [
+            244,
+            300
+          ],
+          "connects_to": "TOW02"
+        },
+        "right": {
+          "x": [
+            570,
+            640
+          ],
+          "y": [
+            244,
+            300
+          ],
+          "connects_to": "TOW04",
+          "gate": "BRIEFED"
+        }
+      },
       "platforms": [
-        { "id": "briefing_dais", "x": 306, "y": 282, "width": 128, "height": 12 },
-        { "id": "gallery_step", "x": 172, "y": 260, "width": 72, "height": 12 }
+        {
+          "id": "briefing_dais",
+          "x": 306,
+          "y": 282,
+          "width": 128,
+          "height": 12
+        },
+        {
+          "id": "gallery_step",
+          "x": 172,
+          "y": 260,
+          "width": 72,
+          "height": 12
+        }
       ],
       "landmarks": [
-        { "id": "garran", "kind": "supporting_character", "x": 246, "y": 276, "story": "Guild leadership and expedition safety" },
-        { "id": "liora", "kind": "supporting_character", "x": 318, "y": 276, "story": "Survey records and route map" },
-        { "id": "riven", "kind": "supporting_character", "x": 384, "y": 276, "story": "Legendary team failed near Echo Rewind" },
-        { "id": "DAWN01", "kind": "record_pickup_anchor", "x": 430, "y": 276, "story": "Riven testimony" }
+        {
+          "id": "garran",
+          "kind": "supporting_character",
+          "x": 246,
+          "y": 276,
+          "story": "Guild leadership and expedition safety"
+        },
+        {
+          "id": "liora",
+          "kind": "supporting_character",
+          "x": 318,
+          "y": 276,
+          "story": "Survey records and route map"
+        },
+        {
+          "id": "riven",
+          "kind": "supporting_character",
+          "x": 384,
+          "y": 276,
+          "story": "Legendary team failed near Echo Rewind"
+        },
+        {
+          "id": "DAWN01",
+          "kind": "record_pickup_anchor",
+          "x": 430,
+          "y": 276,
+          "story": "Riven testimony"
+        }
       ],
       "encounter_zones": [],
       "intended_route": "Players can approach the three speakers separately; only the briefing console advances the gate flag."
@@ -83,15 +245,69 @@
       "name": "Artificer Yard",
       "purpose": "Bram teaches stored Echo Energy, heat, cooling, and the always-available blade",
       "biome_kit": "eldaran_town",
-      "entry_clearance": { "left": { "x": [0, 70], "y": [244, 300], "connects_to": "TOW03", "gate": "BRIEFED" }, "right": { "x": [570, 640], "y": [244, 300], "connects_to": "OUT01", "gate": "TUTORIAL_DONE & !WARP" } },
+      "entry_clearance": {
+        "left": {
+          "x": [
+            0,
+            70
+          ],
+          "y": [
+            244,
+            300
+          ],
+          "connects_to": "TOW03",
+          "gate": "BRIEFED"
+        },
+        "right": {
+          "x": [
+            570,
+            640
+          ],
+          "y": [
+            244,
+            300
+          ],
+          "connects_to": "OUT01",
+          "gate": "TUTORIAL_DONE & !WARP"
+        }
+      },
       "platforms": [
-        { "id": "parts_crate_a", "x": 188, "y": 278, "width": 84, "height": 12 },
-        { "id": "parts_crate_b", "x": 278, "y": 258, "width": 72, "height": 12 }
+        {
+          "id": "parts_crate_a",
+          "x": 188,
+          "y": 278,
+          "width": 84,
+          "height": 12
+        },
+        {
+          "id": "parts_crate_b",
+          "x": 278,
+          "y": 258,
+          "width": 72,
+          "height": 12
+        }
       ],
       "landmarks": [
-        { "id": "bram", "kind": "supporting_character", "x": 360, "y": 276, "story": "Energy and heat training" },
-        { "id": "workbench", "kind": "workbench", "x": 442, "y": 280 },
-        { "id": "test_receiver", "kind": "tutorial_console", "x": 320, "y": 276, "story": "Stored Echo Energy is spent to release weapon energy, not ammunition." }
+        {
+          "id": "bram",
+          "kind": "supporting_character",
+          "x": 360,
+          "y": 276,
+          "story": "Energy and heat training"
+        },
+        {
+          "id": "workbench",
+          "kind": "workbench",
+          "x": 442,
+          "y": 280
+        },
+        {
+          "id": "test_receiver",
+          "kind": "tutorial_console",
+          "x": 320,
+          "y": 276,
+          "story": "Stored Echo Energy is spent to release weapon energy, not ammunition."
+        }
       ],
       "encounter_zones": [],
       "intended_route": "Required tutorial interaction occurs beside Bram; a straight walk reaches the expedition exit."
@@ -101,15 +317,67 @@
       "name": "Trailhead",
       "purpose": "rest point and first readable world-map landmark outside town",
       "biome_kit": "eldaran_frontier",
-      "entry_clearance": { "left": { "x": [0, 70], "y": [244, 300], "connects_to": "TOW04", "gate": "TUTORIAL_DONE & !WARP" }, "right": { "x": [570, 640], "y": [244, 300], "connects_to": "OUT02" } },
+      "entry_clearance": {
+        "left": {
+          "x": [
+            0,
+            70
+          ],
+          "y": [
+            244,
+            300
+          ],
+          "connects_to": "TOW04",
+          "gate": "TUTORIAL_DONE & !WARP"
+        },
+        "right": {
+          "x": [
+            570,
+            640
+          ],
+          "y": [
+            244,
+            300
+          ],
+          "connects_to": "OUT02"
+        }
+      },
       "platforms": [
-        { "id": "trail_shelf", "x": 226, "y": 272, "width": 104, "height": 12 },
-        { "id": "sign_shelf", "x": 352, "y": 248, "width": 82, "height": 12 }
+        {
+          "id": "trail_shelf",
+          "x": 226,
+          "y": 272,
+          "width": 104,
+          "height": 12
+        },
+        {
+          "id": "sign_shelf",
+          "x": 352,
+          "y": 248,
+          "width": 82,
+          "height": 12
+        }
       ],
       "landmarks": [
-        { "id": "rest_tent", "kind": "rest_station", "x": 88, "y": 278 },
-        { "id": "trailhead_marker", "kind": "map_landmark", "x": 462, "y": 268, "story": "Map and trail orientation" },
-        { "id": "outer_wilds_sightline", "kind": "vista", "x": 525, "y": 230 }
+        {
+          "id": "rest_tent",
+          "kind": "rest_station",
+          "x": 88,
+          "y": 278
+        },
+        {
+          "id": "trailhead_marker",
+          "kind": "map_landmark",
+          "x": 462,
+          "y": 268,
+          "story": "Map and trail orientation"
+        },
+        {
+          "id": "outer_wilds_sightline",
+          "kind": "vista",
+          "x": 525,
+          "y": 230
+        }
       ],
       "encounter_zones": [],
       "intended_route": "Safe onboarding area. Rest marker and map landmark are distinct interactable silhouettes."
@@ -119,19 +387,90 @@
       "name": "Wild Crossing",
       "purpose": "first Forager encounter and first Echo collection; teach enemy drops and melee fallback",
       "biome_kit": "eldaran_frontier",
-      "entry_clearance": { "left": { "x": [0, 70], "y": [244, 300], "connects_to": "OUT01" }, "right": { "x": [570, 640], "y": [244, 300], "connects_to": ["OUT03", "OUT04"], "junction": true } },
+      "entry_clearance": {
+        "left": {
+          "x": [
+            0,
+            70
+          ],
+          "y": [
+            244,
+            300
+          ],
+          "connects_to": "OUT01"
+        },
+        "right": {
+          "x": [
+            570,
+            640
+          ],
+          "y": [
+            244,
+            300
+          ],
+          "connects_to": [
+            "OUT03",
+            "OUT04"
+          ],
+          "junction": true
+        }
+      },
       "platforms": [
-        { "id": "crossing_rock_a", "x": 170, "y": 274, "width": 76, "height": 12 },
-        { "id": "crossing_rock_b", "x": 264, "y": 246, "width": 70, "height": 12 },
-        { "id": "crossing_rock_c", "x": 368, "y": 274, "width": 76, "height": 12 }
+        {
+          "id": "crossing_rock_a",
+          "x": 170,
+          "y": 274,
+          "width": 76,
+          "height": 12
+        },
+        {
+          "id": "crossing_rock_b",
+          "x": 264,
+          "y": 246,
+          "width": 70,
+          "height": 12
+        },
+        {
+          "id": "crossing_rock_c",
+          "x": 368,
+          "y": 274,
+          "width": 76,
+          "height": 12
+        }
       ],
       "landmarks": [
-        { "id": "forager_territory", "kind": "encounter_landmark", "x": 430, "y": 274, "story": "First Echo Forager" },
-        { "id": "release_marker", "kind": "echo_release_focus", "x": 484, "y": 268, "story": "Collection safely releases the Echo into stored energy." },
-        { "id": "crossing_scar", "kind": "environmental_story", "x": 330, "y": 292, "story": "The route has older survey marks beneath the soil." }
+        {
+          "id": "forager_territory",
+          "kind": "encounter_landmark",
+          "x": 430,
+          "y": 274,
+          "story": "First Echo Forager"
+        },
+        {
+          "id": "release_marker",
+          "kind": "echo_release_focus",
+          "x": 484,
+          "y": 268,
+          "story": "Collection safely releases the Echo into stored energy."
+        },
+        {
+          "id": "crossing_scar",
+          "kind": "environmental_story",
+          "x": 330,
+          "y": 292,
+          "story": "The route has older survey marks beneath the soil."
+        }
       ],
       "encounter_zones": [
-        { "id": "first_forager", "enemy": "E01", "x": [385, 505], "purpose": "single enemy, visible approach and recovery after missed lunge" }
+        {
+          "id": "first_forager",
+          "enemy": "E01",
+          "x": [
+            385,
+            505
+          ],
+          "purpose": "single enemy, visible approach and recovery after missed lunge"
+        }
       ],
       "intended_route": "Teach the Forager's tell in a broad floor space; raised rocks are optional cover/positioning, not a required gate."
     },
@@ -140,17 +479,83 @@
       "name": "Bell Overlook",
       "purpose": "teach movement and establish a distant Sluice bell as a navigational clue",
       "biome_kit": "eldaran_frontier",
-      "entry_clearance": { "left": { "x": [0, 70], "y": [244, 300], "connects_to": "OUT02", "gate": "FIRST_RELEASE" }, "right": { "x": [570, 640], "y": [244, 300], "connects_to": "HUN01" } },
+      "entry_clearance": {
+        "left": {
+          "x": [
+            0,
+            70
+          ],
+          "y": [
+            244,
+            300
+          ],
+          "connects_to": "OUT02",
+          "gate": "FIRST_RELEASE"
+        },
+        "right": {
+          "x": [
+            570,
+            640
+          ],
+          "y": [
+            244,
+            300
+          ],
+          "connects_to": "HUN01"
+        }
+      },
       "platforms": [
-        { "id": "overlook_lower", "x": 154, "y": 276, "width": 74, "height": 12 },
-        { "id": "overlook_middle", "x": 250, "y": 250, "width": 72, "height": 12 },
-        { "id": "overlook_high", "x": 340, "y": 226, "width": 84, "height": 12 },
-        { "id": "overlook_return", "x": 468, "y": 266, "width": 70, "height": 12 }
+        {
+          "id": "overlook_lower",
+          "x": 154,
+          "y": 276,
+          "width": 74,
+          "height": 12
+        },
+        {
+          "id": "overlook_middle",
+          "x": 250,
+          "y": 250,
+          "width": 72,
+          "height": 12
+        },
+        {
+          "id": "overlook_high",
+          "x": 340,
+          "y": 226,
+          "width": 84,
+          "height": 12
+        },
+        {
+          "id": "overlook_return",
+          "x": 468,
+          "y": 266,
+          "width": 70,
+          "height": 12
+        }
       ],
       "landmarks": [
-        { "id": "sluice_bell_sightline", "kind": "distant_landmark", "x": 390, "y": 184, "story": "Visible Echo Sluice bell; use its silhouette to orient the route." },
-        { "id": "AR02", "kind": "record_pickup_anchor", "x": 336, "y": 210, "story": "Source and conduit marks" },
-        { "id": "survey_arrow", "kind": "environmental_clue", "x": 514, "y": 252, "story": "Old survey arrows continue toward Hunter's Reach." }
+        {
+          "id": "sluice_bell_sightline",
+          "kind": "distant_landmark",
+          "x": 390,
+          "y": 184,
+          "story": "Visible Echo Sluice bell; use its silhouette to orient the route."
+        },
+        {
+          "id": "AR02",
+          "kind": "record_pickup_anchor",
+          "x": 336,
+          "y": 210,
+          "story": "Source and conduit marks"
+        },
+        {
+          "id": "survey_arrow",
+          "kind": "environmental_clue",
+          "x": 514,
+          "y": 252,
+          "story": "Old survey arrows continue toward Hunter's Reach."
+        }
       ],
       "encounter_zones": [],
       "intended_route": "The player can climb to the overlook using double jump and descend to the right exit without crossing a mandatory vertical barrier."
@@ -160,20 +565,83 @@
       "name": "Hunter Cache",
       "purpose": "optional combat practice, supplies, and hidden memorial reward",
       "biome_kit": "eldaran_frontier",
-      "entry_clearance": { "left": { "x": [0, 70], "y": [244, 300], "connects_to": "OUT02" }, "right": null },
+      "entry_clearance": {
+        "left": {
+          "x": [
+            0,
+            70
+          ],
+          "y": [
+            244,
+            300
+          ],
+          "connects_to": "OUT02"
+        },
+        "right": null
+      },
       "platforms": [
-        { "id": "cache_lower", "x": 182, "y": 274, "width": 82, "height": 12 },
-        { "id": "cache_upper", "x": 286, "y": 240, "width": 76, "height": 12 },
-        { "id": "cache_hidden", "x": 448, "y": 220, "width": 74, "height": 12 }
+        {
+          "id": "cache_lower",
+          "x": 182,
+          "y": 274,
+          "width": 82,
+          "height": 12
+        },
+        {
+          "id": "cache_upper",
+          "x": 286,
+          "y": 240,
+          "width": 76,
+          "height": 12
+        },
+        {
+          "id": "cache_hidden",
+          "x": 448,
+          "y": 220,
+          "width": 74,
+          "height": 12
+        }
       ],
       "landmarks": [
-        { "id": "practice_target", "kind": "training_prop", "x": 205, "y": 278, "story": "Optional weapon practice" },
-        { "id": "MAP01", "kind": "collectible_anchor", "x": 308, "y": 226, "story": "Optional map annotation" },
-        { "id": "BP01", "kind": "collectible_anchor", "x": 468, "y": 206, "story": "Equipment blueprint" },
-        { "id": "MEM01", "kind": "hidden_memorial_anchor", "x": 548, "y": 286, "story": "Memorial discovered from a concealed side approach" }
+        {
+          "id": "practice_target",
+          "kind": "training_prop",
+          "x": 205,
+          "y": 278,
+          "story": "Optional weapon practice"
+        },
+        {
+          "id": "MAP01",
+          "kind": "collectible_anchor",
+          "x": 308,
+          "y": 226,
+          "story": "Optional map annotation"
+        },
+        {
+          "id": "BP01",
+          "kind": "collectible_anchor",
+          "x": 468,
+          "y": 206,
+          "story": "Equipment blueprint"
+        },
+        {
+          "id": "MEM01",
+          "kind": "hidden_memorial_anchor",
+          "x": 548,
+          "y": 286,
+          "story": "Memorial discovered from a concealed side approach"
+        }
       ],
       "encounter_zones": [
-        { "id": "cache_practice", "enemy": "E01", "x": [340, 435], "purpose": "optional practice fight with a return route" }
+        {
+          "id": "cache_practice",
+          "enemy": "E01",
+          "x": [
+            340,
+            435
+          ],
+          "purpose": "optional practice fight with a return route"
+        }
       ],
       "intended_route": "A high shelf signals the optional cache; keep collectibles reachable with double jump and avoid a one-way softlock."
     },
@@ -182,18 +650,79 @@
       "name": "Hunter Trail",
       "purpose": "territorial creature space; communicate that the dungeon ecosystem reacts to Echo use",
       "biome_kit": "eldaran_frontier",
-      "entry_clearance": { "left": { "x": [0, 70], "y": [244, 300], "connects_to": "OUT03" }, "right": { "x": [570, 640], "y": [244, 300], "connects_to": "HUN02" } },
+      "entry_clearance": {
+        "left": {
+          "x": [
+            0,
+            70
+          ],
+          "y": [
+            244,
+            300
+          ],
+          "connects_to": "OUT03"
+        },
+        "right": {
+          "x": [
+            570,
+            640
+          ],
+          "y": [
+            244,
+            300
+          ],
+          "connects_to": "HUN02"
+        }
+      },
       "platforms": [
-        { "id": "trail_ledge_a", "x": 156, "y": 268, "width": 92, "height": 12 },
-        { "id": "trail_ledge_b", "x": 285, "y": 240, "width": 80, "height": 12 },
-        { "id": "trail_ledge_c", "x": 420, "y": 268, "width": 92, "height": 12 }
+        {
+          "id": "trail_ledge_a",
+          "x": 156,
+          "y": 268,
+          "width": 92,
+          "height": 12
+        },
+        {
+          "id": "trail_ledge_b",
+          "x": 285,
+          "y": 240,
+          "width": 80,
+          "height": 12
+        },
+        {
+          "id": "trail_ledge_c",
+          "x": 420,
+          "y": 268,
+          "width": 92,
+          "height": 12
+        }
       ],
       "landmarks": [
-        { "id": "territorial_scratches", "kind": "environmental_clue", "x": 246, "y": 286, "story": "Claw marks and broken Echo husks warn of a territorial creature." },
-        { "id": "hunter_signage", "kind": "readable_sign", "x": 494, "y": 250, "story": "Guild signage points toward the survey route." }
+        {
+          "id": "territorial_scratches",
+          "kind": "environmental_clue",
+          "x": 246,
+          "y": 286,
+          "story": "Claw marks and broken Echo husks warn of a territorial creature."
+        },
+        {
+          "id": "hunter_signage",
+          "kind": "readable_sign",
+          "x": 494,
+          "y": 250,
+          "story": "Guild signage points toward the survey route."
+        }
       ],
       "encounter_zones": [
-        { "id": "territorial_pair", "enemy": "E01", "x": [315, 485], "purpose": "two spaced patrol paths; avoid unavoidable overlap" }
+        {
+          "id": "territorial_pair",
+          "enemy": "E01",
+          "x": [
+            315,
+            485
+          ],
+          "purpose": "two spaced patrol paths; avoid unavoidable overlap"
+        }
       ],
       "intended_route": "Enemy spacing leaves at least one visible retreat lane; evidence foreshadows stronger creatures after the Warp."
     },
@@ -202,20 +731,101 @@
       "name": "Split Walk",
       "purpose": "branch junction, future shortcut landing, and first spatial signs of a Warp",
       "biome_kit": "eldaran_frontier",
-      "entry_clearance": { "left": { "x": [0, 70], "y": [244, 300], "connects_to": ["HUN01", "SLU04"], "junction": true }, "right": { "x": [570, 640], "y": [244, 300], "connects_to": ["HUN03", "HUN04"], "junction": true } },
+      "entry_clearance": {
+        "left": {
+          "x": [
+            0,
+            70
+          ],
+          "y": [
+            244,
+            300
+          ],
+          "connects_to": [
+            "HUN01",
+            "SLU04"
+          ],
+          "junction": true
+        },
+        "right": {
+          "x": [
+            570,
+            640
+          ],
+          "y": [
+            244,
+            300
+          ],
+          "connects_to": [
+            "HUN03",
+            "HUN04"
+          ],
+          "junction": true
+        }
+      },
       "platforms": [
-        { "id": "split_lower_a", "x": 146, "y": 274, "width": 76, "height": 12 },
-        { "id": "split_upper_a", "x": 246, "y": 238, "width": 76, "height": 12 },
-        { "id": "split_center", "x": 354, "y": 260, "width": 84, "height": 12 },
-        { "id": "split_upper_b", "x": 474, "y": 230, "width": 84, "height": 12 }
+        {
+          "id": "split_lower_a",
+          "x": 146,
+          "y": 274,
+          "width": 76,
+          "height": 12
+        },
+        {
+          "id": "split_upper_a",
+          "x": 246,
+          "y": 238,
+          "width": 76,
+          "height": 12
+        },
+        {
+          "id": "split_center",
+          "x": 354,
+          "y": 260,
+          "width": 84,
+          "height": 12
+        },
+        {
+          "id": "split_upper_b",
+          "x": 474,
+          "y": 230,
+          "width": 84,
+          "height": 12
+        }
       ],
       "landmarks": [
-        { "id": "collapsed_arch", "kind": "future_shortcut_landing", "x": 106, "y": 280, "story": "Marks a route later reachable from the Echo Sluice." },
-        { "id": "split_stone", "kind": "warp_clue", "x": 354, "y": 248, "story": "A split stone carries misaligned symbols from another place." },
-        { "id": "trail_sign", "kind": "readable_sign", "x": 538, "y": 252, "story": "Right branch leads to the fracture; upper blind leads to optional evidence." }
+        {
+          "id": "collapsed_arch",
+          "kind": "future_shortcut_landing",
+          "x": 106,
+          "y": 280,
+          "story": "Marks a route later reachable from the Echo Sluice."
+        },
+        {
+          "id": "split_stone",
+          "kind": "warp_clue",
+          "x": 354,
+          "y": 248,
+          "story": "A split stone carries misaligned symbols from another place."
+        },
+        {
+          "id": "trail_sign",
+          "kind": "readable_sign",
+          "x": 538,
+          "y": 252,
+          "story": "Right branch leads to the fracture; upper blind leads to optional evidence."
+        }
       ],
       "encounter_zones": [
-        { "id": "split_patrol", "enemy": "E01", "x": [288, 374], "purpose": "single patrol; leave routes open" }
+        {
+          "id": "split_patrol",
+          "enemy": "E01",
+          "x": [
+            288,
+            374
+          ],
+          "purpose": "single patrol; leave routes open"
+        }
       ],
       "intended_route": "Branching routes are signposted. A short open path remains across the room; no branch requires a blind leap."
     },
@@ -224,17 +834,83 @@
       "name": "Fracture Crossing",
       "purpose": "Echo Warp event and visual proof that the old exit has collapsed",
       "biome_kit": "eldaran_frontier_warped",
-      "entry_clearance": { "left": { "x": [0, 70], "y": [244, 300], "connects_to": "HUN02" }, "right": { "x": [570, 640], "y": [244, 300], "connects_to": "CAM01", "gate": "WARP" } },
+      "entry_clearance": {
+        "left": {
+          "x": [
+            0,
+            70
+          ],
+          "y": [
+            244,
+            300
+          ],
+          "connects_to": "HUN02"
+        },
+        "right": {
+          "x": [
+            570,
+            640
+          ],
+          "y": [
+            244,
+            300
+          ],
+          "connects_to": "CAM01",
+          "gate": "WARP"
+        }
+      },
       "platforms": [
-        { "id": "fracture_shelf_a", "x": 152, "y": 268, "width": 78, "height": 12 },
-        { "id": "fracture_shelf_b", "x": 256, "y": 238, "width": 68, "height": 12 },
-        { "id": "fracture_shelf_c", "x": 370, "y": 260, "width": 82, "height": 12 },
-        { "id": "fracture_shelf_d", "x": 480, "y": 232, "width": 72, "height": 12 }
+        {
+          "id": "fracture_shelf_a",
+          "x": 152,
+          "y": 268,
+          "width": 78,
+          "height": 12
+        },
+        {
+          "id": "fracture_shelf_b",
+          "x": 256,
+          "y": 238,
+          "width": 68,
+          "height": 12
+        },
+        {
+          "id": "fracture_shelf_c",
+          "x": 370,
+          "y": 260,
+          "width": 82,
+          "height": 12
+        },
+        {
+          "id": "fracture_shelf_d",
+          "x": 480,
+          "y": 232,
+          "width": 72,
+          "height": 12
+        }
       ],
       "landmarks": [
-        { "id": "warp_seam", "kind": "story_event_focus", "x": 318, "y": 225, "story": "ECHO_WARP; violet space-time fault crosses the trail." },
-        { "id": "collapsed_exit", "kind": "blocked_route_sightline", "x": 588, "y": 270, "story": "The former route is folded shut; do not imply Aster could repair the large tear." },
-        { "id": "foreign_stone", "kind": "foreshadowing", "x": 404, "y": 286, "story": "A stone fragment carries a material and symbol unlike Eldara." }
+        {
+          "id": "warp_seam",
+          "kind": "story_event_focus",
+          "x": 318,
+          "y": 225,
+          "story": "ECHO_WARP; violet space-time fault crosses the trail."
+        },
+        {
+          "id": "collapsed_exit",
+          "kind": "blocked_route_sightline",
+          "x": 588,
+          "y": 270,
+          "story": "The former route is folded shut; do not imply Aster could repair the large tear."
+        },
+        {
+          "id": "foreign_stone",
+          "kind": "foreshadowing",
+          "x": 404,
+          "y": 286,
+          "story": "A stone fragment carries a material and symbol unlike Eldara."
+        }
       ],
       "encounter_zones": [],
       "intended_route": "The Warp is a scripted narrative transition, not a combat trap. After it, the broken return path is visibly sealed and the forward route reaches the stranded survey camp."
@@ -244,17 +920,72 @@
       "name": "Abandoned Blind",
       "purpose": "optional hunter log, map annotation, and environmental route inference",
       "biome_kit": "eldaran_frontier_warped",
-      "entry_clearance": { "left": { "x": [0, 70], "y": [244, 300], "connects_to": "HUN02" }, "right": null },
+      "entry_clearance": {
+        "left": {
+          "x": [
+            0,
+            70
+          ],
+          "y": [
+            244,
+            300
+          ],
+          "connects_to": "HUN02"
+        },
+        "right": null
+      },
       "platforms": [
-        { "id": "blind_low", "x": 162, "y": 272, "width": 82, "height": 12 },
-        { "id": "blind_mid", "x": 280, "y": 238, "width": 76, "height": 12 },
-        { "id": "blind_high", "x": 394, "y": 208, "width": 78, "height": 12 },
-        { "id": "blind_return", "x": 506, "y": 268, "width": 72, "height": 12 }
+        {
+          "id": "blind_low",
+          "x": 162,
+          "y": 272,
+          "width": 82,
+          "height": 12
+        },
+        {
+          "id": "blind_mid",
+          "x": 280,
+          "y": 238,
+          "width": 76,
+          "height": 12
+        },
+        {
+          "id": "blind_high",
+          "x": 394,
+          "y": 208,
+          "width": 78,
+          "height": 12
+        },
+        {
+          "id": "blind_return",
+          "x": 506,
+          "y": 268,
+          "width": 72,
+          "height": 12
+        }
       ],
       "landmarks": [
-        { "id": "DAWN02", "kind": "record_pickup_anchor", "x": 278, "y": 224, "story": "Trail departure report" },
-        { "id": "MAP02", "kind": "collectible_anchor", "x": 410, "y": 194, "story": "Optional map annotation" },
-        { "id": "blind_sightline", "kind": "environmental_clue", "x": 523, "y": 250, "story": "Old boot scuffs show the safe return path to Split Walk." }
+        {
+          "id": "DAWN02",
+          "kind": "record_pickup_anchor",
+          "x": 278,
+          "y": 224,
+          "story": "Trail departure report"
+        },
+        {
+          "id": "MAP02",
+          "kind": "collectible_anchor",
+          "x": 410,
+          "y": 194,
+          "story": "Optional map annotation"
+        },
+        {
+          "id": "blind_sightline",
+          "kind": "environmental_clue",
+          "x": 523,
+          "y": 250,
+          "story": "Old boot scuffs show the safe return path to Split Walk."
+        }
       ],
       "encounter_zones": [],
       "intended_route": "Use platform height to reward exploration. The entrance and return route stay on the base floor so the branch cannot trap the player."
@@ -264,15 +995,69 @@
       "name": "Camp Entrance",
       "purpose": "safe post-Warp rest point; evidence that the survey team left in a hurry",
       "biome_kit": "eldaran_frontier_camp",
-      "entry_clearance": { "left": { "x": [0, 70], "y": [244, 300], "connects_to": "HUN03", "gate": "WARP" }, "right": { "x": [570, 640], "y": [244, 300], "connects_to": "CAM02" } },
+      "entry_clearance": {
+        "left": {
+          "x": [
+            0,
+            70
+          ],
+          "y": [
+            244,
+            300
+          ],
+          "connects_to": "HUN03",
+          "gate": "WARP"
+        },
+        "right": {
+          "x": [
+            570,
+            640
+          ],
+          "y": [
+            244,
+            300
+          ],
+          "connects_to": "CAM02"
+        }
+      },
       "platforms": [
-        { "id": "camp_crate_step", "x": 184, "y": 278, "width": 80, "height": 12 },
-        { "id": "supply_tarp_ledge", "x": 352, "y": 260, "width": 96, "height": 12 }
+        {
+          "id": "camp_crate_step",
+          "x": 184,
+          "y": 278,
+          "width": 80,
+          "height": 12
+        },
+        {
+          "id": "supply_tarp_ledge",
+          "x": 352,
+          "y": 260,
+          "width": 96,
+          "height": 12
+        }
       ],
       "landmarks": [
-        { "id": "camp_rest", "kind": "rest_station", "x": 92, "y": 278, "story": "Survey camp rest point" },
-        { "id": "abandoned_field_cases", "kind": "environmental_clue", "x": 238, "y": 286, "story": "Open cases show tools were abandoned during the Warp rather than packed for a return journey." },
-        { "id": "folded_route_chart", "kind": "environmental_story", "x": 402, "y": 250, "story": "The camp chart repeats the bell, split rock and arch landmarks from the Dawn survey." }
+        {
+          "id": "camp_rest",
+          "kind": "rest_station",
+          "x": 92,
+          "y": 278,
+          "story": "Survey camp rest point"
+        },
+        {
+          "id": "abandoned_field_cases",
+          "kind": "environmental_clue",
+          "x": 238,
+          "y": 286,
+          "story": "Open cases show tools were abandoned during the Warp rather than packed for a return journey."
+        },
+        {
+          "id": "folded_route_chart",
+          "kind": "environmental_story",
+          "x": 402,
+          "y": 250,
+          "story": "The camp chart repeats the bell, split rock and arch landmarks from the Dawn survey."
+        }
       ],
       "encounter_zones": [],
       "intended_route": "Safe regrouping room after the Warp. Rest is easy to locate on entry; the route chart points toward the nearby survey records."
@@ -282,17 +1067,86 @@
       "name": "Map Tent",
       "purpose": "Dawn landmark records and the sketch needed to align the Survey Crossing",
       "biome_kit": "eldaran_frontier_camp",
-      "entry_clearance": { "left": { "x": [0, 70], "y": [244, 300], "connects_to": "CAM01" }, "right": { "x": [570, 640], "y": [244, 300], "connects_to": ["CAM03", "CAM04"], "junction": true } },
+      "entry_clearance": {
+        "left": {
+          "x": [
+            0,
+            70
+          ],
+          "y": [
+            244,
+            300
+          ],
+          "connects_to": "CAM01"
+        },
+        "right": {
+          "x": [
+            570,
+            640
+          ],
+          "y": [
+            244,
+            300
+          ],
+          "connects_to": [
+            "CAM03",
+            "CAM04"
+          ],
+          "junction": true
+        }
+      },
       "platforms": [
-        { "id": "tent_table_step", "x": 198, "y": 278, "width": 88, "height": 12 },
-        { "id": "chart_rack_ledge", "x": 338, "y": 250, "width": 84, "height": 12 },
-        { "id": "tent_roof_walk", "x": 478, "y": 270, "width": 80, "height": 12 }
+        {
+          "id": "tent_table_step",
+          "x": 198,
+          "y": 278,
+          "width": 88,
+          "height": 12
+        },
+        {
+          "id": "chart_rack_ledge",
+          "x": 338,
+          "y": 250,
+          "width": 84,
+          "height": 12
+        },
+        {
+          "id": "tent_roof_walk",
+          "x": 478,
+          "y": 270,
+          "width": 80,
+          "height": 12
+        }
       ],
       "landmarks": [
-        { "id": "AR03", "kind": "record_pickup_anchor", "x": 316, "y": 234, "story": "Shared sanctuary manufacture" },
-        { "id": "DAWN03", "kind": "record_pickup_anchor", "x": 386, "y": 234, "story": "Survey instruments and the Dawn map sketch" },
-        { "id": "map_table", "kind": "environmental_clue", "x": 252, "y": 270, "story": "The tent table holds the incomplete survey drawing; its landmarks must be checked against the field." },
-        { "id": "bell_sighting_notch", "kind": "distant_landmark", "x": 530, "y": 245, "story": "A notch in the tent frame aligns with the distant bell seen from OUT03." }
+        {
+          "id": "AR03",
+          "kind": "record_pickup_anchor",
+          "x": 316,
+          "y": 234,
+          "story": "Shared sanctuary manufacture"
+        },
+        {
+          "id": "DAWN03",
+          "kind": "record_pickup_anchor",
+          "x": 386,
+          "y": 234,
+          "story": "Survey instruments and the Dawn map sketch"
+        },
+        {
+          "id": "map_table",
+          "kind": "environmental_clue",
+          "x": 252,
+          "y": 270,
+          "story": "The tent table holds the incomplete survey drawing; its landmarks must be checked against the field."
+        },
+        {
+          "id": "bell_sighting_notch",
+          "kind": "distant_landmark",
+          "x": 530,
+          "y": 245,
+          "story": "A notch in the tent frame aligns with the distant bell seen from OUT03."
+        }
       ],
       "encounter_zones": [],
       "intended_route": "A left-to-right read exposes the table, then both records, then the two right-hand branches. The optional Lost Pack route is visually marked as a detour."
@@ -302,17 +1156,83 @@
       "name": "Survey Crossing",
       "purpose": "P02 aligns the Dawn sketch with the actual bell, split rock and camp arch",
       "biome_kit": "eldaran_frontier_camp",
-      "entry_clearance": { "left": { "x": [0, 70], "y": [244, 300], "connects_to": "CAM02" }, "right": { "x": [570, 640], "y": [244, 300], "connects_to": "SLU01", "gate": "MAP_ALIGNED" } },
+      "entry_clearance": {
+        "left": {
+          "x": [
+            0,
+            70
+          ],
+          "y": [
+            244,
+            300
+          ],
+          "connects_to": "CAM02"
+        },
+        "right": {
+          "x": [
+            570,
+            640
+          ],
+          "y": [
+            244,
+            300
+          ],
+          "connects_to": "SLU01",
+          "gate": "MAP_ALIGNED"
+        }
+      },
       "platforms": [
-        { "id": "survey_stone_left", "x": 150, "y": 274, "width": 92, "height": 12 },
-        { "id": "survey_origin_step", "x": 284, "y": 248, "width": 104, "height": 12 },
-        { "id": "survey_stone_right", "x": 442, "y": 274, "width": 92, "height": 12 }
+        {
+          "id": "survey_stone_left",
+          "x": 150,
+          "y": 274,
+          "width": 92,
+          "height": 12
+        },
+        {
+          "id": "survey_origin_step",
+          "x": 284,
+          "y": 248,
+          "width": 104,
+          "height": 12
+        },
+        {
+          "id": "survey_stone_right",
+          "x": 442,
+          "y": 274,
+          "width": 92,
+          "height": 12
+        }
       ],
       "landmarks": [
-        { "id": "survey_alignment_console", "kind": "tutorial_console", "x": 320, "y": 276, "story": "P02 map alignment terminal" },
-        { "id": "west_split_stone", "kind": "environmental_clue", "x": 164, "y": 258, "story": "A split rock sits west of the survey origin, matching the field drawing." },
-        { "id": "camp_arch_sightline", "kind": "environmental_clue", "x": 484, "y": 252, "story": "The camp arch forms the near reference point; the bell is the far eastern landmark." },
-        { "id": "route_to_sluice", "kind": "maintenance_route_marker", "x": 548, "y": 284, "story": "A maintenance line points onward to the Echo Sluice once the map is aligned." }
+        {
+          "id": "survey_alignment_console",
+          "kind": "tutorial_console",
+          "x": 320,
+          "y": 276,
+          "story": "P02 map alignment terminal"
+        },
+        {
+          "id": "west_split_stone",
+          "kind": "environmental_clue",
+          "x": 164,
+          "y": 258,
+          "story": "A split rock sits west of the survey origin, matching the field drawing."
+        },
+        {
+          "id": "camp_arch_sightline",
+          "kind": "environmental_clue",
+          "x": 484,
+          "y": 252,
+          "story": "The camp arch forms the near reference point; the bell is the far eastern landmark."
+        },
+        {
+          "id": "route_to_sluice",
+          "kind": "maintenance_route_marker",
+          "x": 548,
+          "y": 284,
+          "story": "A maintenance line points onward to the Echo Sluice once the map is aligned."
+        }
       ],
       "encounter_zones": [],
       "intended_route": "The player can walk among three visible survey landmarks. P02 is at center, but landmark evidence is distributed left and right so the puzzle is grounded in the room."
@@ -322,18 +1242,79 @@
       "name": "Lost Pack",
       "purpose": "optional Dawn report and torn-map alignment detour",
       "biome_kit": "eldaran_frontier_camp",
-      "entry_clearance": { "left": { "x": [0, 70], "y": [244, 300], "connects_to": "CAM02" }, "right": null },
+      "entry_clearance": {
+        "left": {
+          "x": [
+            0,
+            70
+          ],
+          "y": [
+            244,
+            300
+          ],
+          "connects_to": "CAM02"
+        },
+        "right": null
+      },
       "platforms": [
-        { "id": "pack_shelf_low", "x": 162, "y": 276, "width": 82, "height": 12 },
-        { "id": "pack_shelf_middle", "x": 282, "y": 244, "width": 76, "height": 12 },
-        { "id": "pack_shelf_high", "x": 412, "y": 216, "width": 86, "height": 12 },
-        { "id": "pack_return_shelf", "x": 518, "y": 270, "width": 76, "height": 12 }
+        {
+          "id": "pack_shelf_low",
+          "x": 162,
+          "y": 276,
+          "width": 82,
+          "height": 12
+        },
+        {
+          "id": "pack_shelf_middle",
+          "x": 282,
+          "y": 244,
+          "width": 76,
+          "height": 12
+        },
+        {
+          "id": "pack_shelf_high",
+          "x": 412,
+          "y": 216,
+          "width": 86,
+          "height": 12
+        },
+        {
+          "id": "pack_return_shelf",
+          "x": 518,
+          "y": 270,
+          "width": 76,
+          "height": 12
+        }
       ],
       "landmarks": [
-        { "id": "DAWN04", "kind": "record_pickup_anchor", "x": 282, "y": 230, "story": "Lost pack report" },
-        { "id": "MAP03", "kind": "collectible_anchor", "x": 420, "y": 202, "story": "Optional map annotation" },
-        { "id": "empty_pack_frame", "kind": "environmental_story", "x": 184, "y": 282, "story": "The pack's contents were spread across the camp; the remaining map scrap aligns with the bell silhouette." },
-        { "id": "side_cache", "kind": "environmental_clue", "x": 544, "y": 282, "story": "A scuff mark on the far wall hints at a small side cache." }
+        {
+          "id": "DAWN04",
+          "kind": "record_pickup_anchor",
+          "x": 282,
+          "y": 230,
+          "story": "Lost pack report"
+        },
+        {
+          "id": "MAP03",
+          "kind": "collectible_anchor",
+          "x": 420,
+          "y": 202,
+          "story": "Optional map annotation"
+        },
+        {
+          "id": "empty_pack_frame",
+          "kind": "environmental_story",
+          "x": 184,
+          "y": 282,
+          "story": "The pack's contents were spread across the camp; the remaining map scrap aligns with the bell silhouette."
+        },
+        {
+          "id": "side_cache",
+          "kind": "environmental_clue",
+          "x": 544,
+          "y": 282,
+          "story": "A scuff mark on the far wall hints at a small side cache."
+        }
       ],
       "encounter_zones": [],
       "intended_route": "Optional vertical sweep rewards double jump and observation. Keep a continuous ground return lane to CAM02."
@@ -343,17 +1324,83 @@
       "name": "Conduit Entry",
       "purpose": "rest point, teach the Echo water source symbol and establish Sluice circulation",
       "biome_kit": "rootspan_waterways",
-      "entry_clearance": { "left": { "x": [0, 70], "y": [244, 300], "connects_to": "CAM03", "gate": "MAP_ALIGNED" }, "right": { "x": [570, 640], "y": [244, 300], "connects_to": "SLU02" } },
+      "entry_clearance": {
+        "left": {
+          "x": [
+            0,
+            70
+          ],
+          "y": [
+            244,
+            300
+          ],
+          "connects_to": "CAM03",
+          "gate": "MAP_ALIGNED"
+        },
+        "right": {
+          "x": [
+            570,
+            640
+          ],
+          "y": [
+            244,
+            300
+          ],
+          "connects_to": "SLU02"
+        }
+      },
       "platforms": [
-        { "id": "conduit_bank_low", "x": 174, "y": 278, "width": 92, "height": 12 },
-        { "id": "source_plinth_shelf", "x": 334, "y": 250, "width": 94, "height": 12 },
-        { "id": "waterline_step", "x": 468, "y": 274, "width": 80, "height": 12 }
+        {
+          "id": "conduit_bank_low",
+          "x": 174,
+          "y": 278,
+          "width": 92,
+          "height": 12
+        },
+        {
+          "id": "source_plinth_shelf",
+          "x": 334,
+          "y": 250,
+          "width": 94,
+          "height": 12
+        },
+        {
+          "id": "waterline_step",
+          "x": 468,
+          "y": 274,
+          "width": 80,
+          "height": 12
+        }
       ],
       "landmarks": [
-        { "id": "sluice_rest", "kind": "rest_station", "x": 92, "y": 278, "story": "Sluice entrance rest point" },
-        { "id": "AR04", "kind": "record_pickup_anchor", "x": 254, "y": 238, "story": "Water circulation purpose" },
-        { "id": "echo_source_symbol", "kind": "readable_sign", "x": 354, "y": 234, "story": "The source mark shows Echo flow returning through the old water channel." },
-        { "id": "flow_gauge", "kind": "environmental_clue", "x": 494, "y": 260, "story": "The gauge is empty beyond this point, showing the bridge conductors are still inactive." }
+        {
+          "id": "sluice_rest",
+          "kind": "rest_station",
+          "x": 92,
+          "y": 278,
+          "story": "Sluice entrance rest point"
+        },
+        {
+          "id": "AR04",
+          "kind": "record_pickup_anchor",
+          "x": 254,
+          "y": 238,
+          "story": "Water circulation purpose"
+        },
+        {
+          "id": "echo_source_symbol",
+          "kind": "readable_sign",
+          "x": 354,
+          "y": 234,
+          "story": "The source mark shows Echo flow returning through the old water channel."
+        },
+        {
+          "id": "flow_gauge",
+          "kind": "environmental_clue",
+          "x": 494,
+          "y": 260,
+          "story": "The gauge is empty beyond this point, showing the bridge conductors are still inactive."
+        }
       ],
       "encounter_zones": [],
       "intended_route": "The rest point is immediately reachable. Source and gauge landmarks teach what the next room's P01 will restore."
@@ -363,18 +1410,104 @@
       "name": "Conductor Gallery",
       "purpose": "P01 world-scale sequence: activate Root Arch, Hanging Bell, then center Split Stone",
       "biome_kit": "rootspan_waterways",
-      "entry_clearance": { "left": { "x": [0, 70], "y": [244, 300], "connects_to": "SLU01" }, "right": { "x": [570, 640], "y": [244, 300], "connects_to": ["SLU03", "SLU04"], "junction": true }, "branch": { "x": [570, 640], "y": [244, 300], "connects_to": "SLU04" } },
+      "entry_clearance": {
+        "left": {
+          "x": [
+            0,
+            70
+          ],
+          "y": [
+            244,
+            300
+          ],
+          "connects_to": "SLU01"
+        },
+        "right": {
+          "x": [
+            570,
+            640
+          ],
+          "y": [
+            244,
+            300
+          ],
+          "connects_to": [
+            "SLU03",
+            "SLU04"
+          ],
+          "junction": true
+        },
+        "branch": {
+          "x": [
+            570,
+            640
+          ],
+          "y": [
+            244,
+            300
+          ],
+          "connects_to": "SLU04"
+        }
+      },
       "platforms": [
-        { "id": "root_arch_ledge", "x": 162, "y": 274, "width": 84, "height": 12 },
-        { "id": "hanging_bell_walk", "x": 286, "y": 244, "width": 88, "height": 12 },
-        { "id": "center_split_plinth", "x": 404, "y": 266, "width": 94, "height": 12 }
+        {
+          "id": "root_arch_ledge",
+          "x": 162,
+          "y": 274,
+          "width": 84,
+          "height": 12
+        },
+        {
+          "id": "hanging_bell_walk",
+          "x": 286,
+          "y": 244,
+          "width": 88,
+          "height": 12
+        },
+        {
+          "id": "center_split_plinth",
+          "x": 404,
+          "y": 266,
+          "width": 94,
+          "height": 12
+        }
       ],
       "landmarks": [
-        { "id": "AR05", "kind": "record_pickup_anchor", "x": 292, "y": 230, "story": "Conductor order" },
-        { "id": "root_arch_conductor", "kind": "environmental_clue", "x": 160, "y": 258, "story": "A pulse from the Root Arch arrives first." },
-        { "id": "hanging_bell_conductor", "kind": "environmental_clue", "x": 286, "y": 228, "story": "The Hanging Bell answers after the arch." },
-        { "id": "split_stone_conductor", "kind": "environmental_clue", "x": 418, "y": 250, "story": "The damaged center plinth carries the final conductor mark." },
-        { "id": "sluice_console", "kind": "tutorial_console", "x": 330, "y": 278, "story": "P01 restores bridge flow and exposes the route to the Warden." }
+        {
+          "id": "AR05",
+          "kind": "record_pickup_anchor",
+          "x": 292,
+          "y": 230,
+          "story": "Conductor order"
+        },
+        {
+          "id": "root_arch_conductor",
+          "kind": "environmental_clue",
+          "x": 160,
+          "y": 258,
+          "story": "A pulse from the Root Arch arrives first."
+        },
+        {
+          "id": "hanging_bell_conductor",
+          "kind": "environmental_clue",
+          "x": 286,
+          "y": 228,
+          "story": "The Hanging Bell answers after the arch."
+        },
+        {
+          "id": "split_stone_conductor",
+          "kind": "environmental_clue",
+          "x": 418,
+          "y": 250,
+          "story": "The damaged center plinth carries the final conductor mark."
+        },
+        {
+          "id": "sluice_console",
+          "kind": "tutorial_console",
+          "x": 330,
+          "y": 278,
+          "story": "P01 restores bridge flow and exposes the route to the Warden."
+        }
       ],
       "encounter_zones": [],
       "intended_route": "The three conductor landmarks run left-to-right in the actual puzzle order. The optional spillway branch and locked Warden route share the right doorway but remain distinct route choices."
@@ -384,19 +1517,88 @@
       "name": "Relic Watch",
       "purpose": "Sluice Warden arena; test the restored Echo flow under pressure",
       "biome_kit": "rootspan_waterways",
-      "entry_clearance": { "left": { "x": [0, 70], "y": [244, 300], "connects_to": "SLU02", "gate": "SLUICE_OPEN" }, "right": { "x": [570, 640], "y": [244, 300], "connects_to": "ROT01", "gate": "WARDEN_DOWN" } },
+      "entry_clearance": {
+        "left": {
+          "x": [
+            0,
+            70
+          ],
+          "y": [
+            244,
+            300
+          ],
+          "connects_to": "SLU02",
+          "gate": "SLUICE_OPEN"
+        },
+        "right": {
+          "x": [
+            570,
+            640
+          ],
+          "y": [
+            244,
+            300
+          ],
+          "connects_to": "ROT01",
+          "gate": "WARDEN_DOWN"
+        }
+      },
       "platforms": [
-        { "id": "arena_reed_step_left", "x": 168, "y": 276, "width": 84, "height": 12 },
-        { "id": "arena_crown_ledge", "x": 320, "y": 244, "width": 92, "height": 12 },
-        { "id": "arena_reed_step_right", "x": 470, "y": 276, "width": 84, "height": 12 }
+        {
+          "id": "arena_reed_step_left",
+          "x": 168,
+          "y": 276,
+          "width": 84,
+          "height": 12
+        },
+        {
+          "id": "arena_crown_ledge",
+          "x": 320,
+          "y": 244,
+          "width": 92,
+          "height": 12
+        },
+        {
+          "id": "arena_reed_step_right",
+          "x": 470,
+          "y": 276,
+          "width": 84,
+          "height": 12
+        }
       ],
       "landmarks": [
-        { "id": "sluice_warden_scar", "kind": "encounter_landmark", "x": 320, "y": 286, "story": "The guardian's stone hands have gouged twin arcs into the arena floor." },
-        { "id": "arena_flow_return", "kind": "environmental_clue", "x": 112, "y": 286, "story": "The restored current flows beneath the watch platform toward Rootspan." },
-        { "id": "broken_watch_arch", "kind": "foreshadowing", "x": 536, "y": 254, "story": "The arch is damaged, but the route only stabilizes after the guardian is defeated." }
+        {
+          "id": "sluice_warden_scar",
+          "kind": "encounter_landmark",
+          "x": 320,
+          "y": 286,
+          "story": "The guardian's stone hands have gouged twin arcs into the arena floor."
+        },
+        {
+          "id": "arena_flow_return",
+          "kind": "environmental_clue",
+          "x": 112,
+          "y": 286,
+          "story": "The restored current flows beneath the watch platform toward Rootspan."
+        },
+        {
+          "id": "broken_watch_arch",
+          "kind": "foreshadowing",
+          "x": 536,
+          "y": 254,
+          "story": "The arch is damaged, but the route only stabilizes after the guardian is defeated."
+        }
       ],
       "encounter_zones": [
-        { "id": "sluice_warden_arena", "enemy": "B01", "x": [262, 500], "purpose": "wide duel lane; telegraphed slams and shockwaves can be jumped, then punish the recovery" }
+        {
+          "id": "sluice_warden_arena",
+          "enemy": "B01",
+          "x": [
+            262,
+            500
+          ],
+          "purpose": "wide duel lane; telegraphed slams and shockwaves can be jumped, then punish the recovery"
+        }
       ],
       "intended_route": "Wide, mostly level boss floor keeps the Warden's wind-up and twin shockwaves readable. Side ledges are optional positioning routes, never required dodges."
     },
@@ -405,17 +1607,84 @@
       "name": "Spillway",
       "purpose": "optional valve, bridge observation and shortcut back to Hunter's Reach",
       "biome_kit": "rootspan_waterways",
-      "entry_clearance": { "left": { "x": [0, 70], "y": [244, 300], "connects_to": "SLU02" }, "right": { "x": [570, 640], "y": [244, 300], "connects_to": "HUN02", "gate": "SLUICE_OPEN", "shortcut": true } },
+      "entry_clearance": {
+        "left": {
+          "x": [
+            0,
+            70
+          ],
+          "y": [
+            244,
+            300
+          ],
+          "connects_to": "SLU02"
+        },
+        "right": {
+          "x": [
+            570,
+            640
+          ],
+          "y": [
+            244,
+            300
+          ],
+          "connects_to": "HUN02",
+          "gate": "SLUICE_OPEN",
+          "shortcut": true
+        }
+      },
       "platforms": [
-        { "id": "spillway_basin_step", "x": 168, "y": 276, "width": 90, "height": 12 },
-        { "id": "valve_platform", "x": 300, "y": 238, "width": 88, "height": 12 },
-        { "id": "spillway_return_shelf", "x": 434, "y": 268, "width": 96, "height": 12 }
+        {
+          "id": "spillway_basin_step",
+          "x": 168,
+          "y": 276,
+          "width": 90,
+          "height": 12
+        },
+        {
+          "id": "valve_platform",
+          "x": 300,
+          "y": 238,
+          "width": 88,
+          "height": 12
+        },
+        {
+          "id": "spillway_return_shelf",
+          "x": 434,
+          "y": 268,
+          "width": 96,
+          "height": 12
+        }
       ],
       "landmarks": [
-        { "id": "DAWN05", "kind": "record_pickup_anchor", "x": 300, "y": 224, "story": "Bridge observations" },
-        { "id": "BP02", "kind": "collectible_anchor", "x": 456, "y": 252, "story": "Equipment blueprint" },
-        { "id": "spillway_valve", "kind": "environmental_puzzle", "x": 300, "y": 226, "story": "A manual valve can redirect the restored flow toward the old Hunter's Reach drain." },
-        { "id": "return_channel", "kind": "shortcut_marker", "x": 540, "y": 280, "story": "A low water channel leads back to Split Walk after the Sluice is active." }
+        {
+          "id": "DAWN05",
+          "kind": "record_pickup_anchor",
+          "x": 300,
+          "y": 224,
+          "story": "Bridge observations"
+        },
+        {
+          "id": "BP02",
+          "kind": "collectible_anchor",
+          "x": 456,
+          "y": 252,
+          "story": "Equipment blueprint"
+        },
+        {
+          "id": "spillway_valve",
+          "kind": "environmental_puzzle",
+          "x": 300,
+          "y": 226,
+          "story": "A manual valve can redirect the restored flow toward the old Hunter's Reach drain."
+        },
+        {
+          "id": "return_channel",
+          "kind": "shortcut_marker",
+          "x": 540,
+          "y": 280,
+          "story": "A low water channel leads back to Split Walk after the Sluice is active."
+        }
       ],
       "encounter_zones": [],
       "intended_route": "Optional loop. Climb to the valve and record; the right shortcut is visible but remains unavailable until P01 restores flow."
@@ -425,15 +1694,69 @@
       "name": "Root Bridge",
       "purpose": "rest station and vista over the bridge raised by the Sluice",
       "biome_kit": "rootspan_canopy",
-      "entry_clearance": { "left": { "x": [0, 70], "y": [244, 300], "connects_to": "SLU03", "gate": "WARDEN_DOWN" }, "right": { "x": [570, 640], "y": [244, 300], "connects_to": "ROT02" } },
+      "entry_clearance": {
+        "left": {
+          "x": [
+            0,
+            70
+          ],
+          "y": [
+            244,
+            300
+          ],
+          "connects_to": "SLU03",
+          "gate": "WARDEN_DOWN"
+        },
+        "right": {
+          "x": [
+            570,
+            640
+          ],
+          "y": [
+            244,
+            300
+          ],
+          "connects_to": "ROT02"
+        }
+      },
       "platforms": [
-        { "id": "root_bridge_landing", "x": 222, "y": 272, "width": 112, "height": 12 },
-        { "id": "bridge_view_step", "x": 390, "y": 246, "width": 92, "height": 12 }
+        {
+          "id": "root_bridge_landing",
+          "x": 222,
+          "y": 272,
+          "width": 112,
+          "height": 12
+        },
+        {
+          "id": "bridge_view_step",
+          "x": 390,
+          "y": 246,
+          "width": 92,
+          "height": 12
+        }
       ],
       "landmarks": [
-        { "id": "root_rest", "kind": "rest_station", "x": 92, "y": 278, "story": "Rootspan rest point" },
-        { "id": "sluice_bridge_vista", "kind": "vista", "x": 390, "y": 230, "story": "The raised bridge follows the water restored in Echo Sluice." },
-        { "id": "canopy_route", "kind": "readable_sign", "x": 516, "y": 270, "story": "Guild trail marks point upward along the canopy route." }
+        {
+          "id": "root_rest",
+          "kind": "rest_station",
+          "x": 92,
+          "y": 278,
+          "story": "Rootspan rest point"
+        },
+        {
+          "id": "sluice_bridge_vista",
+          "kind": "vista",
+          "x": 390,
+          "y": 230,
+          "story": "The raised bridge follows the water restored in Echo Sluice."
+        },
+        {
+          "id": "canopy_route",
+          "kind": "readable_sign",
+          "x": 516,
+          "y": 270,
+          "story": "Guild trail marks point upward along the canopy route."
+        }
       ],
       "encounter_zones": [],
       "intended_route": "Rest point gives a safe start after the Warden. The bridge vista establishes water flow as a visible world consequence."
@@ -443,18 +1766,110 @@
       "name": "Canopy Walk",
       "purpose": "vertical traversal room, optional Titan branch and later loft shortcut junction",
       "biome_kit": "rootspan_canopy",
-      "entry_clearance": { "left": { "x": [0, 70], "y": [244, 300], "connects_to": ["ROT01", "REL04"], "junction": true }, "right": { "x": [570, 640], "y": [244, 300], "connects_to": ["ROT03", "ROT04"], "junction": true }, "shortcut_left": { "x": [0, 70], "y": [244, 300], "connects_to": "REL04", "gate": "LOFT_RELAY", "shortcut": true } },
+      "entry_clearance": {
+        "left": {
+          "x": [
+            0,
+            70
+          ],
+          "y": [
+            244,
+            300
+          ],
+          "connects_to": [
+            "ROT01",
+            "REL04"
+          ],
+          "junction": true
+        },
+        "right": {
+          "x": [
+            570,
+            640
+          ],
+          "y": [
+            244,
+            300
+          ],
+          "connects_to": [
+            "ROT03",
+            "ROT04"
+          ],
+          "junction": true
+        },
+        "shortcut_left": {
+          "x": [
+            0,
+            70
+          ],
+          "y": [
+            244,
+            300
+          ],
+          "connects_to": "REL04",
+          "gate": "LOFT_RELAY",
+          "shortcut": true
+        }
+      },
       "platforms": [
-        { "id": "canopy_root_step", "x": 144, "y": 276, "width": 78, "height": 12 },
-        { "id": "canopy_mid_a", "x": 246, "y": 246, "width": 78, "height": 12 },
-        { "id": "canopy_high", "x": 352, "y": 212, "width": 86, "height": 12 },
-        { "id": "canopy_mid_b", "x": 460, "y": 244, "width": 84, "height": 12 }
+        {
+          "id": "canopy_root_step",
+          "x": 144,
+          "y": 276,
+          "width": 78,
+          "height": 12
+        },
+        {
+          "id": "canopy_mid_a",
+          "x": 246,
+          "y": 246,
+          "width": 78,
+          "height": 12
+        },
+        {
+          "id": "canopy_high",
+          "x": 352,
+          "y": 212,
+          "width": 86,
+          "height": 12
+        },
+        {
+          "id": "canopy_mid_b",
+          "x": 460,
+          "y": 244,
+          "width": 84,
+          "height": 12
+        }
       ],
       "landmarks": [
-        { "id": "canopy_root_marks", "kind": "environmental_clue", "x": 246, "y": 232, "story": "Water-worn root marks continue upward toward the garden canopy." },
-        { "id": "upper_garden_sightline", "kind": "distant_landmark", "x": 360, "y": 194, "story": "A green opening toward Water Garden is visible above the walkway." },
-        { "id": "moss_hollow_sign", "kind": "readable_sign", "x": 514, "y": 228, "story": "A carved moss symbol marks the optional hollow; the guardian seal remains closed until the Warden falls." },
-        { "id": "loft_shortcut_socket", "kind": "shortcut_marker", "x": 92, "y": 278, "story": "A high relay socket can later connect this path to the Reliquary loft." }
+        {
+          "id": "canopy_root_marks",
+          "kind": "environmental_clue",
+          "x": 246,
+          "y": 232,
+          "story": "Water-worn root marks continue upward toward the garden canopy."
+        },
+        {
+          "id": "upper_garden_sightline",
+          "kind": "distant_landmark",
+          "x": 360,
+          "y": 194,
+          "story": "A green opening toward Water Garden is visible above the walkway."
+        },
+        {
+          "id": "moss_hollow_sign",
+          "kind": "readable_sign",
+          "x": 514,
+          "y": 228,
+          "story": "A carved moss symbol marks the optional hollow; the guardian seal remains closed until the Warden falls."
+        },
+        {
+          "id": "loft_shortcut_socket",
+          "kind": "shortcut_marker",
+          "x": 92,
+          "y": 278,
+          "story": "A high relay socket can later connect this path to the Reliquary loft."
+        }
       ],
       "encounter_zones": [],
       "intended_route": "A stepped climb that is reachable with the campaign's jump plus one air jump. Right-side branch opens toward either Water Garden or the optional guardian-sealed Moss Hollow."
@@ -464,19 +1879,113 @@
       "name": "Water Garden",
       "purpose": "optional local water restoration, ecosystem clue, health shard and memorial",
       "biome_kit": "rootspan_canopy",
-      "entry_clearance": { "left": { "x": [0, 70], "y": [244, 300], "connects_to": "ROT02" }, "right": { "x": [570, 640], "y": [244, 300], "connects_to": ["REL01", "SLU02"], "junction": true }, "shortcut_right": { "x": [570, 640], "y": [244, 300], "connects_to": "SLU02", "gate": "GARDEN_RESTORED", "shortcut": true } },
+      "entry_clearance": {
+        "left": {
+          "x": [
+            0,
+            70
+          ],
+          "y": [
+            244,
+            300
+          ],
+          "connects_to": "ROT02"
+        },
+        "right": {
+          "x": [
+            570,
+            640
+          ],
+          "y": [
+            244,
+            300
+          ],
+          "connects_to": [
+            "REL01",
+            "SLU02"
+          ],
+          "junction": true
+        },
+        "shortcut_right": {
+          "x": [
+            570,
+            640
+          ],
+          "y": [
+            244,
+            300
+          ],
+          "connects_to": "SLU02",
+          "gate": "GARDEN_RESTORED",
+          "shortcut": true
+        }
+      },
       "platforms": [
-        { "id": "garden_bank_left", "x": 152, "y": 274, "width": 84, "height": 12 },
-        { "id": "garden_spring_step", "x": 280, "y": 242, "width": 90, "height": 12 },
-        { "id": "garden_memorial_shelf", "x": 418, "y": 220, "width": 86, "height": 12 },
-        { "id": "garden_bank_right", "x": 516, "y": 274, "width": 82, "height": 12 }
+        {
+          "id": "garden_bank_left",
+          "x": 152,
+          "y": 274,
+          "width": 84,
+          "height": 12
+        },
+        {
+          "id": "garden_spring_step",
+          "x": 280,
+          "y": 242,
+          "width": 90,
+          "height": 12
+        },
+        {
+          "id": "garden_memorial_shelf",
+          "x": 418,
+          "y": 220,
+          "width": 86,
+          "height": 12
+        },
+        {
+          "id": "garden_bank_right",
+          "x": 516,
+          "y": 274,
+          "width": 82,
+          "height": 12
+        }
       ],
       "landmarks": [
-        { "id": "garden_source", "kind": "environmental_puzzle", "x": 278, "y": 228, "story": "A dry basin has a clear inlet that matches the restored Sluice channel." },
-        { "id": "AR06", "kind": "record_pickup_anchor", "x": 364, "y": 228, "story": "Garden ecosystem" },
-        { "id": "HP01", "kind": "collectible_anchor", "x": 430, "y": 206, "story": "+10 max HP" },
-        { "id": "MEM02", "kind": "hidden_memorial_anchor", "x": 536, "y": 280, "story": "Hidden memorial" },
-        { "id": "garden_outlet", "kind": "environmental_clue", "x": 554, "y": 280, "story": "When the garden valve is restored, its overflow reveals the return shortcut to the Sluice." }
+        {
+          "id": "garden_source",
+          "kind": "environmental_puzzle",
+          "x": 278,
+          "y": 228,
+          "story": "A dry basin has a clear inlet that matches the restored Sluice channel."
+        },
+        {
+          "id": "AR06",
+          "kind": "record_pickup_anchor",
+          "x": 364,
+          "y": 228,
+          "story": "Garden ecosystem"
+        },
+        {
+          "id": "HP01",
+          "kind": "collectible_anchor",
+          "x": 430,
+          "y": 206,
+          "story": "+10 max HP"
+        },
+        {
+          "id": "MEM02",
+          "kind": "hidden_memorial_anchor",
+          "x": 536,
+          "y": 280,
+          "story": "Hidden memorial"
+        },
+        {
+          "id": "garden_outlet",
+          "kind": "environmental_clue",
+          "x": 554,
+          "y": 280,
+          "story": "When the garden valve is restored, its overflow reveals the return shortcut to the Sluice."
+        }
       ],
       "encounter_zones": [],
       "intended_route": "Optional water-cause-and-effect area. The health shard is placed on a reachable elevated shelf, while the memorial rewards inspecting the far bank; shortcut only becomes available after the local restoration action."
@@ -486,21 +1995,3932 @@
       "name": "Moss Hollow",
       "purpose": "optional Mossbound Titan encounter and sealed map-scrap reward",
       "biome_kit": "rootspan_canopy",
-      "entry_clearance": { "left": { "x": [0, 70], "y": [244, 300], "connects_to": "ROT02", "gate": "WARDEN_DOWN" }, "right": null },
+      "entry_clearance": {
+        "left": {
+          "x": [
+            0,
+            70
+          ],
+          "y": [
+            244,
+            300
+          ],
+          "connects_to": "ROT02",
+          "gate": "WARDEN_DOWN"
+        },
+        "right": null
+      },
       "platforms": [
-        { "id": "hollow_basin_step", "x": 150, "y": 276, "width": 82, "height": 12 },
-        { "id": "hollow_root_ledge", "x": 286, "y": 246, "width": 90, "height": 12 },
-        { "id": "hollow_spore_shelf", "x": 434, "y": 270, "width": 92, "height": 12 }
+        {
+          "id": "hollow_basin_step",
+          "x": 150,
+          "y": 276,
+          "width": 82,
+          "height": 12
+        },
+        {
+          "id": "hollow_root_ledge",
+          "x": 286,
+          "y": 246,
+          "width": 90,
+          "height": 12
+        },
+        {
+          "id": "hollow_spore_shelf",
+          "x": 434,
+          "y": 270,
+          "width": 92,
+          "height": 12
+        }
       ],
       "landmarks": [
-        { "id": "hollow_marker", "kind": "environmental_puzzle", "x": 286, "y": 230, "story": "The hollow marker only activates once the Sluice Warden is defeated." },
-        { "id": "mossbound_titan_arena", "kind": "encounter_landmark", "x": 432, "y": 284, "story": "The old root ring defines a broad, level optional boss arena." },
-        { "id": "MAP04", "kind": "collectible_anchor", "x": 514, "y": 252, "story": "Optional map annotation" }
+        {
+          "id": "hollow_marker",
+          "kind": "environmental_puzzle",
+          "x": 286,
+          "y": 230,
+          "story": "The hollow marker only activates once the Sluice Warden is defeated."
+        },
+        {
+          "id": "mossbound_titan_arena",
+          "kind": "encounter_landmark",
+          "x": 432,
+          "y": 284,
+          "story": "The old root ring defines a broad, level optional boss arena."
+        },
+        {
+          "id": "MAP04",
+          "kind": "collectible_anchor",
+          "x": 514,
+          "y": 252,
+          "story": "Optional map annotation"
+        }
       ],
       "encounter_zones": [
-        { "id": "mossbound_titan_arena", "enemy": "B02", "x": [330, 520], "purpose": "optional arena with retreat space and an elevated observation ledge" }
+        {
+          "id": "mossbound_titan_arena",
+          "enemy": "B02",
+          "x": [
+            330,
+            520
+          ],
+          "purpose": "optional arena with retreat space and an elevated observation ledge"
+        }
       ],
       "intended_route": "Optional one-exit branch. Keep the return to Canopy Walk on the base floor, with a single upper shelf for the map reward; no mandatory vertical escape after the Titan."
+    },
+    {
+      "id": "REL01",
+      "name": "Reliquary Workshop",
+      "purpose": "Rest and workbench hub; show relics were maintained by people rather than made as disposable weapons.",
+      "biome_kit": "ancient_archive",
+      "entry_clearance": {
+        "left": {
+          "x": [
+            0,
+            70
+          ],
+          "y": [
+            244,
+            300
+          ],
+          "connects_to": "ROT03"
+        },
+        "right": {
+          "x": [
+            570,
+            640
+          ],
+          "y": [
+            244,
+            300
+          ],
+          "connects_to": "REL02"
+        }
+      },
+      "platforms": [
+        {
+          "id": "bench_riser",
+          "x": 178,
+          "y": 276,
+          "width": 92,
+          "height": 12
+        },
+        {
+          "id": "inspection_walk",
+          "x": 314,
+          "y": 258,
+          "width": 88,
+          "height": 12
+        },
+        {
+          "id": "tool_gallery",
+          "x": 456,
+          "y": 278,
+          "width": 82,
+          "height": 12
+        }
+      ],
+      "landmarks": [
+        {
+          "id": "service_bench",
+          "kind": "workbench",
+          "x": 116,
+          "y": 280,
+          "story": "Maker marks on repair tools come from more than one world."
+        },
+        {
+          "id": "rest_station",
+          "kind": "rest_station",
+          "x": 78,
+          "y": 280,
+          "story": "Rest point"
+        },
+        {
+          "id": "maintenance_wall",
+          "kind": "environmental_story",
+          "x": 336,
+          "y": 244,
+          "story": "The sockets fit tools and records, not combat weapons."
+        },
+        {
+          "id": "reliquary_lift",
+          "kind": "route_clue",
+          "x": 520,
+          "y": 270,
+          "story": "A low rail leads toward the powered service hall."
+        }
+      ],
+      "encounter_zones": [],
+      "intended_route": "Quiet hub; keep the floor route clear between both doors and keep rest/workbench away from the right doorway."
+    },
+    {
+      "id": "REL02",
+      "name": "Service Hall",
+      "purpose": "P03 receiver-routing puzzle; teach utility and record circuits are separate.",
+      "biome_kit": "ancient_archive",
+      "entry_clearance": {
+        "left": {
+          "x": [
+            0,
+            70
+          ],
+          "y": [
+            244,
+            300
+          ],
+          "connects_to": "REL01"
+        },
+        "right": {
+          "x": [
+            570,
+            640
+          ],
+          "y": [
+            244,
+            300
+          ],
+          "connects_to": "REL03",
+          "gate": "WORKS_POWER"
+        }
+      },
+      "platforms": [
+        {
+          "id": "service_step_west",
+          "x": 154,
+          "y": 276,
+          "width": 84,
+          "height": 12
+        },
+        {
+          "id": "receiver_crossing",
+          "x": 278,
+          "y": 254,
+          "width": 92,
+          "height": 12
+        },
+        {
+          "id": "service_step_east",
+          "x": 424,
+          "y": 276,
+          "width": 92,
+          "height": 12
+        }
+      ],
+      "landmarks": [
+        {
+          "id": "source_receiver",
+          "kind": "puzzle_source",
+          "x": 126,
+          "y": 272,
+          "story": "Source glyph arrow points toward the center relay."
+        },
+        {
+          "id": "maintenance_relay",
+          "kind": "puzzle_relay",
+          "x": 294,
+          "y": 238,
+          "story": "P03: route source â†’ service relay â†’ receiver; leave dead archive branch isolated."
+        },
+        {
+          "id": "archive_receiver",
+          "kind": "puzzle_receiver",
+          "x": 488,
+          "y": 272,
+          "story": "Receiver lights only when signal is stable."
+        },
+        {
+          "id": "AR07",
+          "kind": "record_pickup_anchor",
+          "x": 350,
+          "y": 246,
+          "story": "Maintenance receiver"
+        }
+      ],
+      "encounter_zones": [
+        {
+          "id": "service_guard",
+          "enemy": "E02",
+          "x": [
+            390,
+            520
+          ],
+          "purpose": "Single guard after puzzle; keep a retreat lane west."
+        }
+      ],
+      "intended_route": "Solve P03 at floor level from the source/relay/receiver clues. East door requires WORKS_POWER; REL04 remains optional."
+    },
+    {
+      "id": "REL03",
+      "name": "Golem Passage",
+      "purpose": "Guarded transit gallery showing the service circuit reactivates archive defenses.",
+      "biome_kit": "ancient_archive",
+      "entry_clearance": {
+        "left": {
+          "x": [
+            0,
+            70
+          ],
+          "y": [
+            244,
+            300
+          ],
+          "connects_to": "REL02",
+          "gate": "WORKS_POWER"
+        },
+        "right": {
+          "x": [
+            570,
+            640
+          ],
+          "y": [
+            244,
+            300
+          ],
+          "connects_to": "SUR01",
+          "gate": "WORKS_POWER"
+        }
+      },
+      "platforms": [
+        {
+          "id": "armor_display_ledge",
+          "x": 178,
+          "y": 272,
+          "width": 96,
+          "height": 12
+        },
+        {
+          "id": "passage_bridge",
+          "x": 322,
+          "y": 248,
+          "width": 104,
+          "height": 12
+        },
+        {
+          "id": "collapsed_stand",
+          "x": 468,
+          "y": 272,
+          "width": 82,
+          "height": 12
+        }
+      ],
+      "landmarks": [
+        {
+          "id": "inactive_golem",
+          "kind": "environmental_story",
+          "x": 242,
+          "y": 266,
+          "story": "A maintenance construct lowers its guard while its socket is dark."
+        },
+        {
+          "id": "power_trace",
+          "kind": "environmental_clue",
+          "x": 324,
+          "y": 238,
+          "story": "Fresh light runs along the conduit after P03."
+        },
+        {
+          "id": "survey_door",
+          "kind": "route_landmark",
+          "x": 548,
+          "y": 278,
+          "story": "The powered door opens toward Survey Vault."
+        }
+      ],
+      "encounter_zones": [
+        {
+          "id": "passage_guards",
+          "enemy": "E02",
+          "x": [
+            286,
+            468
+          ],
+          "purpose": "Two guards spaced across the broad hall; keep a clear landing strip."
+        }
+      ],
+      "intended_route": "The powered route leads to SUR01. Provide broad base floor, one optional raised route, and a return to REL02."
+    },
+    {
+      "id": "REL04",
+      "name": "Storage Loft",
+      "purpose": "Optional vertical cache with manufacture records, equipment, and a safe return.",
+      "biome_kit": "ancient_archive",
+      "entry_clearance": {
+        "left": {
+          "x": [
+            0,
+            70
+          ],
+          "y": [
+            244,
+            300
+          ],
+          "connects_to": "REL02"
+        },
+        "right": null
+      },
+      "platforms": [
+        {
+          "id": "loft_stair_a",
+          "x": 154,
+          "y": 274,
+          "width": 80,
+          "height": 12
+        },
+        {
+          "id": "loft_stair_b",
+          "x": 262,
+          "y": 242,
+          "width": 84,
+          "height": 12
+        },
+        {
+          "id": "storage_beam",
+          "x": 372,
+          "y": 214,
+          "width": 96,
+          "height": 12
+        },
+        {
+          "id": "low_return_shelf",
+          "x": 504,
+          "y": 260,
+          "width": 72,
+          "height": 12
+        }
+      ],
+      "landmarks": [
+        {
+          "id": "AR08",
+          "kind": "record_pickup_anchor",
+          "x": 336,
+          "y": 202,
+          "story": "Vault manufacture"
+        },
+        {
+          "id": "DAWN06",
+          "kind": "record_pickup_anchor",
+          "x": 422,
+          "y": 202,
+          "story": "Vault attempt"
+        },
+        {
+          "id": "HP02",
+          "kind": "collectible_anchor",
+          "x": 194,
+          "y": 260,
+          "story": "Health cache"
+        },
+        {
+          "id": "BP03",
+          "kind": "collectible_anchor",
+          "x": 530,
+          "y": 246,
+          "story": "Equipment blueprint"
+        },
+        {
+          "id": "WPN01",
+          "kind": "weapon_pickup_anchor",
+          "x": 474,
+          "y": 250,
+          "story": "Scatter Carbine"
+        },
+        {
+          "id": "loft_relay_socket",
+          "kind": "future_shortcut_clue",
+          "x": 558,
+          "y": 282,
+          "story": "Sealed low relay leads toward Rootspan only after LOFT_RELAY."
+        }
+      ],
+      "encounter_zones": [
+        {
+          "id": "loft_turret",
+          "enemy": "E04",
+          "x": [
+            300,
+            420
+          ],
+          "purpose": "One turret watches the top shelf; show its beam before it fires."
+        }
+      ],
+      "intended_route": "Optional cache; rises are short and reachable by double jump. A drop from the top safely returns to the entrance floor."
+    },
+    {
+      "id": "SUR01",
+      "name": "Archive Steps",
+      "purpose": "Rest point and quiet vault entry; architecture foreshadows its survey/record purpose.",
+      "biome_kit": "ancient_archive",
+      "entry_clearance": {
+        "left": {
+          "x": [
+            0,
+            70
+          ],
+          "y": [
+            244,
+            300
+          ],
+          "connects_to": "REL03",
+          "gate": "WORKS_POWER"
+        },
+        "right": {
+          "x": [
+            570,
+            640
+          ],
+          "y": [
+            244,
+            300
+          ],
+          "connects_to": "SUR02"
+        }
+      },
+      "platforms": [
+        {
+          "id": "archive_step_lower",
+          "x": 170,
+          "y": 276,
+          "width": 82,
+          "height": 12
+        },
+        {
+          "id": "archive_step_mid",
+          "x": 274,
+          "y": 252,
+          "width": 84,
+          "height": 12
+        },
+        {
+          "id": "archive_step_upper",
+          "x": 386,
+          "y": 276,
+          "width": 88,
+          "height": 12
+        }
+      ],
+      "landmarks": [
+        {
+          "id": "rest_station",
+          "kind": "rest_station",
+          "x": 98,
+          "y": 280,
+          "story": "Rest point"
+        },
+        {
+          "id": "survey_sundial",
+          "kind": "map_landmark",
+          "x": 300,
+          "y": 236,
+          "story": "Its shadow aligns to the anchor glyph; this is a navigation clue, not a lock."
+        },
+        {
+          "id": "survey_guard_marks",
+          "kind": "environmental_story",
+          "x": 482,
+          "y": 276,
+          "story": "Constructs face inward to protect the records."
+        }
+      ],
+      "encounter_zones": [
+        {
+          "id": "vault_entry_guard",
+          "enemy": "E02",
+          "x": [
+            394,
+            516
+          ],
+          "purpose": "One guard with frontal shield tell; entrance is a retreat lane."
+        }
+      ],
+      "intended_route": "Rest on the west side; observe display, then walk east to P04."
+    },
+    {
+      "id": "SUR02",
+      "name": "Survey Display",
+      "purpose": "P04 archive alignment; receiver, archive, then anchor reveals the critical map.",
+      "biome_kit": "ancient_archive",
+      "entry_clearance": {
+        "left": {
+          "x": [
+            0,
+            70
+          ],
+          "y": [
+            244,
+            300
+          ],
+          "connects_to": "SUR01"
+        },
+        "right": {
+          "x": [
+            570,
+            640
+          ],
+          "y": [
+            244,
+            300
+          ],
+          "connects_to": "SUR03",
+          "gate": "ARCHIVE_ALIGNED"
+        }
+      },
+      "platforms": [
+        {
+          "id": "display_walk_west",
+          "x": 168,
+          "y": 276,
+          "width": 86,
+          "height": 12
+        },
+        {
+          "id": "display_plinth",
+          "x": 320,
+          "y": 250,
+          "width": 112,
+          "height": 12
+        },
+        {
+          "id": "display_walk_east",
+          "x": 478,
+          "y": 276,
+          "width": 88,
+          "height": 12
+        }
+      ],
+      "landmarks": [
+        {
+          "id": "receiver_plate",
+          "kind": "puzzle_clue",
+          "x": 194,
+          "y": 260,
+          "story": "Receiver symbol appears first in instruction band."
+        },
+        {
+          "id": "archive_plate",
+          "kind": "puzzle_clue",
+          "x": 322,
+          "y": 234,
+          "story": "P04 order: receiver â†’ archive â†’ anchor."
+        },
+        {
+          "id": "anchor_plate",
+          "kind": "puzzle_clue",
+          "x": 442,
+          "y": 260,
+          "story": "Survey note marks anchor last."
+        },
+        {
+          "id": "AR09",
+          "kind": "record_pickup_anchor",
+          "x": 270,
+          "y": 266,
+          "story": "Custody archive"
+        },
+        {
+          "id": "DAWN07",
+          "kind": "record_pickup_anchor",
+          "x": 376,
+          "y": 238,
+          "story": "Distortion report"
+        }
+      ],
+      "encounter_zones": [
+        {
+          "id": "display_turret",
+          "enemy": "E04",
+          "x": [
+            442,
+            516
+          ],
+          "purpose": "One turret has a visible beam lane that does not span the puzzle floor."
+        }
+      ],
+      "intended_route": "P04 retries reset locally. East door needs ARCHIVE_ALIGNED; SUR04 branch is optional and has no critical clue."
+    },
+    {
+      "id": "SUR03",
+      "name": "Cartographic Vault",
+      "purpose": "Critical map/relic clues show the guild rumour is partial memory and record the Warp displacement.",
+      "biome_kit": "ancient_archive",
+      "entry_clearance": {
+        "left": {
+          "x": [
+            0,
+            70
+          ],
+          "y": [
+            244,
+            300
+          ],
+          "connects_to": "SUR02",
+          "gate": "ARCHIVE_ALIGNED"
+        },
+        "right": {
+          "x": [
+            570,
+            640
+          ],
+          "y": [
+            244,
+            300
+          ],
+          "connects_to": "WAR01",
+          "gate": "VAULT_MAP"
+        }
+      },
+      "platforms": [
+        {
+          "id": "cartography_table_approach",
+          "x": 178,
+          "y": 276,
+          "width": 90,
+          "height": 12
+        },
+        {
+          "id": "holo_map_riser",
+          "x": 316,
+          "y": 246,
+          "width": 108,
+          "height": 12
+        },
+        {
+          "id": "device_plinth",
+          "x": 472,
+          "y": 272,
+          "width": 88,
+          "height": 12
+        }
+      ],
+      "landmarks": [
+        {
+          "id": "critical_star_map",
+          "kind": "story_reveal",
+          "x": 320,
+          "y": 226,
+          "story": "The chart points to an unconfirmed planet beyond the survey edge; entry records VAULT_MAP."
+        },
+        {
+          "id": "AR10",
+          "kind": "record_pickup_anchor",
+          "x": 450,
+          "y": 250,
+          "story": "Personal Continuity Device"
+        },
+        {
+          "id": "DAWN08",
+          "kind": "record_pickup_anchor",
+          "x": 254,
+          "y": 258,
+          "story": "Dawn failure conclusion"
+        },
+        {
+          "id": "relic_custody_marks",
+          "kind": "environmental_story",
+          "x": 108,
+          "y": 278,
+          "story": "Repeated locking grooves show relics were protected as records."
+        },
+        {
+          "id": "warp_displacement_model",
+          "kind": "foreshadowing",
+          "x": 532,
+          "y": 260,
+          "story": "Two planetary signatures are displaced; no survivors fate is revealed."
+        }
+      ],
+      "encounter_zones": [],
+      "intended_route": "Quiet reveal; record the map clue before opening the east VAULT_MAP route. Aster learns where to travel, not the whole ancient history."
+    },
+    {
+      "id": "SUR04",
+      "name": "Sealed Shelf",
+      "purpose": "Optional archive cache rewarding a later Rewind return and a view of the deep display.",
+      "biome_kit": "ancient_archive",
+      "entry_clearance": {
+        "left": {
+          "x": [
+            0,
+            70
+          ],
+          "y": [
+            244,
+            300
+          ],
+          "connects_to": "SUR02"
+        },
+        "right": null
+      },
+      "platforms": [
+        {
+          "id": "sealed_shelf_low",
+          "x": 156,
+          "y": 276,
+          "width": 84,
+          "height": 12
+        },
+        {
+          "id": "sealed_shelf_mid",
+          "x": 270,
+          "y": 246,
+          "width": 84,
+          "height": 12
+        },
+        {
+          "id": "sealed_shelf_high",
+          "x": 386,
+          "y": 216,
+          "width": 94,
+          "height": 12
+        },
+        {
+          "id": "return_lintel",
+          "x": 520,
+          "y": 270,
+          "width": 72,
+          "height": 12
+        }
+      ],
+      "landmarks": [
+        {
+          "id": "sealed_custody_case",
+          "kind": "optional_lore",
+          "x": 330,
+          "y": 226,
+          "story": "Displaced shadow suggests a route opens after mastering Rewind."
+        },
+        {
+          "id": "future_fold_seam",
+          "kind": "future_shortcut_clue",
+          "x": 554,
+          "y": 280,
+          "story": "FOL01 can open the seam after REWIND_TRAINED."
+        },
+        {
+          "id": "optional_archive_index",
+          "kind": "map_landmark",
+          "x": 216,
+          "y": 260,
+          "story": "Index lists storage rows but not the main-story key."
+        }
+      ],
+      "encounter_zones": [],
+      "intended_route": "Optional dead-end from SUR02 before the Warp. High shelf is double-jump reachable; later FOL01 shortcut has a safe west return drop. No required item is here."
+    },
+    {
+      "id": "WAR01",
+      "name": "Fracture Landing",
+      "purpose": "Chapter 2 re-entry rest point; let the player read the changed map and see a broken section of Eldara's route folded into the alien architecture.",
+      "biome_kit": "warped_verge",
+      "entry_clearance": {
+        "left": {
+          "x": [
+            0,
+            70
+          ],
+          "y": [
+            244,
+            300
+          ],
+          "connects_to": "SUR03",
+          "gate": "VAULT_MAP"
+        },
+        "right": {
+          "x": [
+            570,
+            640
+          ],
+          "y": [
+            244,
+            300
+          ],
+          "connects_to": "WAR02"
+        }
+      },
+      "platforms": [
+        {
+          "id": "fracture_sill_west",
+          "x": 150,
+          "y": 276,
+          "width": 84,
+          "height": 12
+        },
+        {
+          "id": "folded_slab_low",
+          "x": 266,
+          "y": 254,
+          "width": 78,
+          "height": 12
+        },
+        {
+          "id": "fracture_sill_east",
+          "x": 398,
+          "y": 276,
+          "width": 88,
+          "height": 12
+        },
+        {
+          "id": "overhang_shard",
+          "x": 516,
+          "y": 226,
+          "width": 62,
+          "height": 12
+        }
+      ],
+      "landmarks": [
+        {
+          "id": "verge_rest",
+          "kind": "rest_station",
+          "x": 94,
+          "y": 278,
+          "story": "A familiar rest sigil has been built into unfamiliar stone."
+        },
+        {
+          "id": "eldara_fold_fragment",
+          "kind": "environmental_story",
+          "x": 290,
+          "y": 240,
+          "story": "A strip of Eldara's old masonry bends into the alien wall without a seam."
+        },
+        {
+          "id": "fracture_skyline",
+          "kind": "distant_landmark",
+          "x": 508,
+          "y": 214,
+          "story": "The horizon shows the same crystal ridge twice, at different angles."
+        }
+      ],
+      "encounter_zones": [],
+      "intended_route": "Keep the floor lane open for reorientation. The high shard is visual only; the right exit leads to the topology junction. The left return is unavailable until the Vault Map is found."
+    },
+    {
+      "id": "WAR02",
+      "name": "Anchor Junction",
+      "purpose": "P05 world-topology puzzle junction; reveal three possible corridors but teach that only the steady paired-anchor path is safe.",
+      "biome_kit": "warped_verge",
+      "entry_clearance": {
+        "left": {
+          "x": [
+            0,
+            70
+          ],
+          "y": [
+            244,
+            300
+          ],
+          "connects_to": "WAR01"
+        },
+        "right": {
+          "x": [
+            570,
+            640
+          ],
+          "y": [
+            244,
+            300
+          ],
+          "connects_to": [
+            "WAR03",
+            "WAR04"
+          ],
+          "junction": true
+        }
+      },
+      "platforms": [
+        {
+          "id": "anchor_west_step",
+          "x": 150,
+          "y": 276,
+          "width": 80,
+          "height": 12
+        },
+        {
+          "id": "anchor_pair_plinth",
+          "x": 286,
+          "y": 258,
+          "width": 88,
+          "height": 12
+        },
+        {
+          "id": "anchor_east_step",
+          "x": 430,
+          "y": 276,
+          "width": 90,
+          "height": 12
+        },
+        {
+          "id": "anchor_observation_ledge",
+          "x": 330,
+          "y": 216,
+          "width": 78,
+          "height": 12
+        }
+      ],
+      "landmarks": [
+        {
+          "id": "AR11",
+          "kind": "record_pickup_anchor",
+          "x": 330,
+          "y": 200,
+          "story": "Anchor warning"
+        },
+        {
+          "id": "paired_anchor_relief",
+          "kind": "environmental_clue",
+          "x": 286,
+          "y": 244,
+          "story": "The relief depicts two matching diamond anchors framing one stable passage."
+        },
+        {
+          "id": "left_anchor_echo",
+          "kind": "environmental_puzzle",
+          "x": 148,
+          "y": 260,
+          "story": "A single anchor flickers and leaves a doubled image."
+        },
+        {
+          "id": "right_anchor_echo",
+          "kind": "environmental_puzzle",
+          "x": 486,
+          "y": 260,
+          "story": "The paired anchor holds one continuous pulse; its matching seam leads onward."
+        }
+      ],
+      "encounter_zones": [
+        {
+          "id": "junction_skitter",
+          "enemy": "E03",
+          "x": [
+            408,
+            530
+          ],
+          "purpose": "one Rift Skitter pressures the player near the junction without occupying the puzzle plinth"
+        }
+      ],
+      "intended_route": "The player studies the relief from the center, then uses the safe right branch toward WAR03 after P05. WAR04 remains an optional detour. Wrong branch attempts loop back safely and preserve the clue."
+    },
+    {
+      "id": "WAR03",
+      "name": "Stable Fold",
+      "purpose": "Show one successful connection between Eldara and Veraya and guide the player toward the Verayan annex.",
+      "biome_kit": "warped_verge",
+      "entry_clearance": {
+        "left": {
+          "x": [
+            0,
+            70
+          ],
+          "y": [
+            244,
+            300
+          ],
+          "connects_to": "WAR02",
+          "gate": "TOPOLOGY_ALIGNED"
+        },
+        "right": {
+          "x": [
+            570,
+            640
+          ],
+          "y": [
+            244,
+            300
+          ],
+          "connects_to": "VER01",
+          "gate": "TOPOLOGY_ALIGNED"
+        }
+      },
+      "platforms": [
+        {
+          "id": "folded_road_west",
+          "x": 150,
+          "y": 276,
+          "width": 96,
+          "height": 12
+        },
+        {
+          "id": "folded_road_lift",
+          "x": 274,
+          "y": 248,
+          "width": 82,
+          "height": 12
+        },
+        {
+          "id": "foreign_stair_low",
+          "x": 392,
+          "y": 272,
+          "width": 82,
+          "height": 12
+        },
+        {
+          "id": "foreign_stair_high",
+          "x": 494,
+          "y": 240,
+          "width": 78,
+          "height": 12
+        }
+      ],
+      "landmarks": [
+        {
+          "id": "eldara_veraya_boundary",
+          "kind": "environmental_story",
+          "x": 316,
+          "y": 276,
+          "story": "A broken Eldaran road meets a floor tile bearing a symbol Aster has never seen."
+        },
+        {
+          "id": "stable_pair_sheen",
+          "kind": "readable_sign",
+          "x": 416,
+          "y": 256,
+          "story": "Two anchor marks brighten together when Aster faces the Verayan route."
+        },
+        {
+          "id": "folded_roofline",
+          "kind": "distant_landmark",
+          "x": 506,
+          "y": 224,
+          "story": "The roofline continues in a direction the room's walls do not."
+        }
+      ],
+      "encounter_zones": [
+        {
+          "id": "fold_skitter",
+          "enemy": "E03",
+          "x": [
+            210,
+            300
+          ],
+          "purpose": "a single traversal encounter on the low central step"
+        }
+      ],
+      "intended_route": "A shallow, readable rise ends before the door; walking on the base floor remains a valid bypass. The paired marks and foreign tile introduce Veraya without an exposition wall."
+    },
+    {
+      "id": "WAR04",
+      "name": "Unmapped Loop",
+      "purpose": "Optional map-scrap and hidden-memorial side loop; reward noticing repeated landmarks rather than forcing a story gate.",
+      "biome_kit": "warped_verge",
+      "entry_clearance": {
+        "left": {
+          "x": [
+            0,
+            70
+          ],
+          "y": [
+            244,
+            300
+          ],
+          "connects_to": "WAR02"
+        },
+        "right": null
+      },
+      "platforms": [
+        {
+          "id": "loop_inlet_shelf",
+          "x": 156,
+          "y": 276,
+          "width": 82,
+          "height": 12
+        },
+        {
+          "id": "loop_upper_arc",
+          "x": 270,
+          "y": 238,
+          "width": 76,
+          "height": 12
+        },
+        {
+          "id": "loop_return_shelf",
+          "x": 392,
+          "y": 258,
+          "width": 82,
+          "height": 12
+        },
+        {
+          "id": "memorial_floor_sill",
+          "x": 510,
+          "y": 276,
+          "width": 82,
+          "height": 12
+        }
+      ],
+      "landmarks": [
+        {
+          "id": "MAP05",
+          "kind": "collectible_anchor",
+          "x": 274,
+          "y": 222,
+          "story": "Optional map annotation"
+        },
+        {
+          "id": "MEM04",
+          "kind": "hidden_memorial_anchor",
+          "x": 522,
+          "y": 260,
+          "story": "Hidden memorial"
+        },
+        {
+          "id": "looped_crystal_pair",
+          "kind": "environmental_clue",
+          "x": 426,
+          "y": 244,
+          "story": "Two crystal formations have the same fracture pattern despite appearing on opposite ends of the loop."
+        }
+      ],
+      "encounter_zones": [],
+      "intended_route": "One low, one-way-feeling climb reaches MAP05; a clear floor-level loop returns to the entrance. The MEM04 clue is visible from the return path, not hidden behind a jump test."
+    },
+    {
+      "id": "VER01",
+      "name": "Foreign Atrium",
+      "purpose": "Rest and first close look at Verayan technology; set contrast between Veraya's purposeful engineering and Eldara's relic architecture.",
+      "biome_kit": "veraya_annex",
+      "entry_clearance": {
+        "left": {
+          "x": [
+            0,
+            70
+          ],
+          "y": [
+            244,
+            300
+          ],
+          "connects_to": "WAR03",
+          "gate": "TOPOLOGY_ALIGNED"
+        },
+        "right": {
+          "x": [
+            570,
+            640
+          ],
+          "y": [
+            244,
+            300
+          ],
+          "connects_to": "VER02"
+        }
+      },
+      "platforms": [
+        {
+          "id": "atrium_rest_step",
+          "x": 158,
+          "y": 276,
+          "width": 88,
+          "height": 12
+        },
+        {
+          "id": "atrium_instrument_step",
+          "x": 284,
+          "y": 254,
+          "width": 84,
+          "height": 12
+        },
+        {
+          "id": "atrium_survey_walk",
+          "x": 420,
+          "y": 276,
+          "width": 92,
+          "height": 12
+        },
+        {
+          "id": "atrium_overlook",
+          "x": 514,
+          "y": 224,
+          "width": 68,
+          "height": 12
+        }
+      ],
+      "landmarks": [
+        {
+          "id": "veraya_rest",
+          "kind": "rest_station",
+          "x": 96,
+          "y": 278,
+          "story": "A hand-made survey mark is carved beside a precise Verayan calibration ring."
+        },
+        {
+          "id": "verayan_mark",
+          "kind": "environmental_clue",
+          "x": 286,
+          "y": 238,
+          "story": "A repeating three-line symbol is stamped onto replaceable machine plates."
+        },
+        {
+          "id": "empty_arrival_dock",
+          "kind": "environmental_story",
+          "x": 452,
+          "y": 270,
+          "story": "An empty docking cradle and a broken route beacon imply that someone arrived here before Aster."
+        }
+      ],
+      "encounter_zones": [
+        {
+          "id": "atrium_sentinel",
+          "enemy": "E05",
+          "x": [
+            398,
+            520
+          ],
+          "purpose": "one Veraya Sentinel patrols the foreign arrival dock, with room to see and dodge its charge tell"
+        }
+      ],
+      "intended_route": "Rest is reachable immediately. The E05 lane is placed after the rest point; give the warning line a clear horizontal floor so charge telegraph and recovery are readable."
+    },
+    {
+      "id": "VER02",
+      "name": "Research Gallery",
+      "purpose": "Reveal the Verayan survey team's presence through their recording and repeatable spatial measurements.",
+      "biome_kit": "veraya_annex",
+      "entry_clearance": {
+        "left": {
+          "x": [
+            0,
+            70
+          ],
+          "y": [
+            244,
+            300
+          ],
+          "connects_to": "VER01"
+        },
+        "right": {
+          "x": [
+            570,
+            640
+          ],
+          "y": [
+            244,
+            300
+          ],
+          "connects_to": [
+            "VER03",
+            "VER04"
+          ],
+          "junction": true
+        }
+      },
+      "platforms": [
+        {
+          "id": "gallery_console_step",
+          "x": 160,
+          "y": 276,
+          "width": 86,
+          "height": 12
+        },
+        {
+          "id": "gallery_record_ledge",
+          "x": 278,
+          "y": 244,
+          "width": 80,
+          "height": 12
+        },
+        {
+          "id": "gallery_calibration_step",
+          "x": 408,
+          "y": 270,
+          "width": 88,
+          "height": 12
+        },
+        {
+          "id": "gallery_sightline_ledge",
+          "x": 510,
+          "y": 226,
+          "width": 72,
+          "height": 12
+        }
+      ],
+      "landmarks": [
+        {
+          "id": "AR12",
+          "kind": "record_pickup_anchor",
+          "x": 278,
+          "y": 228,
+          "story": "Anonymous researcher"
+        },
+        {
+          "id": "research_console",
+          "kind": "environmental_clue",
+          "x": 180,
+          "y": 260,
+          "story": "The console compares the same three survey points Aster saw in the Warped Verge."
+        },
+        {
+          "id": "empty_recorder_slot",
+          "kind": "environmental_story",
+          "x": 424,
+          "y": 254,
+          "story": "A recorder has been removed from its mount; its cable points toward the optional diagnostic annex."
+        },
+        {
+          "id": "gallery_alignment_ticks",
+          "kind": "diegetic_puzzle_hint",
+          "x": 522,
+          "y": 210,
+          "story": "Three sets of ticks align at the same height only when the gallery is viewed from the central step."
+        }
+      ],
+      "encounter_zones": [],
+      "intended_route": "Read the console, climb once for AR12, then choose the main research corridor or optional diagnostic annex. Keep both exits in sight from the upper ledge."
+    },
+    {
+      "id": "VER03",
+      "name": "Foreign Sky",
+      "purpose": "Give Aster a quiet vista and an unmistakable route toward the Silent Gallery.",
+      "biome_kit": "veraya_annex",
+      "entry_clearance": {
+        "left": {
+          "x": [
+            0,
+            70
+          ],
+          "y": [
+            244,
+            300
+          ],
+          "connects_to": "VER02"
+        },
+        "right": {
+          "x": [
+            570,
+            640
+          ],
+          "y": [
+            244,
+            300
+          ],
+          "connects_to": "SIL01"
+        }
+      },
+      "platforms": [
+        {
+          "id": "skywalk_lower",
+          "x": 152,
+          "y": 276,
+          "width": 86,
+          "height": 12
+        },
+        {
+          "id": "skywalk_overhang",
+          "x": 260,
+          "y": 242,
+          "width": 74,
+          "height": 12
+        },
+        {
+          "id": "skywalk_viewing_pad",
+          "x": 370,
+          "y": 260,
+          "width": 92,
+          "height": 12
+        },
+        {
+          "id": "skywalk_exit_ramp",
+          "x": 500,
+          "y": 276,
+          "width": 92,
+          "height": 12
+        }
+      ],
+      "landmarks": [
+        {
+          "id": "foreign_sky_sightline",
+          "kind": "distant_landmark",
+          "x": 344,
+          "y": 206,
+          "story": "A huge empty aperture frames a sky with two copies of the same star cluster."
+        },
+        {
+          "id": "veraya_route_mark",
+          "kind": "readable_sign",
+          "x": 508,
+          "y": 260,
+          "story": "A line of maintenance marks continues toward the quiet archive hall."
+        },
+        {
+          "id": "joined_metal_and_stone",
+          "kind": "environmental_story",
+          "x": 244,
+          "y": 272,
+          "story": "A metal brace from Veraya holds an Eldaran carved lintel together."
+        }
+      ],
+      "encounter_zones": [
+        {
+          "id": "skywalk_sentinel",
+          "enemy": "E05",
+          "x": [
+            226,
+            318
+          ],
+          "purpose": "one Sentinel appears on the raised but wide center path and demonstrates the charge tell in a fresh silhouette"
+        }
+      ],
+      "intended_route": "A short step-up to the viewing pad offers the environmental reveal without a mandatory puzzle. Return to the floor lane before entering the Silent Gallery."
+    },
+    {
+      "id": "VER04",
+      "name": "Diagnostic Annex",
+      "purpose": "Optional puzzle branch; foreshadow Orion's missing relay component without granting Aster Orion's engineering ability.",
+      "biome_kit": "veraya_annex",
+      "entry_clearance": {
+        "left": {
+          "x": [
+            0,
+            70
+          ],
+          "y": [
+            244,
+            300
+          ],
+          "connects_to": "VER02"
+        },
+        "right": null
+      },
+      "platforms": [
+        {
+          "id": "annex_entry_machine",
+          "x": 152,
+          "y": 276,
+          "width": 84,
+          "height": 12
+        },
+        {
+          "id": "annex_scanner_ledge",
+          "x": 260,
+          "y": 246,
+          "width": 76,
+          "height": 12
+        },
+        {
+          "id": "annex_cache_shelf",
+          "x": 382,
+          "y": 218,
+          "width": 86,
+          "height": 12
+        },
+        {
+          "id": "annex_exit_floor_step",
+          "x": 514,
+          "y": 276,
+          "width": 92,
+          "height": 12
+        }
+      ],
+      "landmarks": [
+        {
+          "id": "AR13",
+          "kind": "record_pickup_anchor",
+          "x": 270,
+          "y": 230,
+          "story": "Remote interface part reference"
+        },
+        {
+          "id": "BP04",
+          "kind": "collectible_anchor",
+          "x": 390,
+          "y": 202,
+          "story": "Equipment blueprint"
+        },
+        {
+          "id": "WPN02",
+          "kind": "collectible_anchor",
+          "x": 438,
+          "y": 202,
+          "story": "Precision Rifle"
+        },
+        {
+          "id": "annex_diagnostic_display",
+          "kind": "environmental_puzzle",
+          "x": 178,
+          "y": 258,
+          "story": "M11: align the source and receiver marks; the display labels the missing relay part as a reference, not a recoverable object."
+        },
+        {
+          "id": "remote_relay_socket",
+          "kind": "foreshadowing",
+          "x": 502,
+          "y": 256,
+          "story": "The socket diagram shows an absent third component and a handwritten note that space-time travel remains unsolved."
+        }
+      ],
+      "encounter_zones": [
+        {
+          "id": "annex_prism",
+          "enemy": "E04",
+          "x": [
+            420,
+            520
+          ],
+          "purpose": "optional turret guards the raised cache; its beam lane is visible from the approach"
+        }
+      ],
+      "intended_route": "Optional annex with the diagnostic display on the low approach, then one climb to the cache. Aster can inspect the Relay design but cannot activate it; the return is always through the base floor."
+    },
+    {
+      "id": "SIL01",
+      "name": "Memorial Hall",
+      "purpose": "Quiet gallery of names for the displaced Eldaran and Verayan survey crews; make the Echo Warp loss personal rather than abstract.",
+      "biome_kit": "silent_archive",
+      "entry_clearance": {
+        "left": {
+          "x": [
+            0,
+            70
+          ],
+          "y": [
+            244,
+            300
+          ],
+          "connects_to": "VER03"
+        },
+        "right": {
+          "x": [
+            570,
+            640
+          ],
+          "y": [
+            244,
+            300
+          ],
+          "connects_to": "SIL02"
+        }
+      },
+      "platforms": [
+        {
+          "id": "memorial_entry_step",
+          "x": 154,
+          "y": 276,
+          "width": 86,
+          "height": 12
+        },
+        {
+          "id": "memorial_pedestal_walk",
+          "x": 280,
+          "y": 266,
+          "width": 96,
+          "height": 12
+        },
+        {
+          "id": "memorial_shelf",
+          "x": 418,
+          "y": 238,
+          "width": 82,
+          "height": 12
+        },
+        {
+          "id": "memorial_exit_step",
+          "x": 518,
+          "y": 276,
+          "width": 80,
+          "height": 12
+        }
+      ],
+      "landmarks": [
+        {
+          "id": "AR14",
+          "kind": "record_pickup_anchor",
+          "x": 316,
+          "y": 250,
+          "story": "Memorial inscriptions"
+        },
+        {
+          "id": "silent_name_pedestals",
+          "kind": "environmental_story",
+          "x": 258,
+          "y": 280,
+          "story": "The lower plinths hold names from two worlds in alternating scripts; several spaces are empty."
+        },
+        {
+          "id": "release_custom_plinth",
+          "kind": "environmental_clue",
+          "x": 430,
+          "y": 222,
+          "story": "A single Echo is represented by an open ring, matching the respectful release custom on Eldara."
+        },
+        {
+          "id": "paired_world_inscription",
+          "kind": "worldbuilding_record",
+          "x": 492,
+          "y": 260,
+          "story": "Two sets of marks overlap without either being erased, suggesting the worlds were displaced together."
+        }
+      ],
+      "encounter_zones": [],
+      "intended_route": "Keep the room enemy-free and open sightlines across the pedestals. AR14 sits in the central pause; no jump is needed to read the names or continue."
+    },
+    {
+      "id": "SIL02",
+      "name": "Memory Theatre",
+      "purpose": "Play a residual Echo memory that connects displaced people, the ancient civilization's failed gathering project, and the later hostile fauna.",
+      "biome_kit": "silent_archive",
+      "entry_clearance": {
+        "left": {
+          "x": [
+            0,
+            70
+          ],
+          "y": [
+            244,
+            300
+          ],
+          "connects_to": "SIL01"
+        },
+        "right": {
+          "x": [
+            570,
+            640
+          ],
+          "y": [
+            244,
+            300
+          ],
+          "connects_to": [
+            "SIL03",
+            "SIL04"
+          ],
+          "junction": true
+        }
+      },
+      "platforms": [
+        {
+          "id": "theatre_stage",
+          "x": 166,
+          "y": 276,
+          "width": 88,
+          "height": 12
+        },
+        {
+          "id": "theatre_audience_ledge",
+          "x": 284,
+          "y": 250,
+          "width": 88,
+          "height": 12
+        },
+        {
+          "id": "theatre_projection_step",
+          "x": 410,
+          "y": 268,
+          "width": 86,
+          "height": 12
+        },
+        {
+          "id": "theatre_upper_rail",
+          "x": 508,
+          "y": 226,
+          "width": 70,
+          "height": 12
+        }
+      ],
+      "landmarks": [
+        {
+          "id": "AR15",
+          "kind": "record_pickup_anchor",
+          "x": 288,
+          "y": 234,
+          "story": "Residual memory"
+        },
+        {
+          "id": "residual_echo_stage",
+          "kind": "environmental_story",
+          "x": 178,
+          "y": 260,
+          "story": "A fading scene shows a crowd facing an unfinished machine that draws light inward."
+        },
+        {
+          "id": "projector_alignment_marks",
+          "kind": "diegetic_puzzle_hint",
+          "x": 420,
+          "y": 250,
+          "story": "Three projector marks match the source, anchor and release signs Aster has seen elsewhere."
+        },
+        {
+          "id": "alien_silhouette_imprint",
+          "kind": "foreshadowing",
+          "x": 520,
+          "y": 210,
+          "story": "A second shadow crosses the memory after the Warp; it belongs to a creature, not a person."
+        }
+      ],
+      "encounter_zones": [
+        {
+          "id": "theatre_leech",
+          "enemy": "E07",
+          "x": [
+            384,
+            490
+          ],
+          "purpose": "one Echo Leech drifts toward the projection core, giving the player time to see and interrupt its drain tell"
+        }
+      ],
+      "intended_route": "Inspect the stage and central alignment marks before fighting the lone leech. The optional shrine branches off the exit; the critical route to SIL03 remains straightforward."
+    },
+    {
+      "id": "SIL03",
+      "name": "Release Walk",
+      "purpose": "Quiet transition from records into the Reservoir; Aster reflects on the names and recognizes that the same Echo system supports life and technology.",
+      "biome_kit": "silent_archive",
+      "entry_clearance": {
+        "left": {
+          "x": [
+            0,
+            70
+          ],
+          "y": [
+            244,
+            300
+          ],
+          "connects_to": "SIL02"
+        },
+        "right": {
+          "x": [
+            570,
+            640
+          ],
+          "y": [
+            244,
+            300
+          ],
+          "connects_to": "RES01"
+        }
+      },
+      "platforms": [
+        {
+          "id": "release_walk_left",
+          "x": 152,
+          "y": 276,
+          "width": 84,
+          "height": 12
+        },
+        {
+          "id": "release_walk_rise",
+          "x": 278,
+          "y": 256,
+          "width": 94,
+          "height": 12
+        },
+        {
+          "id": "release_walk_bridge",
+          "x": 408,
+          "y": 276,
+          "width": 100,
+          "height": 12
+        },
+        {
+          "id": "reservoir_sight_ledge",
+          "x": 514,
+          "y": 238,
+          "width": 72,
+          "height": 12
+        }
+      ],
+      "landmarks": [
+        {
+          "id": "release_walk_memorial_line",
+          "kind": "environmental_story",
+          "x": 246,
+          "y": 280,
+          "story": "Names carved into the floor continue toward a still-lit channel."
+        },
+        {
+          "id": "echo_in_basin",
+          "kind": "environmental_clue",
+          "x": 428,
+          "y": 260,
+          "story": "A quiet basin holds Echo light without consuming it; a lower maintenance pipe runs toward the Reservoir."
+        },
+        {
+          "id": "reservoir_sightline",
+          "kind": "distant_landmark",
+          "x": 526,
+          "y": 224,
+          "story": "Beyond the last arch, organisms cluster around a bright storage chamber."
+        }
+      ],
+      "encounter_zones": [
+        {
+          "id": "release_walk_leech",
+          "enemy": "E07",
+          "x": [
+            324,
+            394
+          ],
+          "purpose": "one leech occupies the central bridge but leaves floor-level space to dodge or interrupt"
+        }
+      ],
+      "intended_route": "A short low climb opens the basin sightline. The route is left to right with no hidden gate; land near the right exit before the next region's entry."
+    },
+    {
+      "id": "SIL04",
+      "name": "Keeper Shrine",
+      "purpose": "Optional memorial and warning shrine, linking the ancient custodians' care for Echo release to the later Keeper encounter.",
+      "biome_kit": "silent_archive",
+      "entry_clearance": {
+        "left": {
+          "x": [
+            0,
+            70
+          ],
+          "y": [
+            244,
+            300
+          ],
+          "connects_to": "SIL02"
+        },
+        "right": null
+      },
+      "platforms": [
+        {
+          "id": "shrine_entry_bench",
+          "x": 154,
+          "y": 276,
+          "width": 88,
+          "height": 12
+        },
+        {
+          "id": "shrine_name_shelf",
+          "x": 278,
+          "y": 244,
+          "width": 80,
+          "height": 12
+        },
+        {
+          "id": "shrine_release_plinth",
+          "x": 396,
+          "y": 262,
+          "width": 90,
+          "height": 12
+        },
+        {
+          "id": "shrine_return_sill",
+          "x": 516,
+          "y": 276,
+          "width": 78,
+          "height": 12
+        }
+      ],
+      "landmarks": [
+        {
+          "id": "AR16",
+          "kind": "record_pickup_anchor",
+          "x": 284,
+          "y": 228,
+          "story": "Seren warning"
+        },
+        {
+          "id": "MEM03",
+          "kind": "hidden_memorial_anchor",
+          "x": 424,
+          "y": 246,
+          "story": "Hidden memorial"
+        },
+        {
+          "id": "shrine_keeper_relief",
+          "kind": "environmental_clue",
+          "x": 414,
+          "y": 252,
+          "story": "M12: match the memorial name to its recorded imprint; the relief shows the Keeper protecting an open release channel."
+        },
+        {
+          "id": "shrine_untouched_echo",
+          "kind": "environmental_story",
+          "x": 530,
+          "y": 260,
+          "story": "A small Echo rests inside an open ring, not a sealed jar."
+        }
+      ],
+      "encounter_zones": [],
+      "intended_route": "A quiet branch with one modest rise. The names, MEM03 clue and return door are visible together, so exploration is optional and never risks becoming a soft lock."
+    },
+    {
+      "id": "RES01",
+      "name": "Flow Deck",
+      "purpose": "rest, workbench and source diagram; safe Echo release feeds the basin",
+      "biome_kit": "reservoir_vault",
+      "entry_clearance": {
+        "left": {
+          "x": [
+            0,
+            70
+          ],
+          "y": [
+            244,
+            300
+          ],
+          "connects_to": "SIL03"
+        },
+        "right": {
+          "x": [
+            570,
+            640
+          ],
+          "y": [
+            244,
+            300
+          ],
+          "connects_to": "RES02"
+        }
+      },
+      "platforms": [
+        {
+          "id": "deck_a",
+          "x": 148,
+          "y": 276,
+          "width": 76,
+          "height": 12
+        },
+        {
+          "id": "deck_b",
+          "x": 246,
+          "y": 250,
+          "width": 82,
+          "height": 12
+        },
+        {
+          "id": "source_step",
+          "x": 360,
+          "y": 268,
+          "width": 90,
+          "height": 12
+        },
+        {
+          "id": "bench_shelf",
+          "x": 480,
+          "y": 246,
+          "width": 80,
+          "height": 12
+        }
+      ],
+      "landmarks": [
+        {
+          "id": "reservoir_rest",
+          "kind": "rest_station",
+          "x": 90,
+          "y": 278,
+          "story": "A dry stable ledge beside the main flow channel."
+        },
+        {
+          "id": "workbench",
+          "kind": "workbench",
+          "x": 142,
+          "y": 278,
+          "story": "Prepare before entering the routing chambers."
+        },
+        {
+          "id": "AR17",
+          "kind": "record_pickup_anchor",
+          "x": 252,
+          "y": 232,
+          "story": "Safe release schematic: stored energy remains after the Echo is released."
+        },
+        {
+          "id": "source_diagram",
+          "kind": "environmental_clue",
+          "x": 362,
+          "y": 252,
+          "story": "Controlled flow passes through three gates; the Echo is not consumed."
+        },
+        {
+          "id": "flow_sightline",
+          "kind": "distant_landmark",
+          "x": 510,
+          "y": 238,
+          "story": "Three dark conductors lead toward the alignment court."
+        }
+      ],
+      "encounter_zones": [],
+      "intended_route": "Rest, inspect the flow diagram, then cross right to the routing chamber."
+    },
+    {
+      "id": "RES02",
+      "name": "Routing Chamber",
+      "purpose": "P06 Echo routing terminal; ordered channels teach flow and storage limits",
+      "biome_kit": "reservoir_vault",
+      "entry_clearance": {
+        "left": {
+          "x": [
+            0,
+            70
+          ],
+          "y": [
+            244,
+            300
+          ],
+          "connects_to": "RES01"
+        },
+        "right": {
+          "x": [
+            570,
+            640
+          ],
+          "y": [
+            244,
+            300
+          ],
+          "connects_to": "RES03"
+        }
+      },
+      "platforms": [
+        {
+          "id": "inlet",
+          "x": 132,
+          "y": 276,
+          "width": 72,
+          "height": 12
+        },
+        {
+          "id": "splitter",
+          "x": 222,
+          "y": 248,
+          "width": 72,
+          "height": 12
+        },
+        {
+          "id": "return",
+          "x": 316,
+          "y": 272,
+          "width": 84,
+          "height": 12
+        },
+        {
+          "id": "upper_conduit",
+          "x": 412,
+          "y": 238,
+          "width": 94,
+          "height": 12
+        },
+        {
+          "id": "terminal_step",
+          "x": 512,
+          "y": 270,
+          "width": 72,
+          "height": 12
+        }
+      ],
+      "landmarks": [
+        {
+          "id": "AR18",
+          "kind": "record_pickup_anchor",
+          "x": 410,
+          "y": 222,
+          "story": "Storage capacity warning explains where surplus energy must go."
+        },
+        {
+          "id": "inlet_mark",
+          "kind": "environmental_clue",
+          "x": 132,
+          "y": 258,
+          "story": "The bright channel is the source; its arrow points inward."
+        },
+        {
+          "id": "split_mark",
+          "kind": "environmental_clue",
+          "x": 228,
+          "y": 230,
+          "story": "Paired notches show that one stream returns to the reservoir."
+        },
+        {
+          "id": "P06",
+          "kind": "tutorial_console",
+          "x": 324,
+          "y": 276,
+          "story": "P06 routes the flow to source, storage cell and sealed court."
+        },
+        {
+          "id": "court_indicator",
+          "kind": "distant_landmark",
+          "x": 514,
+          "y": 252,
+          "story": "The court indicator lights only after the sequence is aligned."
+        }
+      ],
+      "encounter_zones": [],
+      "intended_route": "Read inlet, splitter and return marks in order, use P06 at floor level, then follow the lit channel right."
+    },
+    {
+      "id": "RES03",
+      "name": "Alignment Court",
+      "purpose": "Wide Wayfinder Colossus arena; all attacks readable before Rewind",
+      "biome_kit": "reservoir_vault",
+      "entry_clearance": {
+        "left": {
+          "x": [
+            0,
+            70
+          ],
+          "y": [
+            244,
+            300
+          ],
+          "connects_to": "RES02"
+        },
+        "right": {
+          "x": [
+            570,
+            640
+          ],
+          "y": [
+            244,
+            300
+          ],
+          "connects_to": "REW01"
+        }
+      },
+      "platforms": [
+        {
+          "id": "left_step",
+          "x": 140,
+          "y": 276,
+          "width": 76,
+          "height": 12
+        },
+        {
+          "id": "left_shelf",
+          "x": 236,
+          "y": 248,
+          "width": 82,
+          "height": 12
+        },
+        {
+          "id": "crown",
+          "x": 324,
+          "y": 220,
+          "width": 72,
+          "height": 12
+        },
+        {
+          "id": "right_shelf",
+          "x": 420,
+          "y": 248,
+          "width": 82,
+          "height": 12
+        },
+        {
+          "id": "right_step",
+          "x": 508,
+          "y": 276,
+          "width": 76,
+          "height": 12
+        }
+      ],
+      "landmarks": [
+        {
+          "id": "colossus_arena",
+          "kind": "encounter_landmark",
+          "x": 320,
+          "y": 286,
+          "story": "Floor ring marks a broad duel lane; ceiling cracks show debris paths."
+        },
+        {
+          "id": "beam_scar_l",
+          "kind": "environmental_clue",
+          "x": 122,
+          "y": 282,
+          "story": "A scorched strip foreshadows the rear-wall beam sweep."
+        },
+        {
+          "id": "beam_scar_r",
+          "kind": "environmental_clue",
+          "x": 518,
+          "y": 282,
+          "story": "Matching marks show the beam crosses the arena."
+        },
+        {
+          "id": "north_pylon",
+          "kind": "environmental_story",
+          "x": 320,
+          "y": 204,
+          "story": "Three pylons repeat the alignment mark from the terminal."
+        }
+      ],
+      "encounter_zones": [
+        {
+          "id": "wayfinder",
+          "enemy": "B03",
+          "x": [
+            186,
+            454
+          ],
+          "purpose": "Broad floor lane and clear retreat space; beam/debris warnings remain visible."
+        }
+      ],
+      "intended_route": "A level arena leaves room to jump shockwaves and retreat from marked lanes; after B03, right exit reaches the optional overflow alcove."
+    },
+    {
+      "id": "RES04",
+      "name": "Overflow Alcove",
+      "purpose": "Optional health shard, blueprint and visible return shortcut",
+      "biome_kit": "reservoir_vault",
+      "entry_clearance": {
+        "left": {
+          "x": [
+            0,
+            70
+          ],
+          "y": [
+            244,
+            300
+          ],
+          "connects_to": "RES02"
+        },
+        "right": null
+      },
+      "platforms": [
+        {
+          "id": "overflow_bank",
+          "x": 148,
+          "y": 276,
+          "width": 80,
+          "height": 12
+        },
+        {
+          "id": "ledge_low",
+          "x": 250,
+          "y": 252,
+          "width": 82,
+          "height": 12
+        },
+        {
+          "id": "spill_shelf",
+          "x": 356,
+          "y": 226,
+          "width": 84,
+          "height": 12
+        },
+        {
+          "id": "return_bank",
+          "x": 484,
+          "y": 270,
+          "width": 92,
+          "height": 12
+        }
+      ],
+      "landmarks": [
+        {
+          "id": "HP03",
+          "kind": "collectible_anchor",
+          "x": 354,
+          "y": 210,
+          "story": "A sealed recovery capsule rests above the overflow spillway."
+        },
+        {
+          "id": "BP05",
+          "kind": "collectible_anchor",
+          "x": 490,
+          "y": 254,
+          "story": "An equipment blueprint is tucked into the service cache."
+        },
+        {
+          "id": "return_marker",
+          "kind": "shortcut_marker",
+          "x": 534,
+          "y": 280,
+          "story": "After P06, the return sluice links back to the Warped Verge."
+        },
+        {
+          "id": "overflow_trace",
+          "kind": "environmental_clue",
+          "x": 226,
+          "y": 238,
+          "story": "Mineral lines show the spillway's highest safe water mark."
+        }
+      ],
+      "encounter_zones": [],
+      "intended_route": "Optional cache; the left entrance and base floor remain a safe return route."
+    },
+    {
+      "id": "REW01",
+      "name": "Vault Vestibule",
+      "purpose": "Rest point and P07 conductors reveal a precision seal",
+      "biome_kit": "reservoir_vault",
+      "entry_clearance": {
+        "left": {
+          "x": [
+            0,
+            70
+          ],
+          "y": [
+            244,
+            300
+          ],
+          "connects_to": "RES03"
+        },
+        "right": {
+          "x": [
+            570,
+            640
+          ],
+          "y": [
+            244,
+            300
+          ],
+          "connects_to": "REW02"
+        }
+      },
+      "platforms": [
+        {
+          "id": "vestibule",
+          "x": 150,
+          "y": 276,
+          "width": 80,
+          "height": 12
+        },
+        {
+          "id": "conductor_l",
+          "x": 252,
+          "y": 246,
+          "width": 86,
+          "height": 12
+        },
+        {
+          "id": "conductor_r",
+          "x": 374,
+          "y": 246,
+          "width": 86,
+          "height": 12
+        },
+        {
+          "id": "threshold",
+          "x": 492,
+          "y": 276,
+          "width": 80,
+          "height": 12
+        }
+      ],
+      "landmarks": [
+        {
+          "id": "rewind_rest",
+          "kind": "rest_station",
+          "x": 92,
+          "y": 278,
+          "story": "Quiet rest point before the sanctuary seal."
+        },
+        {
+          "id": "conductor_a",
+          "kind": "environmental_clue",
+          "x": 250,
+          "y": 230,
+          "story": "Left conductor pulses once, then holds."
+        },
+        {
+          "id": "conductor_b",
+          "kind": "environmental_clue",
+          "x": 378,
+          "y": 230,
+          "story": "Right conductor answers after the left pulse."
+        },
+        {
+          "id": "P07",
+          "kind": "tutorial_console",
+          "x": 320,
+          "y": 276,
+          "story": "P07 isolates both conductors and exposes the Keeper chamber."
+        },
+        {
+          "id": "vault_seal",
+          "kind": "environmental_story",
+          "x": 518,
+          "y": 268,
+          "story": "The sealed door protects a continuity device, not a treasure hoard."
+        }
+      ],
+      "encounter_zones": [],
+      "intended_route": "Read alternating conductor marks and activate P07; the next passage opens after the seal is isolated."
+    },
+    {
+      "id": "REW02",
+      "name": "Keeper Arena",
+      "purpose": "Required Reliquary Keeper encounter; broad duel space and flank route",
+      "biome_kit": "reservoir_vault",
+      "entry_clearance": {
+        "left": {
+          "x": [
+            0,
+            70
+          ],
+          "y": [
+            244,
+            300
+          ],
+          "connects_to": "REW01"
+        },
+        "right": {
+          "x": [
+            570,
+            640
+          ],
+          "y": [
+            244,
+            300
+          ],
+          "connects_to": "REW03"
+        }
+      },
+      "platforms": [
+        {
+          "id": "arena_l",
+          "x": 144,
+          "y": 276,
+          "width": 78,
+          "height": 12
+        },
+        {
+          "id": "recess_l",
+          "x": 232,
+          "y": 252,
+          "width": 72,
+          "height": 12
+        },
+        {
+          "id": "arena_center",
+          "x": 320,
+          "y": 276,
+          "width": 96,
+          "height": 12
+        },
+        {
+          "id": "recess_r",
+          "x": 410,
+          "y": 252,
+          "width": 72,
+          "height": 12
+        },
+        {
+          "id": "arena_r",
+          "x": 500,
+          "y": 276,
+          "width": 78,
+          "height": 12
+        }
+      ],
+      "landmarks": [
+        {
+          "id": "keeper_arena",
+          "kind": "encounter_landmark",
+          "x": 320,
+          "y": 286,
+          "story": "Floor channels power the shield; the core opens during pulse recovery."
+        },
+        {
+          "id": "conductor_l",
+          "kind": "environmental_clue",
+          "x": 214,
+          "y": 274,
+          "story": "The isolated left conductor is dark."
+        },
+        {
+          "id": "conductor_r",
+          "kind": "environmental_clue",
+          "x": 426,
+          "y": 274,
+          "story": "The isolated right conductor is dark; shield pulse has a readable pause."
+        },
+        {
+          "id": "vault_casing",
+          "kind": "environmental_story",
+          "x": 320,
+          "y": 232,
+          "story": "Mithril shell carries maintenance marks, not battle trophies."
+        }
+      ],
+      "encounter_zones": [
+        {
+          "id": "reliquary_keeper",
+          "enemy": "B04",
+          "x": [
+            184,
+            456
+          ],
+          "purpose": "Keep central floor clear; dodge charge and flank during the 1.6-second core window."
+        }
+      ],
+      "intended_route": "Use the clear central lane to read the Keeper, dodge its charge, then strike its core during recovery."
+    },
+    {
+      "id": "REW03",
+      "name": "Relic Chamber",
+      "purpose": "P08 synchronizes Sluice, Survey and Reservoir inputs; Echo Rewind acquisition at Chapter 2 end",
+      "biome_kit": "reservoir_vault",
+      "entry_clearance": {
+        "left": {
+          "x": [
+            0,
+            70
+          ],
+          "y": [
+            244,
+            300
+          ],
+          "connects_to": "REW02"
+        },
+        "right": {
+          "x": [
+            570,
+            640
+          ],
+          "y": [
+            244,
+            300
+          ],
+          "connects_to": "REW04"
+        }
+      },
+      "platforms": [
+        {
+          "id": "step_l",
+          "x": 150,
+          "y": 276,
+          "width": 78,
+          "height": 12
+        },
+        {
+          "id": "sluice",
+          "x": 246,
+          "y": 248,
+          "width": 78,
+          "height": 12
+        },
+        {
+          "id": "survey",
+          "x": 320,
+          "y": 220,
+          "width": 72,
+          "height": 12
+        },
+        {
+          "id": "reservoir",
+          "x": 394,
+          "y": 248,
+          "width": 78,
+          "height": 12
+        },
+        {
+          "id": "threshold",
+          "x": 500,
+          "y": 276,
+          "width": 78,
+          "height": 12
+        }
+      ],
+      "landmarks": [
+        {
+          "id": "AR19",
+          "kind": "record_pickup_anchor",
+          "x": 248,
+          "y": 232,
+          "story": "Rescue record describes personal continuity, not restoring the world."
+        },
+        {
+          "id": "sluice_trace",
+          "kind": "environmental_clue",
+          "x": 244,
+          "y": 232,
+          "story": "Water grooves carry the Sluice conductor pattern."
+        },
+        {
+          "id": "survey_trace",
+          "kind": "environmental_clue",
+          "x": 320,
+          "y": 204,
+          "story": "Measured line reproduces Survey Vault map orientation."
+        },
+        {
+          "id": "reservoir_trace",
+          "kind": "environmental_clue",
+          "x": 396,
+          "y": 232,
+          "story": "Last groove repeats the safe-release sequence."
+        },
+        {
+          "id": "rewind_relic",
+          "kind": "story_event_focus",
+          "x": 320,
+          "y": 276,
+          "story": "P08 aligns the three records; Aster obtains Echo Rewind here."
+        }
+      ],
+      "encounter_zones": [],
+      "intended_route": "Compare three motifs from left to right and activate P08 at the center; this is a permanent story checkpoint."
+    },
+    {
+      "id": "REW04",
+      "name": "Training Corridor",
+      "purpose": "Safe Chapter 3 Rewind tutorial over an optional fold; world mechanisms remain unchanged",
+      "biome_kit": "reservoir_vault",
+      "entry_clearance": {
+        "left": {
+          "x": [
+            0,
+            70
+          ],
+          "y": [
+            244,
+            300
+          ],
+          "connects_to": "REW03"
+        },
+        "right": {
+          "x": [
+            570,
+            640
+          ],
+          "y": [
+            244,
+            300
+          ],
+          "connects_to": "FOL01"
+        }
+      },
+      "platforms": [
+        {
+          "id": "start",
+          "x": 128,
+          "y": 276,
+          "width": 80,
+          "height": 12
+        },
+        {
+          "id": "near_fold",
+          "x": 230,
+          "y": 252,
+          "width": 78,
+          "height": 12
+        },
+        {
+          "id": "far_fold",
+          "x": 340,
+          "y": 224,
+          "width": 78,
+          "height": 12
+        },
+        {
+          "id": "landing",
+          "x": 444,
+          "y": 252,
+          "width": 82,
+          "height": 12
+        },
+        {
+          "id": "exit",
+          "x": 528,
+          "y": 276,
+          "width": 72,
+          "height": 12
+        }
+      ],
+      "landmarks": [
+        {
+          "id": "tutorial_start",
+          "kind": "tutorial_console",
+          "x": 130,
+          "y": 276,
+          "story": "Safe recording pad begins a short reversible movement trial."
+        },
+        {
+          "id": "fold_trace",
+          "kind": "environmental_clue",
+          "x": 286,
+          "y": 238,
+          "story": "Aster's path leaves a faint echo; mechanisms and spent energy remain unchanged."
+        },
+        {
+          "id": "exit_mark",
+          "kind": "readable_sign",
+          "x": 508,
+          "y": 258,
+          "story": "Exit glyph points onward after the trial."
+        }
+      ],
+      "encounter_zones": [],
+      "intended_route": "Practice starting and releasing Rewind on a stepped route; the continuous base floor avoids a forced fall."
+    },
+    {
+      "id": "FOL01",
+      "name": "History Landing",
+      "purpose": "Rest and return shortcut; Continuum fragment hints at the unfinished ancient rescue",
+      "biome_kit": "warped_network",
+      "entry_clearance": {
+        "left": {
+          "x": [
+            0,
+            70
+          ],
+          "y": [
+            244,
+            300
+          ],
+          "connects_to": "REW04"
+        },
+        "right": {
+          "x": [
+            570,
+            640
+          ],
+          "y": [
+            244,
+            300
+          ],
+          "connects_to": "FOL02"
+        }
+      },
+      "platforms": [
+        {
+          "id": "landing",
+          "x": 148,
+          "y": 276,
+          "width": 78,
+          "height": 12
+        },
+        {
+          "id": "record_shelf",
+          "x": 246,
+          "y": 246,
+          "width": 80,
+          "height": 12
+        },
+        {
+          "id": "fold_ramp",
+          "x": 354,
+          "y": 226,
+          "width": 82,
+          "height": 12
+        },
+        {
+          "id": "shortcut_walk",
+          "x": 464,
+          "y": 260,
+          "width": 84,
+          "height": 12
+        }
+      ],
+      "landmarks": [
+        {
+          "id": "fold_rest",
+          "kind": "rest_station",
+          "x": 92,
+          "y": 278,
+          "story": "Stable floor between two visible folds."
+        },
+        {
+          "id": "AR20",
+          "kind": "record_pickup_anchor",
+          "x": 250,
+          "y": 230,
+          "story": "Continuum fragment describes an unfinished act of rescue."
+        },
+        {
+          "id": "return_shortcut",
+          "kind": "shortcut_marker",
+          "x": 536,
+          "y": 280,
+          "story": "Return fold leads to Survey Vault after its route is aligned."
+        },
+        {
+          "id": "fold_sightline",
+          "kind": "distant_landmark",
+          "x": 362,
+          "y": 210,
+          "story": "Far arch appears above and behind itself; floor remains solid."
+        }
+      ],
+      "encounter_zones": [],
+      "intended_route": "Rest, inspect the impossible sightline, then follow the stable path right."
+    },
+    {
+      "id": "FOL02",
+      "name": "One-way Gallery",
+      "purpose": "Rewind traversal and fold clues; platforms support ascent with safe return floor",
+      "biome_kit": "warped_network",
+      "entry_clearance": {
+        "left": {
+          "x": [
+            0,
+            70
+          ],
+          "y": [
+            244,
+            300
+          ],
+          "connects_to": "FOL01"
+        },
+        "right": {
+          "x": [
+            570,
+            640
+          ],
+          "y": [
+            244,
+            300
+          ],
+          "connects_to": "FOL03"
+        }
+      },
+      "platforms": [
+        {
+          "id": "lower",
+          "x": 136,
+          "y": 276,
+          "width": 72,
+          "height": 12
+        },
+        {
+          "id": "gallery_l",
+          "x": 224,
+          "y": 246,
+          "width": 72,
+          "height": 12
+        },
+        {
+          "id": "gallery_mid",
+          "x": 312,
+          "y": 218,
+          "width": 72,
+          "height": 12
+        },
+        {
+          "id": "gallery_r",
+          "x": 400,
+          "y": 246,
+          "width": 72,
+          "height": 12
+        },
+        {
+          "id": "far",
+          "x": 504,
+          "y": 276,
+          "width": 72,
+          "height": 12
+        }
+      ],
+      "landmarks": [
+        {
+          "id": "fold_clue_a",
+          "kind": "environmental_clue",
+          "x": 220,
+          "y": 230,
+          "story": "Hanging fragments preserve an earlier position as a transparent echo."
+        },
+        {
+          "id": "fold_clue_b",
+          "kind": "environmental_clue",
+          "x": 410,
+          "y": 230,
+          "story": "Matching notch identifies current position; Rewind restores Aster, not platform."
+        },
+        {
+          "id": "one_way_mark",
+          "kind": "readable_sign",
+          "x": 314,
+          "y": 202,
+          "story": "Down chevron labels one-way descent; lower floor returns safely."
+        }
+      ],
+      "encounter_zones": [
+        {
+          "id": "rift_skitter",
+          "enemy": "E03",
+          "x": [
+            170,
+            245
+          ],
+          "purpose": "One Rift Skitter patrol, visible telegraph and open retreat lane."
+        }
+      ],
+      "intended_route": "Climb the staggered gallery and compare old/current fold silhouettes; use Rewind to correct Aster position, never mechanisms."
+    },
+    {
+      "id": "FOL03",
+      "name": "Fold Junction",
+      "purpose": "P10 fold alignment and Nalora record make topology teach a consistent landmark order",
+      "biome_kit": "warped_network",
+      "entry_clearance": {
+        "left": {
+          "x": [
+            0,
+            70
+          ],
+          "y": [
+            244,
+            300
+          ],
+          "connects_to": "FOL02"
+        },
+        "right": {
+          "x": [
+            570,
+            640
+          ],
+          "y": [
+            244,
+            300
+          ],
+          "connects_to": "FIN01"
+        }
+      },
+      "platforms": [
+        {
+          "id": "junction_l",
+          "x": 132,
+          "y": 276,
+          "width": 72,
+          "height": 12
+        },
+        {
+          "id": "arch",
+          "x": 224,
+          "y": 248,
+          "width": 72,
+          "height": 12
+        },
+        {
+          "id": "center",
+          "x": 320,
+          "y": 276,
+          "width": 80,
+          "height": 12
+        },
+        {
+          "id": "vista",
+          "x": 416,
+          "y": 232,
+          "width": 76,
+          "height": 12
+        },
+        {
+          "id": "junction_r",
+          "x": 510,
+          "y": 276,
+          "width": 72,
+          "height": 12
+        }
+      ],
+      "landmarks": [
+        {
+          "id": "AR21",
+          "kind": "record_pickup_anchor",
+          "x": 418,
+          "y": 216,
+          "story": "Nalora fragment: the ancient project tried to gather Echo from across the universe."
+        },
+        {
+          "id": "near_arch",
+          "kind": "environmental_clue",
+          "x": 220,
+          "y": 232,
+          "story": "Nearby arch is first in the landmark sequence."
+        },
+        {
+          "id": "center_notch",
+          "kind": "environmental_clue",
+          "x": 320,
+          "y": 258,
+          "story": "Center notch faces the broken arch, not its reflection."
+        },
+        {
+          "id": "far_marker",
+          "kind": "environmental_clue",
+          "x": 418,
+          "y": 216,
+          "story": "Far marker aligns only in the current map layer."
+        },
+        {
+          "id": "P10",
+          "kind": "tutorial_console",
+          "x": 320,
+          "y": 276,
+          "story": "P10 aligns the folds and opens Final Approach."
+        }
+      ],
+      "encounter_zones": [],
+      "intended_route": "Use near arch, center notch, far marker in order; activate P10 from safe central floor."
+    },
+    {
+      "id": "FOL04",
+      "name": "Devourer Nest",
+      "purpose": "Optional Rift Devourer arena with map, health cache and memorial",
+      "biome_kit": "warped_network",
+      "entry_clearance": {
+        "left": {
+          "x": [
+            0,
+            70
+          ],
+          "y": [
+            244,
+            300
+          ],
+          "connects_to": "FOL02"
+        },
+        "right": null
+      },
+      "platforms": [
+        {
+          "id": "nest_l",
+          "x": 134,
+          "y": 276,
+          "width": 74,
+          "height": 12
+        },
+        {
+          "id": "low_shelf",
+          "x": 232,
+          "y": 254,
+          "width": 74,
+          "height": 12
+        },
+        {
+          "id": "back_shelf",
+          "x": 326,
+          "y": 230,
+          "width": 76,
+          "height": 12
+        },
+        {
+          "id": "right_shelf",
+          "x": 420,
+          "y": 254,
+          "width": 74,
+          "height": 12
+        },
+        {
+          "id": "exit_floor",
+          "x": 510,
+          "y": 276,
+          "width": 74,
+          "height": 12
+        }
+      ],
+      "landmarks": [
+        {
+          "id": "devourer_ring",
+          "kind": "encounter_landmark",
+          "x": 320,
+          "y": 286,
+          "story": "Echo husks mark a feeding territory, not a machine chamber."
+        },
+        {
+          "id": "MAP06",
+          "kind": "collectible_anchor",
+          "x": 328,
+          "y": 214,
+          "story": "Optional map annotation rests on the back shelf."
+        },
+        {
+          "id": "HP04",
+          "kind": "collectible_anchor",
+          "x": 236,
+          "y": 238,
+          "story": "Recovery cache rests on the left ledge."
+        },
+        {
+          "id": "MEM05",
+          "kind": "hidden_memorial_anchor",
+          "x": 514,
+          "y": 280,
+          "story": "Hidden memorial is tucked behind the right return wall."
+        },
+        {
+          "id": "pool_trace",
+          "kind": "environmental_clue",
+          "x": 430,
+          "y": 276,
+          "story": "Dark residue shows where the Devourer leaves a delayed pool."
+        }
+      ],
+      "encounter_zones": [
+        {
+          "id": "rift_devourer",
+          "enemy": "B05",
+          "x": [
+            180,
+            462
+          ],
+          "purpose": "Wide optional arena; marked rift strike and delayed pool leave retreat/jump lanes."
+        }
+      ],
+      "intended_route": "One-exit optional branch. Low shelves keep rewards accessible and base-floor return open."
+    },
+    {
+      "id": "FIN01",
+      "name": "Stabilizer Walk",
+      "purpose": "Rest and overview of three local gate stabilizers; they do not repair the universe-wide Warp",
+      "biome_kit": "warped_network",
+      "entry_clearance": {
+        "left": {
+          "x": [
+            0,
+            70
+          ],
+          "y": [
+            244,
+            300
+          ],
+          "connects_to": "FOL03"
+        },
+        "right": {
+          "x": [
+            570,
+            640
+          ],
+          "y": [
+            244,
+            300
+          ],
+          "connects_to": "FIN02"
+        }
+      },
+      "platforms": [
+        {
+          "id": "walk_l",
+          "x": 138,
+          "y": 276,
+          "width": 74,
+          "height": 12
+        },
+        {
+          "id": "shelf_a",
+          "x": 226,
+          "y": 246,
+          "width": 72,
+          "height": 12
+        },
+        {
+          "id": "walk_c",
+          "x": 318,
+          "y": 276,
+          "width": 72,
+          "height": 12
+        },
+        {
+          "id": "shelf_b",
+          "x": 412,
+          "y": 246,
+          "width": 72,
+          "height": 12
+        },
+        {
+          "id": "walk_r",
+          "x": 506,
+          "y": 276,
+          "width": 74,
+          "height": 12
+        }
+      ],
+      "landmarks": [
+        {
+          "id": "final_rest",
+          "kind": "rest_station",
+          "x": 92,
+          "y": 278,
+          "story": "Safe rest before the stabilizer route."
+        },
+        {
+          "id": "AR22",
+          "kind": "record_pickup_anchor",
+          "x": 228,
+          "y": 230,
+          "story": "Anchor record distinguishes local stabilizers from the universal Warp."
+        },
+        {
+          "id": "stabilizer_a",
+          "kind": "environmental_clue",
+          "x": 228,
+          "y": 230,
+          "story": "First stabilizer is intact, but unpowered."
+        },
+        {
+          "id": "stabilizer_b",
+          "kind": "environmental_clue",
+          "x": 412,
+          "y": 230,
+          "story": "Second stabilizer is visible across the central floor."
+        },
+        {
+          "id": "stabilizer_c",
+          "kind": "distant_landmark",
+          "x": 516,
+          "y": 262,
+          "story": "Third stabilizer sits beyond the next passage."
+        }
+      ],
+      "encounter_zones": [],
+      "intended_route": "Follow the visible floor-level route. Optional shelves reward exploration without blocking the critical path."
+    },
+    {
+      "id": "FIN02",
+      "name": "Anchor Control",
+      "purpose": "P11 routes reserve power through three local anchors without implying a global repair",
+      "biome_kit": "warped_network",
+      "entry_clearance": {
+        "left": {
+          "x": [
+            0,
+            70
+          ],
+          "y": [
+            244,
+            300
+          ],
+          "connects_to": "FIN01"
+        },
+        "right": {
+          "x": [
+            570,
+            640
+          ],
+          "y": [
+            244,
+            300
+          ],
+          "connects_to": "FIN03"
+        }
+      },
+      "platforms": [
+        {
+          "id": "control_l",
+          "x": 142,
+          "y": 276,
+          "width": 74,
+          "height": 12
+        },
+        {
+          "id": "anchor_a",
+          "x": 232,
+          "y": 248,
+          "width": 74,
+          "height": 12
+        },
+        {
+          "id": "center",
+          "x": 320,
+          "y": 276,
+          "width": 80,
+          "height": 12
+        },
+        {
+          "id": "anchor_b",
+          "x": 408,
+          "y": 248,
+          "width": 74,
+          "height": 12
+        },
+        {
+          "id": "control_r",
+          "x": 500,
+          "y": 276,
+          "width": 74,
+          "height": 12
+        }
+      ],
+      "landmarks": [
+        {
+          "id": "anchor_a",
+          "kind": "environmental_clue",
+          "x": 230,
+          "y": 232,
+          "story": "First mark points back to the stabilizer walk."
+        },
+        {
+          "id": "anchor_b",
+          "kind": "environmental_clue",
+          "x": 410,
+          "y": 232,
+          "story": "Second mark mirrors the lower floor notch."
+        },
+        {
+          "id": "anchor_c",
+          "kind": "environmental_clue",
+          "x": 504,
+          "y": 260,
+          "story": "Third mark routes reserve power only toward the gate."
+        },
+        {
+          "id": "P11",
+          "kind": "tutorial_console",
+          "x": 320,
+          "y": 276,
+          "story": "P11 routes reserve power across the three local stabilizers."
+        },
+        {
+          "id": "gate_sightline",
+          "kind": "distant_landmark",
+          "x": 552,
+          "y": 268,
+          "story": "A local route appears; the large tear beyond remains unchanged."
+        }
+      ],
+      "encounter_zones": [],
+      "intended_route": "Compare floor notches with wall marks, activate P11 centrally, then follow the restored local path."
+    },
+    {
+      "id": "FIN03",
+      "name": "Last Rest",
+      "purpose": "Final checkpoint/workbench and isolation warning before Fold Guardian",
+      "biome_kit": "warped_network",
+      "entry_clearance": {
+        "left": {
+          "x": [
+            0,
+            70
+          ],
+          "y": [
+            244,
+            300
+          ],
+          "connects_to": "FIN02"
+        },
+        "right": {
+          "x": [
+            570,
+            640
+          ],
+          "y": [
+            244,
+            300
+          ],
+          "connects_to": "GAT01"
+        }
+      },
+      "platforms": [
+        {
+          "id": "rest_step",
+          "x": 150,
+          "y": 276,
+          "width": 82,
+          "height": 12
+        },
+        {
+          "id": "bench_shelf",
+          "x": 264,
+          "y": 250,
+          "width": 86,
+          "height": 12
+        },
+        {
+          "id": "warning_walk",
+          "x": 382,
+          "y": 276,
+          "width": 88,
+          "height": 12
+        },
+        {
+          "id": "exit_step",
+          "x": 508,
+          "y": 260,
+          "width": 78,
+          "height": 12
+        }
+      ],
+      "landmarks": [
+        {
+          "id": "last_rest",
+          "kind": "rest_station",
+          "x": 92,
+          "y": 278,
+          "story": "Final rest checkpoint."
+        },
+        {
+          "id": "workbench",
+          "kind": "workbench",
+          "x": 266,
+          "y": 234,
+          "story": "Service equipment and check weapon state before the arena."
+        },
+        {
+          "id": "AR23",
+          "kind": "record_pickup_anchor",
+          "x": 382,
+          "y": 258,
+          "story": "Isolation directive says the remote gate control is physically fractured."
+        },
+        {
+          "id": "arena_warning",
+          "kind": "environmental_clue",
+          "x": 520,
+          "y": 244,
+          "story": "Three parallel gouges foreshadow the Guardian attack lanes."
+        }
+      ],
+      "encounter_zones": [],
+      "intended_route": "Follow the visible floor-level route. Optional shelves reward exploration without blocking the critical path."
+    },
+    {
+      "id": "FIN04",
+      "name": "Service Niche",
+      "purpose": "Optional endgame blueprint and Vaelari Resonator; safe return to final checkpoint",
+      "biome_kit": "warped_network",
+      "entry_clearance": {
+        "left": {
+          "x": [
+            0,
+            70
+          ],
+          "y": [
+            244,
+            300
+          ],
+          "connects_to": "FIN02"
+        },
+        "right": null
+      },
+      "platforms": [
+        {
+          "id": "entry",
+          "x": 140,
+          "y": 276,
+          "width": 74,
+          "height": 12
+        },
+        {
+          "id": "cache_low",
+          "x": 234,
+          "y": 250,
+          "width": 74,
+          "height": 12
+        },
+        {
+          "id": "cache_high",
+          "x": 330,
+          "y": 222,
+          "width": 78,
+          "height": 12
+        },
+        {
+          "id": "weapon_shelf",
+          "x": 428,
+          "y": 250,
+          "width": 74,
+          "height": 12
+        },
+        {
+          "id": "return",
+          "x": 510,
+          "y": 276,
+          "width": 74,
+          "height": 12
+        }
+      ],
+      "landmarks": [
+        {
+          "id": "BP06",
+          "kind": "collectible_anchor",
+          "x": 330,
+          "y": 206,
+          "story": "Final service blueprint is stored above the shelf."
+        },
+        {
+          "id": "WPN03",
+          "kind": "collectible_anchor",
+          "x": 430,
+          "y": 234,
+          "story": "Vaelari Resonator rests in an optional cache."
+        },
+        {
+          "id": "service_marks",
+          "kind": "environmental_clue",
+          "x": 230,
+          "y": 234,
+          "story": "Tool marks show this is a maintenance alcove, not part of the gate sequence."
+        },
+        {
+          "id": "safe_return",
+          "kind": "readable_sign",
+          "x": 514,
+          "y": 258,
+          "story": "Floor line returns to Last Rest."
+        }
+      ],
+      "encounter_zones": [],
+      "intended_route": "Follow the visible floor-level route. Optional shelves reward exploration without blocking the critical path."
+    },
+    {
+      "id": "GAT01",
+      "name": "Containment Arena",
+      "purpose": "Fold Guardian arena; containment forms a safe chamber, not an exit",
+      "biome_kit": "warped_network",
+      "entry_clearance": {
+        "left": {
+          "x": [
+            0,
+            70
+          ],
+          "y": [
+            244,
+            300
+          ],
+          "connects_to": "FIN03"
+        },
+        "right": {
+          "x": [
+            570,
+            640
+          ],
+          "y": [
+            244,
+            300
+          ],
+          "connects_to": "GAT02"
+        }
+      },
+      "platforms": [
+        {
+          "id": "arena_l",
+          "x": 132,
+          "y": 276,
+          "width": 78,
+          "height": 12
+        },
+        {
+          "id": "pillar",
+          "x": 224,
+          "y": 246,
+          "width": 82,
+          "height": 12
+        },
+        {
+          "id": "dais",
+          "x": 320,
+          "y": 276,
+          "width": 90,
+          "height": 12
+        },
+        {
+          "id": "beam_shelf",
+          "x": 418,
+          "y": 246,
+          "width": 82,
+          "height": 12
+        },
+        {
+          "id": "arena_r",
+          "x": 510,
+          "y": 276,
+          "width": 78,
+          "height": 12
+        }
+      ],
+      "landmarks": [
+        {
+          "id": "guardian_arena",
+          "kind": "encounter_landmark",
+          "x": 320,
+          "y": 286,
+          "story": "Containment ring marks danger lanes; central floor remains clear."
+        },
+        {
+          "id": "AR24",
+          "kind": "record_pickup_anchor",
+          "x": 230,
+          "y": 230,
+          "story": "Directive: keep containment local; damaged gate cannot be repaired here."
+        },
+        {
+          "id": "beam_sightline",
+          "kind": "environmental_clue",
+          "x": 414,
+          "y": 230,
+          "story": "Twin wall cuts reveal the portal beam path."
+        },
+        {
+          "id": "gate_shadow",
+          "kind": "distant_landmark",
+          "x": 548,
+          "y": 266,
+          "story": "Gate chamber lies beyond; the fracture continues through it."
+        }
+      ],
+      "encounter_zones": [
+        {
+          "id": "fold_guardian",
+          "enemy": "B06",
+          "x": [
+            170,
+            470
+          ],
+          "purpose": "Open arena with visible warning zones, dodge routes and recovery windows."
+        }
+      ],
+      "intended_route": "Defeat B06 and cross right. This opens local containment access only, never the gate itself."
+    },
+    {
+      "id": "GAT02",
+      "name": "Broken Gate",
+      "purpose": "Physical diagnosis: Echo Warp tore the gate out of alignment, trapping Aster past it",
+      "biome_kit": "warped_network",
+      "entry_clearance": {
+        "left": {
+          "x": [
+            0,
+            70
+          ],
+          "y": [
+            244,
+            300
+          ],
+          "connects_to": "GAT01"
+        },
+        "right": {
+          "x": [
+            570,
+            640
+          ],
+          "y": [
+            244,
+            300
+          ],
+          "connects_to": "GAT03"
+        }
+      },
+      "platforms": [
+        {
+          "id": "fracture_l",
+          "x": 144,
+          "y": 276,
+          "width": 76,
+          "height": 12
+        },
+        {
+          "id": "diagnostic",
+          "x": 246,
+          "y": 248,
+          "width": 76,
+          "height": 12
+        },
+        {
+          "id": "threshold",
+          "x": 338,
+          "y": 276,
+          "width": 94,
+          "height": 12
+        },
+        {
+          "id": "rubble",
+          "x": 448,
+          "y": 250,
+          "width": 80,
+          "height": 12
+        },
+        {
+          "id": "safe_floor",
+          "x": 526,
+          "y": 276,
+          "width": 76,
+          "height": 12
+        }
+      ],
+      "landmarks": [
+        {
+          "id": "gate_diagnostic",
+          "kind": "story_event_focus",
+          "x": 340,
+          "y": 276,
+          "story": "Gate is split across time; no key or personal Rewind restores the missing far-side anchor."
+        },
+        {
+          "id": "broken_receiver",
+          "kind": "environmental_clue",
+          "x": 240,
+          "y": 232,
+          "story": "Receiver housing is sheared and its partner is absent."
+        },
+        {
+          "id": "warp_afterimage",
+          "kind": "environmental_story",
+          "x": 448,
+          "y": 234,
+          "story": "Several gate positions overlap; only the fractured outline is solid."
+        },
+        {
+          "id": "beacon_cable",
+          "kind": "maintenance_route_marker",
+          "x": 536,
+          "y": 258,
+          "story": "A low-power diagnostic cable reaches the beacon terminal."
+        }
+      ],
+      "encounter_zones": [],
+      "intended_route": "Inspect and attempt the gate sequence; Rewind cannot restore the structure. Keep route to beacon open, with no escape route."
+    },
+    {
+      "id": "GAT03",
+      "name": "Beacon Terminal",
+      "purpose": "P12 sends distress and hands narrative to Orion; data link is not a traversal route",
+      "biome_kit": "warped_network",
+      "entry_clearance": {
+        "left": {
+          "x": [
+            0,
+            70
+          ],
+          "y": [
+            244,
+            300
+          ],
+          "connects_to": "GAT02"
+        },
+        "right": {
+          "x": [
+            570,
+            640
+          ],
+          "y": [
+            244,
+            300
+          ],
+          "connects_to": "GAT04"
+        }
+      },
+      "platforms": [
+        {
+          "id": "terminal",
+          "x": 148,
+          "y": 276,
+          "width": 78,
+          "height": 12
+        },
+        {
+          "id": "cable",
+          "x": 248,
+          "y": 248,
+          "width": 78,
+          "height": 12
+        },
+        {
+          "id": "console",
+          "x": 354,
+          "y": 276,
+          "width": 92,
+          "height": 12
+        },
+        {
+          "id": "signal",
+          "x": 466,
+          "y": 250,
+          "width": 82,
+          "height": 12
+        },
+        {
+          "id": "refuge",
+          "x": 530,
+          "y": 276,
+          "width": 70,
+          "height": 12
+        }
+      ],
+      "landmarks": [
+        {
+          "id": "cable_trace",
+          "kind": "environmental_clue",
+          "x": 246,
+          "y": 232,
+          "story": "The cable ends at beacon control, not an exit mechanism."
+        },
+        {
+          "id": "P12",
+          "kind": "tutorial_console",
+          "x": 354,
+          "y": 276,
+          "story": "P12 routes the emergency diagnostic through the gate beacon."
+        },
+        {
+          "id": "signal_light",
+          "kind": "story_event_focus",
+          "x": 466,
+          "y": 234,
+          "story": "Signal confirms Aster is alive and trapped beyond the gate."
+        },
+        {
+          "id": "refuge_sign",
+          "kind": "readable_sign",
+          "x": 536,
+          "y": 258,
+          "story": "A protected pocket of the sanctuary can support a small refuge."
+        }
+      ],
+      "encounter_zones": [],
+      "intended_route": "Trace power from broken gate cable to beacon; signal carries information only, not matter."
+    },
+    {
+      "id": "GAT04",
+      "name": "Refuge",
+      "purpose": "Final camp and credits endpoint; Aster remains trapped pending Orion game",
+      "biome_kit": "warped_network",
+      "entry_clearance": {
+        "left": {
+          "x": [
+            0,
+            70
+          ],
+          "y": [
+            244,
+            300
+          ],
+          "connects_to": "GAT03"
+        },
+        "right": null
+      },
+      "platforms": [
+        {
+          "id": "refuge_step",
+          "x": 150,
+          "y": 276,
+          "width": 82,
+          "height": 12
+        },
+        {
+          "id": "supply",
+          "x": 270,
+          "y": 250,
+          "width": 86,
+          "height": 12
+        },
+        {
+          "id": "camp",
+          "x": 390,
+          "y": 276,
+          "width": 96,
+          "height": 12
+        },
+        {
+          "id": "bench",
+          "x": 510,
+          "y": 252,
+          "width": 80,
+          "height": 12
+        }
+      ],
+      "landmarks": [
+        {
+          "id": "refuge_rest",
+          "kind": "rest_station",
+          "x": 92,
+          "y": 278,
+          "story": "Safe camp with renewable water."
+        },
+        {
+          "id": "refuge_workbench",
+          "kind": "workbench",
+          "x": 512,
+          "y": 236,
+          "story": "Maintain equipment from recovered materials."
+        },
+        {
+          "id": "signal_recap",
+          "kind": "environmental_story",
+          "x": 360,
+          "y": 260,
+          "story": "Distress signal is sent; the fractured gate stays sealed."
+        },
+        {
+          "id": "end_marker",
+          "kind": "story_event_focus",
+          "x": 390,
+          "y": 260,
+          "story": "Aster's story ends in refuge, awaiting Orion's response."
+        }
+      ],
+      "encounter_zones": [],
+      "intended_route": "Enclosed safe endpoint. Credits follow the distress signal; no route opens through the gate."
     }
   ]
 }

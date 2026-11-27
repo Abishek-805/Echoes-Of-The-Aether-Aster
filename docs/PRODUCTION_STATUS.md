@@ -11,10 +11,10 @@ for decisions in [Player-directed overrides](PLAYER_DIRECTED_OVERRIDES.md).
 - Open room links now transition when Aster crosses their physical screen-edge doorway;
   the destination entry side is preserved. Junctions and sealed exits still use the route
   panel, and room geometry remains placeholder work.
-- The first 24 town/frontier, camp, sluice, and rootspan rooms now load room-specific platform layouts and story
-  landmark anchors from `data/room_layouts.json`; collectibles anchored in those rooms appear at their
-  documented world positions. These layouts still need hands-on jump and readability
-  review.
+- All 64 campaign rooms now load room-specific platform layouts and story landmark
+  anchors from `data/room_layouts.json`; collectibles anchored in those rooms appear at
+  their documented world positions. These graybox layouts still need hands-on jump,
+  readability, and encounter-spacing review.
 - The graybox campaign includes room loading, exploration tracking, a world map on M,
   journal and inventory panels, checkpoints, save/load, day/night tint, enemies,
   boss placeholders, puzzle panels, pickups, upgrades, health, Echo Energy, heat,
@@ -35,6 +35,11 @@ for decisions in [Player-directed overrides](PLAYER_DIRECTED_OVERRIDES.md).
 - Major puzzles now reveal hints in three tiers, ending with the explicit solution only
   after the player requests it. The first Veraya Sentinel now commits to a warned charge
   direction and becomes vulnerable during recovery.
+- All six named bosses now have distinct graybox attack patterns: directional Warden
+  slams, Titan waves/debris, Colossus fold/beam/charge cycles, Keeper committed charges,
+  Devourer delayed pools, and a three-phase Fold Guardian with offset final-phase lanes.
+  Their telegraphs and recovery windows are automated; damage balance and animation still
+  need hands-on play review.
 - Temporary geometric visuals remain intentional until core gameplay is complete.
 
 ## Controls and player-directed movement
@@ -50,8 +55,8 @@ exist; each target still needs an interactive hardware run.
   authored iteration.
 - Final animated cinematics, side-story completion and all journal unlocks need to be
   integrated/reviewed across the full campaign.
-- Enemy and boss records need bespoke behavior, readable animations, tuning and play
-  review rather than only generic graybox AI.
+- Common enemy variants still need bespoke behavior. Boss patterns need readable
+  animation, tuning and hands-on play review beyond the automated behavior contracts.
 - Save integrity, remaining Rewind edge cases, map discoverability, every puzzle path,
   and all platform targets need further automated and hands-on verification.
 - Final art, audio, accessibility, performance, export packaging and release QA remain
@@ -62,9 +67,9 @@ exist; each target still needs an interactive hardware run.
 ## Recent validation
 
 Godot 4.7.2 headless import and script scan completed; 33 GDScript files checked, zero
-broken. All 16 `*_contract.gd` checks passed, including physical room-edge transitions,
-24 authored graybox layouts, three-tier puzzle hints, Warden and Sentinel attack tells,
-platform controls, stable loot, story flags, and content references. The campaign contract
+broken. All 17 `*_contract.gd` checks passed, including physical room-edge transitions,
+64 authored graybox layouts, three-tier puzzle hints, Warden and Sentinel attack tells,
+all six distinct boss patterns, platform controls, stable loot, story flags, and content references. The campaign contract
 observed 62 reachable rooms, acquired Rewind, and reached the distress/refuge ending. The
 240-frame main-scene smoke run had no script or engine errors. Windows, Linux, Web, and
 macOS release exports completed; Android export is blocked by the missing JDK and Android

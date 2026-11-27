@@ -1,0 +1,16 @@
+family_id,type,coverage,stage,size_target,reference,status,source_file,export_file,license,approval_notes
+CHR-ASTER,hero,idle/run/jump/blade/fire/hurt/dodge,slice,32x48 target,Existing Aster concept + V2,visual review,art/source/aster; tools/build_slice_art.py,art/runtime/aster_*.png,Original project-authored draft,"Idle/run/blade only; palette checks pass, source layers retained, user visual approval pending"
+EN-FORAGER,enemy,idle/move/tell/lunge/recover/defeat,slice,determine at benchmark,V2 enemy bible,visual review,tools/build_slice_art.py,art/runtime/forager.png,Original project-authored draft,"Six draft frames integrated; technical audit passed, motion refinement pending"
+BOSS-WARDEN,boss,guard/slam/recover/phase/defeat,slice,determine at benchmark,V2 boss bible,draft,actors/enemies/warden.gd,,unverified,Behavior prototype and placeholder drawing only; sprite art pending
+ENV-FRONTIER,environment,terrain/transitions/props/background,slice,16px grid target,V2 frontier,draft,tools/build_slice_art.py,art/runtime/bg_*.png; terrain.png,Original project-authored draft,In-engine screenshot reviewed; detail/landmark refinement pending
+ENV-ROOTSPAN,environment,bridge/water/roots/conductors,slice,16px grid target,V2 waterways,draft,tools/build_slice_art.py,art/runtime/bg_*.png; terrain.png,Original project-authored draft,In-engine screenshot reviewed; detail/landmark refinement pending
+UI-SLICE,interface,HP/EE/heat/prompts/pause,slice,640x360 canvas,V2 UI,planned,,,unverified,Family-level plan; split into per-animation/per-asset rows before production
+FX-SLICE,effects,release/cell-fill/heat/hit/shot,slice,determine per effect,V2 systems,planned,,,unverified,Family-level plan; split into per-animation/per-asset rows before production
+AUDIO-SLICE,audio,foley/attacks/tells/ambient,slice,not applicable,V2 audio,planned,,,unverified,Family-level plan; split into per-animation/per-asset rows before production
+CHR-NPCS,characters,town cast/recorded Seren,later,benchmark dependent,V2 supporting cast,planned,,,unverified,Family-level plan; split into per-animation/per-asset rows before production
+ENV-ARCHIVE,environment,terrain/props/parallax,chapter 1-2,16px grid target,V2 archive,planned,,,unverified,Family-level plan; split into per-animation/per-asset rows before production
+ENV-VERAYA,environment,terrain/props/parallax,chapter 2,16px grid target,V2 Veraya,planned,,,unverified,Family-level plan; split into per-animation/per-asset rows before production
+ENV-VAULT,environment,terrain/props/parallax,chapter 2,16px grid target,V2 reservoir,planned,,,unverified,Family-level plan; split into per-animation/per-asset rows before production
+ENV-WARP,environment,terrain/props/parallax,chapter 2-3,16px grid target,V2 warped network,planned,,,unverified,Family-level plan; split into per-animation/per-asset rows before production
+FX-REWIND,effects,activate/playback/exit,prototype early; story chapter 3,Aster personal only,V2 Rewind,planned,,,unverified,Family-level plan; split into per-animation/per-asset rows before production
+CHR-ORION,character,Game I ending tease only,ending,benchmark dependent,Existing Orion concept + V2,planned,,,unverified,Family-level plan; split into per-animation/per-asset rows before production

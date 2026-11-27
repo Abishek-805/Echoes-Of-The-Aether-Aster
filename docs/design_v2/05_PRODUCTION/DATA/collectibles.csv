@@ -1,0 +1,57 @@
+id,room,description
+AR01,TOW01,Release house custom
+AR02,OUT03,Source and conduit marks
+AR03,CAM02,Shared sanctuary manufacture
+DAWN03,CAM02,Survey instruments
+AR04,SLU01,Water circulation purpose
+AR05,SLU02,Conductor order
+AR06,ROT03,Garden ecosystem
+HP01,ROT03,+10 max HP
+MEM02,ROT03,hidden memorial
+AR07,REL02,Maintenance receiver
+AR08,REL04,Vault manufacture
+DAWN06,REL04,Vault attempt
+HP02,REL04,+10 max HP
+BP03,REL04,equipment blueprint
+WPN01,REL04,Scatter Carbine
+AR09,SUR02,Custody archive
+DAWN07,SUR02,Distortion report
+AR10,SUR03,Personal Continuity Device
+DAWN08,SUR03,Dawn failure conclusion
+AR11,WAR02,Anchor warning
+AR12,VER02,Anonymous researcher
+AR13,VER04,Remote interface part reference
+BP04,VER04,equipment blueprint
+WPN02,VER04,Precision Rifle
+AR14,SIL01,Memorial inscriptions
+AR15,SIL02,Residual memory
+AR16,SIL04,Seren warning
+MEM03,SIL04,hidden memorial
+AR17,RES01,Safe release schematic
+AR18,RES02,Storage capacity warning
+AR19,REW03,Rescue equipment purpose
+AR20,FOL01,Continuum fragment
+AR21,FOL03,Nalora and convergence fragment
+AR22,FIN01,Anchor network
+AR23,FIN03,Isolation directive
+AR24,GAT01,Guardian final directive
+DAWN01,TOW03,Riven testimony
+DAWN02,HUN04,Trail departure
+MAP02,HUN04,optional map annotation
+DAWN04,CAM04,Lost pack
+MAP03,CAM04,optional map annotation
+DAWN05,SLU04,Bridge observations
+BP02,SLU04,equipment blueprint
+MAP01,OUT04,optional map annotation
+BP01,OUT04,equipment blueprint
+MEM01,OUT04,hidden memorial
+MAP04,ROT04,optional map annotation
+MAP05,WAR04,optional map annotation
+MEM04,WAR04,hidden memorial
+MAP06,FOL04,optional map annotation
+HP04,FOL04,+10 max HP
+MEM05,FOL04,hidden memorial
+HP03,RES04,+10 max HP
+BP05,RES04,equipment blueprint
+BP06,FIN04,equipment blueprint
+WPN03,FIN04,Vaelari Resonator

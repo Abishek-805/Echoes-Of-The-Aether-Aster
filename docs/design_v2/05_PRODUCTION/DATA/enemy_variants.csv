@@ -1,0 +1,5 @@
+id,name,base,hp,damage,ee,rooms,difference
+V01,Metalbound Guard,E02,110,20,14,REL03,"More frontal armor, longer recovery; not a new mechanic"
+V02,Saturated Forager,E01,65,15,11,HUN03 WAR01,Two lunges with separate tells
+V03,Prism Array,E04,75,16,12,VER04 FIN04,Two sequential marked beams
+V04,Voruun Scout,E08,125,22,10,FOL04,Rare displaced consumer; drops only residual EE or unconsumed bound Echoes

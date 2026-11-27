@@ -1,0 +1,141 @@
+{
+  "version": 1,
+  "scenes": {
+    "CIN01_TOWN": {
+      "title": "A Familiar Route",
+      "complete_flag": "INTRO_DONE",
+      "lines": [
+        {"id":"CIN01_DIR_01","speaker":"Direction","text":"Hunters return to Eldara's guild town as evening settles. A small release light rises above the memorial street."},
+        {"id":"CIN01_MIRA_01","speaker":"Mira","text":"Back before the lamps go out?"},
+        {"id":"CIN01_ASTER_01","speaker":"Aster","text":"It's a familiar route."},
+        {"id":"CIN01_MIRA_02","speaker":"Mira","text":"Familiar isn't safe."}
+      ]
+    },
+    "GUILD_BRIEFING": {
+      "title": "The Dawn Survey",
+      "complete_flag": "BRIEFED",
+      "lines": [
+        {"id":"GUILD_GARRAN_01","speaker":"Garran","text":"Survey the known route. Take a team if you go deeper."},
+        {"id":"GUILD_RIVEN_01","speaker":"Riven","text":"We could see the vault. Every step took us farther away."},
+        {"id":"GUILD_LIORA_01","speaker":"Liora","text":"Match the bell, arch and split rock."},
+        {"id":"GUILD_ASTER_01","speaker":"Aster","text":"I'll find the route."}
+      ]
+    },
+    "ARTIFICER_TUTORIAL": {
+      "title": "Stored Energy",
+      "complete_flag": "TUTORIAL_DONE",
+      "lines": [
+        {"id":"BRAM_01","speaker":"Bram","text":"The rifle runs on stored Echo Energy. Let the vents breathe. The Echo itself must go free."},
+        {"id":"BRAM_02","speaker":"Bram","text":"The Collector releases an Echo safely and stores the energy it yields. If the rifle overheats, use your blade until it cools."},
+        {"id":"ASTER_BRAM_01","speaker":"Aster","text":"Understood. Energy is spent; the Echo isn't ammunition."}
+      ]
+    },
+    "ECHO_WARP": {
+      "title": "The World Shifts",
+      "complete_flag": "WARP_SCENE_SEEN",
+      "set_flags": {"WARP":true},
+      "lines": [
+        {"id":"WARP_DIR_01","speaker":"Direction","text":"Sound drops away. Water climbs upward for a heartbeat. A violet fracture crosses the trail as foreign stonework appears in the distance."},
+        {"id":"WARP_ASTER_01","speaker":"Aster","text":"That wasn't here."},
+        {"id":"WARP_DIR_02","speaker":"Direction","text":"The way back is crushed. Aster's beacon receives no reply."},
+        {"id":"WARP_ASTER_02","speaker":"Aster","text":"The entrance is gone. Beacon's dead. I'll find another route."}
+      ]
+    },
+    "SURVEY_CAMP": {
+      "title": "The Old Survey Camp",
+      "complete_flag": "CAMP_RECORD_SEEN",
+      "lines": [
+        {"id":"CAMP_ASTER_01","speaker":"Aster","text":"The Dawn team saw this before. There has to be a service route."},
+        {"id":"CAMP_DIR_01","speaker":"Direction","text":"Three landmarks line up on the damaged field map: the Root Arch, the Hanging Bell and the Split Stone."}
+      ]
+    },
+    "SURVEY_VAULT": {
+      "title": "A Way Forward",
+      "complete_flag": "VAULT_SCENE_SEEN",
+      "set_flags": {"VAULT_MAP":true},
+      "lines": [
+        {"id":"VAULT_DIR_01","speaker":"Archive","text":"A projection identifies a Personal Continuity Device and an emergency passage beyond the sanctuary."},
+        {"id":"VAULT_ASTER_01","speaker":"Aster","text":"The relic is real. And there's another way out."}
+      ]
+    },
+    "VERAYAN_RECORD": {
+      "title": "A Stranger's Warning",
+      "complete_flag": "VERAYAN_RECORD_SEEN",
+      "lines": [
+        {"id":"VER_RECORD_01","speaker":"Recorded Researcher","text":"The structures aren't moving. The connections between them are changing."},
+        {"id":"VER_ASTER_01","speaker":"Aster","text":"Verayan manufacture? How did it reach Eldara?"}
+      ]
+    },
+    "SILENT_GALLERY": {
+      "title": "A Memory, Not a Person",
+      "complete_flag": "MEMORIAL_SEEN",
+      "lines": [
+        {"id":"SIL_DIR_01","speaker":"Direction","text":"A damaged record briefly shows a parent comforting a child. The image fades before their faces resolve."},
+        {"id":"SIL_ASTER_01","speaker":"Aster","text":"A memory. Not a person."},
+        {"id":"SIL_ASTER_02","speaker":"Aster","text":"I was little when my parents died. The orphanage is most of what I remember."}
+      ]
+    },
+    "RESERVOIR_RECORD": {
+      "title": "Supply, Release, Storage",
+      "complete_flag": "RESERVOIR_RECORD_SEEN",
+      "lines": [
+        {"id":"RES_ASTER_01","speaker":"Aster","text":"Supply, release, storage. The last one is already full."},
+        {"id":"RES_DIR_01","speaker":"Direction","text":"The archive diagram shows a safe release line, a storage cell and a receiver. Their states can be read from their indicator lights."}
+      ]
+    },
+    "ECHO_REWIND": {
+      "title": "Personal Continuity Device",
+      "complete_flag": "REWIND_SCENE_SEEN",
+      "set_flags": {"REWIND_ACQUIRED":true},
+      "lines": [
+        {"id":"REW_DIR_01","speaker":"Archive","text":"Personal Continuity Device. Intended for rescue and research personnel."},
+        {"id":"REW_ASTER_01","speaker":"Aster","text":"Just me. Everything else stayed."},
+        {"id":"REW_DIR_02","speaker":"Direction","text":"The device restores Aster's recent position and personal condition. It cannot reverse the world, restore spent Echo Energy or undo weapon heat."}
+      ]
+    },
+    "NALORA_FRAGMENT": {
+      "title": "A Name in the Fold",
+      "complete_flag": "NALORA_FRAGMENT_SEEN",
+      "lines": [
+        {"id":"FOL_RECORD_01","speaker":"Archive","text":"Convergence center… Nalora… release capacity exceeded…"},
+        {"id":"FOL_ASTER_01","speaker":"Aster","text":"This started somewhere else."}
+      ]
+    },
+    "FINAL_WARNING": {
+      "title": "Do Not Force the Passage",
+      "complete_flag": "FINAL_WARNING_SEEN",
+      "lines": [
+        {"id":"FIN_RECORD_01","speaker":"Archive","text":"When both anchors lose agreement, isolate the passage. Do not force the connection."}
+      ]
+    },
+    "FOLD_GUARDIAN": {
+      "title": "The Last Directive",
+      "complete_flag": "GUARDIAN_SCENE_SEEN",
+      "lines": [
+        {"id":"GAT_GUARDIAN_01","speaker":"Archive","text":"Preserve the passage. Protect the living. Release the departed."},
+        {"id":"GAT_ASTER_01","speaker":"Aster","text":"I hear you. I'll keep them safe."}
+      ]
+    },
+    "BROKEN_GATE": {
+      "title": "The Broken Anchor",
+      "complete_flag": "GATE_DIAGNOSED",
+      "lines": [
+        {"id":"GATE_DIR_01","speaker":"Direction","text":"The gate begins to open, then shudders to a stop. Its remote anchor interface is fractured."},
+        {"id":"GATE_ASTER_01","speaker":"Aster","text":"Echo Rewind…"},
+        {"id":"GATE_DIR_02","speaker":"Direction","text":"Aster rewinds himself. The gate remains broken. No replacement part is available, and the passage is unstable."},
+        {"id":"GATE_ASTER_02","speaker":"Aster","text":"No part. No stable passage. I can't fix this alone."}
+      ]
+    },
+    "DISTRESS_REFUGE": {
+      "title": "A Signal Beyond the Gate",
+      "complete_flag": "ENDING_SEEN",
+      "set_flags": {"SIGNAL_SENT":true,"END_COMPLETE":true},
+      "lines": [
+        {"id":"END_DIR_01","speaker":"Direction","text":"Aster routes reserve power to the diagnostic beacon. A low-power distress packet leaves the sanctuary; it cannot carry anyone through the fractured gate."},
+        {"id":"END_ASTER_01","speaker":"Aster","text":"I made it this far alone. Maybe that's as far as alone can take me."},
+        {"id":"POSTCREDIT_DIR_01","speaker":"Direction","text":"Far away on Veraya, an anonymous terminal receives a signal. A hand reaches toward the screen."},
+        {"id":"POSTCREDIT_TEXT_01","speaker":"Terminal","text":"Survivor detected. Transit anchor failure. Assistance required."}
+      ]
+    }
+  }
+}

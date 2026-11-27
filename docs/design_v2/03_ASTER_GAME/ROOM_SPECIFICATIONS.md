@@ -1,0 +1,75 @@
+# Room specifications — 64-room production manifest
+
+**Version:** 2.0 | **Date:** 2026-11-27 | **Status:** Approved V2 direction; implementation details are working specifications
+
+64 rooms across 16 named regions and six shared biome art families. Each room ID is permanent; 4 town rooms are only reachable pre-Warp. The other 60 stay traversable in the authored connected network. Main rooms teach, test or resolve a system; branch rooms reward curiosity. Four rooms per region is a production baseline, not an obligation to make every room identical length. Geometry is a blockout task; every room here has function, gate relationship, service and item placement. Enemy encounter placement is in the enemy bible; bosses are in boss bible. See [connections](WORLD_MAP.md).
+
+| ID | Ch | Region | Room | Biome | Gameplay / landmark | Services | Collectibles |
+|---|---|---|---|---|---|---|---|
+| TOW01 | 1 | Guild Town | Memorial Street | Eldaran frontier | release ceremony; opening | — | AR01: Release house custom |
+| TOW02 | 1 | Guild Town | Orphanage | Eldaran frontier | Mira; childhood thread | — | — |
+| TOW03 | 1 | Guild Town | Guild Hall | Eldaran frontier | Garran, Liora, Riven; briefing | — | DAWN01: Riven testimony |
+| TOW04 | 1 | Guild Town | Artificer Yard | Eldaran frontier | Bram; heat and EE tutorial | Workbench | — |
+| OUT01 | 1 | Outer Wilds | Trailhead | Eldaran frontier | rest and map landmark | Rest | — |
+| OUT02 | 1 | Outer Wilds | Wild Crossing | Eldaran frontier | first Forager; collection | — | — |
+| OUT03 | 1 | Outer Wilds | Bell Overlook | Eldaran frontier | movement, distant Sluice bell | — | AR02: Source and conduit marks |
+| OUT04 | 1 | Outer Wilds | Hunter Cache | Eldaran frontier | optional practice and supplies | — | MAP01: optional map annotation; BP01: equipment blueprint; MEM01: hidden memorial |
+| HUN01 | 1 | Hunter’s Reach | Hunter Trail | Eldaran frontier | territorial creatures and signage | — | — |
+| HUN02 | 1 | Hunter’s Reach | Split Walk | Eldaran frontier | shortcut landing and anomaly signs | — | — |
+| HUN03 | 1 | Hunter’s Reach | Fracture Crossing | Eldaran frontier | Warp event and collapsed exit view | — | — |
+| HUN04 | 1 | Hunter’s Reach | Abandoned Blind | Eldaran frontier | optional hunter log | — | DAWN02: Trail departure; MAP02: optional map annotation |
+| CAM01 | 1 | Old Survey Camp | Camp Entrance | Eldaran frontier | rest station, abandoned equipment | Rest | — |
+| CAM02 | 1 | Old Survey Camp | Map Tent | Eldaran frontier | Dawn landmarks and sketch | — | AR03: Shared sanctuary manufacture; DAWN03: Survey instruments |
+| CAM03 | 1 | Old Survey Camp | Survey Crossing | Eldaran frontier | P02 map alignment terminal | — | — |
+| CAM04 | 1 | Old Survey Camp | Lost Pack | Eldaran frontier | optional report and materials | — | DAWN04: Lost pack; MAP03: optional map annotation |
+| SLU01 | 1 | Echo Sluice | Conduit Entry | Rootspan waterways | rest; source symbol | Rest | AR04: Water circulation purpose |
+| SLU02 | 1 | Echo Sluice | Conductor Gallery | Rootspan waterways | P01 sequence; clues | — | AR05: Conductor order |
+| SLU03 | 1 | Echo Sluice | Relic Watch | Rootspan waterways | Sluice Warden arena | — | — |
+| SLU04 | 1 | Echo Sluice | Spillway | Rootspan waterways | optional valve, bridge shortcut | — | DAWN05: Bridge observations; BP02: equipment blueprint |
+| ROT01 | 1 | Rootspan | Root Bridge | Rootspan waterways | rest; raised bridge view | Rest | — |
+| ROT02 | 1 | Rootspan | Canopy Walk | Rootspan waterways | vertical traversal | — | — |
+| ROT03 | 1 | Rootspan | Water Garden | Rootspan waterways | water flow and shortcut | — | AR06: Garden ecosystem; HP01: +10 max HP; MEM02: hidden memorial |
+| ROT04 | 1 | Rootspan | Moss Hollow | Rootspan waterways | optional Mossbound Titan | — | MAP04: optional map annotation |
+| REL01 | 1 | Reliquary Works | Workshop | Ancient archive | rest and workbench | Rest; Workbench | — |
+| REL02 | 1 | Reliquary Works | Service Hall | Ancient archive | P03 receiver routing | — | AR07: Maintenance receiver |
+| REL03 | 1 | Reliquary Works | Golem Passage | Ancient archive | guard encounters; gate to Survey | — | — |
+| REL04 | 1 | Reliquary Works | Storage Loft | Ancient archive | optional blueprint and relay | — | AR08: Vault manufacture; DAWN06: Vault attempt; HP02: +10 max HP; BP03: equipment blueprint; WPN01: Scatter Carbine |
+| SUR01 | 1 | Survey Vault | Archive Steps | Ancient archive | rest and map symbols | Rest | — |
+| SUR02 | 1 | Survey Vault | Survey Display | Ancient archive | P04 archive alignment | — | AR09: Custody archive; DAWN07: Distortion report |
+| SUR03 | 1 | Survey Vault | Cartographic Vault | Ancient archive | critical map, relic and exit clues | — | AR10: Personal Continuity Device; DAWN08: Dawn failure conclusion |
+| SUR04 | 1 | Survey Vault | Sealed Shelf | Ancient archive | optional archive cache | — | — |
+| WAR01 | 2 | Warped Verge | Fracture Landing | Warped network | rest; before/after map | Rest | — |
+| WAR02 | 2 | Warped Verge | Junction | Warped network | P05 anchor topology | — | AR11: Anchor warning |
+| WAR03 | 2 | Warped Verge | Stable Fold | Warped network | foreign connection | — | — |
+| WAR04 | 2 | Warped Verge | Unmapped Loop | Warped network | optional map scrap | — | MAP05: optional map annotation; MEM04: hidden memorial |
+| VER01 | 2 | Veraya Fold | Foreign Atrium | Verayan annex | rest; Verayan mark | Rest | — |
+| VER02 | 2 | Veraya Fold | Research Gallery | Verayan annex | anonymous recording | — | AR12: Anonymous researcher |
+| VER03 | 2 | Veraya Fold | Foreign Sky | Verayan annex | landmark and route | — | — |
+| VER04 | 2 | Veraya Fold | Diagnostic Annex | Verayan annex | optional log and inaccessible repair-part reference | — | AR13: Remote interface part reference; BP04: equipment blueprint; WPN02: Precision Rifle |
+| SIL01 | 2 | Silent Gallery | Memorial Hall | Ancient archive | quiet names and pedestals | — | AR14: Memorial inscriptions |
+| SIL02 | 2 | Silent Gallery | Memory Theatre | Ancient archive | critical residual memory | — | AR15: Residual memory |
+| SIL03 | 2 | Silent Gallery | Release Walk | Ancient archive | Aster reflects; route to Reservoir | — | — |
+| SIL04 | 2 | Silent Gallery | Keeper Shrine | Ancient archive | optional memorial story | — | AR16: Seren warning; MEM03: hidden memorial |
+| RES01 | 2 | Echo Reservoir | Flow Deck | Reservoir/vault | rest, workbench and source diagram | Rest; Workbench | AR17: Safe release schematic |
+| RES02 | 2 | Echo Reservoir | Routing Chamber | Reservoir/vault | P06 routing terminal | — | AR18: Storage capacity warning |
+| RES03 | 2 | Echo Reservoir | Alignment Court | Reservoir/vault | Wayfinder Colossus arena | — | — |
+| RES04 | 2 | Echo Reservoir | Overflow Alcove | Reservoir/vault | optional supply and return shortcut | — | HP03: +10 max HP; BP05: equipment blueprint |
+| REW01 | 2 | Rewind Sanctuary | Vault Vestibule | Reservoir/vault | rest, P07 conductors | Rest | — |
+| REW02 | 2 | Rewind Sanctuary | Keeper Arena | Reservoir/vault | Reliquary Keeper | — | — |
+| REW03 | 2 | Rewind Sanctuary | Relic Chamber | Reservoir/vault | P08 synchronization and acquisition | — | AR19: Rescue equipment purpose |
+| REW04 | 3 | Rewind Sanctuary | Training Corridor | Reservoir/vault | P09 Rewind tutorial; chapter 3 | — | — |
+| FOL01 | 3 | Folded Depths | History Landing | Warped network | rest, return shortcut | Rest | AR20: Continuum fragment |
+| FOL02 | 3 | Folded Depths | One-way Gallery | Warped network | Rewind traversal and fold clues | — | — |
+| FOL03 | 3 | Folded Depths | Fold Junction | Warped network | P10 alignment; Nalora record | — | AR21: Nalora and convergence fragment |
+| FOL04 | 3 | Folded Depths | Devourer Nest | Warped network | optional Rift Devourer | — | MAP06: optional map annotation; HP04: +10 max HP; MEM05: hidden memorial |
+| FIN01 | 3 | Final Approach | Stabilizer Walk | Warped network | rest; three stabilizers | Rest | AR22: Anchor network |
+| FIN02 | 3 | Final Approach | Anchor Control | Warped network | P11 final routing | — | — |
+| FIN03 | 3 | Final Approach | Last Rest | Warped network | final checkpoint; warning | Rest; Workbench | AR23: Isolation directive |
+| FIN04 | 3 | Final Approach | Service Niche | Warped network | optional endgame cache | — | BP06: equipment blueprint; WPN03: Vaelari Resonator |
+| GAT01 | 3 | Warp-Broken Gate | Containment Arena | Warped network | Fold Guardian | — | AR24: Guardian final directive |
+| GAT02 | 3 | Warp-Broken Gate | Broken Gate | Warped network | physical diagnostic, no escape | — | — |
+| GAT03 | 3 | Warp-Broken Gate | Beacon Terminal | Warped network | P12 distress routing | — | — |
+| GAT04 | 3 | Warp-Broken Gate | Refuge | Warped network | final camp and credits | Rest; Workbench | — |
+
+## Room build rules
+Each scene has EntryMarkers for each neighboring link, camera bounds, collision layers, safe spawn, minimap polygon, persistent object IDs, encounter group and landmark. Begin with 1–3 camera widths, larger boss rooms as needed. Critical traversal within base abilities before REW03; authored Rewind paths later. Mark hazards with sound/shape. Rest points should be within a short run of boss attempts. Default pickups spawn at accessible positions; no required pickup inside a lethal hazard. All optional rewards behind minor puzzles are recorded in [puzzle bible](PUZZLE_BIBLE.md). Town AR01 and DAWN01 automatically recorded on briefing/ceremony before irreversible exit. MEM01 is OUT04 (post-Warp reachable). Gate refuge is an endpoint, not a passage to outside. No final authored pixel geometry or playable scenes are included in this documentation package.

@@ -1,0 +1,17 @@
+id,room,solution,reward
+M01,TOW04,Practice cooling: release trigger until heat below safe line,"basic tutorial completion, no reward lock"
+M02,OUT04,Match Source sign to receiver to open cache,"MAP01, BP01"
+M03,HUN04,Follow three hunter tags to find blind,"DAWN02, MAP02"
+M04,CAM04,Align torn map to bell silhouette,"DAWN04, MAP03"
+M05,SLU04,Open spillway valve after P01,"DAWN05, BP02"
+M06,ROT03,Route water from restored sluice to garden,"GARDEN_RESTORED, HP01, MEM02"
+M07,ROT04,"Activate hollow marker after Warden, defeat Titan","MAP04, alloy"
+M08,REL04,"Connect loft relay to receiver, inspect cache","LOFT_RELAY, HP02, BP03, WPN01"
+M09,SUR04,Read archive symbols to unlock shelf cache,lore and late return path
+M10,WAR04,Trace matching anchor pairs,"LOOP_MARKED, MAP05, MEM04"
+M11,VER04,Align diagnostic display with source/receiver,"BP04, WPN02; part reference only"
+M12,SIL04,Match memorial name to recorded imprint,"MEM03, AR16"
+M13,RES04,Isolate overflow line after P06,"HP03, BP05"
+M14,FOL04,Rewind from safe ledge to latch; optional boss,"HP04, MAP06, MEM05"
+M15,FIN04,Align service conduit to receiver,"BP06, WPN03"
+M16,FOL02,Rewind through authored shutter to optional return switch,shortcut to VER04

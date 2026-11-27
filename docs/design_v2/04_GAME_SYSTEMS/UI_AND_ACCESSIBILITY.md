@@ -1,0 +1,10 @@
+# UI, map, journal and accessibility
+
+**Version:** 2.0 | **Date:** 2026-11-27 | **Status:** Approved V2 direction; implementation details are working specifications
+
+'
+HUD: top-left HP and **Echo Energy** bars; near weapon reticle or lower-left heat gauge with warm/overheat icon; top-right Rewind cooldown and valid history indicator only after acquisition; heal charges bottom-right; context interaction prompt; boss HP at top center. No magazine, ammo count or reload prompt. Distinguish low EE from overheated weapon (different text, icon, sound). Collector release animation shows upward Echo and cell fill, overflow notification. Pause stops simulation including heat/cooldown/history, not menu navigation.
+
+Menus: title (New, Continue, slots, Settings, Credits, Quit); pause (Resume, Map, Journal, Inventory, Settings, Save & Quit at safe location); completion (Continue exploration, Replay ending, Title). Confirm destructive slot operations. Map historical/current layers, room IDs/internal hidden, visited route outlines, blocked route symbols, map pins, rest, workbench, shortcuts and landmarks; optional filter. Journal tabs Expedition, World, Bestiary, Archive; automatically store critical clues, optional hints 3 tiers, subtitle log. Inventory compares upgrade effects and cost. No way to sell critical quest item. Input prompts adapt to remapping and controller.
+
+Accessibility baseline: full keyboard/controller remap, sensitivity/dead zones, text scaling, high contrast UI, color-independent symbol shapes and danger markers, adjustable subtitle size/speed, dialogue auto-advance off by default, volume buses (music/SFX/UI/voice), screen shake/flashing toggle, reduced motion effects, pause on focus loss, hold/toggle settings, optional longer timing for puzzle-only switches, optional assisted combat (incoming damage 0.75×, no story penalty), default intended challenge. No essential information only in audio/color. Test controller-only menu navigation, focus, readable 640×360 logical resolution and common window/fullscreen sizes. Credits include asset licenses. [Art](../05_PRODUCTION/ART_BIBLE.md).

@@ -1,0 +1,15 @@
+# Aster — complete story and narrative structure
+
+**Version:** 2.0 | **Date:** 2026-11-27 | **Status:** Approved V2 direction; implementation details are working specifications
+
+## Logline
+An experienced hunter enters Eldara's legendary dungeon to find a relic that reverses his personal state. When a Warp joins the sanctuary to Veraya and destroys his exit, Aster learns its language, survives its guardians and claims the relic. But even victory cannot repair the damaged final gate; he must ask for help.
+
+Opening: animated ordinary guild town, hunters return, a ceremonial release, Mira and Aster, Riven's Dawn Expedition report. Garran recommends a team; Aster chooses a known-route solo survey. Bram teaches heat-based rifle, blade and Collector. No Rewind yet. Enter Outer Wilds, signs of abnormal Echo flow, first Forager. Warp cuts the surface corridor and links foreign structures. Aster attempts return, finds collapse and no surface comms, turns toward Old Survey Camp. Restore Sluice, defeat Warden, traverse Rootspan and Reliquary Works, reconstruct Dawn map. Survey Vault reveals the Personal Continuity Device and an alternative emergency gate. Ch1 ends: relic and alternate escape real.
+
+Chapter 2: compare geography in Warped Verge; enter Veraya Fold, recognize foreign equipment and sky, find anonymous researcher warning. Silent Gallery memory recording prompts childhood remembrance, not resurrection. Reservoir restoration reduces Echo accumulation; Wayfinder Colossus uses existing spatial folds and tests ordinary movement. Restore local vault conductors, defeat Reliquary Keeper and synchronize three systems. Acquire Echo Rewind in Sanctuary at Ch2 end; safe tutorial, realize only personal state changes. He believes escape possible.
+
+Chapter 3: Rewind switch, backtrack for previously seen routes, Folded Depths records hint at Nalora and convergence. Learn fixed transit network; restore three stabilizers; reach final rest. Fold Guardian (Last Custodian) attacks as damaged containment machine; spatial and delayed attacks test mastery. Defeat it; directive “Preserve the passage. Protect the living. Release the departed.” Gate interface is physically broken; Rewind cannot repair it. Diagnostic identifies remote anchor connection fault, no traversable exit, no available part. Redirect terminal power, transmit distress packet, establish safe refuge. Aster acknowledges needing help. Credits, then anonymous Orion hand receives “Survivor detected. Transit anchor failure. Assistance required.”
+
+## Completion contract
+Hunt, local sanctuary mystery, survival and personal growth resolved; escape and ancient historical cause deliberately unresolved. Final playable objective is distress transmission, not a hidden gate puzzle. A completed save offers load before climax/free exploration of accessible regions; cannot return to town or change ending. Canonical completed timeline starts Game II, where signal received and gate repaired. Player need not finish side quests. [Ch1](CHAPTER_01.md), [Ch2](CHAPTER_02.md), [Ch3](CHAPTER_03.md), [room list](ROOM_SPECIFICATIONS.md), [dialogue](DIALOGUE_AND_CINEMATICS.md).

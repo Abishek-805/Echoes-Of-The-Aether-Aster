@@ -1,0 +1,506 @@
+{
+  "metadata": {
+    "status": "working graybox specification",
+    "version": 1,
+    "coordinate_space": "640x360; origin top-left; platform x/y are center points",
+    "base_floor": { "center_x": 320, "top_y": 300, "width": 640, "height": 40 },
+    "player_movement_reference": {
+      "run_speed": 150,
+      "jump_velocity": -300,
+      "air_jumps": 1,
+      "gravity": 900,
+      "character_size": [18, 36],
+      "single_jump_apex_approx": 50,
+      "double_jump_total_vertical_reach_approx": 96,
+      "safe_same_height_jump_gap_target": 110
+    },
+    "rules": [
+      "Room-specific geometry is provisional and needs hands-on play review.",
+      "Keep left and right doorway safe areas clear of solid platforms and story props.",
+      "All platform entries are one-way platforms unless integration explicitly overrides them.",
+      "Landmarks are semantic placement anchors, not final art or collision objects.",
+      "The shared base floor is supplied by the room builder and is not repeated per room."
+    ]
+  },
+  "rooms": [
+    {
+      "id": "TOW01",
+      "name": "Memorial Street",
+      "purpose": "quiet opening; public Echo-release custom and Aster's solitary hunter identity",
+      "biome_kit": "eldaran_town",
+      "entry_clearance": { "left": null, "right": { "x": [570, 640], "y": [244, 300], "connects_to": "TOW02" } },
+      "platforms": [
+        { "id": "street_step_a", "x": 164, "y": 278, "width": 78, "height": 12 },
+        { "id": "street_step_b", "x": 262, "y": 258, "width": 66, "height": 12 }
+      ],
+      "landmarks": [
+        { "id": "release_memorial", "kind": "ceremony_focus", "x": 310, "y": 270, "story": "CIN01_TOWN" },
+        { "id": "AR01", "kind": "record_pickup_anchor", "x": 352, "y": 274, "story": "Release house custom" },
+        { "id": "street_lantern", "kind": "warm_light_source", "x": 470, "y": 224 }
+      ],
+      "encounter_zones": [],
+      "intended_route": "Walk from the memorial toward the lit town exit; no combat or vertical gate."
+    },
+    {
+      "id": "TOW02",
+      "name": "Orphanage",
+      "purpose": "Mira and Aster's childhood; personal memory before the guild briefing",
+      "biome_kit": "eldaran_town",
+      "entry_clearance": { "left": { "x": [0, 70], "y": [244, 300], "connects_to": "TOW01" }, "right": { "x": [570, 640], "y": [244, 300], "connects_to": "TOW03" } },
+      "platforms": [
+        { "id": "sleeping_loft", "x": 190, "y": 274, "width": 88, "height": 12 },
+        { "id": "window_ledge", "x": 412, "y": 255, "width": 82, "height": 12 }
+      ],
+      "landmarks": [
+        { "id": "mira_cot", "kind": "supporting_character", "x": 230, "y": 280, "story": "Mira" },
+        { "id": "aster_childhood_mark", "kind": "environmental_story", "x": 338, "y": 286, "story": "Aster's orphanage years" },
+        { "id": "window_dawn", "kind": "sightline", "x": 500, "y": 235 }
+      ],
+      "encounter_zones": [],
+      "intended_route": "A short optional stop within the town loop; movement remains unchallenged."
+    },
+    {
+      "id": "TOW03",
+      "name": "Guild Hall",
+      "purpose": "team briefing, Riven's relic rumor, and the reason Aster chooses the expedition",
+      "biome_kit": "eldaran_town",
+      "entry_clearance": { "left": { "x": [0, 70], "y": [244, 300], "connects_to": "TOW02" }, "right": { "x": [570, 640], "y": [244, 300], "connects_to": "TOW04", "gate": "BRIEFED" } },
+      "platforms": [
+        { "id": "briefing_dais", "x": 306, "y": 282, "width": 128, "height": 12 },
+        { "id": "gallery_step", "x": 172, "y": 260, "width": 72, "height": 12 }
+      ],
+      "landmarks": [
+        { "id": "garran", "kind": "supporting_character", "x": 246, "y": 276, "story": "Guild leadership and expedition safety" },
+        { "id": "liora", "kind": "supporting_character", "x": 318, "y": 276, "story": "Survey records and route map" },
+        { "id": "riven", "kind": "supporting_character", "x": 384, "y": 276, "story": "Legendary team failed near Echo Rewind" },
+        { "id": "DAWN01", "kind": "record_pickup_anchor", "x": 430, "y": 276, "story": "Riven testimony" }
+      ],
+      "encounter_zones": [],
+      "intended_route": "Players can approach the three speakers separately; only the briefing console advances the gate flag."
+    },
+    {
+      "id": "TOW04",
+      "name": "Artificer Yard",
+      "purpose": "Bram teaches stored Echo Energy, heat, cooling, and the always-available blade",
+      "biome_kit": "eldaran_town",
+      "entry_clearance": { "left": { "x": [0, 70], "y": [244, 300], "connects_to": "TOW03", "gate": "BRIEFED" }, "right": { "x": [570, 640], "y": [244, 300], "connects_to": "OUT01", "gate": "TUTORIAL_DONE & !WARP" } },
+      "platforms": [
+        { "id": "parts_crate_a", "x": 188, "y": 278, "width": 84, "height": 12 },
+        { "id": "parts_crate_b", "x": 278, "y": 258, "width": 72, "height": 12 }
+      ],
+      "landmarks": [
+        { "id": "bram", "kind": "supporting_character", "x": 360, "y": 276, "story": "Energy and heat training" },
+        { "id": "workbench", "kind": "workbench", "x": 442, "y": 280 },
+        { "id": "test_receiver", "kind": "tutorial_console", "x": 320, "y": 276, "story": "Stored Echo Energy is spent to release weapon energy, not ammunition." }
+      ],
+      "encounter_zones": [],
+      "intended_route": "Required tutorial interaction occurs beside Bram; a straight walk reaches the expedition exit."
+    },
+    {
+      "id": "OUT01",
+      "name": "Trailhead",
+      "purpose": "rest point and first readable world-map landmark outside town",
+      "biome_kit": "eldaran_frontier",
+      "entry_clearance": { "left": { "x": [0, 70], "y": [244, 300], "connects_to": "TOW04", "gate": "TUTORIAL_DONE & !WARP" }, "right": { "x": [570, 640], "y": [244, 300], "connects_to": "OUT02" } },
+      "platforms": [
+        { "id": "trail_shelf", "x": 226, "y": 272, "width": 104, "height": 12 },
+        { "id": "sign_shelf", "x": 352, "y": 248, "width": 82, "height": 12 }
+      ],
+      "landmarks": [
+        { "id": "rest_tent", "kind": "rest_station", "x": 88, "y": 278 },
+        { "id": "trailhead_marker", "kind": "map_landmark", "x": 462, "y": 268, "story": "Map and trail orientation" },
+        { "id": "outer_wilds_sightline", "kind": "vista", "x": 525, "y": 230 }
+      ],
+      "encounter_zones": [],
+      "intended_route": "Safe onboarding area. Rest marker and map landmark are distinct interactable silhouettes."
+    },
+    {
+      "id": "OUT02",
+      "name": "Wild Crossing",
+      "purpose": "first Forager encounter and first Echo collection; teach enemy drops and melee fallback",
+      "biome_kit": "eldaran_frontier",
+      "entry_clearance": { "left": { "x": [0, 70], "y": [244, 300], "connects_to": "OUT01" }, "right": { "x": [570, 640], "y": [244, 300], "connects_to": ["OUT03", "OUT04"], "junction": true } },
+      "platforms": [
+        { "id": "crossing_rock_a", "x": 170, "y": 274, "width": 76, "height": 12 },
+        { "id": "crossing_rock_b", "x": 264, "y": 246, "width": 70, "height": 12 },
+        { "id": "crossing_rock_c", "x": 368, "y": 274, "width": 76, "height": 12 }
+      ],
+      "landmarks": [
+        { "id": "forager_territory", "kind": "encounter_landmark", "x": 430, "y": 274, "story": "First Echo Forager" },
+        { "id": "release_marker", "kind": "echo_release_focus", "x": 484, "y": 268, "story": "Collection safely releases the Echo into stored energy." },
+        { "id": "crossing_scar", "kind": "environmental_story", "x": 330, "y": 292, "story": "The route has older survey marks beneath the soil." }
+      ],
+      "encounter_zones": [
+        { "id": "first_forager", "enemy": "E01", "x": [385, 505], "purpose": "single enemy, visible approach and recovery after missed lunge" }
+      ],
+      "intended_route": "Teach the Forager's tell in a broad floor space; raised rocks are optional cover/positioning, not a required gate."
+    },
+    {
+      "id": "OUT03",
+      "name": "Bell Overlook",
+      "purpose": "teach movement and establish a distant Sluice bell as a navigational clue",
+      "biome_kit": "eldaran_frontier",
+      "entry_clearance": { "left": { "x": [0, 70], "y": [244, 300], "connects_to": "OUT02", "gate": "FIRST_RELEASE" }, "right": { "x": [570, 640], "y": [244, 300], "connects_to": "HUN01" } },
+      "platforms": [
+        { "id": "overlook_lower", "x": 154, "y": 276, "width": 74, "height": 12 },
+        { "id": "overlook_middle", "x": 250, "y": 250, "width": 72, "height": 12 },
+        { "id": "overlook_high", "x": 340, "y": 226, "width": 84, "height": 12 },
+        { "id": "overlook_return", "x": 468, "y": 266, "width": 70, "height": 12 }
+      ],
+      "landmarks": [
+        { "id": "sluice_bell_sightline", "kind": "distant_landmark", "x": 390, "y": 184, "story": "Visible Echo Sluice bell; use its silhouette to orient the route." },
+        { "id": "AR02", "kind": "record_pickup_anchor", "x": 336, "y": 210, "story": "Source and conduit marks" },
+        { "id": "survey_arrow", "kind": "environmental_clue", "x": 514, "y": 252, "story": "Old survey arrows continue toward Hunter's Reach." }
+      ],
+      "encounter_zones": [],
+      "intended_route": "The player can climb to the overlook using double jump and descend to the right exit without crossing a mandatory vertical barrier."
+    },
+    {
+      "id": "OUT04",
+      "name": "Hunter Cache",
+      "purpose": "optional combat practice, supplies, and hidden memorial reward",
+      "biome_kit": "eldaran_frontier",
+      "entry_clearance": { "left": { "x": [0, 70], "y": [244, 300], "connects_to": "OUT02" }, "right": null },
+      "platforms": [
+        { "id": "cache_lower", "x": 182, "y": 274, "width": 82, "height": 12 },
+        { "id": "cache_upper", "x": 286, "y": 240, "width": 76, "height": 12 },
+        { "id": "cache_hidden", "x": 448, "y": 220, "width": 74, "height": 12 }
+      ],
+      "landmarks": [
+        { "id": "practice_target", "kind": "training_prop", "x": 205, "y": 278, "story": "Optional weapon practice" },
+        { "id": "MAP01", "kind": "collectible_anchor", "x": 308, "y": 226, "story": "Optional map annotation" },
+        { "id": "BP01", "kind": "collectible_anchor", "x": 468, "y": 206, "story": "Equipment blueprint" },
+        { "id": "MEM01", "kind": "hidden_memorial_anchor", "x": 548, "y": 286, "story": "Memorial discovered from a concealed side approach" }
+      ],
+      "encounter_zones": [
+        { "id": "cache_practice", "enemy": "E01", "x": [340, 435], "purpose": "optional practice fight with a return route" }
+      ],
+      "intended_route": "A high shelf signals the optional cache; keep collectibles reachable with double jump and avoid a one-way softlock."
+    },
+    {
+      "id": "HUN01",
+      "name": "Hunter Trail",
+      "purpose": "territorial creature space; communicate that the dungeon ecosystem reacts to Echo use",
+      "biome_kit": "eldaran_frontier",
+      "entry_clearance": { "left": { "x": [0, 70], "y": [244, 300], "connects_to": "OUT03" }, "right": { "x": [570, 640], "y": [244, 300], "connects_to": "HUN02" } },
+      "platforms": [
+        { "id": "trail_ledge_a", "x": 156, "y": 268, "width": 92, "height": 12 },
+        { "id": "trail_ledge_b", "x": 285, "y": 240, "width": 80, "height": 12 },
+        { "id": "trail_ledge_c", "x": 420, "y": 268, "width": 92, "height": 12 }
+      ],
+      "landmarks": [
+        { "id": "territorial_scratches", "kind": "environmental_clue", "x": 246, "y": 286, "story": "Claw marks and broken Echo husks warn of a territorial creature." },
+        { "id": "hunter_signage", "kind": "readable_sign", "x": 494, "y": 250, "story": "Guild signage points toward the survey route." }
+      ],
+      "encounter_zones": [
+        { "id": "territorial_pair", "enemy": "E01", "x": [315, 485], "purpose": "two spaced patrol paths; avoid unavoidable overlap" }
+      ],
+      "intended_route": "Enemy spacing leaves at least one visible retreat lane; evidence foreshadows stronger creatures after the Warp."
+    },
+    {
+      "id": "HUN02",
+      "name": "Split Walk",
+      "purpose": "branch junction, future shortcut landing, and first spatial signs of a Warp",
+      "biome_kit": "eldaran_frontier",
+      "entry_clearance": { "left": { "x": [0, 70], "y": [244, 300], "connects_to": ["HUN01", "SLU04"], "junction": true }, "right": { "x": [570, 640], "y": [244, 300], "connects_to": ["HUN03", "HUN04"], "junction": true } },
+      "platforms": [
+        { "id": "split_lower_a", "x": 146, "y": 274, "width": 76, "height": 12 },
+        { "id": "split_upper_a", "x": 246, "y": 238, "width": 76, "height": 12 },
+        { "id": "split_center", "x": 354, "y": 260, "width": 84, "height": 12 },
+        { "id": "split_upper_b", "x": 474, "y": 230, "width": 84, "height": 12 }
+      ],
+      "landmarks": [
+        { "id": "collapsed_arch", "kind": "future_shortcut_landing", "x": 106, "y": 280, "story": "Marks a route later reachable from the Echo Sluice." },
+        { "id": "split_stone", "kind": "warp_clue", "x": 354, "y": 248, "story": "A split stone carries misaligned symbols from another place." },
+        { "id": "trail_sign", "kind": "readable_sign", "x": 538, "y": 252, "story": "Right branch leads to the fracture; upper blind leads to optional evidence." }
+      ],
+      "encounter_zones": [
+        { "id": "split_patrol", "enemy": "E01", "x": [288, 374], "purpose": "single patrol; leave routes open" }
+      ],
+      "intended_route": "Branching routes are signposted. A short open path remains across the room; no branch requires a blind leap."
+    },
+    {
+      "id": "HUN03",
+      "name": "Fracture Crossing",
+      "purpose": "Echo Warp event and visual proof that the old exit has collapsed",
+      "biome_kit": "eldaran_frontier_warped",
+      "entry_clearance": { "left": { "x": [0, 70], "y": [244, 300], "connects_to": "HUN02" }, "right": { "x": [570, 640], "y": [244, 300], "connects_to": "CAM01", "gate": "WARP" } },
+      "platforms": [
+        { "id": "fracture_shelf_a", "x": 152, "y": 268, "width": 78, "height": 12 },
+        { "id": "fracture_shelf_b", "x": 256, "y": 238, "width": 68, "height": 12 },
+        { "id": "fracture_shelf_c", "x": 370, "y": 260, "width": 82, "height": 12 },
+        { "id": "fracture_shelf_d", "x": 480, "y": 232, "width": 72, "height": 12 }
+      ],
+      "landmarks": [
+        { "id": "warp_seam", "kind": "story_event_focus", "x": 318, "y": 225, "story": "ECHO_WARP; violet space-time fault crosses the trail." },
+        { "id": "collapsed_exit", "kind": "blocked_route_sightline", "x": 588, "y": 270, "story": "The former route is folded shut; do not imply Aster could repair the large tear." },
+        { "id": "foreign_stone", "kind": "foreshadowing", "x": 404, "y": 286, "story": "A stone fragment carries a material and symbol unlike Eldara." }
+      ],
+      "encounter_zones": [],
+      "intended_route": "The Warp is a scripted narrative transition, not a combat trap. After it, the broken return path is visibly sealed and the forward route reaches the stranded survey camp."
+    },
+    {
+      "id": "HUN04",
+      "name": "Abandoned Blind",
+      "purpose": "optional hunter log, map annotation, and environmental route inference",
+      "biome_kit": "eldaran_frontier_warped",
+      "entry_clearance": { "left": { "x": [0, 70], "y": [244, 300], "connects_to": "HUN02" }, "right": null },
+      "platforms": [
+        { "id": "blind_low", "x": 162, "y": 272, "width": 82, "height": 12 },
+        { "id": "blind_mid", "x": 280, "y": 238, "width": 76, "height": 12 },
+        { "id": "blind_high", "x": 394, "y": 208, "width": 78, "height": 12 },
+        { "id": "blind_return", "x": 506, "y": 268, "width": 72, "height": 12 }
+      ],
+      "landmarks": [
+        { "id": "DAWN02", "kind": "record_pickup_anchor", "x": 278, "y": 224, "story": "Trail departure report" },
+        { "id": "MAP02", "kind": "collectible_anchor", "x": 410, "y": 194, "story": "Optional map annotation" },
+        { "id": "blind_sightline", "kind": "environmental_clue", "x": 523, "y": 250, "story": "Old boot scuffs show the safe return path to Split Walk." }
+      ],
+      "encounter_zones": [],
+      "intended_route": "Use platform height to reward exploration. The entrance and return route stay on the base floor so the branch cannot trap the player."
+    },
+    {
+      "id": "CAM01",
+      "name": "Camp Entrance",
+      "purpose": "safe post-Warp rest point; evidence that the survey team left in a hurry",
+      "biome_kit": "eldaran_frontier_camp",
+      "entry_clearance": { "left": { "x": [0, 70], "y": [244, 300], "connects_to": "HUN03", "gate": "WARP" }, "right": { "x": [570, 640], "y": [244, 300], "connects_to": "CAM02" } },
+      "platforms": [
+        { "id": "camp_crate_step", "x": 184, "y": 278, "width": 80, "height": 12 },
+        { "id": "supply_tarp_ledge", "x": 352, "y": 260, "width": 96, "height": 12 }
+      ],
+      "landmarks": [
+        { "id": "camp_rest", "kind": "rest_station", "x": 92, "y": 278, "story": "Survey camp rest point" },
+        { "id": "abandoned_field_cases", "kind": "environmental_clue", "x": 238, "y": 286, "story": "Open cases show tools were abandoned during the Warp rather than packed for a return journey." },
+        { "id": "folded_route_chart", "kind": "environmental_story", "x": 402, "y": 250, "story": "The camp chart repeats the bell, split rock and arch landmarks from the Dawn survey." }
+      ],
+      "encounter_zones": [],
+      "intended_route": "Safe regrouping room after the Warp. Rest is easy to locate on entry; the route chart points toward the nearby survey records."
+    },
+    {
+      "id": "CAM02",
+      "name": "Map Tent",
+      "purpose": "Dawn landmark records and the sketch needed to align the Survey Crossing",
+      "biome_kit": "eldaran_frontier_camp",
+      "entry_clearance": { "left": { "x": [0, 70], "y": [244, 300], "connects_to": "CAM01" }, "right": { "x": [570, 640], "y": [244, 300], "connects_to": ["CAM03", "CAM04"], "junction": true } },
+      "platforms": [
+        { "id": "tent_table_step", "x": 198, "y": 278, "width": 88, "height": 12 },
+        { "id": "chart_rack_ledge", "x": 338, "y": 250, "width": 84, "height": 12 },
+        { "id": "tent_roof_walk", "x": 478, "y": 270, "width": 80, "height": 12 }
+      ],
+      "landmarks": [
+        { "id": "AR03", "kind": "record_pickup_anchor", "x": 316, "y": 234, "story": "Shared sanctuary manufacture" },
+        { "id": "DAWN03", "kind": "record_pickup_anchor", "x": 386, "y": 234, "story": "Survey instruments and the Dawn map sketch" },
+        { "id": "map_table", "kind": "environmental_clue", "x": 252, "y": 270, "story": "The tent table holds the incomplete survey drawing; its landmarks must be checked against the field." },
+        { "id": "bell_sighting_notch", "kind": "distant_landmark", "x": 530, "y": 245, "story": "A notch in the tent frame aligns with the distant bell seen from OUT03." }
+      ],
+      "encounter_zones": [],
+      "intended_route": "A left-to-right read exposes the table, then both records, then the two right-hand branches. The optional Lost Pack route is visually marked as a detour."
+    },
+    {
+      "id": "CAM03",
+      "name": "Survey Crossing",
+      "purpose": "P02 aligns the Dawn sketch with the actual bell, split rock and camp arch",
+      "biome_kit": "eldaran_frontier_camp",
+      "entry_clearance": { "left": { "x": [0, 70], "y": [244, 300], "connects_to": "CAM02" }, "right": { "x": [570, 640], "y": [244, 300], "connects_to": "SLU01", "gate": "MAP_ALIGNED" } },
+      "platforms": [
+        { "id": "survey_stone_left", "x": 150, "y": 274, "width": 92, "height": 12 },
+        { "id": "survey_origin_step", "x": 284, "y": 248, "width": 104, "height": 12 },
+        { "id": "survey_stone_right", "x": 442, "y": 274, "width": 92, "height": 12 }
+      ],
+      "landmarks": [
+        { "id": "survey_alignment_console", "kind": "tutorial_console", "x": 320, "y": 276, "story": "P02 map alignment terminal" },
+        { "id": "west_split_stone", "kind": "environmental_clue", "x": 164, "y": 258, "story": "A split rock sits west of the survey origin, matching the field drawing." },
+        { "id": "camp_arch_sightline", "kind": "environmental_clue", "x": 484, "y": 252, "story": "The camp arch forms the near reference point; the bell is the far eastern landmark." },
+        { "id": "route_to_sluice", "kind": "maintenance_route_marker", "x": 548, "y": 284, "story": "A maintenance line points onward to the Echo Sluice once the map is aligned." }
+      ],
+      "encounter_zones": [],
+      "intended_route": "The player can walk among three visible survey landmarks. P02 is at center, but landmark evidence is distributed left and right so the puzzle is grounded in the room."
+    },
+    {
+      "id": "CAM04",
+      "name": "Lost Pack",
+      "purpose": "optional Dawn report and torn-map alignment detour",
+      "biome_kit": "eldaran_frontier_camp",
+      "entry_clearance": { "left": { "x": [0, 70], "y": [244, 300], "connects_to": "CAM02" }, "right": null },
+      "platforms": [
+        { "id": "pack_shelf_low", "x": 162, "y": 276, "width": 82, "height": 12 },
+        { "id": "pack_shelf_middle", "x": 282, "y": 244, "width": 76, "height": 12 },
+        { "id": "pack_shelf_high", "x": 412, "y": 216, "width": 86, "height": 12 },
+        { "id": "pack_return_shelf", "x": 518, "y": 270, "width": 76, "height": 12 }
+      ],
+      "landmarks": [
+        { "id": "DAWN04", "kind": "record_pickup_anchor", "x": 282, "y": 230, "story": "Lost pack report" },
+        { "id": "MAP03", "kind": "collectible_anchor", "x": 420, "y": 202, "story": "Optional map annotation" },
+        { "id": "empty_pack_frame", "kind": "environmental_story", "x": 184, "y": 282, "story": "The pack's contents were spread across the camp; the remaining map scrap aligns with the bell silhouette." },
+        { "id": "side_cache", "kind": "environmental_clue", "x": 544, "y": 282, "story": "A scuff mark on the far wall hints at a small side cache." }
+      ],
+      "encounter_zones": [],
+      "intended_route": "Optional vertical sweep rewards double jump and observation. Keep a continuous ground return lane to CAM02."
+    },
+    {
+      "id": "SLU01",
+      "name": "Conduit Entry",
+      "purpose": "rest point, teach the Echo water source symbol and establish Sluice circulation",
+      "biome_kit": "rootspan_waterways",
+      "entry_clearance": { "left": { "x": [0, 70], "y": [244, 300], "connects_to": "CAM03", "gate": "MAP_ALIGNED" }, "right": { "x": [570, 640], "y": [244, 300], "connects_to": "SLU02" } },
+      "platforms": [
+        { "id": "conduit_bank_low", "x": 174, "y": 278, "width": 92, "height": 12 },
+        { "id": "source_plinth_shelf", "x": 334, "y": 250, "width": 94, "height": 12 },
+        { "id": "waterline_step", "x": 468, "y": 274, "width": 80, "height": 12 }
+      ],
+      "landmarks": [
+        { "id": "sluice_rest", "kind": "rest_station", "x": 92, "y": 278, "story": "Sluice entrance rest point" },
+        { "id": "AR04", "kind": "record_pickup_anchor", "x": 254, "y": 238, "story": "Water circulation purpose" },
+        { "id": "echo_source_symbol", "kind": "readable_sign", "x": 354, "y": 234, "story": "The source mark shows Echo flow returning through the old water channel." },
+        { "id": "flow_gauge", "kind": "environmental_clue", "x": 494, "y": 260, "story": "The gauge is empty beyond this point, showing the bridge conductors are still inactive." }
+      ],
+      "encounter_zones": [],
+      "intended_route": "The rest point is immediately reachable. Source and gauge landmarks teach what the next room's P01 will restore."
+    },
+    {
+      "id": "SLU02",
+      "name": "Conductor Gallery",
+      "purpose": "P01 world-scale sequence: activate Root Arch, Hanging Bell, then center Split Stone",
+      "biome_kit": "rootspan_waterways",
+      "entry_clearance": { "left": { "x": [0, 70], "y": [244, 300], "connects_to": "SLU01" }, "right": { "x": [570, 640], "y": [244, 300], "connects_to": ["SLU03", "SLU04"], "junction": true }, "branch": { "x": [570, 640], "y": [244, 300], "connects_to": "SLU04" } },
+      "platforms": [
+        { "id": "root_arch_ledge", "x": 162, "y": 274, "width": 84, "height": 12 },
+        { "id": "hanging_bell_walk", "x": 286, "y": 244, "width": 88, "height": 12 },
+        { "id": "center_split_plinth", "x": 404, "y": 266, "width": 94, "height": 12 }
+      ],
+      "landmarks": [
+        { "id": "AR05", "kind": "record_pickup_anchor", "x": 292, "y": 230, "story": "Conductor order" },
+        { "id": "root_arch_conductor", "kind": "environmental_clue", "x": 160, "y": 258, "story": "A pulse from the Root Arch arrives first." },
+        { "id": "hanging_bell_conductor", "kind": "environmental_clue", "x": 286, "y": 228, "story": "The Hanging Bell answers after the arch." },
+        { "id": "split_stone_conductor", "kind": "environmental_clue", "x": 418, "y": 250, "story": "The damaged center plinth carries the final conductor mark." },
+        { "id": "sluice_console", "kind": "tutorial_console", "x": 330, "y": 278, "story": "P01 restores bridge flow and exposes the route to the Warden." }
+      ],
+      "encounter_zones": [],
+      "intended_route": "The three conductor landmarks run left-to-right in the actual puzzle order. The optional spillway branch and locked Warden route share the right doorway but remain distinct route choices."
+    },
+    {
+      "id": "SLU03",
+      "name": "Relic Watch",
+      "purpose": "Sluice Warden arena; test the restored Echo flow under pressure",
+      "biome_kit": "rootspan_waterways",
+      "entry_clearance": { "left": { "x": [0, 70], "y": [244, 300], "connects_to": "SLU02", "gate": "SLUICE_OPEN" }, "right": { "x": [570, 640], "y": [244, 300], "connects_to": "ROT01", "gate": "WARDEN_DOWN" } },
+      "platforms": [
+        { "id": "arena_reed_step_left", "x": 168, "y": 276, "width": 84, "height": 12 },
+        { "id": "arena_crown_ledge", "x": 320, "y": 244, "width": 92, "height": 12 },
+        { "id": "arena_reed_step_right", "x": 470, "y": 276, "width": 84, "height": 12 }
+      ],
+      "landmarks": [
+        { "id": "sluice_warden_scar", "kind": "encounter_landmark", "x": 320, "y": 286, "story": "The guardian's stone hands have gouged twin arcs into the arena floor." },
+        { "id": "arena_flow_return", "kind": "environmental_clue", "x": 112, "y": 286, "story": "The restored current flows beneath the watch platform toward Rootspan." },
+        { "id": "broken_watch_arch", "kind": "foreshadowing", "x": 536, "y": 254, "story": "The arch is damaged, but the route only stabilizes after the guardian is defeated." }
+      ],
+      "encounter_zones": [
+        { "id": "sluice_warden_arena", "enemy": "B01", "x": [262, 500], "purpose": "wide duel lane; telegraphed slams and shockwaves can be jumped, then punish the recovery" }
+      ],
+      "intended_route": "Wide, mostly level boss floor keeps the Warden's wind-up and twin shockwaves readable. Side ledges are optional positioning routes, never required dodges."
+    },
+    {
+      "id": "SLU04",
+      "name": "Spillway",
+      "purpose": "optional valve, bridge observation and shortcut back to Hunter's Reach",
+      "biome_kit": "rootspan_waterways",
+      "entry_clearance": { "left": { "x": [0, 70], "y": [244, 300], "connects_to": "SLU02" }, "right": { "x": [570, 640], "y": [244, 300], "connects_to": "HUN02", "gate": "SLUICE_OPEN", "shortcut": true } },
+      "platforms": [
+        { "id": "spillway_basin_step", "x": 168, "y": 276, "width": 90, "height": 12 },
+        { "id": "valve_platform", "x": 300, "y": 238, "width": 88, "height": 12 },
+        { "id": "spillway_return_shelf", "x": 434, "y": 268, "width": 96, "height": 12 }
+      ],
+      "landmarks": [
+        { "id": "DAWN05", "kind": "record_pickup_anchor", "x": 300, "y": 224, "story": "Bridge observations" },
+        { "id": "BP02", "kind": "collectible_anchor", "x": 456, "y": 252, "story": "Equipment blueprint" },
+        { "id": "spillway_valve", "kind": "environmental_puzzle", "x": 300, "y": 226, "story": "A manual valve can redirect the restored flow toward the old Hunter's Reach drain." },
+        { "id": "return_channel", "kind": "shortcut_marker", "x": 540, "y": 280, "story": "A low water channel leads back to Split Walk after the Sluice is active." }
+      ],
+      "encounter_zones": [],
+      "intended_route": "Optional loop. Climb to the valve and record; the right shortcut is visible but remains unavailable until P01 restores flow."
+    },
+    {
+      "id": "ROT01",
+      "name": "Root Bridge",
+      "purpose": "rest station and vista over the bridge raised by the Sluice",
+      "biome_kit": "rootspan_canopy",
+      "entry_clearance": { "left": { "x": [0, 70], "y": [244, 300], "connects_to": "SLU03", "gate": "WARDEN_DOWN" }, "right": { "x": [570, 640], "y": [244, 300], "connects_to": "ROT02" } },
+      "platforms": [
+        { "id": "root_bridge_landing", "x": 222, "y": 272, "width": 112, "height": 12 },
+        { "id": "bridge_view_step", "x": 390, "y": 246, "width": 92, "height": 12 }
+      ],
+      "landmarks": [
+        { "id": "root_rest", "kind": "rest_station", "x": 92, "y": 278, "story": "Rootspan rest point" },
+        { "id": "sluice_bridge_vista", "kind": "vista", "x": 390, "y": 230, "story": "The raised bridge follows the water restored in Echo Sluice." },
+        { "id": "canopy_route", "kind": "readable_sign", "x": 516, "y": 270, "story": "Guild trail marks point upward along the canopy route." }
+      ],
+      "encounter_zones": [],
+      "intended_route": "Rest point gives a safe start after the Warden. The bridge vista establishes water flow as a visible world consequence."
+    },
+    {
+      "id": "ROT02",
+      "name": "Canopy Walk",
+      "purpose": "vertical traversal room, optional Titan branch and later loft shortcut junction",
+      "biome_kit": "rootspan_canopy",
+      "entry_clearance": { "left": { "x": [0, 70], "y": [244, 300], "connects_to": ["ROT01", "REL04"], "junction": true }, "right": { "x": [570, 640], "y": [244, 300], "connects_to": ["ROT03", "ROT04"], "junction": true }, "shortcut_left": { "x": [0, 70], "y": [244, 300], "connects_to": "REL04", "gate": "LOFT_RELAY", "shortcut": true } },
+      "platforms": [
+        { "id": "canopy_root_step", "x": 144, "y": 276, "width": 78, "height": 12 },
+        { "id": "canopy_mid_a", "x": 246, "y": 246, "width": 78, "height": 12 },
+        { "id": "canopy_high", "x": 352, "y": 212, "width": 86, "height": 12 },
+        { "id": "canopy_mid_b", "x": 460, "y": 244, "width": 84, "height": 12 }
+      ],
+      "landmarks": [
+        { "id": "canopy_root_marks", "kind": "environmental_clue", "x": 246, "y": 232, "story": "Water-worn root marks continue upward toward the garden canopy." },
+        { "id": "upper_garden_sightline", "kind": "distant_landmark", "x": 360, "y": 194, "story": "A green opening toward Water Garden is visible above the walkway." },
+        { "id": "moss_hollow_sign", "kind": "readable_sign", "x": 514, "y": 228, "story": "A carved moss symbol marks the optional hollow; the guardian seal remains closed until the Warden falls." },
+        { "id": "loft_shortcut_socket", "kind": "shortcut_marker", "x": 92, "y": 278, "story": "A high relay socket can later connect this path to the Reliquary loft." }
+      ],
+      "encounter_zones": [],
+      "intended_route": "A stepped climb that is reachable with the campaign's jump plus one air jump. Right-side branch opens toward either Water Garden or the optional guardian-sealed Moss Hollow."
+    },
+    {
+      "id": "ROT03",
+      "name": "Water Garden",
+      "purpose": "optional local water restoration, ecosystem clue, health shard and memorial",
+      "biome_kit": "rootspan_canopy",
+      "entry_clearance": { "left": { "x": [0, 70], "y": [244, 300], "connects_to": "ROT02" }, "right": { "x": [570, 640], "y": [244, 300], "connects_to": ["REL01", "SLU02"], "junction": true }, "shortcut_right": { "x": [570, 640], "y": [244, 300], "connects_to": "SLU02", "gate": "GARDEN_RESTORED", "shortcut": true } },
+      "platforms": [
+        { "id": "garden_bank_left", "x": 152, "y": 274, "width": 84, "height": 12 },
+        { "id": "garden_spring_step", "x": 280, "y": 242, "width": 90, "height": 12 },
+        { "id": "garden_memorial_shelf", "x": 418, "y": 220, "width": 86, "height": 12 },
+        { "id": "garden_bank_right", "x": 516, "y": 274, "width": 82, "height": 12 }
+      ],
+      "landmarks": [
+        { "id": "garden_source", "kind": "environmental_puzzle", "x": 278, "y": 228, "story": "A dry basin has a clear inlet that matches the restored Sluice channel." },
+        { "id": "AR06", "kind": "record_pickup_anchor", "x": 364, "y": 228, "story": "Garden ecosystem" },
+        { "id": "HP01", "kind": "collectible_anchor", "x": 430, "y": 206, "story": "+10 max HP" },
+        { "id": "MEM02", "kind": "hidden_memorial_anchor", "x": 536, "y": 280, "story": "Hidden memorial" },
+        { "id": "garden_outlet", "kind": "environmental_clue", "x": 554, "y": 280, "story": "When the garden valve is restored, its overflow reveals the return shortcut to the Sluice." }
+      ],
+      "encounter_zones": [],
+      "intended_route": "Optional water-cause-and-effect area. The health shard is placed on a reachable elevated shelf, while the memorial rewards inspecting the far bank; shortcut only becomes available after the local restoration action."
+    },
+    {
+      "id": "ROT04",
+      "name": "Moss Hollow",
+      "purpose": "optional Mossbound Titan encounter and sealed map-scrap reward",
+      "biome_kit": "rootspan_canopy",
+      "entry_clearance": { "left": { "x": [0, 70], "y": [244, 300], "connects_to": "ROT02", "gate": "WARDEN_DOWN" }, "right": null },
+      "platforms": [
+        { "id": "hollow_basin_step", "x": 150, "y": 276, "width": 82, "height": 12 },
+        { "id": "hollow_root_ledge", "x": 286, "y": 246, "width": 90, "height": 12 },
+        { "id": "hollow_spore_shelf", "x": 434, "y": 270, "width": 92, "height": 12 }
+      ],
+      "landmarks": [
+        { "id": "hollow_marker", "kind": "environmental_puzzle", "x": 286, "y": 230, "story": "The hollow marker only activates once the Sluice Warden is defeated." },
+        { "id": "mossbound_titan_arena", "kind": "encounter_landmark", "x": 432, "y": 284, "story": "The old root ring defines a broad, level optional boss arena." },
+        { "id": "MAP04", "kind": "collectible_anchor", "x": 514, "y": 252, "story": "Optional map annotation" }
+      ],
+      "encounter_zones": [
+        { "id": "mossbound_titan_arena", "enemy": "B02", "x": [330, 520], "purpose": "optional arena with retreat space and an elevated observation ledge" }
+      ],
+      "intended_route": "Optional one-exit branch. Keep the return to Canopy Walk on the base floor, with a single upper shelf for the map reward; no mandatory vertical escape after the Titan."
+    }
+  ]
+}

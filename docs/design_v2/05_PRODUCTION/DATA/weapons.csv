@@ -1,0 +1,6 @@
+id,name,damage,ee_cost,heat_per_shot,interval_s,cooling_per_s
+RIF01,Hunter Rifle,12,2,13,0.25,25
+WPN01,Scatter Carbine,6x4,4,24,0.55,30
+WPN02,Precision Rifle,32,5,30,0.85,22
+WPN03,Vaelari Resonator,16,2,10,0.35,27
+BLD01,Combat Blade,18,0,0,0.5,0

@@ -1,0 +1,11 @@
+# Save, checkpoint, death and completion behavior
+
+**Version:** 2.0 | **Date:** 2026-11-27 | **Status:** Approved V2 direction; implementation details are working specifications
+
+Autosave on rest, major milestone, boss defeat, unique acquisition and ending. Manual save/quit at safe locations. Save persistent world changes separately from transient encounter state. Death is noncanonical failure, not resurrection. On death reload latest safe checkpoint spawn, retain durable progress and restore HP, charges, minimum 50 EE. Ordinary encounters reset, boss defeat permanent. No mandatory corpse run, no penalty for puzzle retries. Rest cools weapons, replenishes health/charges/minimum EE; unique rewards do not respawn. Heat and Rewind cooldown cannot be bypassed during active combat by saving; save/quit limited to safe state. Loading clears Rewind history and damage ledger; rest safely clears cooldown only after deliberate rest.
+
+## Save schema (versioned)
+```json
+{"schema_version":2,"checkpoint":"OUT01","chapter":1,"hp_max":100,"hp":100,"ee_capacity":100,"ee":60,"heal_charges":3,"weapons_owned":["RIF01"],"equipped":"RIF01","weapon_heat":{"RIF01":0},"rewind_cooldown":0,"materials":{"alloy":0,"biological":0,"relic":0},"guild_marks":60,"flags":["BRIEFED","TUTORIAL_DONE"],"unique_collected":[],"released_echo_tokens":[],"maps_seen":["OUT01"],"archive_ids":[],"upgrades":[],"end_complete":false}
+```
+Example schema not an actual game save. Save atomic temp→validate→rename; retain last valid backup, per-slot version migration, clear error if corrupted; never overwrite both copies on failure. Validate flags, room IDs, numeric bounds and equipment unlocks; repair safe position if checkpoint missing. Separate settings file. No autosave inside lethal hazard or during Rewind playback. Commit persistent rewards and boss flags in same transaction; checkpoint snapshot records durable state and resources, transient pickups not duplicated. Ordinary encounter cycles tracked separately; checkpoint rollback may replay uncommitted encounters but cannot duplicate durable unique rewards. End completion metadata persists; Continue opens safe post-guardian/pre-transmission snapshot for accessible exploration, gate stays broken, signal can replay. No save transfer required for sequel; canon outcome fixed.

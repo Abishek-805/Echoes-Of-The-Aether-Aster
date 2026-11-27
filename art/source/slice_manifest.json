@@ -1,0 +1,49 @@
+{
+  "status": "integrated visual draft; contact sheet and in-engine screenshot inspected; user approval pending",
+  "authoring": "original deterministic Python/Pillow",
+  "reference_role": "V2 character and art bibles; older concept inspected but not edited",
+  "palette": {
+    "ink": "#111b2a",
+    "dark": "#243447",
+    "cloth": "#3c5865",
+    "blue": "#638291",
+    "silver": "#a6b8ad",
+    "light": "#e2dcc2",
+    "skin": "#c58d65",
+    "face": "#e5b58b",
+    "hair": "#342e35",
+    "hairlight": "#665047",
+    "bronze": "#91704f",
+    "gold": "#c5a572",
+    "green": "#486955",
+    "moss": "#829c6a",
+    "cyan": "#56cdc4",
+    "glow": "#aff5dc",
+    "soil": "#394337",
+    "water": "#284d59",
+    "far": "#243d46",
+    "sky": "#182d3b"
+  },
+  "sprite_size": [
+    48,
+    56
+  ],
+  "foot_pivot": [
+    24,
+    51
+  ],
+  "files": [
+    "aster_blade.png",
+    "aster_idle.png",
+    "aster_run.png",
+    "bg_arena.png",
+    "bg_camp.png",
+    "bg_frontier.png",
+    "bg_rootspan.png",
+    "bg_sluice.png",
+    "forager.png",
+    "terrain.png"
+  ],
+  "source": "tools/build_slice_art.py",
+  "layers": "art/source/aster"
+}

@@ -21,8 +21,9 @@ func run_playtest() -> void:
 	get_tree().root.add_child(game)
 	game.load_room("SLU03")
 	game.player.position = Vector2(90.0, 282.0)
-	game.player.hp = 140.0
-	game.player.max_hp = 140.0
+	game.player.hp = 100.0
+	game.player.max_hp = 100.0
+	game.player.heal_charges = 3
 	game.player.energy = 100.0
 	PlatformInput.pointer_aim = false
 	await get_tree().physics_frame
@@ -37,6 +38,8 @@ func run_playtest() -> void:
 		return
 	var prior_state: String = str(boss.state)
 	var fire_held: bool = false
+	var heal_held: bool = false
+	var heal_release_frames: int = 0
 	var jump_frames: int = 0
 	for frame in range(3000):
 		if not is_instance_valid(boss):
@@ -53,6 +56,15 @@ func run_playtest() -> void:
 			if fire_held:
 				Input.action_release("fire")
 				fire_held = false
+		if not heal_held and game.player.hp <= 70.0 and game.player.heal_charges > 0 and game.player.heal_timer <= 0.0 and str(boss.state) in ["recover", "guard"]:
+			Input.action_press("heal")
+			heal_held = true
+			heal_release_frames = 2
+		elif heal_held:
+			heal_release_frames -= 1
+			if heal_release_frames <= 0:
+				Input.action_release("heal")
+				heal_held = false
 		for hazard: Dictionary in game.hazards:
 			if str(hazard.get("kind", "")) == "wave" and float(hazard.get("dir", 0.0)) < 0.0 and float(hazard.at.x) - game.player.position.x < 130.0 and float(hazard.at.x) > game.player.position.x:
 				if game.player.is_on_floor() and jump_frames == 0:
@@ -69,11 +81,13 @@ func run_playtest() -> void:
 		await get_tree().physics_frame
 	if fire_held:
 		Input.action_release("fire")
+	if heal_held:
+		Input.action_release("heal")
 	if jump_frames > 0:
 		Input.action_release("jump")
 	check(not is_instance_valid(boss) and game.state.flags.get("WARDEN_DOWN", false), "Live recovery-window attacks should defeat the Sluice Warden and advance the route")
 	check(tell_count >= 3 and recovery_hits >= 3, "The Warden playtest should exercise repeated tells and punish windows")
 	check(game.player.hp > 0.0, "Reading and jumping the shockwave tells should keep the player alive through the fight")
-	print("WARDEN_PLAYTEST failures=", failures, " tells=", tell_count, " recovery_windows=", recovery_hits, " boss_hp=", boss.hp if is_instance_valid(boss) else 0.0, " player_hp=", game.player.hp)
+	print("WARDEN_PLAYTEST failures=", failures, " tells=", tell_count, " recovery_windows=", recovery_hits, " boss_hp=", boss.hp if is_instance_valid(boss) else 0.0, " player_hp=", game.player.hp, " heals_left=", game.player.heal_charges)
 	game.queue_free()
 	get_tree().quit(1 if failures else 0)

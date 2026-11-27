@@ -117,8 +117,9 @@ reset and correct solution, M05/M13 shortcut gating, M07 marker-plus-Titan compl
 lore and return seam, M14 pre-boss cache access, and east-side M16 re-entry handling.
 The opening physical runner passed through OUT02, defeated the first Forager and collected its
 Echo. Separate physics playtests passed the three adjusted double-jump ledges and a six-window
-Sluice Warden fight; the Warden test ended with 14 / 140 HP, so that fight remains a balance
-review item. Windows, Linux, macOS and Web release exports were rebuilt with the adjusted room
+Sluice Warden fight with tells, recovery attacks and healing. Starting at 100 HP with three
+heals, the test finished at 64 HP after using all charges; the Warden still needs human balance
+review. Windows, Linux, macOS and Web release exports were rebuilt with the adjusted room
 layouts; the Windows headless launch completed. Android and iOS remain blocked by missing local
 SDK/signing setup, and the other exports still need their native runtime/browser checks.
 The 240-frame campaign-scene smoke run, exported Windows headless launch, and editor scan

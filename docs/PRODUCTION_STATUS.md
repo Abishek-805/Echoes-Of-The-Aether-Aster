@@ -87,7 +87,7 @@ exist; each target still needs an interactive hardware run.
 
 ## Recent validation
 
-Godot 4.7.2 headless import and script scan completed; 41 GDScript files checked, zero
+Godot 4.7.2 headless import and script scan completed; 42 GDScript files checked, zero
 broken. The 22 existing `*_contract.gd` checks passed at the prior production checkpoint,
 including campaign save validation, V2
 save migration, semantic backup fallback, Rewind cooldown/resource persistence, HUD state,
@@ -98,6 +98,8 @@ stable loot, story flags, and content references. The campaign contract
 observed 62 reachable rooms, acquired Rewind, and reached the distress/refuge ending. The
 new minor-puzzle contract passed, checking all 10 optional reward gates, the two-part Titan
 marker condition, the physical M16 shutter registration, and Rewind collision restoration.
+The in-engine optional-puzzle integration runner passed M02 reward gating, M03 wrong-answer
+reset and correct solution, M07 marker-plus-Titan completion, and M16 shutter/shortcut flow.
 The 240-frame campaign-scene smoke run and editor scan had no script or engine errors.
 Windows, Linux, Web, and
 macOS release exports completed; Android export is blocked by the missing JDK and Android

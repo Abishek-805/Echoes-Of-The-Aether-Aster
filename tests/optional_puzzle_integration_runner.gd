@@ -101,22 +101,26 @@ func run_checks() -> void:
 	game.player.rewind_unlocked = true
 	game.player.energy = 100.0
 	game.player.rewind.cooldown = 0.0
-	game.player.position.x = 505.0
+	game.player.rewind.clear_history(game.player)
 	for index in range(20):
-		game.player.rewind.history.append({"at":Vector2(100.0+float(index),275.0),"velocity":Vector2.ZERO,"hp":100.0,"time":float(index)/60.0})
+		game.player.rewind.history.append({"at":Vector2(100.0+float(index)*21.3,120.0),"velocity":Vector2.ZERO,"hp":100.0,"time":float(index)/60.0})
+	game.player.position = Vector2(505.0,120.0)
 	game._process(0.016)
 	check(not game.m16_gate_activated,"Entering FOL02 from the east should not activate a west-to-east Rewind latch")
-	game.player.position.x = 100.0
+	game.player.position = Vector2(100.0,120.0)
 	game._process(0.016)
 	check(game.m16_latch_armed,"Returning west should arm the M16 latch for a future crossing")
-	game.player.position.x = 505.0
+	game.player.position = Vector2(505.0,120.0)
 	game._process(0.016)
 	check(game.m16_gate_activated and game.player.get_collision_mask_value(5),"Crossing the ready M16 latch should close its physical shutter")
-	game.player.rewind.playing = true
+	check(game.player.rewind.begin(game.player),"The M16 recorded path should permit real Rewind playback")
+	for index in range(30):
+		game.player.rewind.tick(game.player,0.05)
+		game._process(0.05)
+		if not game.player.rewind.playing:
+			break
 	game._process(0.016)
-	game.player.rewind.playing = false
-	game.player.position.x = 100.0
-	game._process(0.016)
+	check(game.player.position.x < 140.0,"Real Rewind playback should cross the physical M16 shutter back to the west")
 	check(game.state.flags.get("REWIND_RETURN_OPEN",false),"Returning through M16 with Rewind should open its shortcut")
 	check(not game.player.get_collision_mask_value(5),"Completed M16 should clear the temporary shutter collision mask")
 

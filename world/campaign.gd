@@ -742,7 +742,7 @@ func _process(dt: float) -> void:
                 hint.text = "The Fold latch waits for a recorded path, ready Echo Energy and Rewind off cooldown."
         if m16_gate_activated and player.rewind.playing:
             m16_rewind_seen = true
-        if m16_gate_activated and m16_rewind_seen and player.position.x < 140:
+        if m16_gate_activated and m16_rewind_seen and not player.rewind.playing and player.position.x < 140:
             state.flags.REWIND_RETURN_OPEN = true
             if is_instance_valid(m16_shutter):
                 m16_shutter.collision_layer = 0

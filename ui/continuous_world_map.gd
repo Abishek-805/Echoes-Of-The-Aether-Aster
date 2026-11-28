@@ -13,6 +13,8 @@ var visited_rooms: Dictionary = {}
 var flags: Dictionary = {}
 var current_room := ""
 var current_region := ""
+var selected_point_id := ""
+var selection_message := ""
 var zoom := BASE_ZOOM
 var pan := Vector2.ZERO
 var dragging := false
@@ -64,6 +66,8 @@ func configure(world_data: Dictionary, explored: Dictionary, at: String, progres
 			min_y = minf(min_y, float(region_bounds[1]))
 			max_x = maxf(max_x, float(region_bounds[2]))
 			max_y = maxf(max_y, float(region_bounds[3]))
+	selected_point_id = str(point_by_legacy.get(at, ""))
+	selection_message = ""
 	if is_finite(min_x) and is_finite(max_x):
 		bounds = Rect2(min_x, min_y, max_x - min_x, max_y - min_y)
 	zoom = BASE_ZOOM
@@ -135,6 +139,8 @@ func _draw_points() -> void:
 		draw_circle(at, 1.05 if is_current else 0.72, color)
 		if is_current:
 			draw_arc(at, 1.8, 0, TAU, 16, Color("fff0bd"), 0.38, true)
+		if str(point_id) == selected_point_id:
+			draw_arc(at, 2.6, 0, TAU, 20, Color("ffffff"), 0.35, true)
 
 func _point_position(point: Dictionary) -> Vector2:
 	return Vector2(float(point.get("x", 0)), float(point.get("y", 0)))
@@ -159,13 +165,76 @@ func _draw_footer(font: Font) -> void:
 	draw_rect(Rect2(Vector2(0, top), Vector2(size.x, FOOTER_HEIGHT)), Color("172536"))
 	draw_line(Vector2(0, top), Vector2(size.x, top), Color("405365"), 1.0)
 	var region_name := str(region_by_id.get(current_region, {}).get("name", "Unknown region"))
-	draw_string(font, Vector2(12, top + 16), "Current landmark: %s" % _current_landmark_name(), HORIZONTAL_ALIGNMENT_LEFT, size.x - 24, 10, Color("e6edf0"))
-	draw_string(font, Vector2(12, top + 32), "%s · %d landmarks discovered · unlabeled paths remain unexplored" % [region_name, known_points.size()], HORIZONTAL_ALIGNMENT_LEFT, size.x - 24, 9, Color("a8b7c2"))
+	draw_string(font, Vector2(12, top + 16), "Current: %s · Selected: %s" % [_current_landmark_name(), _selected_landmark_name()], HORIZONTAL_ALIGNMENT_LEFT, size.x - 24, 10, Color("e6edf0"))
+	var footer_detail := selection_message if not selection_message.is_empty() else "%s · %d landmarks discovered · arrows/D-pad inspect · Enter/A confirm · click/tap select" % [region_name, known_points.size()]
+	draw_string(font, Vector2(12, top + 32), footer_detail, HORIZONTAL_ALIGNMENT_LEFT, size.x - 24, 9, Color("a8b7c2"))
 
 func _current_landmark_name() -> String:
 	if point_by_legacy.has(current_room):
 		return str(point_by_id[point_by_legacy[current_room]].get("name", current_room))
 	return current_room
+
+func _selected_landmark_name() -> String:
+	if point_by_id.has(selected_point_id):
+		return str(point_by_id[selected_point_id].get("name", selected_point_id))
+	return "none"
+
+func _unhandled_input(event: InputEvent) -> void:
+	if not visible:
+		return
+	for pair: Array in [["ui_left", Vector2.LEFT], ["ui_right", Vector2.RIGHT], ["ui_up", Vector2.UP], ["ui_down", Vector2.DOWN]]:
+		if event.is_action_pressed(pair[0], true):
+			_move_selection(pair[1])
+			get_viewport().set_input_as_handled()
+			return
+	if event.is_action_pressed("ui_accept", true) and point_by_id.has(selected_point_id):
+		var point: Dictionary = point_by_id[selected_point_id]
+		selection_message = str(point.get("name", selected_point_id)) + " · " + str(point.get("notes", "No field note recorded."))
+		landmark_selected.emit(selected_point_id)
+		queue_redraw()
+		get_viewport().set_input_as_handled()
+
+func _move_selection(direction: Vector2) -> void:
+	if known_points.is_empty():
+		return
+	var origin: Vector2 = _point_position(point_by_id[selected_point_id]) if point_by_id.has(selected_point_id) else _point_position(point_by_id[known_points.keys()[0]])
+	var best_id := selected_point_id
+	var best_score := INF
+	for point_id: Variant in known_points:
+		var candidate: Vector2 = _point_position(point_by_id[point_id])
+		var offset := candidate - origin
+		var forward := offset.dot(direction)
+		if forward <= 0.1:
+			continue
+		var side := absf(offset.cross(direction))
+		var score := offset.length() + side * 2.0
+		if score < best_score:
+			best_score = score
+			best_id = str(point_id)
+	selected_point_id = best_id
+	selection_message = ""
+	queue_redraw()
+
+func _select_near(screen_position: Vector2) -> bool:
+	if known_points.is_empty():
+		return false
+	var map_rect := Rect2(Vector2(INSET.x, MAP_TOP + INSET.y), Vector2(size.x - INSET.x * 2, size.y - MAP_TOP - FOOTER_HEIGHT - INSET.y * 2))
+	var scale := minf(map_rect.size.x / bounds.size.x, map_rect.size.y / bounds.size.y) * zoom
+	var origin := map_rect.position + (map_rect.size - bounds.size * scale) * 0.5 + pan
+	var best_id := ""
+	var best_distance := 14.0
+	for point_id: Variant in known_points:
+		var point_screen: Vector2 = origin + _point_position(point_by_id[point_id]) * scale - bounds.position * scale
+		var distance := screen_position.distance_to(point_screen)
+		if distance < best_distance:
+			best_distance = distance
+			best_id = str(point_id)
+	if best_id.is_empty():
+		return false
+	selected_point_id = best_id
+	selection_message = ""
+	queue_redraw()
+	return true
 
 func _gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
@@ -178,9 +247,15 @@ func _gui_input(event: InputEvent) -> void:
 			queue_redraw()
 			accept_event()
 		elif event.button_index == MOUSE_BUTTON_LEFT:
-			dragging = event.pressed
-			drag_origin = event.position
-			pan_origin = pan
+			if event.pressed:
+				dragging = true
+				drag_origin = event.position
+				pan_origin = pan
+			else:
+				dragging = false
+				if event.position.distance_to(drag_origin) <= 6.0:
+					_select_near(event.position)
+				accept_event()
 		elif event.button_index == MOUSE_BUTTON_RIGHT and event.pressed:
 			zoom = BASE_ZOOM
 			pan = Vector2.ZERO
@@ -201,6 +276,8 @@ func _gui_input(event: InputEvent) -> void:
 				drag_origin = event.position
 				pan_origin = pan
 		else:
+			if touch_positions.size() == 1 and event.position.distance_to(drag_origin) <= 10.0:
+				_select_near(event.position)
 			touch_positions.erase(event.index)
 			pinch_distance = 0.0
 			dragging = touch_positions.size() == 1

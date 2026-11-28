@@ -416,6 +416,7 @@ func load_room(id: String, entry_x: float = 80.0) -> void:
     player.immunity = maxf(player.immunity,0.4)
     spawn_room_landmarks()
     spawn_collectibles()
+    spawn_pending_echoes()
     if not id.begins_with("TOW"):
         spawn_encounters()
     hint.text = "%s · %s\nE interact with nearby items, clues, stations and devices · M map · J journal · I gear." % [id,rooms[id].room]
@@ -495,6 +496,45 @@ func refresh_collectibles() -> void:
             non_collectible_pickups.append(pickup)
     pickups = non_collectible_pickups
     spawn_collectibles()
+    spawn_pending_echoes()
+
+func spawn_pending_echoes() -> void:
+    for token: Variant in state.pending.keys():
+        var reward: Variant = state.pending[token]
+        if not reward is Dictionary or str(reward.get("type", "")) != "echo":
+            continue
+        if str(reward.get("room", "")) != current:
+            continue
+        if player.released.has(str(token)):
+            state.pending.erase(token)
+            continue
+        var at := Vector2(float(reward.get("x", 0.0)), float(reward.get("y", 0.0)))
+        _spawn_echo_pickup(str(token), at, float(reward.get("energy", 0.0)))
+
+func _spawn_echo_pickup(token: String, at: Vector2, amount: float) -> void:
+    for existing: Dictionary in pickups:
+        if str(existing.get("kind", "")) == "echo" and str(existing.get("id", "")) == token:
+            return
+    var marker := Node2D.new()
+    marker.position = at
+    var mote := Polygon2D.new()
+    mote.polygon = PackedVector2Array([Vector2(0,-8),Vector2(5,-3),Vector2(4,4),Vector2(0,8),Vector2(-4,4),Vector2(-5,-3)])
+    mote.color = Color("7ef0db")
+    marker.add_child(mote)
+    var orbit := Polygon2D.new()
+    orbit.polygon = PackedVector2Array([Vector2(0,-11),Vector2(2,-9),Vector2(0,-7),Vector2(-2,-9)])
+    orbit.color = Color("e6f6c5")
+    marker.add_child(orbit)
+    var label := Label.new()
+    label.text = "ECHO · E"
+    label.position = Vector2(-28,-26)
+    label.size = Vector2(56,14)
+    label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+    label.add_theme_font_size_override("font_size",8)
+    label.add_theme_color_override("font_color",Color("d8fff4"))
+    marker.add_child(label)
+    room.add_child(marker)
+    pickups.append({"kind":"echo","id":token,"description":"Unbound Echo","at":at,"energy":amount,"marker":marker})
 
 func minor_puzzle_for_reward(collectible_id: String) -> String:
     for puzzle_id: String in MINOR_REWARD_GATES:
@@ -552,10 +592,23 @@ func spawn_room_landmarks() -> void:
         room_landmarks.append({"id":str(landmark.id),"kind":kind,"at":at,"story":str(landmark.get("story",""))})
 
 func collect_nearby_pickup() -> bool:
-    for pickup: Dictionary in pickups:
+    var nearby_order: Array[Dictionary] = pickups.duplicate()
+    nearby_order.sort_custom(func(a: Dictionary, b: Dictionary) -> bool: return str(a.get("kind", "")) == "echo" and str(b.get("kind", "")) != "echo")
+    for pickup: Dictionary in nearby_order:
         if player.position.distance_to(pickup.at)>43.0:
             continue
         var id: String = pickup.id
+        if str(pickup.get("kind", "")) == "echo":
+            if not player.collect(id, float(pickup.get("energy", 0.0))):
+                continue
+            state.pending.erase(id)
+            state.flags.FIRST_RELEASE = true
+            if is_instance_valid(pickup.get("marker")):
+                pickup.marker.queue_free()
+            pickups = pickups.filter(func(value: Dictionary) -> bool: return str(value.get("id", "")) != id)
+            hint.text = "Echo Collector captured and released the Echo safely. Stored Echo Energy: %d/%d." % [int(player.energy), int(player.capacity)]
+            commit()
+            return true
         if state.collected.has(id):
             continue
         state.collected[id] = pickup.description
@@ -1321,7 +1374,7 @@ func melee(origin: Vector2, facing: float) -> void:
     for actor: CharacterBody2D in actors.duplicate():
         if is_instance_valid(actor) and origin.distance_to(actor.position)<85 and (actor.position.x-origin.x)*facing>=0:
             actor.hit(18)
-func enemy_defeated(token: String, _at: Vector2) -> void:
+func enemy_defeated(token: String, at: Vector2) -> void:
     var entry: Dictionary = encounters.get(token,{"energy":8,"material":"alloy"})
     defeated_local[token]=true
     var reward_token: String = str(entry.get("reward_token",token))
@@ -1334,8 +1387,9 @@ func enemy_defeated(token: String, _at: Vector2) -> void:
             state.materials[entry.material]=int(state.materials.get(entry.material,0))+4
     elif not already_claimed:
         state.materials[entry.material]=int(state.materials.get(entry.material,0))+1
-    player.collect(reward_token,float(entry.energy))
-    state.flags.FIRST_RELEASE=true
+    if not already_claimed:
+        state.pending[reward_token] = {"type":"echo","room":current,"x":at.x,"y":at.y,"energy":float(entry.energy)}
+        _spawn_echo_pickup(reward_token, at, float(entry.energy))
     actors = actors.filter(func(actor: CharacterBody2D) -> bool: return is_instance_valid(actor) and actor.token!=token)
     commit()
     if token=="B02":

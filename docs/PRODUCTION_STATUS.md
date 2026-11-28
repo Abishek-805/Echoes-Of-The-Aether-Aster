@@ -30,7 +30,9 @@ for decisions in [Player-directed overrides](PLAYER_DIRECTED_OVERRIDES.md).
   melee, ranged fire, dodge, healing, and Rewind progression.
 - The campaign map now draws from the V4 continuous-world atlas: sixteen geographic
   regions and authored landmark/path links. It reveals only landmarks mapped to areas
-  Aster has explored, supports mouse navigation and touch pan/pinch-to-zoom. This is a migration step; the playable world still uses the
+  Aster has explored, supports mouse navigation, touch pan/pinch-to-zoom, and landmark
+  inspection with keyboard/controller focus or click/tap selection. These new selection
+  controls still need an interactive runtime pass. This is a migration step; the playable world still uses the
   legacy graybox campaign layout and is not continuous terrain yet.
 - Fifteen canon-aligned dialogue sequences are integrated at opening, clue, boss,
   Rewind, gate and ending beats. Continue/skip saves the same progression flags.
@@ -41,8 +43,14 @@ for decisions in [Player-directed overrides](PLAYER_DIRECTED_OVERRIDES.md).
   geometric placeholders and final placement/visuals still need play review.
 - Double jump, air shooting and one-way platform drop-through are enabled. Rewind safely
   cancels and refunds its cost when a path becomes blocked before playback can move.
-- Enemy Echo Energy and material rewards use stable per-room reward IDs, so a rest can
-  respawn encounters for combat without duplicating their drops.
+- Enemy defeats now leave persistent physical Echo pickups at the defeat location.
+  Interacting captures and safely releases the Echo through the Collector, then credits
+  stored Echo Energy once. Stable reward IDs survive room re-entry and prevent duplicate
+  releases; material rewards remain separate.
+- Echo Rewind records global positions tagged with a spatial-domain ID. The current
+  campaign keeps its legacy screen safety bounds by default; future continuous domains
+  can provide authored safe bounds. A blocked later playback frame no longer refunds
+  the activation after an earlier frame already moved Aster.
 - Campaign saves validate the full state before mutating runtime progress, fall back to
   a semantically valid backup, migrate the documented V2 field layout, and warn instead
   of silently presenting a fresh run when both copies are unusable. Health, healing
@@ -121,8 +129,8 @@ marker condition, the physical M16 shutter registration, and Rewind collision re
 The in-engine optional-puzzle integration runner passed M02 reward gating, M03 wrong-answer
 reset and correct solution, M05/M13 shortcut gating, M07 marker-plus-Titan completion, M09
 lore and return seam, M14 pre-boss cache access, and east-side M16 re-entry handling.
-The opening physical runner passed through OUT02, defeated the first Forager and collected its
-Echo. Separate physics playtests passed the three adjusted double-jump ledges and a six-window
+The opening physical runner passed through OUT02, defeated the first Forager, then collected
+its Echo before Echo Energy was credited. Separate physics playtests passed the three adjusted double-jump ledges and a six-window
 Sluice Warden fight with tells, recovery attacks and healing. Starting at 100 HP with three
 heals, the test finished at 64 HP after using all charges; the Warden still needs human balance
 review. Windows, Linux, macOS and Web release exports were rebuilt with the V4 atlas data

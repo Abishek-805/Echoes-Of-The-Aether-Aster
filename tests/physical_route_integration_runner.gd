@@ -119,7 +119,7 @@ func run_checks() -> void:
 			break
 	check(is_instance_valid(forager), "The first dungeon encounter should spawn its Echo Forager")
 	if is_instance_valid(forager):
-		PlatformInput.pointer_aim = false
+		get_node("/root/PlatformInput").pointer_aim = false
 		Input.action_press("fire")
 		for index in range(240):
 			await get_tree().physics_frame
@@ -127,7 +127,24 @@ func run_checks() -> void:
 				break
 		Input.action_release("fire")
 		check(not is_instance_valid(forager), "Ranged combat should defeat the first Forager through its live hitbox")
-		check(game.state.flags.get("FIRST_RELEASE", false), "Defeating the Forager should release Echo Energy and progress the route")
+		check(not game.state.flags.get("FIRST_RELEASE", false), "Defeating the Forager should not automatically release its Echo")
+		check(game.state.pending.size() == 1, "Defeated Forager should leave a persistent Echo pickup")
+		var echo_drop: Dictionary = {}
+		for pickup: Dictionary in game.pickups:
+			if str(pickup.get("kind", "")) == "echo":
+				echo_drop = pickup
+				break
+		check(not echo_drop.is_empty(), "Defeated Forager should show an interactable Echo in the world")
+		if not echo_drop.is_empty():
+			var energy_before_release: float = game.player.energy
+			game.player.position = echo_drop.at
+			Input.action_press("interact")
+			await get_tree().physics_frame
+			Input.action_release("interact")
+			check(game.state.flags.get("FIRST_RELEASE", false), "Collecting and releasing the Echo should progress the route")
+			check(game.state.released.has(echo_drop.id), "Released Echo should be recorded with a stable token")
+			check(not game.state.pending.has(echo_drop.id), "Collected Echo should leave the pending-drop ledger")
+			check(game.player.energy > energy_before_release, "The Collector should store energy when the Echo is released")
 	print("PHYSICAL_ROUTE_INTEGRATION failures=", failures, " room=", game.current, " position=", game.player.position)
 	game.queue_free()
 	get_tree().quit(1 if failures else 0)

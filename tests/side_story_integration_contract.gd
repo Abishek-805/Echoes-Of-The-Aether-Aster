@@ -65,7 +65,13 @@ func run_checks() -> void:
 	check(not game.state.flags.get("SIDE_PREDATOR_DONE", false), "Predator story completed without its boss and evidence records")
 	var energy_before_boss: float = game.player.energy
 	game.enemy_defeated("B05", Vector2(200, 220))
-	check(game.player.energy == minf(game.player.capacity, energy_before_boss + 40), "Boss Echo reward was not released once")
+	check(game.player.energy == energy_before_boss, "Boss defeat should leave an Echo pickup instead of granting energy immediately")
+	var boss_echo := _echo_pickup(game, "B05")
+	check(not boss_echo.is_empty(), "Boss Echo pickup should appear in its arena")
+	if not boss_echo.is_empty():
+		game.player.position = boss_echo.at
+		check(game.collect_nearby_pickup(), "Aster should be able to release the boss Echo")
+	check(game.player.energy == minf(game.player.capacity, energy_before_boss + 40), "Boss Echo reward should be released once after collection")
 	check(_has_pickup(game, "HP04") and _has_pickup(game, "MAP06") and _has_pickup(game, "MEM05"), "M14 plus the boss did not expose the predator evidence caches")
 	print("SIDE_STORY_INTEGRATION_CONTRACT failures=", failures)
 	quit(1 if failures else 0)
@@ -75,3 +81,9 @@ func _has_pickup(game: Node2D, token: String) -> bool:
 		if str(pickup.id) == token:
 			return true
 	return false
+
+func _echo_pickup(game: Node2D, token: String) -> Dictionary:
+	for pickup: Dictionary in game.pickups:
+		if str(pickup.get("kind", "")) == "echo" and str(pickup.get("id", "")) == token:
+			return pickup
+	return {}

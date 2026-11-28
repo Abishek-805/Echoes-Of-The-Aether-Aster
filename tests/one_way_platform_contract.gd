@@ -67,6 +67,31 @@ func run_checks() -> void:
 	player.rewind.tick(player, 1.0 / 60.0)
 	check(not player.rewind.playing, "Rewind remained active after its route became invalid")
 	check(is_equal_approx(player.energy, 60.0), "Invalidated Rewind did not refund its EE cost exactly")
+	blocker.queue_free()
+	await physics_frame
+	player.position = Vector2(130, 100)
+	player.energy = 60.0
+	player.rewind.clear_history()
+	for sample: int in range(20):
+		player.position = Vector2(100.0 + float(sample), 100.0)
+		player.rewind.record(player, 1.0 / 60.0)
+	player.position = Vector2(130, 100)
+	check(player.rewind.begin(player), "Rewind should start with a recorded moving route")
+	player.rewind.tick(player, 1.0 / 60.0)
+	check(player.global_position.x < 130.0, "First Rewind tick should move along its recorded route")
+	var late_blocker := StaticBody2D.new()
+	late_blocker.collision_layer = 1
+	var late_shape := CollisionShape2D.new()
+	var late_rect := RectangleShape2D.new()
+	late_rect.size = Vector2(32, 48)
+	late_shape.shape = late_rect
+	late_blocker.add_child(late_shape)
+	late_blocker.position = Vector2(118, 100)
+	root.add_child(late_blocker)
+	player.rewind.tick(player, 1.0 / 60.0)
+	check(not player.rewind.playing, "Rewind should stop when a later sample becomes blocked")
+	check(is_equal_approx(player.energy, 35.0), "Rewind must not refund after an earlier playback tick moved Aster")
+	late_blocker.queue_free()
 	print("ONE_WAY_PLATFORM_CONTRACT failures=", failures)
 	quit(1 if failures else 0)
  

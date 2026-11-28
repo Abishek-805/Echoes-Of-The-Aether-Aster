@@ -5,7 +5,7 @@ func _ready() -> void:
     layer = 10
     var specs: Array = [["left","<",Vector2(35,320)], ["right",">",Vector2(87,320)], ["jump","JUMP",Vector2(600,320)], ["dodge","DODGE",Vector2(545,320)], ["fire","FIRE",Vector2(600,265)], ["melee","BLADE",Vector2(545,265)], ["interact","USE",Vector2(490,320)], ["first","ROOT",Vector2(175,320)], ["second","BELL",Vector2(230,320)], ["third","STONE",Vector2(285,320)]]
     if expanded:
-        specs.append_array([["heal","HEAL",Vector2(490,265)],["rewind","REWIND",Vector2(435,265)],["down","DOWN",Vector2(140,320)]])
+        specs.append_array([["heal","HEAL",Vector2(490,265)],["rewind","REWIND",Vector2(435,265)],["down","DOWN",Vector2(140,320)],["journal","LOG",Vector2(335,265)],["inventory","GEAR",Vector2(385,265)],["pause","MENU",Vector2(385,320)]])
     for spec: Array in specs:
         var button := TouchScreenButton.new()
         button.action = spec[0]

@@ -23,7 +23,7 @@ func run_checks() -> void:
 	for index in range(3):
 		await get_tree().process_frame
 	check(game.map_view.visible and get_tree().paused, "M action should open and pause the explored-room map")
-	check(game.map_view.visited.size() == 1, "Map should show only the starting room before exploration")
+	check(game.map_view.known_points.size() == 1 and game.map_view.known_points.has("TOW-MEM"), "Map should show only the starting geographic landmark before exploration")
 	Input.action_release("map")
 	game.close_panel()
 	Input.action_press("jump")

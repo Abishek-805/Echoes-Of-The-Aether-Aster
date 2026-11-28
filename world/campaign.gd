@@ -3,10 +3,11 @@ const State = preload("res://systems/campaign_state.gd")
 const Player = preload("res://actors/player/player.gd")
 const Enemy = preload("res://actors/enemies/campaign_enemy.gd")
 const Boss = preload("res://actors/enemies/campaign_boss.gd")
-const Map = preload("res://ui/exploration_map.gd")
+const Map = preload("res://ui/continuous_world_map.gd")
 const SideStories = preload("res://systems/side_story_tracker.gd")
 var state = State.new()
 var db: Dictionary
+var geography: Dictionary = {}
 var layout_db: Dictionary = {}
 var rooms: Dictionary = {}
 var room_layouts: Dictionary = {}
@@ -142,6 +143,7 @@ const MINOR_REWARD_GATES := {
 func _ready() -> void:
     process_mode = Node.PROCESS_MODE_ALWAYS
     db = JSON.parse_string(FileAccess.get_file_as_string("res://data/campaign.json"))
+    geography = JSON.parse_string(FileAccess.get_file_as_string("res://data/continuous_world_v4.json"))
     for item: Dictionary in db.rooms:
         rooms[item.id] = item
     layout_db = JSON.parse_string(FileAccess.get_file_as_string("res://data/room_layouts.json"))
@@ -301,7 +303,7 @@ func toggle_map() -> void:
         close_panel()
         return
     modal.hide()
-    map_view.configure(db.rooms,db.edges,state.visited,current,state.flags)
+    map_view.configure(geography,state.visited,current,state.flags)
     map_view.show()
     get_tree().paused = true
     PlatformInput.release_actions()

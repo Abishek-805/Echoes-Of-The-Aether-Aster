@@ -1,0 +1,17 @@
+id,solution,reward,anchor
+M01,Practice cooling: release trigger until heat below safe line,"basic tutorial completion, no reward lock",TOW-YARD
+M02,Match Source sign to receiver to open cache,"MAP01, BP01",OUT-CACHE
+M03,Follow three hunter tags to find blind,"DAWN02, MAP02",HUN-BLIND
+M04,Align torn map to bell silhouette,"DAWN04, MAP03",CAM-PACK
+M05,Open spillway valve after P01,"DAWN05, BP02",SLU-SPILL
+M06,Route water from restored sluice to garden,"GARDEN_RESTORED, HP01, MEM02",ROT-GARDEN
+M07,"Activate hollow marker after Warden, defeat Titan","MAP04, alloy",ROT-HOLLOW
+M08,"Connect loft relay to receiver, inspect cache","LOFT_RELAY, HP02, BP03, WPN01",REL-LOFT
+M09,Read archive symbols to unlock shelf cache,lore and late return path,SUR-SHELF
+M10,Trace matching anchor pairs,"LOOP_MARKED, MAP05, MEM04",WAR-LOOP
+M11,Align diagnostic display with source/receiver,"BP04, WPN02; part reference only",VER-ANNEX
+M12,Match memorial name to recorded imprint,"MEM03, AR16",SIL-SHRINE
+M13,Isolate overflow line after P06,"HP03, BP05",RES-OVER
+M14,Rewind from safe ledge to latch; optional boss,"HP04, MAP06, MEM05",FOL-NEST
+M15,Align service conduit to receiver,"BP06, WPN03",FIN-NICHE
+M16,Rewind through authored shutter to optional return switch,shortcut to VER04,FOL-ONE

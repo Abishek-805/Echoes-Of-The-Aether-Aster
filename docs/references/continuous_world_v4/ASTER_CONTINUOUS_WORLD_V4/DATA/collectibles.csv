@@ -1,0 +1,57 @@
+id,anchor,description
+AR01,TOW-MEM,AR01: Release house custom
+DAWN01,TOW-GUILD,DAWN01: Riven testimony
+AR02,OUT-BELL,AR02: Source and conduit marks
+MAP01,OUT-CACHE,MAP01: optional map annotation
+BP01,OUT-CACHE,BP01: equipment blueprint
+MEM01,OUT-CACHE,MEM01: hidden memorial
+DAWN02,HUN-BLIND,DAWN02: Trail departure
+MAP02,HUN-BLIND,MAP02: optional map annotation
+AR03,CAM-TENT,AR03: Shared sanctuary manufacture
+DAWN03,CAM-TENT,DAWN03: Survey instruments
+DAWN04,CAM-PACK,DAWN04: Lost pack
+MAP03,CAM-PACK,MAP03: optional map annotation
+AR04,SLU-ENTRY,AR04: Water circulation purpose
+AR05,SLU-SPLIT,AR05: Conductor order
+DAWN05,SLU-SPILL,DAWN05: Bridge observations
+BP02,SLU-SPILL,BP02: equipment blueprint
+AR06,ROT-GARDEN,AR06: Garden ecosystem
+HP01,ROT-GARDEN,HP01: +10 max HP
+MEM02,ROT-GARDEN,MEM02: hidden memorial
+MAP04,ROT-HOLLOW,MAP04: optional map annotation
+AR07,REL-RELAY,AR07: Maintenance receiver
+AR08,REL-LOFT,AR08: Vault manufacture
+DAWN06,REL-LOFT,DAWN06: Vault attempt
+HP02,REL-LOFT,HP02: +10 max HP
+BP03,REL-LOFT,BP03: equipment blueprint
+WPN01,REL-LOFT,WPN01: Scatter Carbine
+AR09,SUR-DISPLAY,AR09: Custody archive
+DAWN07,SUR-DISPLAY,DAWN07: Distortion report
+AR10,SUR-MAP,AR10: Personal Continuity Device
+DAWN08,SUR-MAP,DAWN08: Dawn failure conclusion
+AR11,WAR-JUNC,AR11: Anchor warning
+MAP05,WAR-LOOP,MAP05: optional map annotation
+MEM04,WAR-LOOP,MEM04: hidden memorial
+AR12,VER-GALLERY,AR12: Anonymous researcher
+AR13,VER-ANNEX,AR13: Remote interface part reference
+BP04,VER-ANNEX,BP04: equipment blueprint
+WPN02,VER-ANNEX,WPN02: Precision Rifle
+AR14,SIL-HALL,AR14: Memorial inscriptions
+AR15,SIL-THEATRE,AR15: Residual memory
+AR16,SIL-SHRINE,AR16: Seren warning
+MEM03,SIL-SHRINE,MEM03: hidden memorial
+AR17,RES-DECK,AR17: Safe release schematic
+AR18,RES-ROUTE,AR18: Storage capacity warning
+HP03,RES-OVER,HP03: +10 max HP
+BP05,RES-OVER,BP05: equipment blueprint
+AR19,REW-RELIC,AR19: Rescue equipment purpose
+AR20,FOL-LAND,AR20: Continuum fragment
+AR21,FOL-JUNC,AR21: Nalora and convergence fragment
+MAP06,FOL-NEST,MAP06: optional map annotation
+HP04,FOL-NEST,HP04: +10 max HP
+MEM05,FOL-NEST,MEM05: hidden memorial
+AR22,FIN-WALK,AR22: Anchor network
+AR23,FIN-REST,AR23: Isolation directive
+BP06,FIN-NICHE,BP06: equipment blueprint
+WPN03,FIN-NICHE,WPN03: Vaelari Resonator
+AR24,GAT-ARENA,AR24: Guardian final directive

@@ -1,0 +1,5893 @@
+{
+  "version": "4.0 proposed",
+  "atlas_unit_tiles": 16,
+  "tile_px": 16,
+  "regions": [
+    {
+      "id": "TOW",
+      "name": "Guild Town",
+      "bounds": [
+        4,
+        5,
+        29,
+        24
+      ],
+      "color": "#c29b6c",
+      "points": [
+        {
+          "id": "TOW-MEM",
+          "name": "Release Square",
+          "x": 7,
+          "y": 15,
+          "legacy": "TOW01",
+          "grants": [],
+          "notes": "Opening memorial and fountain, safe streets",
+          "region": "TOW",
+          "save": false,
+          "workbench": false,
+          "collectibles": [
+            "AR01: Release house custom"
+          ],
+          "encounters": [],
+          "old_ambient": "2 Copperwings roof (x=17,37); 4 distant hunters walk; fountain splash.",
+          "secret_hint": "none",
+          "scenery": "Sunlit release-house courtyard; bronze awnings, public fountain, departing Echo rising behind rooftops; procession of hunters and children.",
+          "biome": "Eldaran frontier"
+        },
+        {
+          "id": "TOW-ORP",
+          "name": "Orphanage Hill",
+          "x": 11,
+          "y": 8,
+          "legacy": "TOW02",
+          "grants": [],
+          "notes": "Mira, children and rooftops",
+          "region": "TOW",
+          "save": false,
+          "workbench": false,
+          "collectibles": [],
+          "encounters": [],
+          "old_ambient": "2 Copperwings perched x=13,31; caretaker and children in safe scene.",
+          "secret_hint": "none",
+          "scenery": "Quiet orphanage courtyard and interior alcove; Mira beside height marks carved into a doorway; birds nest above the roof.",
+          "biome": "Eldaran frontier"
+        },
+        {
+          "id": "TOW-GUILD",
+          "name": "Guild Hall",
+          "x": 16,
+          "y": 14,
+          "legacy": "TOW03",
+          "grants": [
+            "BRIEFED"
+          ],
+          "notes": "Riven testimony and expedition authorization",
+          "region": "TOW",
+          "save": false,
+          "workbench": false,
+          "collectibles": [
+            "DAWN01: Riven testimony"
+          ],
+          "encounters": [],
+          "old_ambient": "2 stationary guild NPCs and 1 map reader; no wildlife indoors.",
+          "secret_hint": "none",
+          "scenery": "Guild hall built around a huge expedition map; Riven at scarred table, Liora at map wall, Garran by contract board.",
+          "biome": "Eldaran frontier"
+        },
+        {
+          "id": "TOW-YARD",
+          "name": "Artificer Terrace",
+          "x": 22,
+          "y": 18,
+          "legacy": "TOW04",
+          "grants": [
+            "TUTORIAL_DONE"
+          ],
+          "notes": "Safe firing and heat lesson, workshop",
+          "region": "TOW",
+          "save": false,
+          "workbench": true,
+          "collectibles": [],
+          "encounters": [],
+          "old_ambient": "forge sparks behind target; no wildlife in firing lane.",
+          "secret_hint": "none",
+          "scenery": "Bram's open forge yard; target lane with protective backstop, cooling vents and cell demonstration, no hostile damage.",
+          "biome": "Eldaran frontier"
+        },
+        {
+          "id": "TOW-EXIT",
+          "name": "East Road",
+          "x": 28,
+          "y": 17,
+          "legacy": "",
+          "grants": [],
+          "notes": "Surface threshold, closes behind Warp",
+          "region": "TOW",
+          "save": false,
+          "workbench": false,
+          "collectibles": [],
+          "encounters": [],
+          "old_ambient": "",
+          "secret_hint": "",
+          "scenery": "",
+          "biome": ""
+        }
+      ],
+      "brief": "Terraced frontier settlement on the west cliff; the east road is the only public entrance to the sanctuary. Main street is broad and safe. Orphanage hill is reached by two short flights of steps, with a return street descending to the guild. The workshop is outdoors beneath an awning; practice targets face a stone backstop. Build the skyline before the interior spaces. Use warm clay, bronze, cloth and mossy stone. No combat, no secret boss, no mandatory currency grind. The release ceremony shows an Echo departing before any energy tutorial. Mira's orphanage has ordinary toys, laundry and a handrail at child height. Copperwings perch on roof ridges, lantern moths cluster around flowers; town NPCs move short loops rather than blocking the player. After Warp, the surface is unreachable, not destroyed; exterior remains a historical map landmark."
+    },
+    {
+      "id": "OUT",
+      "name": "Outer Wilds",
+      "bounds": [
+        30,
+        4,
+        69,
+        26
+      ],
+      "color": "#8ea77a",
+      "points": [
+        {
+          "id": "OUT-TRAIL",
+          "name": "Trailhead Shelter",
+          "x": 33,
+          "y": 17,
+          "legacy": "OUT01",
+          "grants": [],
+          "notes": "First rest, ridge overlooks town",
+          "region": "OUT",
+          "save": true,
+          "workbench": false,
+          "collectibles": [],
+          "encounters": [],
+          "old_ambient": "3 Copperwings over trees; 1 bristle hare near x=30; wind in grass.",
+          "secret_hint": "none",
+          "scenery": "Town walls recede behind a grassy trail; rest shelter and trail marker frame the first view of the sanctuary.",
+          "biome": "Eldaran frontier"
+        },
+        {
+          "id": "OUT-BROOK",
+          "name": "Brook Crossing",
+          "x": 41,
+          "y": 22,
+          "legacy": "OUT02",
+          "grants": [
+            "FIRST_RELEASE"
+          ],
+          "notes": "First Forager and safe collection lesson",
+          "region": "OUT",
+          "save": false,
+          "workbench": false,
+          "collectibles": [],
+          "encounters": [
+            {
+              "kind": "enemy",
+              "id": "E01-OUT02",
+              "archetype": "E01",
+              "enable": "always"
+            },
+            {
+              "kind": "hazard",
+              "id": "HZ-OUT02",
+              "mode": "stream",
+              "warning_s": 1.0,
+              "active_s": 0.6,
+              "recovery_s": 1.6,
+              "damage": 0,
+              "span_tiles": 3
+            }
+          ],
+          "old_ambient": "2 lantern moths near flowers; 1 hare flees before Forager appears; ribbonfish silhouettes in background stream.",
+          "secret_hint": "Side path marked by rope and torn cloth",
+          "scenery": "Open meadow and fallen aqueduct; first Forager on wide ground, a shallow stream and fluttering insects; teach safe release.",
+          "biome": "Eldaran frontier"
+        },
+        {
+          "id": "OUT-BELL",
+          "name": "Bell Overlook",
+          "x": 55,
+          "y": 12,
+          "legacy": "OUT03",
+          "grants": [],
+          "notes": "View Hanging Bell, split rock and distant Great Root",
+          "region": "OUT",
+          "save": false,
+          "workbench": false,
+          "collectibles": [
+            "AR02: Source and conduit marks"
+          ],
+          "encounters": [
+            {
+              "kind": "hazard",
+              "id": "HZ-OUT03",
+              "mode": "fall",
+              "warning_s": 1.0,
+              "active_s": 0.6,
+              "recovery_s": 1.6,
+              "damage": 0,
+              "span_tiles": 3
+            }
+          ],
+          "old_ambient": "3 Copperwings far ridge; one flock crosses bell view.",
+          "secret_hint": "none",
+          "scenery": "Climb a low stepped escarpment to a panoramic view of the Hanging Bell and split rock; source marks on the railing.",
+          "biome": "Eldaran frontier"
+        },
+        {
+          "id": "OUT-CACHE",
+          "name": "Hunter Cache",
+          "x": 49,
+          "y": 6,
+          "legacy": "OUT04",
+          "grants": [
+            "CACHE_OPEN"
+          ],
+          "notes": "Optional concealed trail and memorial",
+          "region": "OUT",
+          "save": false,
+          "workbench": false,
+          "collectibles": [
+            "MAP01: optional map annotation",
+            "BP01: equipment blueprint",
+            "MEM01: hidden memorial"
+          ],
+          "encounters": [],
+          "old_ambient": "2 moths reveal cache flowers; no aggressive fauna.",
+          "secret_hint": "Two matching source carvings and a path of flattened grass",
+          "scenery": "Hunter cache beneath a broken arch; receiver lock and a tiny memorial tucked behind vegetation.",
+          "biome": "Eldaran frontier"
+        },
+        {
+          "id": "OUT-AQUA",
+          "name": "Broken Aqueduct",
+          "x": 65,
+          "y": 20,
+          "legacy": "",
+          "grants": [],
+          "notes": "Natural traversal across stepped stone terraces",
+          "region": "OUT",
+          "save": false,
+          "workbench": false,
+          "collectibles": [],
+          "encounters": [],
+          "old_ambient": "",
+          "secret_hint": "",
+          "scenery": "",
+          "biome": ""
+        }
+      ],
+      "brief": "A broad open-air foothill valley between the town and the sanctuary rim. The path descends to a shallow brook, then rises along a ruined aqueduct; its broken span is supported by stone piers and accessible lower recovery deck. The bell tower is visible from two distinct elevations. No deep-water swimming; fish are in a background stream or below a traversable bank. Tall grass in foreground is faded near Aster. Tutorial Forager patrols a flat clearing with a retreat route, no offscreen attack. Introduce jump and dodge in separate low-risk stretches. Use grass-top edges, dirt interior, exposed rock corner, fallen pale-alloy conduit; the path blends to cut stone over 6–10 tiles. Copperwings, Bristle Hares, Lantern Moths and Ribbonfish establish normal ecology. After Warp the entrance to town is blocked at the cut corridor; the surviving wilds remain revisitable."
+    },
+    {
+      "id": "HUN",
+      "name": "Hunter's Reach",
+      "bounds": [
+        73,
+        4,
+        117,
+        28
+      ],
+      "color": "#a4a17a",
+      "points": [
+        {
+          "id": "HUN-TRAIL",
+          "name": "Hunter Trail",
+          "x": 75,
+          "y": 20,
+          "legacy": "HUN01",
+          "grants": [],
+          "notes": "Old ropes and trail tags",
+          "region": "HUN",
+          "save": false,
+          "workbench": false,
+          "collectibles": [],
+          "encounters": [
+            {
+              "kind": "enemy",
+              "id": "E01-HUN01",
+              "archetype": "E01",
+              "enable": "always"
+            },
+            {
+              "kind": "hazard",
+              "id": "HZ-HUN01",
+              "mode": "stream",
+              "warning_s": 1.0,
+              "active_s": 0.6,
+              "recovery_s": 1.6,
+              "damage": 0,
+              "span_tiles": 3
+            }
+          ],
+          "old_ambient": "1 hare behind grass and 2 Copperwings behind canopy; retreat when combat begins.",
+          "secret_hint": "none",
+          "scenery": "Hunting trail under giant trees, watch platforms and prey tracks; two separated Forager encounters.",
+          "biome": "Eldaran frontier"
+        },
+        {
+          "id": "HUN-SPLIT",
+          "name": "Split Walk",
+          "x": 83,
+          "y": 15,
+          "legacy": "HUN02",
+          "grants": [],
+          "notes": "Spillway return landing, lower canopy fork",
+          "region": "HUN",
+          "save": false,
+          "workbench": false,
+          "collectibles": [],
+          "encounters": [
+            {
+              "kind": "hazard",
+              "id": "HZ-HUN02",
+              "mode": "steam",
+              "warning_s": 1.0,
+              "active_s": 0.6,
+              "recovery_s": 1.6,
+              "damage": 12,
+              "span_tiles": 3
+            }
+          ],
+          "old_ambient": "2 birds perched before Warp; fly away at anomaly; folded ladder behind foreground rope.",
+          "secret_hint": "Three tags lead to blind; spillway ladder visible but folded up",
+          "scenery": "A fork with a high watch shelf and three rope tags; distant sluice channel visibly meets the path; anomaly lights flicker.",
+          "biome": "Eldaran frontier"
+        },
+        {
+          "id": "HUN-FRACT",
+          "name": "Fracture Crossing",
+          "x": 94,
+          "y": 18,
+          "legacy": "HUN03",
+          "grants": [
+            "WARP"
+          ],
+          "notes": "Authored Warp event and cut to surface",
+          "region": "HUN",
+          "save": false,
+          "workbench": false,
+          "collectibles": [],
+          "encounters": [
+            {
+              "kind": "enemy",
+              "id": "V02-HUN03",
+              "archetype": "V02",
+              "enable": "WARP"
+            },
+            {
+              "kind": "hazard",
+              "id": "HZ-HUN03",
+              "mode": "rift",
+              "warning_s": 1.0,
+              "active_s": 0.6,
+              "recovery_s": 1.6,
+              "damage": 12,
+              "span_tiles": 3
+            }
+          ],
+          "old_ambient": "3 birds scatter once during Warp; post-Warp no bird spawns, only dust.",
+          "secret_hint": "none",
+          "scenery": "Wide fractured courtyard with a view of the collapsed surface passage; safe scripted Warp reveal, then Saturated Forager.",
+          "biome": "Eldaran frontier"
+        },
+        {
+          "id": "HUN-BLIND",
+          "name": "Abandoned Blind",
+          "x": 87,
+          "y": 6,
+          "legacy": "HUN04",
+          "grants": [],
+          "notes": "Optional hide on high ledge",
+          "region": "HUN",
+          "save": false,
+          "workbench": false,
+          "collectibles": [
+            "DAWN02: Trail departure",
+            "MAP02: optional map annotation"
+          ],
+          "encounters": [],
+          "old_ambient": "1 perched bird on railing, ambient only.",
+          "secret_hint": "Three cloth strips; bird perched on broken railing",
+          "scenery": "Abandoned hunting blind above an empty feeding trail; snapped rope, lost expedition tag and scattered equipment.",
+          "biome": "Eldaran frontier"
+        },
+        {
+          "id": "HUN-TOWER",
+          "name": "Skyhunt Tower",
+          "x": 109,
+          "y": 8,
+          "legacy": "",
+          "grants": [],
+          "notes": "Tall bell-facing observation platform",
+          "region": "HUN",
+          "save": false,
+          "workbench": false,
+          "collectibles": [],
+          "encounters": [],
+          "old_ambient": "",
+          "secret_hint": "",
+          "scenery": "",
+          "biome": ""
+        },
+        {
+          "id": "HUN-DESC",
+          "name": "Camp Descent",
+          "x": 111,
+          "y": 26,
+          "legacy": "",
+          "grants": [],
+          "notes": "Rocky switchback to camp",
+          "region": "HUN",
+          "save": false,
+          "workbench": false,
+          "collectibles": [],
+          "encounters": [],
+          "old_ambient": "",
+          "secret_hint": "",
+          "scenery": "",
+          "biome": ""
+        }
+      ],
+      "brief": "A ridgeline of wooden hunting platforms wrapped around stone spires, not a straight corridor. Split Walk forks into an upper birdwatching hide, a lower canopy trail and the main ridge. Skyhunt Tower is a viewpoint reached by staggered walkable ledges, not a new jump power. Trigger the Warp only after the player is safely beyond the cut point at Fracture Crossing: freeze input briefly for the authored scene, restore control on a stable ledge, permanently close the town route, and open the camp descent. On return the player sees broken ropes and a missing distant vista; surface communication fails. Foragers patrol ground and Rift Skitters appear only after the event. Steam vents are old human field equipment and visibly warn. Bristle Hares retreat to brush, Copperwings scatter on first shock; no repeated cutscene. Place map clue tags near branch points, not floating in empty air."
+    },
+    {
+      "id": "CAM",
+      "name": "Old Survey Camp",
+      "bounds": [
+        87,
+        30,
+        119,
+        44
+      ],
+      "color": "#9b927f",
+      "points": [
+        {
+          "id": "CAM-SHELTER",
+          "name": "Camp Shelter",
+          "x": 110,
+          "y": 33,
+          "legacy": "CAM01",
+          "grants": [],
+          "notes": "Post-Warp safe shelter and rest",
+          "region": "CAM",
+          "save": true,
+          "workbench": false,
+          "collectibles": [],
+          "encounters": [],
+          "old_ambient": "Rain drips and 2 moths under canvas; quiet rest.",
+          "secret_hint": "none",
+          "scenery": "Overgrown survey shelter with rest bench; rain on canvas, old fire pit and silent instruments.",
+          "biome": "Eldaran frontier"
+        },
+        {
+          "id": "CAM-TENT",
+          "name": "Map Tent",
+          "x": 103,
+          "y": 37,
+          "legacy": "CAM02",
+          "grants": [],
+          "notes": "Dawn instruments and notes",
+          "region": "CAM",
+          "save": false,
+          "workbench": false,
+          "collectibles": [
+            "AR03: Shared sanctuary manufacture",
+            "DAWN03: Survey instruments"
+          ],
+          "encounters": [],
+          "old_ambient": "Moth near lantern; paper flutters in draft.",
+          "secret_hint": "Torn map points toward lost pack",
+          "scenery": "Collapsed map tent with bell sketch, split rock sample and compass; no combat near critical clues.",
+          "biome": "Eldaran frontier"
+        },
+        {
+          "id": "CAM-CROSS",
+          "name": "Survey Crossing",
+          "x": 94,
+          "y": 39,
+          "legacy": "CAM03",
+          "grants": [
+            "MAP_ALIGNED"
+          ],
+          "notes": "P02, compare three landmarks",
+          "region": "CAM",
+          "save": false,
+          "workbench": false,
+          "collectibles": [],
+          "encounters": [],
+          "old_ambient": "Distant Copperwings only visible through open window.",
+          "secret_hint": "none",
+          "scenery": "Survey platform with three visible landmarks framed through apertures; map alignment terminal beside closed maintenance door.",
+          "biome": "Eldaran frontier"
+        },
+        {
+          "id": "CAM-PACK",
+          "name": "Lost Pack Ledge",
+          "x": 115,
+          "y": 42,
+          "legacy": "CAM04",
+          "grants": [],
+          "notes": "Optional torn map cache",
+          "region": "CAM",
+          "save": false,
+          "workbench": false,
+          "collectibles": [
+            "DAWN04: Lost pack",
+            "MAP03: optional map annotation"
+          ],
+          "encounters": [
+            {
+              "kind": "hazard",
+              "id": "HZ-CAM04",
+              "mode": "fall",
+              "warning_s": 1.0,
+              "active_s": 0.6,
+              "recovery_s": 1.6,
+              "damage": 0,
+              "span_tiles": 3
+            }
+          ],
+          "old_ambient": "1 hare under roots if stable; otherwise fallen leaves.",
+          "secret_hint": "Scratched trail markers and loose canvas",
+          "scenery": "Ledge below the tent; broken survey case beside roots, torn map fits the bell silhouette.",
+          "biome": "Eldaran frontier"
+        },
+        {
+          "id": "CAM-RIDGE",
+          "name": "Upper Service Ridge",
+          "x": 88,
+          "y": 32,
+          "legacy": "",
+          "grants": [],
+          "notes": "Continuous aqueduct trail to Echo Sluice",
+          "region": "CAM",
+          "save": false,
+          "workbench": false,
+          "collectibles": [],
+          "encounters": [],
+          "old_ambient": "",
+          "secret_hint": "",
+          "scenery": "",
+          "biome": ""
+        }
+      ],
+      "brief": "A small expedition site tucked beneath the hunter ridge. Broken guy ropes, weathered tents and overturned diagnostic stands tell the story of a hurried evacuation. The main path descends from the shelter to the tent and a survey overlook. An optional high ledge holds a torn pack and has a return ramp; do not force climbing the whole ridge again. The restored map reveals an old public-maintenance passage west across the head of the valley. The gate is a mechanical route barrier, not a blank wall. P02 uses bell, split rock and camp arch as three actual visible landmarks. Keep orientation consistent across the overworld and journal. Minimal combat: one Forager patrol outside the shelter, no enemy interrupting the map UI. Rainwater drips into pans, a Copperwing may land after the Warp settles; the camp is quiet rather than fully dead."
+    },
+    {
+      "id": "SLU",
+      "name": "Echo Sluice",
+      "bounds": [
+        5,
+        29,
+        36,
+        53
+      ],
+      "color": "#6596ad",
+      "points": [
+        {
+          "id": "SLU-ENTRY",
+          "name": "Conduit Entry",
+          "x": 28,
+          "y": 31,
+          "legacy": "SLU01",
+          "grants": [],
+          "notes": "Rest under pressure gauge, dry waterfall",
+          "region": "SLU",
+          "save": true,
+          "workbench": false,
+          "collectibles": [
+            "AR04: Water circulation purpose"
+          ],
+          "encounters": [],
+          "old_ambient": "Dry channel before P01; after P01 distant swift silhouettes and flowing water.",
+          "secret_hint": "none",
+          "scenery": "Conduit entry with safe rest ledge; dry channel, source symbol and huge bell silhouetted beyond arch.",
+          "biome": "Rootspan waterways"
+        },
+        {
+          "id": "SLU-ROOT",
+          "name": "Root Arch Valve",
+          "x": 22,
+          "y": 37,
+          "legacy": "",
+          "grants": [
+            "ROOT_VALVE"
+          ],
+          "notes": "P01 first conductor, root-side feeder",
+          "region": "SLU",
+          "save": false,
+          "workbench": false,
+          "collectibles": [],
+          "encounters": [],
+          "old_ambient": "",
+          "secret_hint": "",
+          "scenery": "",
+          "biome": ""
+        },
+        {
+          "id": "SLU-BELL",
+          "name": "Bell Feeder Valve",
+          "x": 32,
+          "y": 39,
+          "legacy": "",
+          "grants": [
+            "BELL_VALVE"
+          ],
+          "notes": "P01 second conductor, relief and pipe label",
+          "region": "SLU",
+          "save": false,
+          "workbench": false,
+          "collectibles": [],
+          "encounters": [],
+          "old_ambient": "",
+          "secret_hint": "",
+          "scenery": "",
+          "biome": ""
+        },
+        {
+          "id": "SLU-SPLIT",
+          "name": "Split Stone Regulator",
+          "x": 24,
+          "y": 46,
+          "legacy": "SLU02",
+          "grants": [
+            "SLUICE_OPEN"
+          ],
+          "notes": "P01 center regulator and commit panel",
+          "region": "SLU",
+          "save": false,
+          "workbench": false,
+          "collectibles": [
+            "AR05: Conductor order"
+          ],
+          "encounters": [
+            {
+              "kind": "hazard",
+              "id": "HZ-SLU02",
+              "mode": "water",
+              "warning_s": 1.0,
+              "active_s": 0.6,
+              "recovery_s": 1.6,
+              "damage": 0,
+              "span_tiles": 3
+            }
+          ],
+          "old_ambient": "P01 enables water and 2 glassfin silhouettes behind walkway; no aquatic life before flow.",
+          "secret_hint": "Garden return hatch and spillway gate visible",
+          "scenery": "Three conductor islands on dry service deck above flowing channel; plinth, relief and pulse aligned in view; bridge gate at exit.",
+          "biome": "Rootspan waterways"
+        },
+        {
+          "id": "SLU-WARD",
+          "name": "Bridge Warden",
+          "x": 14,
+          "y": 47,
+          "legacy": "SLU03",
+          "grants": [
+            "WARDEN_DOWN"
+          ],
+          "notes": "Sluice Warden habitat, restored bridge",
+          "region": "SLU",
+          "save": false,
+          "workbench": false,
+          "collectibles": [],
+          "encounters": [],
+          "old_ambient": "No actors during boss; restored waterfall after victory.",
+          "secret_hint": "none",
+          "scenery": "Sluice Warden protects the bridge actuator; broad bronze deck with empty overhead shockwave lanes.",
+          "biome": "Rootspan waterways"
+        },
+        {
+          "id": "SLU-SPILL",
+          "name": "High Spillway",
+          "x": 8,
+          "y": 34,
+          "legacy": "SLU04",
+          "grants": [
+            "SPILL_OPEN"
+          ],
+          "notes": "M05 spillway ladder, hunter return landing",
+          "region": "SLU",
+          "save": false,
+          "workbench": false,
+          "collectibles": [
+            "DAWN05: Bridge observations",
+            "BP02: equipment blueprint"
+          ],
+          "encounters": [
+            {
+              "kind": "hazard",
+              "id": "HZ-SLU04",
+              "mode": "water",
+              "warning_s": 1.0,
+              "active_s": 0.6,
+              "recovery_s": 1.6,
+              "damage": 0,
+              "span_tiles": 3
+            }
+          ],
+          "old_ambient": "2 reed crabs beside waterline after P01; fish silhouettes after valve.",
+          "secret_hint": "Old waterline and valve with bridge symbol",
+          "scenery": "Spillway ledge overlooks previously dry channel; valve controls drainage, return ladder folds down toward Hunter Trail.",
+          "biome": "Rootspan waterways"
+        },
+        {
+          "id": "SLU-OUTLET",
+          "name": "Garden Outlet",
+          "x": 34,
+          "y": 50,
+          "legacy": "",
+          "grants": [],
+          "notes": "Water route to Rootspan",
+          "region": "SLU",
+          "save": false,
+          "workbench": false,
+          "collectibles": [],
+          "encounters": [],
+          "old_ambient": "",
+          "secret_hint": "",
+          "scenery": "",
+          "biome": ""
+        }
+      ],
+      "brief": "This is the hydraulic control head of the sanctuary: gravity-fed catchment above the valves, pressure gallery below, water falling toward the garden and Echo Reservoir. Build huge arches, damp steps, a dry spillway and giant bronze wheel with a clearly walkable rim. P01 controls are geographically separated along the feeder circuit, yet all within a compact loop; walk between Root Arch, Bell Feeder and Split Stone. The final regulator displays the sequence; incorrect input clears only the command buffer, not the route or collectibles. Root Arch and Bell symbols correspond to landmarks; a relief says Root before Bell; a damaged plinth says center Split Stone last. Warden stands astride the outlet bridge, uses slams and exposed arm; bridge raises on correct flow, safe-mode unlocks exit on defeat. Spillway ladder shortcut opens after local latch; no early Warden bypass. Sluice Swifts shelter in eaves, glassfin fish and crabs appear when water resumes. No collision on decorative falling water. Pressure machinery uses visible gauge and audible warning."
+    },
+    {
+      "id": "ROT",
+      "name": "Rootspan",
+      "bounds": [
+        39,
+        28,
+        78,
+        56
+      ],
+      "color": "#75a17e",
+      "points": [
+        {
+          "id": "ROT-BRIDGE",
+          "name": "Root Bridge",
+          "x": 42,
+          "y": 48,
+          "legacy": "ROT01",
+          "grants": [],
+          "notes": "Rest in sheltered hunter platform",
+          "region": "ROT",
+          "save": true,
+          "workbench": false,
+          "collectibles": [],
+          "encounters": [],
+          "old_ambient": "2 swifts above bridge; waterwheel turns; 1 mossback grazer on far bank.",
+          "secret_hint": "none",
+          "scenery": "Rest shelter on restored root bridge; distant waterwheel turns after P01, canopy light returns.",
+          "biome": "Rootspan waterways"
+        },
+        {
+          "id": "ROT-CANOPY",
+          "name": "Great Root Canopy",
+          "x": 51,
+          "y": 35,
+          "legacy": "ROT02",
+          "grants": [],
+          "notes": "High route and visible irrigation seam",
+          "region": "ROT",
+          "save": false,
+          "workbench": false,
+          "collectibles": [],
+          "encounters": [
+            {
+              "kind": "enemy",
+              "id": "E01-ROT02",
+              "archetype": "E01",
+              "enable": "always"
+            },
+            {
+              "kind": "hazard",
+              "id": "HZ-ROT02",
+              "mode": "fall",
+              "warning_s": 1.0,
+              "active_s": 0.6,
+              "recovery_s": 1.6,
+              "damage": 0,
+              "span_tiles": 3
+            }
+          ],
+          "old_ambient": "3 swifts in canopy, 1 mossback far behind combat; bird flock flees on attacks.",
+          "secret_hint": "Root notch leads to hollow; loft relay hatch visible",
+          "scenery": "Vertical root terraces with climbable edges and canopy bridges; foreground birds lift off; isolated Forager.",
+          "biome": "Rootspan waterways"
+        },
+        {
+          "id": "ROT-FORK",
+          "name": "Crown Fork",
+          "x": 65,
+          "y": 32,
+          "legacy": "",
+          "grants": [],
+          "notes": "Early overlook and return path, no deep access before Warden",
+          "region": "ROT",
+          "save": false,
+          "workbench": false,
+          "collectibles": [],
+          "encounters": [],
+          "old_ambient": "",
+          "secret_hint": "",
+          "scenery": "",
+          "biome": ""
+        },
+        {
+          "id": "ROT-GARDEN",
+          "name": "Forgotten Water Garden",
+          "x": 56,
+          "y": 51,
+          "legacy": "ROT03",
+          "grants": [
+            "GARDEN_RESTORED"
+          ],
+          "notes": "Pond, M06 irrigation, optional rewards",
+          "region": "ROT",
+          "save": false,
+          "workbench": false,
+          "collectibles": [
+            "AR06: Garden ecosystem",
+            "HP01: +10 max HP",
+            "MEM02: hidden memorial"
+          ],
+          "encounters": [
+            {
+              "kind": "hazard",
+              "id": "HZ-ROT03",
+              "mode": "water",
+              "warning_s": 1.0,
+              "active_s": 0.6,
+              "recovery_s": 1.6,
+              "damage": 0,
+              "span_tiles": 3
+            }
+          ],
+          "old_ambient": "Dry moss and insects before M06; after M06 pond 4 glassfin, 1 ripple eel, 2 reed crabs; birds feed above.",
+          "secret_hint": "Moss-covered release glyph beside dried pond",
+          "scenery": "Garden terraces with dry pond, cracked irrigation stone and hidden memorial; valve restores water and wildlife.",
+          "biome": "Rootspan waterways"
+        },
+        {
+          "id": "ROT-HOLLOW",
+          "name": "Moss Hollow",
+          "x": 70,
+          "y": 48,
+          "legacy": "ROT04",
+          "grants": [
+            "TITAN_DOWN",
+            "TITAN_MARKED"
+          ],
+          "notes": "Optional Titan, safe return",
+          "region": "ROT",
+          "save": false,
+          "workbench": false,
+          "collectibles": [
+            "MAP04: optional map annotation"
+          ],
+          "encounters": [],
+          "old_ambient": "Dormant roots and falling leaves; no fauna during arena.",
+          "secret_hint": "Distinct hollow trunk with root marker",
+          "scenery": "Root-wrapped maintenance chamber; optional Titan rises from beneath a hollow tree, reward nook opens afterward.",
+          "biome": "Rootspan waterways"
+        },
+        {
+          "id": "ROT-TUNNEL",
+          "name": "Underroot Culvert",
+          "x": 46,
+          "y": 55,
+          "legacy": "",
+          "grants": [],
+          "notes": "Lower service passage and overflow vista",
+          "region": "ROT",
+          "save": false,
+          "workbench": false,
+          "collectibles": [],
+          "encounters": [],
+          "old_ambient": "",
+          "secret_hint": "",
+          "scenery": "",
+          "biome": ""
+        },
+        {
+          "id": "ROT-EAST",
+          "name": "Foundry Footbridge",
+          "x": 76,
+          "y": 53,
+          "legacy": "",
+          "grants": [],
+          "notes": "Natural passage into Reliquary Works",
+          "region": "ROT",
+          "save": false,
+          "workbench": false,
+          "collectibles": [],
+          "encounters": [],
+          "old_ambient": "",
+          "secret_hint": "",
+          "scenery": "",
+          "biome": ""
+        }
+      ],
+      "brief": "The Great Root dominates the middle of the map. Design three playable elevations: canopy branches, trunk/terrace network and underroot water service route. The root silhouette is visible from the sluice and archive balcony. Crown Fork is an early optional overlook from Hunter's Reach, but the lower bridge remains disconnected until Warden is defeated. The main route crosses Root Bridge and follows root stair terraces to Foundry Footbridge. Garden branch curves below the bridge; water is dry before Sluice and remains isolated until M06 connects the garden valve. After restoration, fish appear, pond lilies open, a float platform rises and a return path opens to Sluice. Moss Hollow is a naturally enclosed root cavity, with Titan only after Warden and local marker. No mandatory swimming, swinging, double jump or wall climbing; use broad branch tops and authored ladders or mechanical lifts. Hares, mossback grazers, moths, Copperwings, glassfin shoals, crabs and eels occupy separate habitats. Predators are not background loot. Foreground leaves frame the canopy, then fade around player and telegraphs."
+    },
+    {
+      "id": "REL",
+      "name": "Reliquary Works",
+      "bounds": [
+        82,
+        46,
+        119,
+        64
+      ],
+      "color": "#b39166",
+      "points": [
+        {
+          "id": "REL-WORK",
+          "name": "Workshop",
+          "x": 84,
+          "y": 54,
+          "legacy": "REL01",
+          "grants": [],
+          "notes": "Rest/workbench, first alloy view",
+          "region": "REL",
+          "save": true,
+          "workbench": true,
+          "collectibles": [],
+          "encounters": [],
+          "old_ambient": "Dust motes, workshop fan, no wildlife on machinery.",
+          "secret_hint": "none",
+          "scenery": "Ancient workshop converted into hunter workbench; rest station, spare parts, long pale-alloy arches.",
+          "biome": "Ancient archive"
+        },
+        {
+          "id": "REL-RELAY",
+          "name": "Service Relay",
+          "x": 94,
+          "y": 49,
+          "legacy": "REL02",
+          "grants": [
+            "WORKS_POWER"
+          ],
+          "notes": "P03 source and receiver routing",
+          "region": "REL",
+          "save": false,
+          "workbench": false,
+          "collectibles": [
+            "AR07: Maintenance receiver"
+          ],
+          "encounters": [
+            {
+              "kind": "enemy",
+              "id": "E02-REL02",
+              "archetype": "E02",
+              "enable": "always"
+            },
+            {
+              "kind": "hazard",
+              "id": "HZ-REL02",
+              "mode": "steam",
+              "warning_s": 1.0,
+              "active_s": 0.6,
+              "recovery_s": 1.6,
+              "damage": 12,
+              "span_tiles": 3
+            }
+          ],
+          "old_ambient": "1 vault gecko retreats to wall; steam and dust.",
+          "secret_hint": "Service lift to loft with unlit relay icon",
+          "scenery": "Maintenance hall with raised pipe run, receiver terminal and marked steam nozzle; Stonebound Guard away from panel.",
+          "biome": "Ancient archive"
+        },
+        {
+          "id": "REL-GOLEM",
+          "name": "Golem Foundry Walk",
+          "x": 107,
+          "y": 54,
+          "legacy": "REL03",
+          "grants": [],
+          "notes": "Armored constructs and furnace",
+          "region": "REL",
+          "save": false,
+          "workbench": false,
+          "collectibles": [],
+          "encounters": [
+            {
+              "kind": "enemy",
+              "id": "E02-REL03",
+              "archetype": "E02",
+              "enable": "always"
+            },
+            {
+              "kind": "enemy",
+              "id": "V01-REL03",
+              "archetype": "V01",
+              "enable": "always"
+            }
+          ],
+          "old_ambient": "No fauna in active defense zone; moving mechanical pistons behind walls.",
+          "secret_hint": "none",
+          "scenery": "Alternating guard bays and cover piers; stone and metal guards; service door into archive stairs.",
+          "biome": "Ancient archive"
+        },
+        {
+          "id": "REL-LOFT",
+          "name": "Storage Loft",
+          "x": 111,
+          "y": 46,
+          "legacy": "REL04",
+          "grants": [
+            "LOFT_RELAY"
+          ],
+          "notes": "Optional relay, carbine, cache",
+          "region": "REL",
+          "save": false,
+          "workbench": false,
+          "collectibles": [
+            "AR08: Vault manufacture",
+            "DAWN06: Vault attempt",
+            "HP02: +10 max HP",
+            "BP03: equipment blueprint",
+            "WPN01: Scatter Carbine"
+          ],
+          "encounters": [
+            {
+              "kind": "enemy",
+              "id": "E04-REL04",
+              "archetype": "E04",
+              "enable": "always"
+            },
+            {
+              "kind": "hazard",
+              "id": "HZ-REL04",
+              "mode": "beam",
+              "warning_s": 1.0,
+              "active_s": 0.6,
+              "recovery_s": 1.6,
+              "damage": 12,
+              "span_tiles": 3
+            }
+          ],
+          "old_ambient": "2 dust moths near cool shelf away from turret.",
+          "secret_hint": "Conduit terminates at hidden relay behind shelf",
+          "scenery": "Storage loft with isolated turret, intact crates, relay switch and blueprint cabinet; hatch overlooks Rootspan canopy.",
+          "biome": "Ancient archive"
+        },
+        {
+          "id": "REL-DRAIN",
+          "name": "Archive Service Road",
+          "x": 88,
+          "y": 62,
+          "legacy": "",
+          "grants": [],
+          "notes": "Quiet westbound maintenance viaduct",
+          "region": "REL",
+          "save": false,
+          "workbench": false,
+          "collectibles": [],
+          "encounters": [],
+          "old_ambient": "",
+          "secret_hint": "",
+          "scenery": "",
+          "biome": ""
+        }
+      ],
+      "brief": "Old manufacturing and repair facilities built to service relics. The outer wall grows through Rootspan; roots penetrate panels before giving way to dry industrial floors. Main spine is a broad maintenance road, above it a suspended crane rail, below it a nonlethal inspection trench. P03 follows a lit source conduit up to a relay and down to a receiver; isolate dead archive spur. Service doors open from both sides after power returns. Golem Walk introduces armored guards with enough space to flank. Prism beams use one-second warnings and safe niches. A service lift climbs to the optional Storage Loft; restore its relay to open a connection back to canopy. Steam vent platforms are optional hazards with readable timing. No foundry molten floor on the mandatory route; visual furnace behind glass. Vault geckos and dust moths occupy broken wall cavities, no wildlife inside active furnaces. Use Foozle laboratory geometry mixed with pale stone and original Vaelari conduit trim."
+    },
+    {
+      "id": "SUR",
+      "name": "Survey Vault",
+      "bounds": [
+        5,
+        59,
+        37,
+        81
+      ],
+      "color": "#c1b497",
+      "points": [
+        {
+          "id": "SUR-STEPS",
+          "name": "Archive Steps",
+          "x": 34,
+          "y": 62,
+          "legacy": "SUR01",
+          "grants": [],
+          "notes": "Rest, vista toward bell tower",
+          "region": "SUR",
+          "save": true,
+          "workbench": false,
+          "collectibles": [],
+          "encounters": [
+            {
+              "kind": "enemy",
+              "id": "E02-SUR01",
+              "archetype": "E02",
+              "enable": "always"
+            },
+            {
+              "kind": "enemy",
+              "id": "E04-SUR01",
+              "archetype": "E04",
+              "enable": "always"
+            },
+            {
+              "kind": "hazard",
+              "id": "HZ-SUR01",
+              "mode": "beam",
+              "warning_s": 1.0,
+              "active_s": 0.6,
+              "recovery_s": 1.6,
+              "damage": 12,
+              "span_tiles": 3
+            }
+          ],
+          "old_ambient": "1 gecko in wall alcove; no fauna near turret.",
+          "secret_hint": "none",
+          "scenery": "Archive stairs and huge carved map panels; safe rest alcove separated from guard and turret lane.",
+          "biome": "Ancient archive"
+        },
+        {
+          "id": "SUR-DISPLAY",
+          "name": "Survey Display",
+          "x": 22,
+          "y": 65,
+          "legacy": "SUR02",
+          "grants": [
+            "ARCHIVE_ALIGNED"
+          ],
+          "notes": "P04 sequence",
+          "region": "SUR",
+          "save": false,
+          "workbench": false,
+          "collectibles": [
+            "AR09: Custody archive",
+            "DAWN07: Distortion report"
+          ],
+          "encounters": [
+            {
+              "kind": "enemy",
+              "id": "E04-SUR02",
+              "archetype": "E04",
+              "enable": "always"
+            },
+            {
+              "kind": "hazard",
+              "id": "HZ-SUR02",
+              "mode": "beam",
+              "warning_s": 1.0,
+              "active_s": 0.6,
+              "recovery_s": 1.6,
+              "damage": 12,
+              "span_tiles": 3
+            }
+          ],
+          "old_ambient": "Dust motes; display lights animate after alignment.",
+          "secret_hint": "Shelf seam and repeated archive glyph",
+          "scenery": "Three display plates receiver/archive/anchor; one turret in entry gallery, safe puzzle alcove beyond cover.",
+          "biome": "Ancient archive"
+        },
+        {
+          "id": "SUR-MAP",
+          "name": "Cartographic Vault",
+          "x": 14,
+          "y": 72,
+          "legacy": "SUR03",
+          "grants": [
+            "VAULT_MAP"
+          ],
+          "notes": "Critical map, Rewind and emergency gate records",
+          "region": "SUR",
+          "save": false,
+          "workbench": false,
+          "collectibles": [
+            "AR10: Personal Continuity Device",
+            "DAWN08: Dawn failure conclusion"
+          ],
+          "encounters": [],
+          "old_ambient": "No wildlife; animated map only.",
+          "secret_hint": "none",
+          "scenery": "Cartographic vault with luminous layered map of the sanctuary and broken route to gate; acquisition scene.",
+          "biome": "Ancient archive"
+        },
+        {
+          "id": "SUR-SHELF",
+          "name": "Sealed Shelf",
+          "x": 8,
+          "y": 64,
+          "legacy": "SUR04",
+          "grants": [
+            "SHELF_OPEN"
+          ],
+          "notes": "Optional archive cache, later Rewind return",
+          "region": "SUR",
+          "save": false,
+          "workbench": false,
+          "collectibles": [],
+          "encounters": [],
+          "old_ambient": "1 moth by shelf lamp; curtain of dust when panel opens.",
+          "secret_hint": "Repeated archive glyphs and dust-free seam",
+          "scenery": "Sealed shelf corridor, displaced shelves and late Rewind return shaft; cache opens on symbol match.",
+          "biome": "Ancient archive"
+        },
+        {
+          "id": "SUR-LOW",
+          "name": "Lower Archive Terrace",
+          "x": 31,
+          "y": 79,
+          "legacy": "",
+          "grants": [],
+          "notes": "Exit to Warped Verge",
+          "region": "SUR",
+          "save": false,
+          "workbench": false,
+          "collectibles": [],
+          "encounters": [],
+          "old_ambient": "",
+          "secret_hint": "",
+          "scenery": "",
+          "biome": ""
+        }
+      ],
+      "brief": "A tall archive sunk into the rock below the sluice, reached from the foundry along a high viaduct with water flowing beneath. Build monumental vertical stacks, balconies and an astrolabe-like map frame as a navigation landmark. Main path winds down through Archive Steps, across the display bridge and into the map chamber, then exits along the lower terrace. A short optional upper shelf spur contains an archive lock and a late-game return shaft. P04 requires Receiver → Archive → Anchor, taught by glyphs in previous facilities. Each plate is mounted on the same archive apparatus rather than arbitrary remote buttons. Critical map granted after correct sequence and inspection; no optional archive count. A turret watches a side stair with visible beam line; central map area safe. Dust motes, Vault Geckos in damaged upper niches, no fish or birds in sealed stacks. Muted ivory, bronze, cyan accents; transition gradually toward irregular purple geometry at lower terrace."
+    },
+    {
+      "id": "WAR",
+      "name": "Warped Verge",
+      "bounds": [
+        42,
+        64,
+        79,
+        84
+      ],
+      "color": "#a58bc4",
+      "points": [
+        {
+          "id": "WAR-LAND",
+          "name": "Fracture Landing",
+          "x": 43,
+          "y": 79,
+          "legacy": "WAR01",
+          "grants": [],
+          "notes": "Rest on stable Eldaran slab",
+          "region": "WAR",
+          "save": true,
+          "workbench": false,
+          "collectibles": [],
+          "encounters": [
+            {
+              "kind": "enemy",
+              "id": "E03-WAR01",
+              "archetype": "E03",
+              "enable": "always"
+            },
+            {
+              "kind": "enemy",
+              "id": "V02-WAR01",
+              "archetype": "V02",
+              "enable": "always"
+            },
+            {
+              "kind": "hazard",
+              "id": "HZ-WAR01",
+              "mode": "rift",
+              "warning_s": 1.0,
+              "active_s": 0.6,
+              "recovery_s": 1.6,
+              "damage": 12,
+              "span_tiles": 3
+            }
+          ],
+          "old_ambient": "2 rift moths flee crack; disconnected bird silhouette only visible outside fold.",
+          "secret_hint": "none",
+          "scenery": "Fracture landing: Eldaran rock abruptly meets blue Verayan alloy; rest alcove then Skitter and Saturated Forager.",
+          "biome": "Warped network"
+        },
+        {
+          "id": "WAR-JUNC",
+          "name": "Three-Anchor Junction",
+          "x": 56,
+          "y": 73,
+          "legacy": "WAR02",
+          "grants": [
+            "TOPOLOGY_ALIGNED"
+          ],
+          "notes": "P05 identify stable matching pair",
+          "region": "WAR",
+          "save": false,
+          "workbench": false,
+          "collectibles": [
+            "AR11: Anchor warning"
+          ],
+          "encounters": [],
+          "old_ambient": "No animals near unstable doors; intermittent violet dust.",
+          "secret_hint": "Unmapped maintenance door with matching halves",
+          "scenery": "Three anchor doors under broken bridge; stable paired diamond and two flickering false doors; safe trial loops.",
+          "biome": "Warped network"
+        },
+        {
+          "id": "WAR-FOLD",
+          "name": "Stable Fold",
+          "x": 75,
+          "y": 73,
+          "legacy": "WAR03",
+          "grants": [],
+          "notes": "Only mandatory interplanetary threshold",
+          "region": "WAR",
+          "save": false,
+          "workbench": false,
+          "collectibles": [],
+          "encounters": [
+            {
+              "kind": "enemy",
+              "id": "E03-WAR03",
+              "archetype": "E03",
+              "enable": "always"
+            },
+            {
+              "kind": "hazard",
+              "id": "HZ-WAR03",
+              "mode": "rift",
+              "warning_s": 1.0,
+              "active_s": 0.6,
+              "recovery_s": 1.6,
+              "damage": 12,
+              "span_tiles": 3
+            }
+          ],
+          "old_ambient": "One displaced Copperwing in distant exterior, away from combat; rift moths retreat.",
+          "secret_hint": "none",
+          "scenery": "Stable fold spans separated structures; marked crack Skitter, view across unfamiliar sky before Veraya arrival.",
+          "biome": "Warped network"
+        },
+        {
+          "id": "WAR-LOOP",
+          "name": "Unmapped Loop",
+          "x": 62,
+          "y": 65,
+          "legacy": "WAR04",
+          "grants": [
+            "LOOP_MARKED"
+          ],
+          "notes": "M10 optional anchor branch, return spur",
+          "region": "WAR",
+          "save": false,
+          "workbench": false,
+          "collectibles": [
+            "MAP05: optional map annotation",
+            "MEM04: hidden memorial"
+          ],
+          "encounters": [],
+          "old_ambient": "2 cave arthropods retreat into seams; no animals teleport.",
+          "secret_hint": "Repeated geometric halves and reversed floor seam",
+          "scenery": "Small loop of impossible corridors; pairs of anchor halves and memorial niche; exit gate requires stable topology too.",
+          "biome": "Warped network"
+        },
+        {
+          "id": "WAR-EDGE",
+          "name": "Broken Promenade",
+          "x": 48,
+          "y": 83,
+          "legacy": "",
+          "grants": [],
+          "notes": "Optional reservoir return landing",
+          "region": "WAR",
+          "save": false,
+          "workbench": false,
+          "collectibles": [],
+          "encounters": [],
+          "old_ambient": "",
+          "secret_hint": "",
+          "scenery": "",
+          "biome": ""
+        }
+      ],
+      "brief": "A fractured connection zone, not an alternate planet by itself. Establish the same pale-alloy architecture from Survey Vault, then offset its repeating patterns along visible rifts. Three anchor mouths share a compact promenade: diamond pair pulses continuously; split and ring mismatches lead to short nonlethal loops returning to the same hub. P05 chooses the matching diamond. The main fold to Veraya is physically represented by an arch boundary and a distinct map glyph; the planets remain separate. M10 traces the optional anchor loop, but cannot open the Veraya shortcut without P05. Rift Skitters and occasional Fold Stalker are telegraphed; floor cracks warn before striking, no invisible walls. Rift moths cluster only near stable edges; displaced species do not instantly become a new food chain. Use suspended-looking fragments attached by traversable decks, not mandatory midair teleport. A distant view of the Reservoir explains a later service return."
+    },
+    {
+      "id": "VER",
+      "name": "Veraya Fold",
+      "bounds": [
+        84,
+        66,
+        119,
+        88
+      ],
+      "color": "#779bbd",
+      "points": [
+        {
+          "id": "VER-ATRIUM",
+          "name": "Foreign Atrium",
+          "x": 86,
+          "y": 73,
+          "legacy": "VER01",
+          "grants": [],
+          "notes": "Rest and first Verayan view",
+          "region": "VER",
+          "save": true,
+          "workbench": false,
+          "collectibles": [],
+          "encounters": [
+            {
+              "kind": "enemy",
+              "id": "E05-VER01",
+              "archetype": "E05",
+              "enable": "always"
+            }
+          ],
+          "old_ambient": "1 prism beetle under bench; inactive diagnostic equipment.",
+          "secret_hint": "none",
+          "scenery": "Foreign atrium with modern bolted instruments and blue steel; rest alcove then Sentinel patrol.",
+          "biome": "Verayan annex"
+        },
+        {
+          "id": "VER-GALLERY",
+          "name": "Research Gallery",
+          "x": 99,
+          "y": 70,
+          "legacy": "VER02",
+          "grants": [],
+          "notes": "Anonymous diagnostic recording",
+          "region": "VER",
+          "save": false,
+          "workbench": false,
+          "collectibles": [
+            "AR12: Anonymous researcher"
+          ],
+          "encounters": [],
+          "old_ambient": "2 basin minnows in background tank only; no open-air birds indoors.",
+          "secret_hint": "Diagnostic annex marked by cable run",
+          "scenery": "Research gallery with anonymous voice recording, laboratory benches and observation windows toward alien sky.",
+          "biome": "Verayan annex"
+        },
+        {
+          "id": "VER-SKY",
+          "name": "Foreign Sky Terrace",
+          "x": 113,
+          "y": 75,
+          "legacy": "VER03",
+          "grants": [],
+          "notes": "Visible different skyline, outbound memorial fold",
+          "region": "VER",
+          "save": false,
+          "workbench": false,
+          "collectibles": [],
+          "encounters": [
+            {
+              "kind": "enemy",
+              "id": "E05-VER03",
+              "archetype": "E05",
+              "enable": "always"
+            },
+            {
+              "kind": "hazard",
+              "id": "HZ-VER03",
+              "mode": "fall",
+              "warning_s": 1.0,
+              "active_s": 0.6,
+              "recovery_s": 1.6,
+              "damage": 0,
+              "span_tiles": 3
+            }
+          ],
+          "old_ambient": "3 Silverkites circle ringed moon vista; grass moves on fixed stone platforms.",
+          "secret_hint": "none",
+          "scenery": "Open foreign sky with ringed moon, levitating-looking rock supports actually fixed by anchors; Sentinel on stable deck.",
+          "biome": "Verayan annex"
+        },
+        {
+          "id": "VER-ANNEX",
+          "name": "Diagnostic Annex",
+          "x": 105,
+          "y": 84,
+          "legacy": "VER04",
+          "grants": [],
+          "notes": "M11 precision rifle, interface reference, later return",
+          "region": "VER",
+          "save": false,
+          "workbench": false,
+          "collectibles": [
+            "AR13: Remote interface part reference",
+            "BP04: equipment blueprint",
+            "WPN02: Precision Rifle"
+          ],
+          "encounters": [
+            {
+              "kind": "enemy",
+              "id": "V03-VER04",
+              "archetype": "V03",
+              "enable": "always"
+            },
+            {
+              "kind": "hazard",
+              "id": "HZ-VER04",
+              "mode": "beam",
+              "warning_s": 1.0,
+              "active_s": 0.6,
+              "recovery_s": 1.6,
+              "damage": 12,
+              "span_tiles": 3
+            }
+          ],
+          "old_ambient": "1 prism beetle behind cold cabinet; no actors near beam lanes.",
+          "secret_hint": "Diagnostic wire leads to concealed case; late return hatch",
+          "scenery": "Diagnostic annex with precision rifle case, Prism Array and missing remote-interface part reference; part unavailable in I.",
+          "biome": "Verayan annex"
+        },
+        {
+          "id": "VER-RETURN",
+          "name": "Service Alcove",
+          "x": 88,
+          "y": 85,
+          "legacy": "",
+          "grants": [],
+          "notes": "Later Rewind shortcut arrival",
+          "region": "VER",
+          "save": false,
+          "workbench": false,
+          "collectibles": [],
+          "encounters": [],
+          "old_ambient": "",
+          "secret_hint": "",
+          "scenery": "",
+          "biome": ""
+        }
+      ],
+      "brief": "This is physically Veraya, connected only through authored Warp throats. Distinguish modern modular steel and bolted laboratory equipment from underlying seamless Vaelari stone. Atrium opens onto an unfamiliar sky beyond a large broken observation window. Research Gallery has current measuring equipment, a named diagnostic recording without revealing Orion, and two traversable maintenance terraces. Foreign Sky is a quiet vista before the separate return fold to Eldara's memorial network. The optional Annex contains equipment and an interface reference but not the actual replacement component; that remains inaccessible until Orion's story. Prism Beetles in open niches and Silverkites outside windows, no Eldaran fish. Defective sentinels patrol lab floor and telegraph charges; no enemy in rest zone. The return fold is stable and bidirectional after P05, not a usable player teleport power. The late service alcove is visible as a one-sided shutter, not a path to the planet surface."
+    },
+    {
+      "id": "SIL",
+      "name": "Silent Gallery",
+      "bounds": [
+        5,
+        87,
+        36,
+        103
+      ],
+      "color": "#b8a7b2",
+      "points": [
+        {
+          "id": "SIL-HALL",
+          "name": "Memorial Hall",
+          "x": 29,
+          "y": 89,
+          "legacy": "SIL01",
+          "grants": [],
+          "notes": "Quiet names and stone colonnade",
+          "region": "SIL",
+          "save": false,
+          "workbench": false,
+          "collectibles": [
+            "AR14: Memorial inscriptions"
+          ],
+          "encounters": [],
+          "old_ambient": "1 dust moth on steady lamp; no enemy spawns.",
+          "secret_hint": "none",
+          "scenery": "Long memorial hall, names etched on pale arch ribs; dry flowers and residual motes; intentionally enemy-free.",
+          "biome": "Ancient archive"
+        },
+        {
+          "id": "SIL-THEATRE",
+          "name": "Memory Theatre",
+          "x": 19,
+          "y": 94,
+          "legacy": "SIL02",
+          "grants": [
+            "MEMORIAL_SEEN"
+          ],
+          "notes": "Required memory impression, not a living ghost",
+          "region": "SIL",
+          "save": false,
+          "workbench": false,
+          "collectibles": [
+            "AR15: Residual memory"
+          ],
+          "encounters": [],
+          "old_ambient": "No wildlife or combat; recorded nonliving memory silhouette.",
+          "secret_hint": "Side door marked by same memorial name",
+          "scenery": "Memory theatre with recorded family silhouette; benches, extinguished lights and quiet camera framing.",
+          "biome": "Ancient archive"
+        },
+        {
+          "id": "SIL-WALK",
+          "name": "Release Walk",
+          "x": 32,
+          "y": 101,
+          "legacy": "SIL03",
+          "grants": [],
+          "notes": "Open calm colonnade toward Reservoir",
+          "region": "SIL",
+          "save": false,
+          "workbench": false,
+          "collectibles": [],
+          "encounters": [
+            {
+              "kind": "enemy",
+              "id": "E07-SIL03",
+              "archetype": "E07",
+              "enable": "always"
+            }
+          ],
+          "old_ambient": "Rising Echo motes, distinct from insects; 1 moth behind glass.",
+          "secret_hint": "none",
+          "scenery": "Release walk overlooking a vertical shaft of ascending Echoes; one Leech near damaged collector away from memorial.",
+          "biome": "Ancient archive"
+        },
+        {
+          "id": "SIL-SHRINE",
+          "name": "Keeper Shrine",
+          "x": 9,
+          "y": 99,
+          "legacy": "SIL04",
+          "grants": [],
+          "notes": "M12 Seren warning, memorial",
+          "region": "SIL",
+          "save": false,
+          "workbench": false,
+          "collectibles": [
+            "AR16: Seren warning",
+            "MEM03: hidden memorial"
+          ],
+          "encounters": [],
+          "old_ambient": "1 fern and moth by memorial lamp; no other movement.",
+          "secret_hint": "Matching inscription repeated on base",
+          "scenery": "Keeper shrine, recorded imprint and name tablets; still guardian statue and small memorial garden.",
+          "biome": "Ancient archive"
+        },
+        {
+          "id": "SIL-GARDEN",
+          "name": "Still Garden",
+          "x": 10,
+          "y": 89,
+          "legacy": "",
+          "grants": [],
+          "notes": "Optional viewing balcony and return loop",
+          "region": "SIL",
+          "save": false,
+          "workbench": false,
+          "collectibles": [],
+          "encounters": [],
+          "old_ambient": "",
+          "secret_hint": "",
+          "scenery": "",
+          "biome": ""
+        }
+      ],
+      "brief": "A memorial garden below the archives; enters from Veraya through a localized return fold across the map, not a literal underground corridor between planets. Pale stone, soft pink blossoms, dry paths and slow-moving light; no ordinary hostile combat on the critical route. The memory theatre uses a residual imprint of an ordinary Vaelari life, followed by Aster's childhood reflection. The player can leave after the short scene or replay the archive, no dialogue choice blocks progress. Optional Shrine is a short loop along engraved names and a recorded impression; match the name to M12. Still Garden returns to the hall via steps. Lantern moths gather at flowers, quiet small birds in open-air terraces, no wildlife in sealed memorial recess. Use open negative space, restrained music and no combat sound over the scene. This should be a pacing break, not a filler traversal section."
+    },
+    {
+      "id": "RES",
+      "name": "Echo Reservoir",
+      "bounds": [
+        40,
+        89,
+        79,
+        110
+      ],
+      "color": "#5fc4c1",
+      "points": [
+        {
+          "id": "RES-DECK",
+          "name": "Flow Deck",
+          "x": 42,
+          "y": 101,
+          "legacy": "RES01",
+          "grants": [],
+          "notes": "Rest/workbench, water/EE separation shown",
+          "region": "RES",
+          "save": true,
+          "workbench": true,
+          "collectibles": [
+            "AR17: Safe release schematic"
+          ],
+          "encounters": [
+            {
+              "kind": "enemy",
+              "id": "E05-RES01",
+              "archetype": "E05",
+              "enable": "always"
+            },
+            {
+              "kind": "enemy",
+              "id": "E07-RES01",
+              "archetype": "E07",
+              "enable": "always"
+            }
+          ],
+          "old_ambient": "3 filter shrimp in coolant observation tank; water pulsing before stabilization.",
+          "secret_hint": "none",
+          "scenery": "Flow deck with rest/workbench behind sealed maintenance screen; visible reservoir and roaming Sentinel/Leech beyond.",
+          "biome": "Reservoir/vault"
+        },
+        {
+          "id": "RES-SOURCE",
+          "name": "Source Manifold",
+          "x": 51,
+          "y": 94,
+          "legacy": "",
+          "grants": [],
+          "notes": "P06 source and routing schematic",
+          "region": "RES",
+          "save": false,
+          "workbench": false,
+          "collectibles": [],
+          "encounters": [],
+          "old_ambient": "",
+          "secret_hint": "",
+          "scenery": "",
+          "biome": ""
+        },
+        {
+          "id": "RES-ROUTE",
+          "name": "Release Manifold",
+          "x": 59,
+          "y": 101,
+          "legacy": "RES02",
+          "grants": [
+            "RESERVOIR_STABLE"
+          ],
+          "notes": "P06 three toggles and pressure indicators",
+          "region": "RES",
+          "save": false,
+          "workbench": false,
+          "collectibles": [
+            "AR18: Storage capacity warning"
+          ],
+          "encounters": [
+            {
+              "kind": "enemy",
+              "id": "E07-RES02",
+              "archetype": "E07",
+              "enable": "always"
+            },
+            {
+              "kind": "hazard",
+              "id": "HZ-RES02",
+              "mode": "steam",
+              "warning_s": 1.0,
+              "active_s": 0.6,
+              "recovery_s": 1.6,
+              "damage": 12,
+              "span_tiles": 3
+            }
+          ],
+          "old_ambient": "Coolant pool behind walkway; 2 shrimp and 3 glassfin after P06; leech density falls.",
+          "secret_hint": "Overflow conduit leads to alcove",
+          "scenery": "Three branch pipes with distinct symbols, flow meter and saturated storage tank; Leeches occupy approach only.",
+          "biome": "Reservoir/vault"
+        },
+        {
+          "id": "RES-COURT",
+          "name": "Alignment Court",
+          "x": 73,
+          "y": 99,
+          "legacy": "RES03",
+          "grants": [
+            "COLOSSUS_DOWN"
+          ],
+          "notes": "Wayfinder Colossus habitat",
+          "region": "RES",
+          "save": false,
+          "workbench": false,
+          "collectibles": [],
+          "encounters": [],
+          "old_ambient": "No decorative actors during arena; steady flow after victory.",
+          "secret_hint": "none",
+          "scenery": "Colossus alignment court; tall overhead apertures and wide flat arena for marked rear beams and ceiling attacks.",
+          "biome": "Reservoir/vault"
+        },
+        {
+          "id": "RES-OVER",
+          "name": "Overflow Alcove",
+          "x": 48,
+          "y": 108,
+          "legacy": "RES04",
+          "grants": [
+            "OVERFLOW_ISOLATED"
+          ],
+          "notes": "M13 optional isolation, return spur",
+          "region": "RES",
+          "save": false,
+          "workbench": false,
+          "collectibles": [
+            "HP03: +10 max HP",
+            "BP05: equipment blueprint"
+          ],
+          "encounters": [
+            {
+              "kind": "hazard",
+              "id": "HZ-RES04",
+              "mode": "water",
+              "warning_s": 1.0,
+              "active_s": 0.6,
+              "recovery_s": 1.6,
+              "damage": 0,
+              "span_tiles": 3
+            }
+          ],
+          "old_ambient": "2 glassfin in side channel, dry pipe return route above.",
+          "secret_hint": "Dry return pipe points back to WAR02",
+          "scenery": "Overflow service catwalk, relief valve and surplus-energy pool; safe alcove opens after reservoir stabilization.",
+          "biome": "Reservoir/vault"
+        },
+        {
+          "id": "RES-EXIT",
+          "name": "Vault Supply Bridge",
+          "x": 78,
+          "y": 106,
+          "legacy": "",
+          "grants": [],
+          "notes": "Stable connection to Rewind Sanctuary",
+          "region": "RES",
+          "save": false,
+          "workbench": false,
+          "collectibles": [],
+          "encounters": [],
+          "old_ambient": "",
+          "secret_hint": "",
+          "scenery": "",
+          "biome": ""
+        }
+      ],
+      "brief": "A vast, partially open cistern with transparent conduits and a towering release manifold visible from several elevations. Distinguish ordinary hydraulic water from Echo channels: water flows blue-green with ripples; Echo energy travels through sealed luminous conduits; an Echo releases upward as a separate motif. Main path wraps around the basin on tiered inspection decks, never requires swimming. P06 follows source feed to three branches: vault power, release path, already-full storage. Toggle Vault ON, Release ON, Full Storage OFF; show pressure bars and arrows. After success lights stabilize and some Echo-dependent enemies leave; ordinary fish can return in physically connected water only. Colossus occupies an alignment court on a broad platform, attacks from marked folds overhead or behind, fully avoidable before Rewind. Overflow branch is optional; isolate after P06, then open return to Warped Verge from local latch. Basin minnows and filter shrimp are in water behind glass; Echo Leeches near exposed bound Echo accumulations, not fish schools. No player resource expenditure on required switches."
+    },
+    {
+      "id": "REW",
+      "name": "Rewind Sanctuary",
+      "bounds": [
+        86,
+        94,
+        119,
+        112
+      ],
+      "color": "#d2bf87",
+      "points": [
+        {
+          "id": "REW-VEST",
+          "name": "Vault Vestibule",
+          "x": 88,
+          "y": 104,
+          "legacy": "REW01",
+          "grants": [
+            "KEEPER_EXPOSED"
+          ],
+          "notes": "Rest, paired shield isolators",
+          "region": "REW",
+          "save": true,
+          "workbench": false,
+          "collectibles": [],
+          "encounters": [
+            {
+              "kind": "enemy",
+              "id": "E06-REW01",
+              "archetype": "E06",
+              "enable": "always"
+            }
+          ],
+          "old_ambient": "No live animals in sealed vault; conductor hum and faint dust.",
+          "secret_hint": "none",
+          "scenery": "Vault vestibule, rest shelter, paired left/right isolators and Mithril guard on separate approach platform.",
+          "biome": "Reservoir/vault"
+        },
+        {
+          "id": "REW-KEEP",
+          "name": "Keeper Court",
+          "x": 99,
+          "y": 100,
+          "legacy": "REW02",
+          "grants": [
+            "KEEPER_DOWN"
+          ],
+          "notes": "Reliquary Keeper",
+          "region": "REW",
+          "save": false,
+          "workbench": false,
+          "collectibles": [],
+          "encounters": [],
+          "old_ambient": "No wildlife; shield light only.",
+          "secret_hint": "none",
+          "scenery": "Keeper arena, external shield conductors already isolated; clear center and core exposure lanes.",
+          "biome": "Reservoir/vault"
+        },
+        {
+          "id": "REW-RELIC",
+          "name": "Personal Continuity Shrine",
+          "x": 111,
+          "y": 99,
+          "legacy": "REW03",
+          "grants": [
+            "REWIND_ACQUIRED"
+          ],
+          "notes": "P08 confirms three systems and acquires relic",
+          "region": "REW",
+          "save": false,
+          "workbench": false,
+          "collectibles": [
+            "AR19: Rescue equipment purpose"
+          ],
+          "encounters": [],
+          "old_ambient": "No wildlife; symmetrical device light and dust.",
+          "secret_hint": "none",
+          "scenery": "Relic chamber framed by symmetrical pale-alloy ribs; three verification inputs and inert forearm relic on pedestal.",
+          "biome": "Reservoir/vault"
+        },
+        {
+          "id": "REW-TRAIN",
+          "name": "Return-Path Terrace",
+          "x": 104,
+          "y": 109,
+          "legacy": "REW04",
+          "grants": [
+            "REWIND_TRAINED"
+          ],
+          "notes": "P09 local recorded-path exercise",
+          "region": "REW",
+          "save": false,
+          "workbench": false,
+          "collectibles": [],
+          "encounters": [],
+          "old_ambient": "No wildlife, minimal particles; ghost trail is personal Rewind preview.",
+          "secret_hint": "none",
+          "scenery": "Safe tutorial lane; starting pad, authored shutter and switch, return door opens behind start after rewind.",
+          "biome": "Reservoir/vault"
+        },
+        {
+          "id": "REW-SERVICE",
+          "name": "Lower Service Landing",
+          "x": 89,
+          "y": 112,
+          "legacy": "",
+          "grants": [],
+          "notes": "Exit toward Folded Depths",
+          "region": "REW",
+          "save": false,
+          "workbench": false,
+          "collectibles": [],
+          "encounters": [],
+          "old_ambient": "",
+          "secret_hint": "",
+          "scenery": "",
+          "biome": ""
+        }
+      ],
+      "brief": "A protected relic complex at the end of the reservoir supply bridge. Symmetrical pale-alloy architecture, clean curved surfaces and restrained gold/cyan highlights distinguish it from hunter technology. Vestibule branches to two visible maintenance isolators left/right of Keeper Court; no extra ability to reach them. Once both are off, Keeper shield cycles expose core. Defeating Keeper opens the relic shrine. P08 verifies Sluice Flow, Survey Archive, Reservoir Release; missing indicator explains missing upstream flag. The relic was a rescue/research continuity tool, not a time machine. Aster installs it on his right forearm; immediately save. Return-Path Terrace is a local safe corridor with pad, authored shutter and latch separated by 16 tiles, exactly one continuous loaded domain; use Rewind within six seconds, switch persists, no arbitrary wall traversal. Local reset restores geometry, ability readiness and minimum EE. No wildlife inside sterile vault; calm hum and maintenance dust. Main lower exit opens after training, not by defeating an optional enemy."
+    },
+    {
+      "id": "FOL",
+      "name": "Folded Depths",
+      "bounds": [
+        5,
+        114,
+        42,
+        139
+      ],
+      "color": "#927bb1",
+      "points": [
+        {
+          "id": "FOL-LAND",
+          "name": "History Landing",
+          "x": 38,
+          "y": 116,
+          "legacy": "FOL01",
+          "grants": [
+            "ARCHIVE_RETURN"
+          ],
+          "notes": "Rest, ancient warning and archive return",
+          "region": "FOL",
+          "save": true,
+          "workbench": false,
+          "collectibles": [
+            "AR20: Continuum fragment"
+          ],
+          "encounters": [
+            {
+              "kind": "enemy",
+              "id": "E03-FOL01",
+              "archetype": "E03",
+              "enable": "always"
+            },
+            {
+              "kind": "hazard",
+              "id": "HZ-FOL01",
+              "mode": "rift",
+              "warning_s": 1.0,
+              "active_s": 0.6,
+              "recovery_s": 1.6,
+              "damage": 12,
+              "span_tiles": 3
+            }
+          ],
+          "old_ambient": "1 cave arthropod in distant seam; rift moth flees Skitter.",
+          "secret_hint": "Visible old shelf identifier on reverse side",
+          "scenery": "History landing with rest station and Continuum fragment; Skitter marked crack beyond refuge screen; return stair to archive.",
+          "biome": "Warped network"
+        },
+        {
+          "id": "FOL-ONE",
+          "name": "One-Way Gallery",
+          "x": 25,
+          "y": 123,
+          "legacy": "FOL02",
+          "grants": [
+            "REWIND_RETURN"
+          ],
+          "notes": "M16 optional recorded path and return to Veraya",
+          "region": "FOL",
+          "save": false,
+          "workbench": false,
+          "collectibles": [],
+          "encounters": [
+            {
+              "kind": "enemy",
+              "id": "E08-FOL02",
+              "archetype": "E08",
+              "enable": "always"
+            }
+          ],
+          "old_ambient": "No fauna along shutter; faint violet dust in combat bay.",
+          "secret_hint": "Paired Verayan service glyph next to optional latch",
+          "scenery": "One-way gallery with taught shutter sequence, delayed marker Stalker in separate combat bay, optional latch to Veraya.",
+          "biome": "Warped network"
+        },
+        {
+          "id": "FOL-JUNC",
+          "name": "Fold Junction",
+          "x": 15,
+          "y": 129,
+          "legacy": "FOL03",
+          "grants": [
+            "FOLDS_ALIGNED"
+          ],
+          "notes": "P10 geometric anchor pairing",
+          "region": "FOL",
+          "save": false,
+          "workbench": false,
+          "collectibles": [
+            "AR21: Nalora and convergence fragment"
+          ],
+          "encounters": [
+            {
+              "kind": "enemy",
+              "id": "E08-FOL03",
+              "archetype": "E08",
+              "enable": "always"
+            },
+            {
+              "kind": "hazard",
+              "id": "HZ-FOL03",
+              "mode": "rift",
+              "warning_s": 1.0,
+              "active_s": 0.6,
+              "recovery_s": 1.6,
+              "damage": 12,
+              "span_tiles": 3
+            }
+          ],
+          "old_ambient": "1 rift moth at stable anchor, disappears during attack telegraphs.",
+          "secret_hint": "none",
+          "scenery": "Fold junction with three paired anchor panels and Nalora record; Stalker outside protected puzzle deck.",
+          "biome": "Warped network"
+        },
+        {
+          "id": "FOL-NEST",
+          "name": "Devourer Nest",
+          "x": 8,
+          "y": 136,
+          "legacy": "FOL04",
+          "grants": [
+            "DEVOURER_DOWN",
+            "NEST_LATCH"
+          ],
+          "notes": "Optional Rift Devourer, M14",
+          "region": "FOL",
+          "save": false,
+          "workbench": false,
+          "collectibles": [
+            "MAP06: optional map annotation",
+            "HP04: +10 max HP",
+            "MEM05: hidden memorial"
+          ],
+          "encounters": [
+            {
+              "kind": "enemy",
+              "id": "V04-FOL04",
+              "archetype": "V04",
+              "enable": "DEVOURER_DOWN"
+            }
+          ],
+          "old_ambient": "Empty feeding husks; no benign fauna near Voruun; quiet after defeat.",
+          "secret_hint": "Organic feeding traces lead to hidden memorial behind arena",
+          "scenery": "Predator nest: safe rewind latch at entrance, sealed arena for Rift Devourer, leftover consumed-Echo husks beyond.",
+          "biome": "Warped network"
+        },
+        {
+          "id": "FOL-RIDGE",
+          "name": "Deep Service Ridge",
+          "x": 37,
+          "y": 135,
+          "legacy": "",
+          "grants": [],
+          "notes": "Aligned route into Final Approach",
+          "region": "FOL",
+          "save": false,
+          "workbench": false,
+          "collectibles": [],
+          "encounters": [],
+          "old_ambient": "",
+          "secret_hint": "",
+          "scenery": "",
+          "biome": ""
+        }
+      ],
+      "brief": "The deepest unstable service tunnels loop under the upper sanctuary. Terrain is layered pale rock and violet fractures, with actual solid routes visually distinct from background fragments. History Landing shows a fragment of Continuum doctrine; another record at Fold Junction names Nalora without revealing the whole catastrophe. The old archive return shaft opens after Rewind training and local latch; return cannot bypass earlier mandatory flags. One-Way Gallery contains an optional shutter pocket for M16 and a safe main bypass. P10 uses three pairs A diamond, B split diamond, C ring: visual halves and rhythmic pulses, errors show mismatch and reset only that pair. NEST is a side spur off Junction, accessible after M14 Rewind exercise; a creature destroys an Echo in the background, reinforcing ethics. Optional Rift Devourer arena is a natural hollow with retreat before engagement and retry after death. No full Warp control, no player teleport. Rift Moths flee unstable cracks, no normal birds or fish here. Sparse effects ensure spatial markers remain legible."
+    },
+    {
+      "id": "FIN",
+      "name": "Final Approach",
+      "bounds": [
+        46,
+        116,
+        86,
+        140
+      ],
+      "color": "#b9a187",
+      "points": [
+        {
+          "id": "FIN-WALK",
+          "name": "Stabilizer Walk",
+          "x": 48,
+          "y": 135,
+          "legacy": "FIN01",
+          "grants": [],
+          "notes": "Rest, first anchor, warning directive",
+          "region": "FIN",
+          "save": true,
+          "workbench": false,
+          "collectibles": [
+            "AR22: Anchor network"
+          ],
+          "encounters": [
+            {
+              "kind": "enemy",
+              "id": "E06-FIN01",
+              "archetype": "E06",
+              "enable": "always"
+            },
+            {
+              "kind": "hazard",
+              "id": "HZ-FIN01",
+              "mode": "steam",
+              "warning_s": 1.0,
+              "active_s": 0.6,
+              "recovery_s": 1.6,
+              "damage": 12,
+              "span_tiles": 3
+            }
+          ],
+          "old_ambient": "No live fauna; moving conduit lights and steam.",
+          "secret_hint": "none",
+          "scenery": "Stabilizer walk with three labeled pylons, large gate silhouette and rest shield; Mithril guard between pylons.",
+          "biome": "Warped network"
+        },
+        {
+          "id": "FIN-A",
+          "name": "Western Stabilizer",
+          "x": 54,
+          "y": 126,
+          "legacy": "",
+          "grants": [
+            "STAB_A"
+          ],
+          "notes": "P11 component A",
+          "region": "FIN",
+          "save": false,
+          "workbench": false,
+          "collectibles": [],
+          "encounters": [],
+          "old_ambient": "",
+          "secret_hint": "",
+          "scenery": "",
+          "biome": ""
+        },
+        {
+          "id": "FIN-B",
+          "name": "Upper Stabilizer",
+          "x": 65,
+          "y": 118,
+          "legacy": "",
+          "grants": [
+            "STAB_B"
+          ],
+          "notes": "P11 component B",
+          "region": "FIN",
+          "save": false,
+          "workbench": false,
+          "collectibles": [],
+          "encounters": [],
+          "old_ambient": "",
+          "secret_hint": "",
+          "scenery": "",
+          "biome": ""
+        },
+        {
+          "id": "FIN-C",
+          "name": "Lower Stabilizer",
+          "x": 68,
+          "y": 136,
+          "legacy": "",
+          "grants": [
+            "STAB_C"
+          ],
+          "notes": "P11 component C",
+          "region": "FIN",
+          "save": false,
+          "workbench": false,
+          "collectibles": [],
+          "encounters": [],
+          "old_ambient": "",
+          "secret_hint": "",
+          "scenery": "",
+          "biome": ""
+        },
+        {
+          "id": "FIN-CTRL",
+          "name": "Anchor Control",
+          "x": 76,
+          "y": 128,
+          "legacy": "FIN02",
+          "grants": [
+            "ANCHORS_STABLE"
+          ],
+          "notes": "P11 commit and release line",
+          "region": "FIN",
+          "save": false,
+          "workbench": false,
+          "collectibles": [],
+          "encounters": [
+            {
+              "kind": "enemy",
+              "id": "E08-FIN02",
+              "archetype": "E08",
+              "enable": "always"
+            },
+            {
+              "kind": "hazard",
+              "id": "HZ-FIN02",
+              "mode": "rift",
+              "warning_s": 1.0,
+              "active_s": 0.6,
+              "recovery_s": 1.6,
+              "damage": 12,
+              "span_tiles": 3
+            }
+          ],
+          "old_ambient": "No live fauna; conduit pulses show receiver sequence.",
+          "secret_hint": "Niche hatch identified by service receiver",
+          "scenery": "Anchor control under colossal conduits; Stalker on approach, release-first terminal in protected zone.",
+          "biome": "Warped network"
+        },
+        {
+          "id": "FIN-REST",
+          "name": "Last Rest",
+          "x": 84,
+          "y": 131,
+          "legacy": "FIN03",
+          "grants": [],
+          "notes": "Final rest/workbench, isolation warning",
+          "region": "FIN",
+          "save": true,
+          "workbench": true,
+          "collectibles": [
+            "AR23: Isolation directive"
+          ],
+          "encounters": [],
+          "old_ambient": "No live fauna; distant guardian silhouette.",
+          "secret_hint": "none",
+          "scenery": "Final rest and workbench with isolation directive; massive distant guardian silhouette beyond gate; quiet anticipation.",
+          "biome": "Warped network"
+        },
+        {
+          "id": "FIN-NICHE",
+          "name": "Service Niche",
+          "x": 82,
+          "y": 119,
+          "legacy": "FIN04",
+          "grants": [],
+          "notes": "M15 optional Resonator",
+          "region": "FIN",
+          "save": false,
+          "workbench": false,
+          "collectibles": [
+            "BP06: equipment blueprint",
+            "WPN03: Vaelari Resonator"
+          ],
+          "encounters": [
+            {
+              "kind": "enemy",
+              "id": "V03-FIN04",
+              "archetype": "V03",
+              "enable": "always"
+            },
+            {
+              "kind": "hazard",
+              "id": "HZ-FIN04",
+              "mode": "beam",
+              "warning_s": 1.0,
+              "active_s": 0.6,
+              "recovery_s": 1.6,
+              "damage": 12,
+              "span_tiles": 3
+            }
+          ],
+          "old_ambient": "No live fauna; service fans and dust.",
+          "secret_hint": "Receiver cable runs behind broken panel",
+          "scenery": "Service niche with dual Prism Array behind cover, spare parts cabinet and Resonator case.",
+          "biome": "Warped network"
+        }
+      ],
+      "brief": "Monumental converging architecture. Three stabilizers are integrated into a single multi-level service viaduct: one on western flank, one up a lift, one on lower deck. The player can visit them in any order via an actual loop and returns to Anchor Control. Restore all three, open safe release line, then energize receiver. Each device has a visual link toward the gate and numbered/shape status on the journal; do not require remembering arbitrary order. Main platforms have solid rails, safe lift landings and marked spatial hazards. Optional Service Niche branches from upper terrace near Last Rest; align a conduit for the Resonator, never required for boss. Last Rest is quiet and near final approach, with safe short retry to Guardian. A huge gate silhouette fills background as alignment completes. Sparse Prism Beetles in outer cracks only, no ordinary flora in active containment. Art switches from fractured chaos to monumental symmetry; violet marks remain in cracks, proving the local repair is partial."
+    },
+    {
+      "id": "GAT",
+      "name": "Warp-Broken Gate",
+      "bounds": [
+        90,
+        121,
+        121,
+        145
+      ],
+      "color": "#aa85ca",
+      "points": [
+        {
+          "id": "GAT-ARENA",
+          "name": "Containment Court",
+          "x": 93,
+          "y": 131,
+          "legacy": "GAT01",
+          "grants": [
+            "GUARDIAN_DOWN"
+          ],
+          "notes": "Fold Guardian, Last Custodian",
+          "region": "GAT",
+          "save": false,
+          "workbench": false,
+          "collectibles": [
+            "AR24: Guardian final directive"
+          ],
+          "encounters": [],
+          "old_ambient": "No ambient actors; phase telegraphs and mechanical motion only.",
+          "secret_hint": "none",
+          "scenery": "Containment arena: three monumental anchor arches, clean floor and neutral lighting for all Guardian attack tells.",
+          "biome": "Warped network"
+        },
+        {
+          "id": "GAT-GATE",
+          "name": "Broken Transit Gate",
+          "x": 109,
+          "y": 129,
+          "legacy": "GAT02",
+          "grants": [
+            "GATE_DIAGNOSED"
+          ],
+          "notes": "Physical failure, Rewind cannot repair",
+          "region": "GAT",
+          "save": false,
+          "workbench": false,
+          "collectibles": [],
+          "encounters": [],
+          "old_ambient": "No fauna; fractured aperture motion and dead anchor.",
+          "secret_hint": "none",
+          "scenery": "Warp-broken gate at far wall, split remote interface and dead transit aperture; visible physical break not a riddle.",
+          "biome": "Warped network"
+        },
+        {
+          "id": "GAT-BEACON",
+          "name": "Emergency Beacon",
+          "x": 116,
+          "y": 136,
+          "legacy": "GAT03",
+          "grants": [
+            "SIGNAL_SENT"
+          ],
+          "notes": "P12 isolate transit and transmit",
+          "region": "GAT",
+          "save": false,
+          "workbench": false,
+          "collectibles": [],
+          "encounters": [],
+          "old_ambient": "No fauna; steady diagnostic signal pulses.",
+          "secret_hint": "none",
+          "scenery": "Beacon terminal on surviving circuit; isolator and reserve source, view of disabled gate through glass.",
+          "biome": "Warped network"
+        },
+        {
+          "id": "GAT-REFUGE",
+          "name": "Refuge Terrace",
+          "x": 105,
+          "y": 142,
+          "legacy": "GAT04",
+          "grants": [],
+          "notes": "Ending, safe camp and final rest",
+          "region": "GAT",
+          "save": true,
+          "workbench": true,
+          "collectibles": [],
+          "encounters": [],
+          "old_ambient": "No fauna inside; occasional distant light beyond fracture, not a traversable exit.",
+          "secret_hint": "none",
+          "scenery": "Sheltered refuge with rest/workbench, folded blanket, faint skyline through fracture and distress indicator; credits trigger.",
+          "biome": "Warped network"
+        }
+      ],
+      "brief": "A colossal gate at the farthest edge of the accessible sanctuary, approached through a broad containment court. The Last Custodian is a machine trying to protect the passage, not the trilogy villain. Arena seals only after safe entry; all attack zones are signaled; defeat releases a stored reserve source and opens gate approach. Aster inspects broken remote interface and sees the transit alignment fail; physical destination cannot be reached, no hidden alternative exit. Gate is visibly broken before interaction; journal labels it irreparable by Aster. P12 uses Guardian reserve source, isolate failed transit load, connect beacon and confirm distress packet. Player EE not spent. Beacon unlocks safe Refuge Terrace; Aster sets camp and ending follows. No active combat after the court, no ambient animals in sealed machinery; dust and a few quiet distant lights. End screen offers continue from final refuge with return paths to accessible sanctuary, not an alternative escape; post-credits Orion receives signal. Keep the view of the massive gate from earlier regions consistent."
+    }
+  ],
+  "edges": [
+    {
+      "id": "PATH-001",
+      "a": "TOW-MEM",
+      "b": "TOW-GUILD",
+      "kind": "main",
+      "requires": [],
+      "mode": "walk",
+      "via": [],
+      "desc": "Broad public street and fountain terraces",
+      "opens": [],
+      "direction": "both",
+      "blocked": [],
+      "atlas_polyline": [
+        [
+          7,
+          15
+        ],
+        [
+          16,
+          14
+        ]
+      ],
+      "atlas_length": 9.1,
+      "nominal_tiles": 146
+    },
+    {
+      "id": "PATH-002",
+      "a": "TOW-MEM",
+      "b": "TOW-ORP",
+      "kind": "branch",
+      "requires": [],
+      "mode": "stairs",
+      "via": [],
+      "desc": "Orphanage hill staircase with roof vista",
+      "opens": [],
+      "direction": "both",
+      "blocked": [],
+      "atlas_polyline": [
+        [
+          7,
+          15
+        ],
+        [
+          11,
+          8
+        ]
+      ],
+      "atlas_length": 8.1,
+      "nominal_tiles": 130
+    },
+    {
+      "id": "PATH-003",
+      "a": "TOW-ORP",
+      "b": "TOW-GUILD",
+      "kind": "branch",
+      "requires": [],
+      "mode": "stairs",
+      "via": [],
+      "desc": "Descending public alley",
+      "opens": [],
+      "direction": "both",
+      "blocked": [],
+      "atlas_polyline": [
+        [
+          11,
+          8
+        ],
+        [
+          16,
+          14
+        ]
+      ],
+      "atlas_length": 7.8,
+      "nominal_tiles": 125
+    },
+    {
+      "id": "PATH-004",
+      "a": "TOW-GUILD",
+      "b": "TOW-YARD",
+      "kind": "main",
+      "requires": [
+        "BRIEFED"
+      ],
+      "mode": "walk",
+      "via": [],
+      "desc": "Market ramp to artificer",
+      "opens": [],
+      "direction": "both",
+      "blocked": [],
+      "atlas_polyline": [
+        [
+          16,
+          14
+        ],
+        [
+          22,
+          18
+        ]
+      ],
+      "atlas_length": 7.2,
+      "nominal_tiles": 115
+    },
+    {
+      "id": "PATH-005",
+      "a": "TOW-YARD",
+      "b": "TOW-EXIT",
+      "kind": "main",
+      "requires": [
+        "TUTORIAL_DONE"
+      ],
+      "mode": "walk",
+      "via": [],
+      "desc": "East road",
+      "opens": [],
+      "direction": "both",
+      "blocked": [],
+      "atlas_polyline": [
+        [
+          22,
+          18
+        ],
+        [
+          28,
+          17
+        ]
+      ],
+      "atlas_length": 6.1,
+      "nominal_tiles": 98
+    },
+    {
+      "id": "PATH-006",
+      "a": "TOW-EXIT",
+      "b": "OUT-TRAIL",
+      "kind": "main",
+      "requires": [
+        "TUTORIAL_DONE"
+      ],
+      "mode": "walk",
+      "via": [],
+      "desc": "Surface passage physically cut by Warp; persistent closure",
+      "opens": [],
+      "direction": "both",
+      "blocked": [
+        "WARP"
+      ],
+      "atlas_polyline": [
+        [
+          28,
+          17
+        ],
+        [
+          33,
+          17
+        ]
+      ],
+      "atlas_length": 5.0,
+      "nominal_tiles": 80
+    },
+    {
+      "id": "PATH-007",
+      "a": "OUT-TRAIL",
+      "b": "OUT-BROOK",
+      "kind": "main",
+      "requires": [],
+      "mode": "terraces",
+      "via": [],
+      "desc": "Downhill meadow and recovery bank",
+      "opens": [],
+      "direction": "both",
+      "blocked": [],
+      "atlas_polyline": [
+        [
+          33,
+          17
+        ],
+        [
+          41,
+          22
+        ]
+      ],
+      "atlas_length": 9.4,
+      "nominal_tiles": 150
+    },
+    {
+      "id": "PATH-008",
+      "a": "OUT-BROOK",
+      "b": "OUT-BELL",
+      "kind": "main",
+      "requires": [
+        "FIRST_RELEASE"
+      ],
+      "mode": "terraces",
+      "via": [
+        [
+          46,
+          20
+        ],
+        [
+          50,
+          15
+        ]
+      ],
+      "desc": "Broken aqueduct climbs by stairs and 2-tile ledges",
+      "opens": [],
+      "direction": "both",
+      "blocked": [],
+      "atlas_polyline": [
+        [
+          41,
+          22
+        ],
+        [
+          46,
+          20
+        ],
+        [
+          50,
+          15
+        ],
+        [
+          55,
+          12
+        ]
+      ],
+      "atlas_length": 17.6,
+      "nominal_tiles": 282
+    },
+    {
+      "id": "PATH-009",
+      "a": "OUT-BELL",
+      "b": "OUT-CACHE",
+      "kind": "branch",
+      "requires": [],
+      "mode": "stairs",
+      "via": [],
+      "desc": "Source sign near hidden rock cache, M02 local latch",
+      "opens": [],
+      "direction": "both",
+      "blocked": [],
+      "atlas_polyline": [
+        [
+          55,
+          12
+        ],
+        [
+          49,
+          6
+        ]
+      ],
+      "atlas_length": 8.5,
+      "nominal_tiles": 136
+    },
+    {
+      "id": "PATH-010",
+      "a": "OUT-CACHE",
+      "b": "OUT-TRAIL",
+      "kind": "branch",
+      "requires": [
+        "CACHE_OPEN"
+      ],
+      "mode": "stairs",
+      "via": [],
+      "desc": "Return trail behind grassy rock; cache route not mandatory",
+      "opens": [],
+      "direction": "both",
+      "blocked": [],
+      "atlas_polyline": [
+        [
+          49,
+          6
+        ],
+        [
+          33,
+          17
+        ]
+      ],
+      "atlas_length": 19.4,
+      "nominal_tiles": 310
+    },
+    {
+      "id": "PATH-011",
+      "a": "OUT-BELL",
+      "b": "OUT-AQUA",
+      "kind": "main",
+      "requires": [],
+      "mode": "terraces",
+      "via": [],
+      "desc": "Stone aqueduct rim, no mandatory long gap",
+      "opens": [],
+      "direction": "both",
+      "blocked": [],
+      "atlas_polyline": [
+        [
+          55,
+          12
+        ],
+        [
+          65,
+          20
+        ]
+      ],
+      "atlas_length": 12.8,
+      "nominal_tiles": 205
+    },
+    {
+      "id": "PATH-012",
+      "a": "OUT-AQUA",
+      "b": "HUN-TRAIL",
+      "kind": "main",
+      "requires": [],
+      "mode": "walk",
+      "via": [],
+      "desc": "Rooted natural transition; scout ropes become hunter structures",
+      "opens": [],
+      "direction": "both",
+      "blocked": [],
+      "atlas_polyline": [
+        [
+          65,
+          20
+        ],
+        [
+          75,
+          20
+        ]
+      ],
+      "atlas_length": 10.0,
+      "nominal_tiles": 160
+    },
+    {
+      "id": "PATH-013",
+      "a": "HUN-TRAIL",
+      "b": "HUN-SPLIT",
+      "kind": "main",
+      "requires": [],
+      "mode": "stairs",
+      "via": [],
+      "desc": "Ridge switchback and tree deck",
+      "opens": [],
+      "direction": "both",
+      "blocked": [],
+      "atlas_polyline": [
+        [
+          75,
+          20
+        ],
+        [
+          83,
+          15
+        ]
+      ],
+      "atlas_length": 9.4,
+      "nominal_tiles": 150
+    },
+    {
+      "id": "PATH-014",
+      "a": "HUN-SPLIT",
+      "b": "HUN-BLIND",
+      "kind": "branch",
+      "requires": [],
+      "mode": "ladder",
+      "via": [],
+      "desc": "Three cloth trail markers, M03",
+      "opens": [],
+      "direction": "both",
+      "blocked": [],
+      "atlas_polyline": [
+        [
+          83,
+          15
+        ],
+        [
+          87,
+          6
+        ]
+      ],
+      "atlas_length": 9.8,
+      "nominal_tiles": 157
+    },
+    {
+      "id": "PATH-015",
+      "a": "HUN-BLIND",
+      "b": "HUN-TOWER",
+      "kind": "branch",
+      "requires": [],
+      "mode": "terraces",
+      "via": [
+        [
+          99,
+          5
+        ]
+      ],
+      "desc": "Upper ridge view of distant Bell; no shortcut to post-Warp camp before event",
+      "opens": [],
+      "direction": "both",
+      "blocked": [],
+      "atlas_polyline": [
+        [
+          87,
+          6
+        ],
+        [
+          99,
+          5
+        ],
+        [
+          109,
+          8
+        ]
+      ],
+      "atlas_length": 22.5,
+      "nominal_tiles": 360
+    },
+    {
+      "id": "PATH-016",
+      "a": "HUN-TOWER",
+      "b": "HUN-FRACT",
+      "kind": "branch",
+      "requires": [],
+      "mode": "stairs",
+      "via": [],
+      "desc": "Descend to fracture trigger",
+      "opens": [],
+      "direction": "both",
+      "blocked": [],
+      "atlas_polyline": [
+        [
+          109,
+          8
+        ],
+        [
+          94,
+          18
+        ]
+      ],
+      "atlas_length": 18.0,
+      "nominal_tiles": 288
+    },
+    {
+      "id": "PATH-017",
+      "a": "HUN-SPLIT",
+      "b": "HUN-FRACT",
+      "kind": "main",
+      "requires": [],
+      "mode": "walk",
+      "via": [],
+      "desc": "Main ridge bridge, authored Warp trigger",
+      "opens": [],
+      "direction": "both",
+      "blocked": [],
+      "atlas_polyline": [
+        [
+          83,
+          15
+        ],
+        [
+          94,
+          18
+        ]
+      ],
+      "atlas_length": 11.4,
+      "nominal_tiles": 182
+    },
+    {
+      "id": "PATH-018",
+      "a": "HUN-FRACT",
+      "b": "HUN-DESC",
+      "kind": "main",
+      "requires": [
+        "WARP"
+      ],
+      "mode": "terraces",
+      "via": [],
+      "desc": "Stable downhill switchback revealed after fracture",
+      "opens": [],
+      "direction": "both",
+      "blocked": [],
+      "atlas_polyline": [
+        [
+          94,
+          18
+        ],
+        [
+          111,
+          26
+        ]
+      ],
+      "atlas_length": 18.8,
+      "nominal_tiles": 301
+    },
+    {
+      "id": "PATH-019",
+      "a": "HUN-DESC",
+      "b": "CAM-SHELTER",
+      "kind": "main",
+      "requires": [
+        "WARP"
+      ],
+      "mode": "stairs",
+      "via": [],
+      "desc": "Camp trail down the cliff",
+      "opens": [],
+      "direction": "both",
+      "blocked": [],
+      "atlas_polyline": [
+        [
+          111,
+          26
+        ],
+        [
+          110,
+          33
+        ]
+      ],
+      "atlas_length": 7.1,
+      "nominal_tiles": 114
+    },
+    {
+      "id": "PATH-020",
+      "a": "HUN-SPLIT",
+      "b": "ROT-FORK",
+      "kind": "branch",
+      "requires": [],
+      "mode": "stairs",
+      "via": [
+        [
+          78,
+          27
+        ],
+        [
+          71,
+          28
+        ]
+      ],
+      "desc": "Early upper canopy overlook; no descent to lower Rootspan until Warden",
+      "opens": [],
+      "direction": "both",
+      "blocked": [],
+      "atlas_polyline": [
+        [
+          83,
+          15
+        ],
+        [
+          78,
+          27
+        ],
+        [
+          71,
+          28
+        ],
+        [
+          65,
+          32
+        ]
+      ],
+      "atlas_length": 27.3,
+      "nominal_tiles": 437
+    },
+    {
+      "id": "PATH-021",
+      "a": "CAM-SHELTER",
+      "b": "CAM-TENT",
+      "kind": "main",
+      "requires": [],
+      "mode": "walk",
+      "via": [],
+      "desc": "Sheltered camp terraces",
+      "opens": [],
+      "direction": "both",
+      "blocked": [],
+      "atlas_polyline": [
+        [
+          110,
+          33
+        ],
+        [
+          103,
+          37
+        ]
+      ],
+      "atlas_length": 8.1,
+      "nominal_tiles": 130
+    },
+    {
+      "id": "PATH-022",
+      "a": "CAM-TENT",
+      "b": "CAM-CROSS",
+      "kind": "main",
+      "requires": [],
+      "mode": "walk",
+      "via": [],
+      "desc": "Survey board with direct sightline to landmarks",
+      "opens": [],
+      "direction": "both",
+      "blocked": [],
+      "atlas_polyline": [
+        [
+          103,
+          37
+        ],
+        [
+          94,
+          39
+        ]
+      ],
+      "atlas_length": 9.2,
+      "nominal_tiles": 147
+    },
+    {
+      "id": "PATH-023",
+      "a": "CAM-SHELTER",
+      "b": "CAM-PACK",
+      "kind": "branch",
+      "requires": [],
+      "mode": "stairs",
+      "via": [],
+      "desc": "Optional lost pack ledge, M04",
+      "opens": [],
+      "direction": "both",
+      "blocked": [],
+      "atlas_polyline": [
+        [
+          110,
+          33
+        ],
+        [
+          115,
+          42
+        ]
+      ],
+      "atlas_length": 10.3,
+      "nominal_tiles": 165
+    },
+    {
+      "id": "PATH-024",
+      "a": "CAM-PACK",
+      "b": "CAM-TENT",
+      "kind": "branch",
+      "requires": [],
+      "mode": "stairs",
+      "via": [],
+      "desc": "Recovery slope around camp",
+      "opens": [],
+      "direction": "both",
+      "blocked": [],
+      "atlas_polyline": [
+        [
+          115,
+          42
+        ],
+        [
+          103,
+          37
+        ]
+      ],
+      "atlas_length": 13.0,
+      "nominal_tiles": 208
+    },
+    {
+      "id": "PATH-025",
+      "a": "CAM-CROSS",
+      "b": "CAM-RIDGE",
+      "kind": "main",
+      "requires": [
+        "MAP_ALIGNED"
+      ],
+      "mode": "stairs",
+      "via": [],
+      "desc": "Old maintenance barrier opens after map alignment",
+      "opens": [],
+      "direction": "both",
+      "blocked": [],
+      "atlas_polyline": [
+        [
+          94,
+          39
+        ],
+        [
+          88,
+          32
+        ]
+      ],
+      "atlas_length": 9.2,
+      "nominal_tiles": 147
+    },
+    {
+      "id": "PATH-026",
+      "a": "CAM-RIDGE",
+      "b": "SLU-ENTRY",
+      "kind": "main",
+      "requires": [
+        "MAP_ALIGNED"
+      ],
+      "mode": "viaduct",
+      "via": [
+        [
+          82,
+          30
+        ],
+        [
+          78,
+          26
+        ],
+        [
+          37,
+          26
+        ],
+        [
+          31,
+          28
+        ]
+      ],
+      "desc": "Upper catchment viaduct; scenic connection above Rootspan, no downward access except authored stairs",
+      "opens": [],
+      "direction": "both",
+      "blocked": [],
+      "atlas_polyline": [
+        [
+          88,
+          32
+        ],
+        [
+          82,
+          30
+        ],
+        [
+          78,
+          26
+        ],
+        [
+          37,
+          26
+        ],
+        [
+          31,
+          28
+        ],
+        [
+          28,
+          31
+        ]
+      ],
+      "atlas_length": 63.5,
+      "nominal_tiles": 1016
+    },
+    {
+      "id": "PATH-027",
+      "a": "SLU-ENTRY",
+      "b": "SLU-ROOT",
+      "kind": "main",
+      "requires": [],
+      "mode": "stairs",
+      "via": [],
+      "desc": "Dry feeder staircase",
+      "opens": [],
+      "direction": "both",
+      "blocked": [],
+      "atlas_polyline": [
+        [
+          28,
+          31
+        ],
+        [
+          22,
+          37
+        ]
+      ],
+      "atlas_length": 8.5,
+      "nominal_tiles": 136
+    },
+    {
+      "id": "PATH-028",
+      "a": "SLU-ENTRY",
+      "b": "SLU-BELL",
+      "kind": "main",
+      "requires": [],
+      "mode": "stairs",
+      "via": [],
+      "desc": "Upper feeder route under bell label",
+      "opens": [],
+      "direction": "both",
+      "blocked": [],
+      "atlas_polyline": [
+        [
+          28,
+          31
+        ],
+        [
+          32,
+          39
+        ]
+      ],
+      "atlas_length": 8.9,
+      "nominal_tiles": 142
+    },
+    {
+      "id": "PATH-029",
+      "a": "SLU-ROOT",
+      "b": "SLU-SPLIT",
+      "kind": "main",
+      "requires": [],
+      "mode": "stairs",
+      "via": [],
+      "desc": "Root feeder descends to central command regulator",
+      "opens": [],
+      "direction": "both",
+      "blocked": [],
+      "atlas_polyline": [
+        [
+          22,
+          37
+        ],
+        [
+          24,
+          46
+        ]
+      ],
+      "atlas_length": 9.2,
+      "nominal_tiles": 147
+    },
+    {
+      "id": "PATH-030",
+      "a": "SLU-BELL",
+      "b": "SLU-SPLIT",
+      "kind": "main",
+      "requires": [],
+      "mode": "stairs",
+      "via": [],
+      "desc": "Bell feeder descends to central command regulator",
+      "opens": [],
+      "direction": "both",
+      "blocked": [],
+      "atlas_polyline": [
+        [
+          32,
+          39
+        ],
+        [
+          24,
+          46
+        ]
+      ],
+      "atlas_length": 10.6,
+      "nominal_tiles": 170
+    },
+    {
+      "id": "PATH-031",
+      "a": "SLU-SPLIT",
+      "b": "SLU-WARD",
+      "kind": "main",
+      "requires": [
+        "SLUICE_OPEN"
+      ],
+      "mode": "walk",
+      "via": [],
+      "desc": "Raised bridge into Warden territory",
+      "opens": [],
+      "direction": "both",
+      "blocked": [],
+      "atlas_polyline": [
+        [
+          24,
+          46
+        ],
+        [
+          14,
+          47
+        ]
+      ],
+      "atlas_length": 10.0,
+      "nominal_tiles": 160
+    },
+    {
+      "id": "PATH-032",
+      "a": "SLU-WARD",
+      "b": "SLU-OUTLET",
+      "kind": "main",
+      "requires": [
+        "WARDEN_DOWN"
+      ],
+      "mode": "viaduct",
+      "via": [
+        [
+          14,
+          52
+        ],
+        [
+          31,
+          52
+        ]
+      ],
+      "desc": "Lower spill channel promenade beyond Warden; barrier locked until safe mode",
+      "opens": [],
+      "direction": "both",
+      "blocked": [],
+      "atlas_polyline": [
+        [
+          14,
+          47
+        ],
+        [
+          14,
+          52
+        ],
+        [
+          31,
+          52
+        ],
+        [
+          34,
+          50
+        ]
+      ],
+      "atlas_length": 25.6,
+      "nominal_tiles": 410
+    },
+    {
+      "id": "PATH-033",
+      "a": "SLU-OUTLET",
+      "b": "ROT-BRIDGE",
+      "kind": "main",
+      "requires": [
+        "WARDEN_DOWN"
+      ],
+      "mode": "walk",
+      "via": [],
+      "desc": "Water channel becomes root bridge",
+      "opens": [],
+      "direction": "both",
+      "blocked": [],
+      "atlas_polyline": [
+        [
+          34,
+          50
+        ],
+        [
+          42,
+          48
+        ]
+      ],
+      "atlas_length": 8.2,
+      "nominal_tiles": 131
+    },
+    {
+      "id": "PATH-034",
+      "a": "SLU-ENTRY",
+      "b": "SLU-SPILL",
+      "kind": "branch",
+      "requires": [],
+      "mode": "terraces",
+      "via": [],
+      "desc": "Upper spillway catwalk; optional local valve after P01",
+      "opens": [],
+      "direction": "both",
+      "blocked": [],
+      "atlas_polyline": [
+        [
+          28,
+          31
+        ],
+        [
+          8,
+          34
+        ]
+      ],
+      "atlas_length": 20.2,
+      "nominal_tiles": 323
+    },
+    {
+      "id": "PATH-035",
+      "a": "SLU-SPILL",
+      "b": "HUN-SPLIT",
+      "kind": "shortcut",
+      "requires": [
+        "SLUICE_OPEN",
+        "SPILL_OPEN"
+      ],
+      "mode": "lift",
+      "via": [
+        [
+          8,
+          28
+        ],
+        [
+          14,
+          25
+        ],
+        [
+          70,
+          25
+        ],
+        [
+          77,
+          21
+        ]
+      ],
+      "desc": "S01 catchment ladder and service ledge; separate deck above ridge viaduct",
+      "opens": [],
+      "direction": "both",
+      "blocked": [],
+      "atlas_polyline": [
+        [
+          8,
+          34
+        ],
+        [
+          8,
+          28
+        ],
+        [
+          14,
+          25
+        ],
+        [
+          70,
+          25
+        ],
+        [
+          77,
+          21
+        ],
+        [
+          83,
+          15
+        ]
+      ],
+      "atlas_length": 85.3,
+      "nominal_tiles": 1365
+    },
+    {
+      "id": "PATH-036",
+      "a": "ROT-BRIDGE",
+      "b": "ROT-CANOPY",
+      "kind": "main",
+      "requires": [
+        "WARDEN_DOWN"
+      ],
+      "mode": "stairs",
+      "via": [],
+      "desc": "Roots with authored stair terraces and safe lift",
+      "opens": [],
+      "direction": "both",
+      "blocked": [],
+      "atlas_polyline": [
+        [
+          42,
+          48
+        ],
+        [
+          51,
+          35
+        ]
+      ],
+      "atlas_length": 15.8,
+      "nominal_tiles": 253
+    },
+    {
+      "id": "PATH-037",
+      "a": "ROT-CANOPY",
+      "b": "ROT-FORK",
+      "kind": "main",
+      "requires": [
+        "WARDEN_DOWN"
+      ],
+      "mode": "terraces",
+      "via": [],
+      "desc": "Connects early overlook to main trunk only after bridge is safe",
+      "opens": [],
+      "direction": "both",
+      "blocked": [],
+      "atlas_polyline": [
+        [
+          51,
+          35
+        ],
+        [
+          65,
+          32
+        ]
+      ],
+      "atlas_length": 14.3,
+      "nominal_tiles": 229
+    },
+    {
+      "id": "PATH-038",
+      "a": "ROT-BRIDGE",
+      "b": "ROT-GARDEN",
+      "kind": "branch",
+      "requires": [
+        "WARDEN_DOWN"
+      ],
+      "mode": "walk",
+      "via": [],
+      "desc": "Lower roots descend toward garden valve M06",
+      "opens": [],
+      "direction": "both",
+      "blocked": [],
+      "atlas_polyline": [
+        [
+          42,
+          48
+        ],
+        [
+          56,
+          51
+        ]
+      ],
+      "atlas_length": 14.3,
+      "nominal_tiles": 229
+    },
+    {
+      "id": "PATH-039",
+      "a": "ROT-GARDEN",
+      "b": "ROT-TUNNEL",
+      "kind": "branch",
+      "requires": [
+        "GARDEN_RESTORED"
+      ],
+      "mode": "stairs",
+      "via": [],
+      "desc": "Restored float deck gives access to underroot service",
+      "opens": [],
+      "direction": "both",
+      "blocked": [],
+      "atlas_polyline": [
+        [
+          56,
+          51
+        ],
+        [
+          46,
+          55
+        ]
+      ],
+      "atlas_length": 10.8,
+      "nominal_tiles": 173
+    },
+    {
+      "id": "PATH-040",
+      "a": "ROT-TUNNEL",
+      "b": "SLU-SPLIT",
+      "kind": "shortcut",
+      "requires": [
+        "GARDEN_RESTORED",
+        "WARDEN_DOWN"
+      ],
+      "mode": "viaduct",
+      "via": [
+        [
+          39,
+          57
+        ],
+        [
+          26,
+          54
+        ]
+      ],
+      "desc": "S02 service tunnel, safe bilateral return",
+      "opens": [],
+      "direction": "both",
+      "blocked": [],
+      "atlas_polyline": [
+        [
+          46,
+          55
+        ],
+        [
+          39,
+          57
+        ],
+        [
+          26,
+          54
+        ],
+        [
+          24,
+          46
+        ]
+      ],
+      "atlas_length": 28.9,
+      "nominal_tiles": 462
+    },
+    {
+      "id": "PATH-041",
+      "a": "ROT-CANOPY",
+      "b": "ROT-HOLLOW",
+      "kind": "branch",
+      "requires": [
+        "WARDEN_DOWN"
+      ],
+      "mode": "stairs",
+      "via": [],
+      "desc": "Marked hollow entry, optional Titan trigger",
+      "opens": [],
+      "direction": "both",
+      "blocked": [],
+      "atlas_polyline": [
+        [
+          51,
+          35
+        ],
+        [
+          70,
+          48
+        ]
+      ],
+      "atlas_length": 23.0,
+      "nominal_tiles": 368
+    },
+    {
+      "id": "PATH-042",
+      "a": "ROT-GARDEN",
+      "b": "ROT-HOLLOW",
+      "kind": "branch",
+      "requires": [
+        "WARDEN_DOWN"
+      ],
+      "mode": "walk",
+      "via": [],
+      "desc": "Lower root loop, retreat permitted before arena seal",
+      "opens": [],
+      "direction": "both",
+      "blocked": [],
+      "atlas_polyline": [
+        [
+          56,
+          51
+        ],
+        [
+          70,
+          48
+        ]
+      ],
+      "atlas_length": 14.3,
+      "nominal_tiles": 229
+    },
+    {
+      "id": "PATH-043",
+      "a": "ROT-CANOPY",
+      "b": "ROT-EAST",
+      "kind": "main",
+      "requires": [
+        "WARDEN_DOWN"
+      ],
+      "mode": "terraces",
+      "via": [
+        [
+          61,
+          42
+        ],
+        [
+          73,
+          42
+        ]
+      ],
+      "desc": "High trunk traverse to foundry bridge, separate from Titan arena",
+      "opens": [],
+      "direction": "both",
+      "blocked": [],
+      "atlas_polyline": [
+        [
+          51,
+          35
+        ],
+        [
+          61,
+          42
+        ],
+        [
+          73,
+          42
+        ],
+        [
+          76,
+          53
+        ]
+      ],
+      "atlas_length": 35.6,
+      "nominal_tiles": 570
+    },
+    {
+      "id": "PATH-044",
+      "a": "ROT-GARDEN",
+      "b": "ROT-EAST",
+      "kind": "branch",
+      "requires": [
+        "WARDEN_DOWN"
+      ],
+      "mode": "terraces",
+      "via": [
+        [
+          63,
+          54
+        ]
+      ],
+      "desc": "Lower contour bypass, rejoins footbridge without Titan",
+      "opens": [],
+      "direction": "both",
+      "blocked": [],
+      "atlas_polyline": [
+        [
+          56,
+          51
+        ],
+        [
+          63,
+          54
+        ],
+        [
+          76,
+          53
+        ]
+      ],
+      "atlas_length": 20.7,
+      "nominal_tiles": 331
+    },
+    {
+      "id": "PATH-045",
+      "a": "ROT-EAST",
+      "b": "REL-WORK",
+      "kind": "main",
+      "requires": [
+        "WARDEN_DOWN"
+      ],
+      "mode": "walk",
+      "via": [],
+      "desc": "Roots intrude on industrial maintenance walkway",
+      "opens": [],
+      "direction": "both",
+      "blocked": [],
+      "atlas_polyline": [
+        [
+          76,
+          53
+        ],
+        [
+          84,
+          54
+        ]
+      ],
+      "atlas_length": 8.1,
+      "nominal_tiles": 130
+    },
+    {
+      "id": "PATH-046",
+      "a": "REL-WORK",
+      "b": "REL-RELAY",
+      "kind": "main",
+      "requires": [],
+      "mode": "stairs",
+      "via": [],
+      "desc": "Source to service relay and receiver",
+      "opens": [],
+      "direction": "both",
+      "blocked": [],
+      "atlas_polyline": [
+        [
+          84,
+          54
+        ],
+        [
+          94,
+          49
+        ]
+      ],
+      "atlas_length": 11.2,
+      "nominal_tiles": 179
+    },
+    {
+      "id": "PATH-047",
+      "a": "REL-RELAY",
+      "b": "REL-GOLEM",
+      "kind": "main",
+      "requires": [
+        "WORKS_POWER"
+      ],
+      "mode": "walk",
+      "via": [],
+      "desc": "Service gate opens to foundry road",
+      "opens": [],
+      "direction": "both",
+      "blocked": [],
+      "atlas_polyline": [
+        [
+          94,
+          49
+        ],
+        [
+          107,
+          54
+        ]
+      ],
+      "atlas_length": 13.9,
+      "nominal_tiles": 222
+    },
+    {
+      "id": "PATH-048",
+      "a": "REL-GOLEM",
+      "b": "REL-LOFT",
+      "kind": "branch",
+      "requires": [],
+      "mode": "lift",
+      "via": [],
+      "desc": "Suspended crane maintenance lift; M08",
+      "opens": [],
+      "direction": "both",
+      "blocked": [],
+      "atlas_polyline": [
+        [
+          107,
+          54
+        ],
+        [
+          111,
+          46
+        ]
+      ],
+      "atlas_length": 8.9,
+      "nominal_tiles": 142
+    },
+    {
+      "id": "PATH-049",
+      "a": "REL-LOFT",
+      "b": "ROT-CANOPY",
+      "kind": "shortcut",
+      "requires": [
+        "LOFT_RELAY",
+        "WARDEN_DOWN"
+      ],
+      "mode": "viaduct",
+      "via": [
+        [
+          106,
+          44
+        ],
+        [
+          78,
+          44
+        ],
+        [
+          62,
+          40
+        ]
+      ],
+      "desc": "S03 maintenance rail over root terrace",
+      "opens": [],
+      "direction": "both",
+      "blocked": [],
+      "atlas_polyline": [
+        [
+          111,
+          46
+        ],
+        [
+          106,
+          44
+        ],
+        [
+          78,
+          44
+        ],
+        [
+          62,
+          40
+        ],
+        [
+          51,
+          35
+        ]
+      ],
+      "atlas_length": 62.0,
+      "nominal_tiles": 992
+    },
+    {
+      "id": "PATH-050",
+      "a": "REL-GOLEM",
+      "b": "REL-DRAIN",
+      "kind": "main",
+      "requires": [],
+      "mode": "terraces",
+      "via": [],
+      "desc": "Cooling trench and lower archive service road",
+      "opens": [],
+      "direction": "both",
+      "blocked": [],
+      "atlas_polyline": [
+        [
+          107,
+          54
+        ],
+        [
+          88,
+          62
+        ]
+      ],
+      "atlas_length": 20.6,
+      "nominal_tiles": 330
+    },
+    {
+      "id": "PATH-051",
+      "a": "REL-DRAIN",
+      "b": "SUR-STEPS",
+      "kind": "main",
+      "requires": [],
+      "mode": "viaduct",
+      "via": [
+        [
+          77,
+          60
+        ],
+        [
+          41,
+          60
+        ]
+      ],
+      "desc": "Stone archive viaduct across central span, separate above Warped Verge",
+      "opens": [],
+      "direction": "both",
+      "blocked": [],
+      "atlas_polyline": [
+        [
+          88,
+          62
+        ],
+        [
+          77,
+          60
+        ],
+        [
+          41,
+          60
+        ],
+        [
+          34,
+          62
+        ]
+      ],
+      "atlas_length": 54.5,
+      "nominal_tiles": 872
+    },
+    {
+      "id": "PATH-052",
+      "a": "SUR-STEPS",
+      "b": "SUR-DISPLAY",
+      "kind": "main",
+      "requires": [],
+      "mode": "stairs",
+      "via": [],
+      "desc": "Archive balcony and display frame",
+      "opens": [],
+      "direction": "both",
+      "blocked": [],
+      "atlas_polyline": [
+        [
+          34,
+          62
+        ],
+        [
+          22,
+          65
+        ]
+      ],
+      "atlas_length": 12.4,
+      "nominal_tiles": 198
+    },
+    {
+      "id": "PATH-053",
+      "a": "SUR-DISPLAY",
+      "b": "SUR-MAP",
+      "kind": "main",
+      "requires": [
+        "ARCHIVE_ALIGNED"
+      ],
+      "mode": "stairs",
+      "via": [],
+      "desc": "Validated archive lock opens downward",
+      "opens": [],
+      "direction": "both",
+      "blocked": [],
+      "atlas_polyline": [
+        [
+          22,
+          65
+        ],
+        [
+          14,
+          72
+        ]
+      ],
+      "atlas_length": 10.6,
+      "nominal_tiles": 170
+    },
+    {
+      "id": "PATH-054",
+      "a": "SUR-DISPLAY",
+      "b": "SUR-SHELF",
+      "kind": "branch",
+      "requires": [],
+      "mode": "terraces",
+      "via": [],
+      "desc": "Optional glyph-locked shelf cache M09",
+      "opens": [],
+      "direction": "both",
+      "blocked": [],
+      "atlas_polyline": [
+        [
+          22,
+          65
+        ],
+        [
+          8,
+          64
+        ]
+      ],
+      "atlas_length": 14.0,
+      "nominal_tiles": 224
+    },
+    {
+      "id": "PATH-055",
+      "a": "SUR-MAP",
+      "b": "SUR-LOW",
+      "kind": "main",
+      "requires": [
+        "VAULT_MAP"
+      ],
+      "mode": "stairs",
+      "via": [],
+      "desc": "Lower archive exit, route to unstable connection",
+      "opens": [],
+      "direction": "both",
+      "blocked": [],
+      "atlas_polyline": [
+        [
+          14,
+          72
+        ],
+        [
+          31,
+          79
+        ]
+      ],
+      "atlas_length": 18.4,
+      "nominal_tiles": 294
+    },
+    {
+      "id": "PATH-056",
+      "a": "SUR-LOW",
+      "b": "WAR-LAND",
+      "kind": "main",
+      "requires": [
+        "VAULT_MAP"
+      ],
+      "mode": "walk",
+      "via": [],
+      "desc": "Repeating glyphs begin to misalign",
+      "opens": [],
+      "direction": "both",
+      "blocked": [],
+      "atlas_polyline": [
+        [
+          31,
+          79
+        ],
+        [
+          43,
+          79
+        ]
+      ],
+      "atlas_length": 12.0,
+      "nominal_tiles": 192
+    },
+    {
+      "id": "PATH-057",
+      "a": "WAR-LAND",
+      "b": "WAR-JUNC",
+      "kind": "main",
+      "requires": [],
+      "mode": "terraces",
+      "via": [],
+      "desc": "Marked stable slabs connected by decks",
+      "opens": [],
+      "direction": "both",
+      "blocked": [],
+      "atlas_polyline": [
+        [
+          43,
+          79
+        ],
+        [
+          56,
+          73
+        ]
+      ],
+      "atlas_length": 14.3,
+      "nominal_tiles": 229
+    },
+    {
+      "id": "PATH-058",
+      "a": "WAR-JUNC",
+      "b": "WAR-FOLD",
+      "kind": "main",
+      "requires": [
+        "TOPOLOGY_ALIGNED"
+      ],
+      "mode": "walk",
+      "via": [],
+      "desc": "Matched diamond anchor opens stable connection",
+      "opens": [],
+      "direction": "both",
+      "blocked": [],
+      "atlas_polyline": [
+        [
+          56,
+          73
+        ],
+        [
+          75,
+          73
+        ]
+      ],
+      "atlas_length": 19.0,
+      "nominal_tiles": 304
+    },
+    {
+      "id": "PATH-059",
+      "a": "WAR-JUNC",
+      "b": "WAR-LOOP",
+      "kind": "branch",
+      "requires": [],
+      "mode": "stairs",
+      "via": [],
+      "desc": "Optional anchor trace M10",
+      "opens": [],
+      "direction": "both",
+      "blocked": [],
+      "atlas_polyline": [
+        [
+          56,
+          73
+        ],
+        [
+          62,
+          65
+        ]
+      ],
+      "atlas_length": 10.0,
+      "nominal_tiles": 160
+    },
+    {
+      "id": "PATH-060",
+      "a": "WAR-LAND",
+      "b": "WAR-EDGE",
+      "kind": "branch",
+      "requires": [],
+      "mode": "walk",
+      "via": [],
+      "desc": "See later Reservoir return from upper promenade",
+      "opens": [],
+      "direction": "both",
+      "blocked": [],
+      "atlas_polyline": [
+        [
+          43,
+          79
+        ],
+        [
+          48,
+          83
+        ]
+      ],
+      "atlas_length": 6.4,
+      "nominal_tiles": 102
+    },
+    {
+      "id": "PATH-061",
+      "a": "WAR-FOLD",
+      "b": "VER-ATRIUM",
+      "kind": "main",
+      "requires": [
+        "TOPOLOGY_ALIGNED"
+      ],
+      "mode": "fold",
+      "via": [],
+      "desc": "Warp throat A: Eldara to Veraya; reciprocal",
+      "opens": [],
+      "direction": "both",
+      "blocked": [],
+      "atlas_polyline": [
+        [
+          75,
+          73
+        ],
+        [
+          86,
+          73
+        ]
+      ],
+      "atlas_length": 11.0,
+      "nominal_tiles": null
+    },
+    {
+      "id": "PATH-062",
+      "a": "WAR-LOOP",
+      "b": "VER-GALLERY",
+      "kind": "shortcut",
+      "requires": [
+        "LOOP_MARKED",
+        "TOPOLOGY_ALIGNED"
+      ],
+      "mode": "fold",
+      "via": [],
+      "desc": "S04 Warp throat B after both anchor checks",
+      "opens": [],
+      "direction": "both",
+      "blocked": [],
+      "atlas_polyline": [
+        [
+          62,
+          65
+        ],
+        [
+          99,
+          70
+        ]
+      ],
+      "atlas_length": 37.3,
+      "nominal_tiles": null
+    },
+    {
+      "id": "PATH-063",
+      "a": "VER-ATRIUM",
+      "b": "VER-GALLERY",
+      "kind": "main",
+      "requires": [],
+      "mode": "walk",
+      "via": [],
+      "desc": "Foreign lab floor and research recording",
+      "opens": [],
+      "direction": "both",
+      "blocked": [],
+      "atlas_polyline": [
+        [
+          86,
+          73
+        ],
+        [
+          99,
+          70
+        ]
+      ],
+      "atlas_length": 13.3,
+      "nominal_tiles": 213
+    },
+    {
+      "id": "PATH-064",
+      "a": "VER-GALLERY",
+      "b": "VER-SKY",
+      "kind": "main",
+      "requires": [],
+      "mode": "terraces",
+      "via": [],
+      "desc": "Observation ramp and unfamiliar skyline",
+      "opens": [],
+      "direction": "both",
+      "blocked": [],
+      "atlas_polyline": [
+        [
+          99,
+          70
+        ],
+        [
+          113,
+          75
+        ]
+      ],
+      "atlas_length": 14.9,
+      "nominal_tiles": 238
+    },
+    {
+      "id": "PATH-065",
+      "a": "VER-GALLERY",
+      "b": "VER-ANNEX",
+      "kind": "branch",
+      "requires": [],
+      "mode": "stairs",
+      "via": [],
+      "desc": "Diagnostic annex M11, local puzzle",
+      "opens": [],
+      "direction": "both",
+      "blocked": [],
+      "atlas_polyline": [
+        [
+          99,
+          70
+        ],
+        [
+          105,
+          84
+        ]
+      ],
+      "atlas_length": 15.2,
+      "nominal_tiles": 243
+    },
+    {
+      "id": "PATH-066",
+      "a": "VER-ANNEX",
+      "b": "VER-RETURN",
+      "kind": "branch",
+      "requires": [],
+      "mode": "walk",
+      "via": [],
+      "desc": "Service alcove dead-end until local Rewind route",
+      "opens": [],
+      "direction": "both",
+      "blocked": [],
+      "atlas_polyline": [
+        [
+          105,
+          84
+        ],
+        [
+          88,
+          85
+        ]
+      ],
+      "atlas_length": 17.0,
+      "nominal_tiles": 272
+    },
+    {
+      "id": "PATH-067",
+      "a": "VER-SKY",
+      "b": "SIL-HALL",
+      "kind": "main",
+      "requires": [
+        "TOPOLOGY_ALIGNED"
+      ],
+      "mode": "fold",
+      "via": [
+        [
+          116,
+          88
+        ],
+        [
+          32,
+          85
+        ]
+      ],
+      "desc": "Warp throat C returns to Eldaran memorials; dashed atlas line is NOT a physical cross-planet corridor",
+      "opens": [],
+      "direction": "both",
+      "blocked": [],
+      "atlas_polyline": [
+        [
+          113,
+          75
+        ],
+        [
+          116,
+          88
+        ],
+        [
+          32,
+          85
+        ],
+        [
+          29,
+          89
+        ]
+      ],
+      "atlas_length": 102.4,
+      "nominal_tiles": null
+    },
+    {
+      "id": "PATH-068",
+      "a": "SIL-HALL",
+      "b": "SIL-THEATRE",
+      "kind": "main",
+      "requires": [],
+      "mode": "stairs",
+      "via": [],
+      "desc": "Quiet memorial promenade",
+      "opens": [],
+      "direction": "both",
+      "blocked": [],
+      "atlas_polyline": [
+        [
+          29,
+          89
+        ],
+        [
+          19,
+          94
+        ]
+      ],
+      "atlas_length": 11.2,
+      "nominal_tiles": 179
+    },
+    {
+      "id": "PATH-069",
+      "a": "SIL-HALL",
+      "b": "SIL-GARDEN",
+      "kind": "branch",
+      "requires": [],
+      "mode": "walk",
+      "via": [],
+      "desc": "Quiet viewing terrace",
+      "opens": [],
+      "direction": "both",
+      "blocked": [],
+      "atlas_polyline": [
+        [
+          29,
+          89
+        ],
+        [
+          10,
+          89
+        ]
+      ],
+      "atlas_length": 19.0,
+      "nominal_tiles": 304
+    },
+    {
+      "id": "PATH-070",
+      "a": "SIL-GARDEN",
+      "b": "SIL-SHRINE",
+      "kind": "branch",
+      "requires": [],
+      "mode": "stairs",
+      "via": [],
+      "desc": "Match memorial name M12",
+      "opens": [],
+      "direction": "both",
+      "blocked": [],
+      "atlas_polyline": [
+        [
+          10,
+          89
+        ],
+        [
+          9,
+          99
+        ]
+      ],
+      "atlas_length": 10.0,
+      "nominal_tiles": 160
+    },
+    {
+      "id": "PATH-071",
+      "a": "SIL-SHRINE",
+      "b": "SIL-THEATRE",
+      "kind": "branch",
+      "requires": [],
+      "mode": "walk",
+      "via": [],
+      "desc": "Return via colonnade",
+      "opens": [],
+      "direction": "both",
+      "blocked": [],
+      "atlas_polyline": [
+        [
+          9,
+          99
+        ],
+        [
+          19,
+          94
+        ]
+      ],
+      "atlas_length": 11.2,
+      "nominal_tiles": 179
+    },
+    {
+      "id": "PATH-072",
+      "a": "SIL-THEATRE",
+      "b": "SIL-WALK",
+      "kind": "main",
+      "requires": [
+        "MEMORIAL_SEEN"
+      ],
+      "mode": "walk",
+      "via": [],
+      "desc": "Memory scene completed; ordinary release walk opens",
+      "opens": [],
+      "direction": "both",
+      "blocked": [],
+      "atlas_polyline": [
+        [
+          19,
+          94
+        ],
+        [
+          32,
+          101
+        ]
+      ],
+      "atlas_length": 14.8,
+      "nominal_tiles": 237
+    },
+    {
+      "id": "PATH-073",
+      "a": "SIL-WALK",
+      "b": "RES-DECK",
+      "kind": "main",
+      "requires": [
+        "MEMORIAL_SEEN"
+      ],
+      "mode": "walk",
+      "via": [],
+      "desc": "Quiet stone transitions into service basin",
+      "opens": [],
+      "direction": "both",
+      "blocked": [],
+      "atlas_polyline": [
+        [
+          32,
+          101
+        ],
+        [
+          42,
+          101
+        ]
+      ],
+      "atlas_length": 10.0,
+      "nominal_tiles": 160
+    },
+    {
+      "id": "PATH-074",
+      "a": "RES-DECK",
+      "b": "RES-SOURCE",
+      "kind": "main",
+      "requires": [],
+      "mode": "stairs",
+      "via": [],
+      "desc": "Source pipes climb to manifold",
+      "opens": [],
+      "direction": "both",
+      "blocked": [],
+      "atlas_polyline": [
+        [
+          42,
+          101
+        ],
+        [
+          51,
+          94
+        ]
+      ],
+      "atlas_length": 11.4,
+      "nominal_tiles": 182
+    },
+    {
+      "id": "PATH-075",
+      "a": "RES-SOURCE",
+      "b": "RES-ROUTE",
+      "kind": "main",
+      "requires": [],
+      "mode": "stairs",
+      "via": [],
+      "desc": "Three branch controls on a compact inspection loop",
+      "opens": [],
+      "direction": "both",
+      "blocked": [],
+      "atlas_polyline": [
+        [
+          51,
+          94
+        ],
+        [
+          59,
+          101
+        ]
+      ],
+      "atlas_length": 10.6,
+      "nominal_tiles": 170
+    },
+    {
+      "id": "PATH-076",
+      "a": "RES-ROUTE",
+      "b": "RES-COURT",
+      "kind": "main",
+      "requires": [
+        "RESERVOIR_STABLE"
+      ],
+      "mode": "walk",
+      "via": [],
+      "desc": "Stabilized pressure gate into alignment court",
+      "opens": [],
+      "direction": "both",
+      "blocked": [],
+      "atlas_polyline": [
+        [
+          59,
+          101
+        ],
+        [
+          73,
+          99
+        ]
+      ],
+      "atlas_length": 14.1,
+      "nominal_tiles": 226
+    },
+    {
+      "id": "PATH-077",
+      "a": "RES-DECK",
+      "b": "RES-OVER",
+      "kind": "branch",
+      "requires": [
+        "RESERVOIR_STABLE"
+      ],
+      "mode": "stairs",
+      "via": [],
+      "desc": "Overflow alcove M13 after safe release",
+      "opens": [],
+      "direction": "both",
+      "blocked": [],
+      "atlas_polyline": [
+        [
+          42,
+          101
+        ],
+        [
+          48,
+          108
+        ]
+      ],
+      "atlas_length": 9.2,
+      "nominal_tiles": 147
+    },
+    {
+      "id": "PATH-078",
+      "a": "RES-OVER",
+      "b": "WAR-EDGE",
+      "kind": "shortcut",
+      "requires": [
+        "RESERVOIR_STABLE",
+        "OVERFLOW_ISOLATED"
+      ],
+      "mode": "lift",
+      "via": [
+        [
+          40,
+          108
+        ],
+        [
+          38,
+          86
+        ]
+      ],
+      "desc": "S05 long maintenance return shaft along basin rim",
+      "opens": [],
+      "direction": "both",
+      "blocked": [],
+      "atlas_polyline": [
+        [
+          48,
+          108
+        ],
+        [
+          40,
+          108
+        ],
+        [
+          38,
+          86
+        ],
+        [
+          48,
+          83
+        ]
+      ],
+      "atlas_length": 40.5,
+      "nominal_tiles": 648
+    },
+    {
+      "id": "PATH-079",
+      "a": "RES-COURT",
+      "b": "RES-EXIT",
+      "kind": "main",
+      "requires": [
+        "COLOSSUS_DOWN"
+      ],
+      "mode": "terraces",
+      "via": [],
+      "desc": "Vault supply bridge opens when court safe",
+      "opens": [],
+      "direction": "both",
+      "blocked": [],
+      "atlas_polyline": [
+        [
+          73,
+          99
+        ],
+        [
+          78,
+          106
+        ]
+      ],
+      "atlas_length": 8.6,
+      "nominal_tiles": 138
+    },
+    {
+      "id": "PATH-080",
+      "a": "RES-EXIT",
+      "b": "REW-VEST",
+      "kind": "main",
+      "requires": [
+        "COLOSSUS_DOWN"
+      ],
+      "mode": "walk",
+      "via": [],
+      "desc": "Transition from reservoir machinery into pale vault",
+      "opens": [],
+      "direction": "both",
+      "blocked": [],
+      "atlas_polyline": [
+        [
+          78,
+          106
+        ],
+        [
+          88,
+          104
+        ]
+      ],
+      "atlas_length": 10.2,
+      "nominal_tiles": 163
+    },
+    {
+      "id": "PATH-081",
+      "a": "REW-VEST",
+      "b": "REW-KEEP",
+      "kind": "main",
+      "requires": [
+        "KEEPER_EXPOSED"
+      ],
+      "mode": "walk",
+      "via": [],
+      "desc": "Paired isolators grant arena access",
+      "opens": [],
+      "direction": "both",
+      "blocked": [],
+      "atlas_polyline": [
+        [
+          88,
+          104
+        ],
+        [
+          99,
+          100
+        ]
+      ],
+      "atlas_length": 11.7,
+      "nominal_tiles": 187
+    },
+    {
+      "id": "PATH-082",
+      "a": "REW-KEEP",
+      "b": "REW-RELIC",
+      "kind": "main",
+      "requires": [
+        "KEEPER_DOWN"
+      ],
+      "mode": "walk",
+      "via": [],
+      "desc": "Inner security vault",
+      "opens": [],
+      "direction": "both",
+      "blocked": [],
+      "atlas_polyline": [
+        [
+          99,
+          100
+        ],
+        [
+          111,
+          99
+        ]
+      ],
+      "atlas_length": 12.0,
+      "nominal_tiles": 192
+    },
+    {
+      "id": "PATH-083",
+      "a": "REW-RELIC",
+      "b": "REW-TRAIN",
+      "kind": "main",
+      "requires": [
+        "REWIND_ACQUIRED"
+      ],
+      "mode": "stairs",
+      "via": [],
+      "desc": "Local training terrace and reset service",
+      "opens": [],
+      "direction": "both",
+      "blocked": [],
+      "atlas_polyline": [
+        [
+          111,
+          99
+        ],
+        [
+          104,
+          109
+        ]
+      ],
+      "atlas_length": 12.2,
+      "nominal_tiles": 195
+    },
+    {
+      "id": "PATH-084",
+      "a": "REW-TRAIN",
+      "b": "REW-SERVICE",
+      "kind": "main",
+      "requires": [
+        "REWIND_TRAINED"
+      ],
+      "mode": "walk",
+      "via": [],
+      "desc": "Return-side gate opens after successful recorded path",
+      "opens": [],
+      "direction": "both",
+      "blocked": [],
+      "atlas_polyline": [
+        [
+          104,
+          109
+        ],
+        [
+          89,
+          112
+        ]
+      ],
+      "atlas_length": 15.3,
+      "nominal_tiles": 245
+    },
+    {
+      "id": "PATH-085",
+      "a": "REW-SERVICE",
+      "b": "FOL-LAND",
+      "kind": "main",
+      "requires": [
+        "REWIND_TRAINED"
+      ],
+      "mode": "viaduct",
+      "via": [
+        [
+          82,
+          113
+        ],
+        [
+          43,
+          113
+        ]
+      ],
+      "desc": "Lower service traverse along reservoir foundation; scenic tunnel, no arbitrary portal",
+      "opens": [],
+      "direction": "both",
+      "blocked": [],
+      "atlas_polyline": [
+        [
+          89,
+          112
+        ],
+        [
+          82,
+          113
+        ],
+        [
+          43,
+          113
+        ],
+        [
+          38,
+          116
+        ]
+      ],
+      "atlas_length": 51.9,
+      "nominal_tiles": 830
+    },
+    {
+      "id": "PATH-086",
+      "a": "FOL-LAND",
+      "b": "SUR-SHELF",
+      "kind": "shortcut",
+      "requires": [
+        "REWIND_TRAINED",
+        "SHELF_OPEN",
+        "ARCHIVE_RETURN"
+      ],
+      "mode": "lift",
+      "via": [
+        [
+          41,
+          114
+        ],
+        [
+          39,
+          58
+        ],
+        [
+          8,
+          58
+        ]
+      ],
+      "desc": "S06 deep maintenance lift, separate shaft; shelf-side latch reachable after main route",
+      "opens": [],
+      "direction": "both",
+      "blocked": [],
+      "atlas_polyline": [
+        [
+          38,
+          116
+        ],
+        [
+          41,
+          114
+        ],
+        [
+          39,
+          58
+        ],
+        [
+          8,
+          58
+        ],
+        [
+          8,
+          64
+        ]
+      ],
+      "atlas_length": 96.6,
+      "nominal_tiles": 1546
+    },
+    {
+      "id": "PATH-087",
+      "a": "FOL-LAND",
+      "b": "FOL-ONE",
+      "kind": "main",
+      "requires": [],
+      "mode": "stairs",
+      "via": [],
+      "desc": "Safe path past optional shutter pocket",
+      "opens": [],
+      "direction": "both",
+      "blocked": [],
+      "atlas_polyline": [
+        [
+          38,
+          116
+        ],
+        [
+          25,
+          123
+        ]
+      ],
+      "atlas_length": 14.8,
+      "nominal_tiles": 237
+    },
+    {
+      "id": "PATH-088",
+      "a": "FOL-ONE",
+      "b": "VER-RETURN",
+      "kind": "shortcut",
+      "requires": [
+        "REWIND_TRAINED",
+        "REWIND_RETURN"
+      ],
+      "mode": "fold",
+      "via": [
+        [
+          24,
+          112
+        ],
+        [
+          87,
+          88
+        ]
+      ],
+      "desc": "S07 dormant paired maintenance fold unlocked by M16, not arbitrary teleport",
+      "opens": [],
+      "direction": "both",
+      "blocked": [],
+      "atlas_polyline": [
+        [
+          25,
+          123
+        ],
+        [
+          24,
+          112
+        ],
+        [
+          87,
+          88
+        ],
+        [
+          88,
+          85
+        ]
+      ],
+      "atlas_length": 81.6,
+      "nominal_tiles": null
+    },
+    {
+      "id": "PATH-089",
+      "a": "FOL-ONE",
+      "b": "FOL-JUNC",
+      "kind": "main",
+      "requires": [],
+      "mode": "terraces",
+      "via": [],
+      "desc": "Three visible paired anchors along sloping corridor",
+      "opens": [],
+      "direction": "both",
+      "blocked": [],
+      "atlas_polyline": [
+        [
+          25,
+          123
+        ],
+        [
+          15,
+          129
+        ]
+      ],
+      "atlas_length": 11.7,
+      "nominal_tiles": 187
+    },
+    {
+      "id": "PATH-090",
+      "a": "FOL-JUNC",
+      "b": "FOL-NEST",
+      "kind": "branch",
+      "requires": [
+        "REWIND_TRAINED"
+      ],
+      "mode": "stairs",
+      "via": [],
+      "desc": "M14 safe Rewind latch before optional Devourer arena",
+      "opens": [],
+      "direction": "both",
+      "blocked": [],
+      "atlas_polyline": [
+        [
+          15,
+          129
+        ],
+        [
+          8,
+          136
+        ]
+      ],
+      "atlas_length": 9.9,
+      "nominal_tiles": 158
+    },
+    {
+      "id": "PATH-091",
+      "a": "FOL-JUNC",
+      "b": "FOL-RIDGE",
+      "kind": "main",
+      "requires": [
+        "FOLDS_ALIGNED"
+      ],
+      "mode": "terraces",
+      "via": [],
+      "desc": "Aligned service corridor",
+      "opens": [],
+      "direction": "both",
+      "blocked": [],
+      "atlas_polyline": [
+        [
+          15,
+          129
+        ],
+        [
+          37,
+          135
+        ]
+      ],
+      "atlas_length": 22.8,
+      "nominal_tiles": 365
+    },
+    {
+      "id": "PATH-092",
+      "a": "FOL-RIDGE",
+      "b": "FIN-WALK",
+      "kind": "main",
+      "requires": [
+        "FOLDS_ALIGNED"
+      ],
+      "mode": "walk",
+      "via": [],
+      "desc": "Fractured architecture resolves into monumental viaduct",
+      "opens": [],
+      "direction": "both",
+      "blocked": [],
+      "atlas_polyline": [
+        [
+          37,
+          135
+        ],
+        [
+          48,
+          135
+        ]
+      ],
+      "atlas_length": 11.0,
+      "nominal_tiles": 176
+    },
+    {
+      "id": "PATH-093",
+      "a": "FIN-WALK",
+      "b": "FIN-A",
+      "kind": "main",
+      "requires": [],
+      "mode": "stairs",
+      "via": [],
+      "desc": "Western stabilizer",
+      "opens": [],
+      "direction": "both",
+      "blocked": [],
+      "atlas_polyline": [
+        [
+          48,
+          135
+        ],
+        [
+          54,
+          126
+        ]
+      ],
+      "atlas_length": 10.8,
+      "nominal_tiles": 173
+    },
+    {
+      "id": "PATH-094",
+      "a": "FIN-A",
+      "b": "FIN-B",
+      "kind": "main",
+      "requires": [],
+      "mode": "lift",
+      "via": [],
+      "desc": "Upper lift terrace",
+      "opens": [],
+      "direction": "both",
+      "blocked": [],
+      "atlas_polyline": [
+        [
+          54,
+          126
+        ],
+        [
+          65,
+          118
+        ]
+      ],
+      "atlas_length": 13.6,
+      "nominal_tiles": 218
+    },
+    {
+      "id": "PATH-095",
+      "a": "FIN-B",
+      "b": "FIN-C",
+      "kind": "main",
+      "requires": [],
+      "mode": "lift",
+      "via": [
+        [
+          70,
+          121
+        ]
+      ],
+      "desc": "Inspection lift from upper to lower deck",
+      "opens": [],
+      "direction": "both",
+      "blocked": [],
+      "atlas_polyline": [
+        [
+          65,
+          118
+        ],
+        [
+          70,
+          121
+        ],
+        [
+          68,
+          136
+        ]
+      ],
+      "atlas_length": 21.0,
+      "nominal_tiles": 336
+    },
+    {
+      "id": "PATH-096",
+      "a": "FIN-C",
+      "b": "FIN-WALK",
+      "kind": "main",
+      "requires": [],
+      "mode": "walk",
+      "via": [],
+      "desc": "Lower deck loop; stabilizers can be activated in any order",
+      "opens": [],
+      "direction": "both",
+      "blocked": [],
+      "atlas_polyline": [
+        [
+          68,
+          136
+        ],
+        [
+          48,
+          135
+        ]
+      ],
+      "atlas_length": 20.0,
+      "nominal_tiles": 320
+    },
+    {
+      "id": "PATH-097",
+      "a": "FIN-B",
+      "b": "FIN-CTRL",
+      "kind": "main",
+      "requires": [],
+      "mode": "stairs",
+      "via": [],
+      "desc": "Upper approach to common control",
+      "opens": [],
+      "direction": "both",
+      "blocked": [],
+      "atlas_polyline": [
+        [
+          65,
+          118
+        ],
+        [
+          76,
+          128
+        ]
+      ],
+      "atlas_length": 14.9,
+      "nominal_tiles": 238
+    },
+    {
+      "id": "PATH-098",
+      "a": "FIN-C",
+      "b": "FIN-CTRL",
+      "kind": "main",
+      "requires": [],
+      "mode": "stairs",
+      "via": [],
+      "desc": "Lower approach to common control",
+      "opens": [],
+      "direction": "both",
+      "blocked": [],
+      "atlas_polyline": [
+        [
+          68,
+          136
+        ],
+        [
+          76,
+          128
+        ]
+      ],
+      "atlas_length": 11.3,
+      "nominal_tiles": 181
+    },
+    {
+      "id": "PATH-099",
+      "a": "FIN-CTRL",
+      "b": "FIN-REST",
+      "kind": "main",
+      "requires": [
+        "ANCHORS_STABLE"
+      ],
+      "mode": "walk",
+      "via": [],
+      "desc": "Aligned approach to final rest",
+      "opens": [],
+      "direction": "both",
+      "blocked": [],
+      "atlas_polyline": [
+        [
+          76,
+          128
+        ],
+        [
+          84,
+          131
+        ]
+      ],
+      "atlas_length": 8.5,
+      "nominal_tiles": 136
+    },
+    {
+      "id": "PATH-100",
+      "a": "FIN-B",
+      "b": "FIN-NICHE",
+      "kind": "branch",
+      "requires": [],
+      "mode": "walk",
+      "via": [],
+      "desc": "Service receiver M15",
+      "opens": [],
+      "direction": "both",
+      "blocked": [],
+      "atlas_polyline": [
+        [
+          65,
+          118
+        ],
+        [
+          82,
+          119
+        ]
+      ],
+      "atlas_length": 17.0,
+      "nominal_tiles": 272
+    },
+    {
+      "id": "PATH-101",
+      "a": "FIN-NICHE",
+      "b": "FIN-REST",
+      "kind": "branch",
+      "requires": [
+        "ANCHORS_STABLE"
+      ],
+      "mode": "stairs",
+      "via": [],
+      "desc": "Optional loop cannot bypass P11",
+      "opens": [],
+      "direction": "both",
+      "blocked": [],
+      "atlas_polyline": [
+        [
+          82,
+          119
+        ],
+        [
+          84,
+          131
+        ]
+      ],
+      "atlas_length": 12.2,
+      "nominal_tiles": 195
+    },
+    {
+      "id": "PATH-102",
+      "a": "FIN-REST",
+      "b": "GAT-ARENA",
+      "kind": "main",
+      "requires": [
+        "ANCHORS_STABLE"
+      ],
+      "mode": "walk",
+      "via": [],
+      "desc": "Short safe boss retry approach",
+      "opens": [],
+      "direction": "both",
+      "blocked": [],
+      "atlas_polyline": [
+        [
+          84,
+          131
+        ],
+        [
+          93,
+          131
+        ]
+      ],
+      "atlas_length": 9.0,
+      "nominal_tiles": 144
+    },
+    {
+      "id": "PATH-103",
+      "a": "GAT-ARENA",
+      "b": "GAT-GATE",
+      "kind": "main",
+      "requires": [
+        "GUARDIAN_DOWN"
+      ],
+      "mode": "walk",
+      "via": [],
+      "desc": "Containment seal opens after Guardian defeat",
+      "opens": [],
+      "direction": "both",
+      "blocked": [],
+      "atlas_polyline": [
+        [
+          93,
+          131
+        ],
+        [
+          109,
+          129
+        ]
+      ],
+      "atlas_length": 16.1,
+      "nominal_tiles": 258
+    },
+    {
+      "id": "PATH-104",
+      "a": "GAT-GATE",
+      "b": "GAT-BEACON",
+      "kind": "main",
+      "requires": [
+        "GATE_DIAGNOSED"
+      ],
+      "mode": "stairs",
+      "via": [],
+      "desc": "Physically broken exit; emergency diagnostic walkway",
+      "opens": [],
+      "direction": "both",
+      "blocked": [],
+      "atlas_polyline": [
+        [
+          109,
+          129
+        ],
+        [
+          116,
+          136
+        ]
+      ],
+      "atlas_length": 9.9,
+      "nominal_tiles": 158
+    },
+    {
+      "id": "PATH-105",
+      "a": "GAT-BEACON",
+      "b": "GAT-REFUGE",
+      "kind": "main",
+      "requires": [
+        "SIGNAL_SENT"
+      ],
+      "mode": "stairs",
+      "via": [],
+      "desc": "Beacon powers refuge access, not exit",
+      "opens": [],
+      "direction": "both",
+      "blocked": [],
+      "atlas_polyline": [
+        [
+          116,
+          136
+        ],
+        [
+          105,
+          142
+        ]
+      ],
+      "atlas_length": 12.5,
+      "nominal_tiles": 200
+    }
+  ],
+  "prerequisites": {
+    "TUTORIAL_DONE": [
+      "BRIEFED"
+    ],
+    "FIRST_RELEASE": [
+      "TUTORIAL_DONE"
+    ],
+    "WARP": [
+      "FIRST_RELEASE"
+    ],
+    "MAP_ALIGNED": [
+      "WARP"
+    ],
+    "SLUICE_OPEN": [
+      "MAP_ALIGNED",
+      "ROOT_VALVE",
+      "BELL_VALVE"
+    ],
+    "WARDEN_DOWN": [
+      "SLUICE_OPEN"
+    ],
+    "WORKS_POWER": [
+      "WARDEN_DOWN"
+    ],
+    "ARCHIVE_ALIGNED": [
+      "WORKS_POWER"
+    ],
+    "VAULT_MAP": [
+      "ARCHIVE_ALIGNED"
+    ],
+    "TOPOLOGY_ALIGNED": [
+      "VAULT_MAP"
+    ],
+    "MEMORIAL_SEEN": [
+      "TOPOLOGY_ALIGNED"
+    ],
+    "RESERVOIR_STABLE": [
+      "MEMORIAL_SEEN"
+    ],
+    "COLOSSUS_DOWN": [
+      "RESERVOIR_STABLE"
+    ],
+    "KEEPER_EXPOSED": [
+      "COLOSSUS_DOWN"
+    ],
+    "KEEPER_DOWN": [
+      "KEEPER_EXPOSED"
+    ],
+    "REWIND_ACQUIRED": [
+      "SLUICE_OPEN",
+      "VAULT_MAP",
+      "RESERVOIR_STABLE",
+      "KEEPER_DOWN"
+    ],
+    "REWIND_TRAINED": [
+      "REWIND_ACQUIRED"
+    ],
+    "FOLDS_ALIGNED": [
+      "REWIND_TRAINED"
+    ],
+    "ANCHORS_STABLE": [
+      "FOLDS_ALIGNED",
+      "STAB_A",
+      "STAB_B",
+      "STAB_C"
+    ],
+    "GUARDIAN_DOWN": [
+      "ANCHORS_STABLE"
+    ],
+    "GATE_DIAGNOSED": [
+      "GUARDIAN_DOWN"
+    ],
+    "SIGNAL_SENT": [
+      "GATE_DIAGNOSED"
+    ],
+    "TITAN_DOWN": [
+      "WARDEN_DOWN",
+      "TITAN_MARKED"
+    ],
+    "DEVOURER_DOWN": [
+      "REWIND_TRAINED",
+      "NEST_LATCH"
+    ],
+    "ROOT_VALVE": [
+      "MAP_ALIGNED"
+    ],
+    "BELL_VALVE": [
+      "MAP_ALIGNED"
+    ],
+    "STAB_A": [
+      "FOLDS_ALIGNED"
+    ],
+    "STAB_B": [
+      "FOLDS_ALIGNED"
+    ],
+    "STAB_C": [
+      "FOLDS_ALIGNED"
+    ],
+    "SPILL_OPEN": [
+      "SLUICE_OPEN"
+    ],
+    "GARDEN_RESTORED": [
+      "SLUICE_OPEN",
+      "WARDEN_DOWN"
+    ],
+    "LOFT_RELAY": [
+      "WORKS_POWER"
+    ],
+    "LOOP_MARKED": [
+      "VAULT_MAP"
+    ],
+    "OVERFLOW_ISOLATED": [
+      "RESERVOIR_STABLE"
+    ],
+    "ARCHIVE_RETURN": [
+      "REWIND_TRAINED"
+    ],
+    "REWIND_RETURN": [
+      "REWIND_TRAINED"
+    ],
+    "NEST_LATCH": [
+      "REWIND_TRAINED"
+    ],
+    "TITAN_MARKED": [
+      "WARDEN_DOWN"
+    ],
+    "CACHE_OPEN": [],
+    "SHELF_OPEN": [
+      "VAULT_MAP"
+    ]
+  },
+  "puzzles": [
+    {
+      "id": "P01",
+      "flag": "SLUICE_OPEN",
+      "goal_clues": "Distributed feeder loop: root relief orders Root Arch before Bell; Split Stone plinth says center last. Three controls can be visited safely and the final regulator displays the command buffer.",
+      "solution": "Operate Root Arch Valve, then Bell Feeder Valve, then Split Stone Regulator. Press commit. If order is wrong clear only the local command buffer; valves remain physically accessible.",
+      "result": "Raises bridge to Warden; local spillway can later be unlocked by M05; water reaches main channels.",
+      "anchor": "SLU-SPLIT"
+    },
+    {
+      "id": "P02",
+      "flag": "MAP_ALIGNED",
+      "goal_clues": "From the survey board the Hanging Bell is west-northwest (OUT-BELL vicinity); Split Rock is the distinct east-northeast ridge silhouette at atlas (116,29); Camp Arch is the origin. Map Tent sketch records all three.",
+      "solution": "Align bell west-northwest, Split Rock east-northeast, Camp Arch at origin; confirm maintenance link to Echo Sluice.",
+      "result": "Reveals the westbound upper service ridge; mismatch highlights the incorrect landmark. Compass directions supersede old V3 positions.",
+      "anchor": "CAM-CROSS"
+    },
+    {
+      "id": "P03",
+      "flag": "WORKS_POWER",
+      "goal_clues": "Power maintenance receiver. Wall flow diagram and arrows show source→relay→receiver; blocked archive branch.",
+      "solution": "Connect source to service relay, relay to receiver; leave dead archive branch isolated.",
+      "result": "Door opens to REL03; disconnected receiver icon or overload alarm on mistake.",
+      "anchor": "REL-RELAY"
+    },
+    {
+      "id": "P04",
+      "flag": "ARCHIVE_ALIGNED",
+      "goal_clues": "Identify survey archive. Three plates show receiver, archive, anchor symbols; service note requires power before record before route.",
+      "solution": "Receiver → Archive → Anchor.",
+      "result": "Access SUR03; incorrect order resets plates; critical map automatically recorded on entry.",
+      "anchor": "SUR-DISPLAY"
+    },
+    {
+      "id": "P05",
+      "flag": "TOPOLOGY_ALIGNED",
+      "goal_clues": "Historical map shows three doors; two unstable anchors pulse irregularly. Current landmarks and anchor shape match stable route.",
+      "solution": "Select continuously pulsing matched diamond; wrong anchor mouths loop to the same junction. No shortcuts to Veraya before TOPOLOGY_ALIGNED.",
+      "result": "WAR03 opens; wrong doors loop safely to WAR02 with mismatched landmark feedback.",
+      "anchor": "WAR-JUNC"
+    },
+    {
+      "id": "P06",
+      "flag": "RESERVOIR_STABLE",
+      "goal_clues": "Power vault and preserve safe release. Source feeds three toggles; storage indicator full.",
+      "solution": "Vault power ON, Release ON, Full storage OFF.",
+      "result": "Reservoir stabilizes, local fauna reduced, arena accessible; full storage alarms, no fatal penalty.",
+      "anchor": "RES-ROUTE"
+    },
+    {
+      "id": "P07",
+      "flag": "KEEPER_EXPOSED",
+      "goal_clues": "Keeper shield fed by paired conductors; diagram marks maintenance isolators.",
+      "solution": "Disable left and right isolators; lock offline for encounter.",
+      "result": "Arena opens and core shield windows become available; wrong panel harmless feedback.",
+      "anchor": "REW-VEST"
+    },
+    {
+      "id": "P08",
+      "flag": "REWIND_ACQUIRED",
+      "goal_clues": "Relic vault requires verified Sluice flow, Survey archive and Reservoir release. Three indicators and symbols correspond to earlier systems.",
+      "solution": "Set Sluice=Flow, Survey=Archive, Reservoir=Release; confirm when all three prior flags true.",
+      "result": "Relic installed, save immediately; missing inputs identify exact system. Keeper already defeated.",
+      "anchor": "REW-RELIC"
+    },
+    {
+      "id": "P09",
+      "flag": "REWIND_TRAINED",
+      "goal_clues": "Safe tutorial: return from one-way switch to starting pad after shutter closes. Ghost trail and prompt show personal path.",
+      "solution": "Charge ≥25 EE, walk from pad through shutter to switch within 4 s, activate, press F to rewind to pad.",
+      "result": "World switch remains active; next door opens. Reset button restores shutter and gives EE, no progress loss.",
+      "anchor": "REW-TRAIN"
+    },
+    {
+      "id": "P10",
+      "flag": "FOLDS_ALIGNED",
+      "goal_clues": "Reconstruct local connections. Three anchor panels show matching geometric halves and stable pulses.",
+      "solution": "Connect diamond A to A, split diamond B to B, ring C to C; follow resulting maintenance corridor.",
+      "result": "FIN01 accessible; wrong pair gives local mismatch. No extra powers.",
+      "anchor": "FOL-JUNC"
+    },
+    {
+      "id": "P11",
+      "flag": "ANCHORS_STABLE",
+      "goal_clues": "Three physical stabilizers on the western, upper and lower decks. Each reports readiness to Anchor Control. Warning: keep release path open.",
+      "solution": "Activate A/B/C in any order, open release line, energize receiver at Anchor Control.",
+      "result": "Final approach becomes stable. The physically broken transit interface remains broken.",
+      "anchor": "FIN-CTRL"
+    },
+    {
+      "id": "P12",
+      "flag": "SIGNAL_SENT",
+      "goal_clues": "Power separate diagnostic channel after guardian defeated and gate inspected. Reserve source can route to broken transit or beacon.",
+      "solution": "Isolate transit load, connect reserve source to beacon receiver, confirm distress packet.",
+      "result": "Signal sent, refuge unlocked; invalid routing shows broken-interface warning. No player EE cost or gate repair.",
+      "anchor": "GAT-BEACON"
+    }
+  ],
+  "minor_puzzles": [
+    {
+      "id": "M01",
+      "solution": "Practice cooling: release trigger until heat below safe line",
+      "reward": "basic tutorial completion, no reward lock",
+      "anchor": "TOW-YARD"
+    },
+    {
+      "id": "M02",
+      "solution": "Match Source sign to receiver to open cache",
+      "reward": "MAP01, BP01",
+      "anchor": "OUT-CACHE"
+    },
+    {
+      "id": "M03",
+      "solution": "Follow three hunter tags to find blind",
+      "reward": "DAWN02, MAP02",
+      "anchor": "HUN-BLIND"
+    },
+    {
+      "id": "M04",
+      "solution": "Align torn map to bell silhouette",
+      "reward": "DAWN04, MAP03",
+      "anchor": "CAM-PACK"
+    },
+    {
+      "id": "M05",
+      "solution": "Open spillway valve after P01",
+      "reward": "DAWN05, BP02",
+      "anchor": "SLU-SPILL"
+    },
+    {
+      "id": "M06",
+      "solution": "Route water from restored sluice to garden",
+      "reward": "GARDEN_RESTORED, HP01, MEM02",
+      "anchor": "ROT-GARDEN"
+    },
+    {
+      "id": "M07",
+      "solution": "Activate hollow marker after Warden, defeat Titan",
+      "reward": "MAP04, alloy",
+      "anchor": "ROT-HOLLOW"
+    },
+    {
+      "id": "M08",
+      "solution": "Connect loft relay to receiver, inspect cache",
+      "reward": "LOFT_RELAY, HP02, BP03, WPN01",
+      "anchor": "REL-LOFT"
+    },
+    {
+      "id": "M09",
+      "solution": "Read archive symbols to unlock shelf cache",
+      "reward": "lore and late return path",
+      "anchor": "SUR-SHELF"
+    },
+    {
+      "id": "M10",
+      "solution": "Trace matching anchor pairs",
+      "reward": "LOOP_MARKED, MAP05, MEM04",
+      "anchor": "WAR-LOOP"
+    },
+    {
+      "id": "M11",
+      "solution": "Align diagnostic display with source/receiver",
+      "reward": "BP04, WPN02; part reference only",
+      "anchor": "VER-ANNEX"
+    },
+    {
+      "id": "M12",
+      "solution": "Match memorial name to recorded imprint",
+      "reward": "MEM03, AR16",
+      "anchor": "SIL-SHRINE"
+    },
+    {
+      "id": "M13",
+      "solution": "Isolate overflow line after P06",
+      "reward": "HP03, BP05",
+      "anchor": "RES-OVER"
+    },
+    {
+      "id": "M14",
+      "solution": "Rewind from safe ledge to latch; optional boss",
+      "reward": "HP04, MAP06, MEM05",
+      "anchor": "FOL-NEST"
+    },
+    {
+      "id": "M15",
+      "solution": "Align service conduit to receiver",
+      "reward": "BP06, WPN03",
+      "anchor": "FIN-NICHE"
+    },
+    {
+      "id": "M16",
+      "solution": "Rewind through authored shutter to optional return switch",
+      "reward": "shortcut to VER04",
+      "anchor": "FOL-ONE"
+    }
+  ],
+  "bosses": [
+    {
+      "id": "B01",
+      "name": "Sluice Warden",
+      "role": "Required",
+      "hp": "320",
+      "damage": "18–24",
+      "flag": "WARDEN_DOWN",
+      "moves": "Maintenance construct; slam shockwave; double slam <50%; attack stuck arm/core.",
+      "counterplay": "1.0s wind-up; 1.4s recovery; phase chain 2 with clear pause. Safe mode opens bridge exit.",
+      "anchor": "SLU-WARD"
+    },
+    {
+      "id": "B02",
+      "name": "Mossbound Titan",
+      "role": "Optional",
+      "hp": "420",
+      "damage": "20–26",
+      "flag": "TITAN_DOWN",
+      "moves": "Root-covered maintenance guardian; root sweep, falling debris, expose side core.",
+      "counterplay": "0.9s tell; 1.3s recover; jump sweep, move from debris marker. MAP04 and alloy.",
+      "anchor": "ROT-HOLLOW"
+    },
+    {
+      "id": "B03",
+      "name": "Wayfinder Colossus",
+      "role": "Required",
+      "hp": "620",
+      "damage": "18–28",
+      "flag": "COLOSSUS_DOWN",
+      "moves": "Damaged alignment construct; rear beam, ceiling marker, fold punch, resonance pulse.",
+      "counterplay": "0.8–1.2s warnings; 1.5s exposed core; all avoidable pre-Rewind. Phase2 combines two known attacks sequentially.",
+      "anchor": "RES-COURT"
+    },
+    {
+      "id": "B04",
+      "name": "Reliquary Keeper",
+      "role": "Required",
+      "hp": "380",
+      "damage": "18–24",
+      "flag": "KEEPER_DOWN",
+      "moves": "Mithril vault guardian; paired conductors isolated first; shield pulses and core windows.",
+      "counterplay": "Shield opens after pulse for 1.6s; dodge charge; short encounter. No Rewind required.",
+      "anchor": "REW-KEEP"
+    },
+    {
+      "id": "B05",
+      "name": "Rift Devourer",
+      "role": "Optional",
+      "hp": "760",
+      "damage": "20–30",
+      "flag": "DEVOURER_DOWN",
+      "moves": "Displaced Voruun predator; marked rift strike, delayed pool, charge.",
+      "counterplay": "1.0s tells; 1.5s recovery; use Rewind safely; HP04, MAP06, MEM05.",
+      "anchor": "FOL-NEST"
+    },
+    {
+      "id": "B06",
+      "name": "Fold Guardian / Last Custodian",
+      "role": "Required",
+      "hp": "1000",
+      "damage": "20–32",
+      "flag": "GUARDIAN_DOWN",
+      "moves": "Containment system; Phase1 strikes/beams; Phase2 portal attacks; Phase3 delayed markers and exposed core.",
+      "counterplay": "1.0s minimum initial tell, 1.6s opening; phase thresholds 70%, 35%; no new last-second mechanic.",
+      "anchor": "GAT-ARENA"
+    }
+  ],
+  "optional_flags": [
+    "ARCHIVE_RETURN",
+    "CACHE_OPEN",
+    "DEVOURER_DOWN",
+    "GARDEN_RESTORED",
+    "LOFT_RELAY",
+    "LOOP_MARKED",
+    "NEST_LATCH",
+    "OVERFLOW_ISOLATED",
+    "REWIND_RETURN",
+    "SHELF_OPEN",
+    "SPILL_OPEN",
+    "TITAN_DOWN",
+    "TITAN_MARKED"
+  ]
+}

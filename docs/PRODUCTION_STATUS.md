@@ -1,4 +1,4 @@
-# Production status — 2026-11-27
+# Production status — 2026-11-28
 
 Target: Godot 4.7.2 Standard, GDScript, 640×360 logical view. This folder contains
 the active game project. V2 design documents remain the narrative/system source except
@@ -7,7 +7,7 @@ for decisions in [Player-directed overrides](PLAYER_DIRECTED_OVERRIDES.md).
 ## Current playable foundation
 
 - Title screen enters the campaign; a six-room mechanics sandbox is also retained.
-- The campaign data contains 64 named room records connected by condition-gated routes.
+- The playable graybox campaign data contains 64 named room records connected by condition-gated routes. The V4 continuous-world atlas now supplies geographic landmarks and paths for the map and planned terrain migration.
 - A physics-driven campaign runner verifies the six-room opening from Memorial Street through the
   Guild Hall, Artificer Yard, dungeon approach and first Forager encounter. It drives the map,
   double jump, jump-shoot, both opening consoles, physical doorways, ranged combat and the first
@@ -28,6 +28,10 @@ for decisions in [Player-directed overrides](PLAYER_DIRECTED_OVERRIDES.md).
   journal and inventory panels, checkpoints, save/load, day/night tint, enemies,
   boss placeholders, puzzle panels, pickups, upgrades, health, Echo Energy, heat,
   melee, ranged fire, dodge, healing, and Rewind progression.
+- The campaign map now draws from the V4 continuous-world atlas: sixteen geographic
+  regions and authored landmark/path links. It reveals only landmarks mapped to areas
+  Aster has explored, supports mouse navigation and touch pan/pinch-to-zoom. This is a migration step; the playable world still uses the
+  legacy graybox campaign layout and is not continuous terrain yet.
 - Fifteen canon-aligned dialogue sequences are integrated at opening, clue, boss,
   Rewind, gate and ending beats. Continue/skip saves the same progression flags.
 - The J journal now presents a campaign objective derived from the progression flags,
@@ -82,7 +86,9 @@ for decisions in [Player-directed overrides](PLAYER_DIRECTED_OVERRIDES.md).
 
 The currently requested feature set includes double jump and shooting in the air.
 These supersede conflicting older V2 controls. Keyboard, gamepad and touch foundations
-exist; each target still needs an interactive hardware run.
+exist; the touch overlay now includes heal, Rewind, journal, inventory and pause actions,
+alongside the campaign's on-screen Map and Menu buttons. Each target still needs an
+interactive hardware run.
 
 ## Not complete
 
@@ -102,8 +108,8 @@ exist; each target still needs an interactive hardware run.
 
 ## Recent validation
 
-Godot 4.7.2 headless import and script scan completed; 45 GDScript files checked, zero
-broken. All 23 `*_contract.gd` checks passed, including campaign save validation, V2
+Godot 4.7.2 editor scan completed after the V4 atlas integration. All 24 `*_contract.gd`
+checks passed, including explored-only V4 landmark mapping, campaign save validation, V2
 save migration, semantic backup fallback, Rewind cooldown/resource persistence, HUD state,
 seven side-story conditions/rewards, and M06/M12/M14 integration. Other contracts cover
 physical room-edge transitions, 64 authored graybox layouts, three-tier puzzle hints,
@@ -119,14 +125,13 @@ The opening physical runner passed through OUT02, defeated the first Forager and
 Echo. Separate physics playtests passed the three adjusted double-jump ledges and a six-window
 Sluice Warden fight with tells, recovery attacks and healing. Starting at 100 HP with three
 heals, the test finished at 64 HP after using all charges; the Warden still needs human balance
-review. Windows, Linux, macOS and Web release exports were rebuilt with the adjusted room
-layouts; the Windows headless launch completed. Android and iOS remain blocked by missing local
-SDK/signing setup, and the other exports still need their native runtime/browser checks.
-The 240-frame campaign-scene smoke run, exported Windows headless launch, and editor scan
-had no script or engine errors. Windows, Linux, Web, and
-macOS release exports completed; Android export is blocked by the missing JDK and Android
-SDK, while iOS export requires the developer's Apple Team ID. These are code/data/export
-checks, not interactive hardware, browser, or release-quality validation.
+review. Windows, Linux, macOS and Web release exports were rebuilt with the V4 atlas data
+and current touch controls; the exported Windows headless launch completed without errors.
+Android remains blocked by missing local JDK/SDK components; iOS requires the developer's
+Apple Team ID. Native device and browser runtime checks are still outstanding. These are
+code/data/export checks, not interactive hardware, browser, or release-quality validation.
+
+The supplied V4 construction bible is preserved under `docs/references/continuous_world_v4/`; `docs/CONTINUOUS_WORLD_MIGRATION.md` tracks the integration state. Its asset recommendations remain candidates pending individual license and archive checks after mechanics and traversal are complete.
 
 The OpenGame-derived workflow skill is installed globally at
 `C:\Users\ashek\.codex\skills\opengame-workflow`. It is a Godot-specific adaptation,

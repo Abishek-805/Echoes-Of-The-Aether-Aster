@@ -1,0 +1,88 @@
+id,name,region,x,y,legacy,grants,save,workbench,notes,collectibles
+TOW-MEM,Release Square,TOW,7,15,TOW01,[],False,False,"Opening memorial and fountain, safe streets","[""AR01: Release house custom""]"
+TOW-ORP,Orphanage Hill,TOW,11,8,TOW02,[],False,False,"Mira, children and rooftops",[]
+TOW-GUILD,Guild Hall,TOW,16,14,TOW03,"[""BRIEFED""]",False,False,Riven testimony and expedition authorization,"[""DAWN01: Riven testimony""]"
+TOW-YARD,Artificer Terrace,TOW,22,18,TOW04,"[""TUTORIAL_DONE""]",False,True,"Safe firing and heat lesson, workshop",[]
+TOW-EXIT,East Road,TOW,28,17,,[],False,False,"Surface threshold, closes behind Warp",[]
+OUT-TRAIL,Trailhead Shelter,OUT,33,17,OUT01,[],True,False,"First rest, ridge overlooks town",[]
+OUT-BROOK,Brook Crossing,OUT,41,22,OUT02,"[""FIRST_RELEASE""]",False,False,First Forager and safe collection lesson,[]
+OUT-BELL,Bell Overlook,OUT,55,12,OUT03,[],False,False,"View Hanging Bell, split rock and distant Great Root","[""AR02: Source and conduit marks""]"
+OUT-CACHE,Hunter Cache,OUT,49,6,OUT04,"[""CACHE_OPEN""]",False,False,Optional concealed trail and memorial,"[""MAP01: optional map annotation"", ""BP01: equipment blueprint"", ""MEM01: hidden memorial""]"
+OUT-AQUA,Broken Aqueduct,OUT,65,20,,[],False,False,Natural traversal across stepped stone terraces,[]
+HUN-TRAIL,Hunter Trail,HUN,75,20,HUN01,[],False,False,Old ropes and trail tags,[]
+HUN-SPLIT,Split Walk,HUN,83,15,HUN02,[],False,False,"Spillway return landing, lower canopy fork",[]
+HUN-FRACT,Fracture Crossing,HUN,94,18,HUN03,"[""WARP""]",False,False,Authored Warp event and cut to surface,[]
+HUN-BLIND,Abandoned Blind,HUN,87,6,HUN04,[],False,False,Optional hide on high ledge,"[""DAWN02: Trail departure"", ""MAP02: optional map annotation""]"
+HUN-TOWER,Skyhunt Tower,HUN,109,8,,[],False,False,Tall bell-facing observation platform,[]
+HUN-DESC,Camp Descent,HUN,111,26,,[],False,False,Rocky switchback to camp,[]
+CAM-SHELTER,Camp Shelter,CAM,110,33,CAM01,[],True,False,Post-Warp safe shelter and rest,[]
+CAM-TENT,Map Tent,CAM,103,37,CAM02,[],False,False,Dawn instruments and notes,"[""AR03: Shared sanctuary manufacture"", ""DAWN03: Survey instruments""]"
+CAM-CROSS,Survey Crossing,CAM,94,39,CAM03,"[""MAP_ALIGNED""]",False,False,"P02, compare three landmarks",[]
+CAM-PACK,Lost Pack Ledge,CAM,115,42,CAM04,[],False,False,Optional torn map cache,"[""DAWN04: Lost pack"", ""MAP03: optional map annotation""]"
+CAM-RIDGE,Upper Service Ridge,CAM,88,32,,[],False,False,Continuous aqueduct trail to Echo Sluice,[]
+SLU-ENTRY,Conduit Entry,SLU,28,31,SLU01,[],True,False,"Rest under pressure gauge, dry waterfall","[""AR04: Water circulation purpose""]"
+SLU-ROOT,Root Arch Valve,SLU,22,37,,"[""ROOT_VALVE""]",False,False,"P01 first conductor, root-side feeder",[]
+SLU-BELL,Bell Feeder Valve,SLU,32,39,,"[""BELL_VALVE""]",False,False,"P01 second conductor, relief and pipe label",[]
+SLU-SPLIT,Split Stone Regulator,SLU,24,46,SLU02,"[""SLUICE_OPEN""]",False,False,P01 center regulator and commit panel,"[""AR05: Conductor order""]"
+SLU-WARD,Bridge Warden,SLU,14,47,SLU03,"[""WARDEN_DOWN""]",False,False,"Sluice Warden habitat, restored bridge",[]
+SLU-SPILL,High Spillway,SLU,8,34,SLU04,"[""SPILL_OPEN""]",False,False,"M05 spillway ladder, hunter return landing","[""DAWN05: Bridge observations"", ""BP02: equipment blueprint""]"
+SLU-OUTLET,Garden Outlet,SLU,34,50,,[],False,False,Water route to Rootspan,[]
+ROT-BRIDGE,Root Bridge,ROT,42,48,ROT01,[],True,False,Rest in sheltered hunter platform,[]
+ROT-CANOPY,Great Root Canopy,ROT,51,35,ROT02,[],False,False,High route and visible irrigation seam,[]
+ROT-FORK,Crown Fork,ROT,65,32,,[],False,False,"Early overlook and return path, no deep access before Warden",[]
+ROT-GARDEN,Forgotten Water Garden,ROT,56,51,ROT03,"[""GARDEN_RESTORED""]",False,False,"Pond, M06 irrigation, optional rewards","[""AR06: Garden ecosystem"", ""HP01: +10 max HP"", ""MEM02: hidden memorial""]"
+ROT-HOLLOW,Moss Hollow,ROT,70,48,ROT04,"[""TITAN_DOWN"", ""TITAN_MARKED""]",False,False,"Optional Titan, safe return","[""MAP04: optional map annotation""]"
+ROT-TUNNEL,Underroot Culvert,ROT,46,55,,[],False,False,Lower service passage and overflow vista,[]
+ROT-EAST,Foundry Footbridge,ROT,76,53,,[],False,False,Natural passage into Reliquary Works,[]
+REL-WORK,Workshop,REL,84,54,REL01,[],True,True,"Rest/workbench, first alloy view",[]
+REL-RELAY,Service Relay,REL,94,49,REL02,"[""WORKS_POWER""]",False,False,P03 source and receiver routing,"[""AR07: Maintenance receiver""]"
+REL-GOLEM,Golem Foundry Walk,REL,107,54,REL03,[],False,False,Armored constructs and furnace,[]
+REL-LOFT,Storage Loft,REL,111,46,REL04,"[""LOFT_RELAY""]",False,False,"Optional relay, carbine, cache","[""AR08: Vault manufacture"", ""DAWN06: Vault attempt"", ""HP02: +10 max HP"", ""BP03: equipment blueprint"", ""WPN01: Scatter Carbine""]"
+REL-DRAIN,Archive Service Road,REL,88,62,,[],False,False,Quiet westbound maintenance viaduct,[]
+SUR-STEPS,Archive Steps,SUR,34,62,SUR01,[],True,False,"Rest, vista toward bell tower",[]
+SUR-DISPLAY,Survey Display,SUR,22,65,SUR02,"[""ARCHIVE_ALIGNED""]",False,False,P04 sequence,"[""AR09: Custody archive"", ""DAWN07: Distortion report""]"
+SUR-MAP,Cartographic Vault,SUR,14,72,SUR03,"[""VAULT_MAP""]",False,False,"Critical map, Rewind and emergency gate records","[""AR10: Personal Continuity Device"", ""DAWN08: Dawn failure conclusion""]"
+SUR-SHELF,Sealed Shelf,SUR,8,64,SUR04,"[""SHELF_OPEN""]",False,False,"Optional archive cache, later Rewind return",[]
+SUR-LOW,Lower Archive Terrace,SUR,31,79,,[],False,False,Exit to Warped Verge,[]
+WAR-LAND,Fracture Landing,WAR,43,79,WAR01,[],True,False,Rest on stable Eldaran slab,[]
+WAR-JUNC,Three-Anchor Junction,WAR,56,73,WAR02,"[""TOPOLOGY_ALIGNED""]",False,False,P05 identify stable matching pair,"[""AR11: Anchor warning""]"
+WAR-FOLD,Stable Fold,WAR,75,73,WAR03,[],False,False,Only mandatory interplanetary threshold,[]
+WAR-LOOP,Unmapped Loop,WAR,62,65,WAR04,"[""LOOP_MARKED""]",False,False,"M10 optional anchor branch, return spur","[""MAP05: optional map annotation"", ""MEM04: hidden memorial""]"
+WAR-EDGE,Broken Promenade,WAR,48,83,,[],False,False,Optional reservoir return landing,[]
+VER-ATRIUM,Foreign Atrium,VER,86,73,VER01,[],True,False,Rest and first Verayan view,[]
+VER-GALLERY,Research Gallery,VER,99,70,VER02,[],False,False,Anonymous diagnostic recording,"[""AR12: Anonymous researcher""]"
+VER-SKY,Foreign Sky Terrace,VER,113,75,VER03,[],False,False,"Visible different skyline, outbound memorial fold",[]
+VER-ANNEX,Diagnostic Annex,VER,105,84,VER04,[],False,False,"M11 precision rifle, interface reference, later return","[""AR13: Remote interface part reference"", ""BP04: equipment blueprint"", ""WPN02: Precision Rifle""]"
+VER-RETURN,Service Alcove,VER,88,85,,[],False,False,Later Rewind shortcut arrival,[]
+SIL-HALL,Memorial Hall,SIL,29,89,SIL01,[],False,False,Quiet names and stone colonnade,"[""AR14: Memorial inscriptions""]"
+SIL-THEATRE,Memory Theatre,SIL,19,94,SIL02,"[""MEMORIAL_SEEN""]",False,False,"Required memory impression, not a living ghost","[""AR15: Residual memory""]"
+SIL-WALK,Release Walk,SIL,32,101,SIL03,[],False,False,Open calm colonnade toward Reservoir,[]
+SIL-SHRINE,Keeper Shrine,SIL,9,99,SIL04,[],False,False,"M12 Seren warning, memorial","[""AR16: Seren warning"", ""MEM03: hidden memorial""]"
+SIL-GARDEN,Still Garden,SIL,10,89,,[],False,False,Optional viewing balcony and return loop,[]
+RES-DECK,Flow Deck,RES,42,101,RES01,[],True,True,"Rest/workbench, water/EE separation shown","[""AR17: Safe release schematic""]"
+RES-SOURCE,Source Manifold,RES,51,94,,[],False,False,P06 source and routing schematic,[]
+RES-ROUTE,Release Manifold,RES,59,101,RES02,"[""RESERVOIR_STABLE""]",False,False,P06 three toggles and pressure indicators,"[""AR18: Storage capacity warning""]"
+RES-COURT,Alignment Court,RES,73,99,RES03,"[""COLOSSUS_DOWN""]",False,False,Wayfinder Colossus habitat,[]
+RES-OVER,Overflow Alcove,RES,48,108,RES04,"[""OVERFLOW_ISOLATED""]",False,False,"M13 optional isolation, return spur","[""HP03: +10 max HP"", ""BP05: equipment blueprint""]"
+RES-EXIT,Vault Supply Bridge,RES,78,106,,[],False,False,Stable connection to Rewind Sanctuary,[]
+REW-VEST,Vault Vestibule,REW,88,104,REW01,"[""KEEPER_EXPOSED""]",True,False,"Rest, paired shield isolators",[]
+REW-KEEP,Keeper Court,REW,99,100,REW02,"[""KEEPER_DOWN""]",False,False,Reliquary Keeper,[]
+REW-RELIC,Personal Continuity Shrine,REW,111,99,REW03,"[""REWIND_ACQUIRED""]",False,False,P08 confirms three systems and acquires relic,"[""AR19: Rescue equipment purpose""]"
+REW-TRAIN,Return-Path Terrace,REW,104,109,REW04,"[""REWIND_TRAINED""]",False,False,P09 local recorded-path exercise,[]
+REW-SERVICE,Lower Service Landing,REW,89,112,,[],False,False,Exit toward Folded Depths,[]
+FOL-LAND,History Landing,FOL,38,116,FOL01,"[""ARCHIVE_RETURN""]",True,False,"Rest, ancient warning and archive return","[""AR20: Continuum fragment""]"
+FOL-ONE,One-Way Gallery,FOL,25,123,FOL02,"[""REWIND_RETURN""]",False,False,M16 optional recorded path and return to Veraya,[]
+FOL-JUNC,Fold Junction,FOL,15,129,FOL03,"[""FOLDS_ALIGNED""]",False,False,P10 geometric anchor pairing,"[""AR21: Nalora and convergence fragment""]"
+FOL-NEST,Devourer Nest,FOL,8,136,FOL04,"[""DEVOURER_DOWN"", ""NEST_LATCH""]",False,False,"Optional Rift Devourer, M14","[""MAP06: optional map annotation"", ""HP04: +10 max HP"", ""MEM05: hidden memorial""]"
+FOL-RIDGE,Deep Service Ridge,FOL,37,135,,[],False,False,Aligned route into Final Approach,[]
+FIN-WALK,Stabilizer Walk,FIN,48,135,FIN01,[],True,False,"Rest, first anchor, warning directive","[""AR22: Anchor network""]"
+FIN-A,Western Stabilizer,FIN,54,126,,"[""STAB_A""]",False,False,P11 component A,[]
+FIN-B,Upper Stabilizer,FIN,65,118,,"[""STAB_B""]",False,False,P11 component B,[]
+FIN-C,Lower Stabilizer,FIN,68,136,,"[""STAB_C""]",False,False,P11 component C,[]
+FIN-CTRL,Anchor Control,FIN,76,128,FIN02,"[""ANCHORS_STABLE""]",False,False,P11 commit and release line,[]
+FIN-REST,Last Rest,FIN,84,131,FIN03,[],True,True,"Final rest/workbench, isolation warning","[""AR23: Isolation directive""]"
+FIN-NICHE,Service Niche,FIN,82,119,FIN04,[],False,False,M15 optional Resonator,"[""BP06: equipment blueprint"", ""WPN03: Vaelari Resonator""]"
+GAT-ARENA,Containment Court,GAT,93,131,GAT01,"[""GUARDIAN_DOWN""]",False,False,"Fold Guardian, Last Custodian","[""AR24: Guardian final directive""]"
+GAT-GATE,Broken Transit Gate,GAT,109,129,GAT02,"[""GATE_DIAGNOSED""]",False,False,"Physical failure, Rewind cannot repair",[]
+GAT-BEACON,Emergency Beacon,GAT,116,136,GAT03,"[""SIGNAL_SENT""]",False,False,P12 isolate transit and transmit,[]
+GAT-REFUGE,Refuge Terrace,GAT,105,142,GAT04,[],True,True,"Ending, safe camp and final rest",[]

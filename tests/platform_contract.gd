@@ -35,6 +35,30 @@ func run_checks() -> void:
     check(not first_button.visible,"Touch controls remain active while paused")
     game.toggle_pause()
     check(not paused,"Resume failed")
+    var campaign: Node2D = (load("res://world/campaign.tscn") as PackedScene).instantiate()
+    campaign.persistence_enabled = false
+    campaign.stories_enabled = false
+    root.add_child(campaign)
+    await process_frame
+    var campaign_overlay: CanvasLayer
+    for child: Node in campaign.get_children():
+        if child.get_script() == load("res://ui/touch_controls.gd"):
+            campaign_overlay = child
+    check(campaign_overlay != null,"Expanded campaign touch overlay missing")
+    if campaign_overlay != null:
+        var actions: Array[StringName] = []
+        for button: TouchScreenButton in campaign_overlay.buttons:
+            actions.append(button.action)
+        for action: StringName in [&"heal",&"rewind",&"journal",&"inventory",&"pause"]:
+            check(actions.has(action),"Campaign touch controls are missing "+String(action))
+    var touch_map_button: bool = false
+    var touch_menu_button: bool = false
+    for control: Node in campaign.ui_layer.get_children():
+        if control is Button and control.text == "M Map":
+            touch_map_button = true
+        if control is Button and control.text == "Menu":
+            touch_menu_button = true
+    check(touch_map_button and touch_menu_button,"Campaign Map/Menu buttons should remain visible touch entry points")
     var config := ConfigFile.new()
     check(config.load("res://export_presets.cfg")==OK,"Export presets parse")
     check(not config.get_value("preset.3.options","variant/thread_support",true),"Web must be single threaded")

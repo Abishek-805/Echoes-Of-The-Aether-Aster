@@ -1,0 +1,7 @@
+id,name,role,hp,damage,flag,moves,counterplay,anchor
+B01,Sluice Warden,Required,320,18–24,WARDEN_DOWN,Maintenance construct; slam shockwave; double slam <50%; attack stuck arm/core.,1.0s wind-up; 1.4s recovery; phase chain 2 with clear pause. Safe mode opens bridge exit.,SLU-WARD
+B02,Mossbound Titan,Optional,420,20–26,TITAN_DOWN,"Root-covered maintenance guardian; root sweep, falling debris, expose side core.","0.9s tell; 1.3s recover; jump sweep, move from debris marker. MAP04 and alloy.",ROT-HOLLOW
+B03,Wayfinder Colossus,Required,620,18–28,COLOSSUS_DOWN,"Damaged alignment construct; rear beam, ceiling marker, fold punch, resonance pulse.",0.8–1.2s warnings; 1.5s exposed core; all avoidable pre-Rewind. Phase2 combines two known attacks sequentially.,RES-COURT
+B04,Reliquary Keeper,Required,380,18–24,KEEPER_DOWN,Mithril vault guardian; paired conductors isolated first; shield pulses and core windows.,Shield opens after pulse for 1.6s; dodge charge; short encounter. No Rewind required.,REW-KEEP
+B05,Rift Devourer,Optional,760,20–30,DEVOURER_DOWN,"Displaced Voruun predator; marked rift strike, delayed pool, charge.","1.0s tells; 1.5s recovery; use Rewind safely; HP04, MAP06, MEM05.",FOL-NEST
+B06,Fold Guardian / Last Custodian,Required,1000,20–32,GUARDIAN_DOWN,Containment system; Phase1 strikes/beams; Phase2 portal attacks; Phase3 delayed markers and exposed core.,"1.0s minimum initial tell, 1.6s opening; phase thresholds 70%, 35%; no new last-second mechanic.",GAT-ARENA

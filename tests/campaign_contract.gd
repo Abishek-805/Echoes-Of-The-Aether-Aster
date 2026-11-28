@@ -19,7 +19,7 @@ func run_checks() -> void:
 	check(game.state.visited.size()==1,"Map reveals unvisited world")
 	game.toggle_map()
 	check(paused and game.map_view.visible,"M map must open and pause")
-	check(game.map_view.visited.size()==1,"Map must contain only discovered rooms")
+	check(game.map_view.known_points.size()==1 and game.map_view.known_points.has("TOW-MEM"),"Geographic map must reveal only the discovered V4 landmark")
 	game.close_panel()
 	var clock: float = game.state.day_seconds
 	game._process(5.0)

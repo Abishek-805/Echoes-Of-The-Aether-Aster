@@ -11,6 +11,8 @@ is not a finished or release-ready game.
 
 See `docs/PRODUCTION_STATUS.md` and `docs/REQUIREMENTS.md` for scope and dependencies.
 Read `docs/design_v2/README.md` and `00_MASTER_CANON/CANON_DECISIONS.md` first for design.
+The V4 continuous geography reference and staged integration plan are in
+`docs/CONTINUOUS_WORLD_MIGRATION.md` and `docs/references/continuous_world_v4/`.
 
 You can also run `Start Game.ps1` to play or `Start Game.ps1 -Editor` to open Godot.
 
